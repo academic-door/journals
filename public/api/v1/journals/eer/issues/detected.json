@@ -8,9 +8,9 @@
   "issue_label": "Vol. 190",
   "publication_date": "November 2026",
   "source_url": "https://www.sciencedirect.com/journal/european-economic-review/vol/190/suppl/C",
-  "retrieved_at": "2026-10-11T12:52:38+00:00",
-  "expected_article_count": 24,
-  "research_article_count": 24,
+  "retrieved_at": "2026-10-11T15:28:15+00:00",
+  "expected_article_count": 26,
+  "research_article_count": 26,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -46,7 +46,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18191,
+                "remaining": 18136,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -54,7 +54,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18191,
+            "remaining": 18136,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -113,7 +113,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18190,
+                "remaining": 18135,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -121,7 +121,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18190,
+            "remaining": 18135,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -151,13 +151,13 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "Captured gatekeepers: Structural conflicts of interest in U.S. higher education accreditation",
-      "title_cn": "",
+      "title_cn": "被俘获的守门人：美国高等教育认证中的结构性利益冲突",
       "authors": [
         "Bryan Cutsinger",
         "Siri Terjesen"
       ],
       "abstract_en": "This paper examines the structural ties between federally recognized programmatic accreditors and their affiliated professional and trade associations, arguing that these organizational arrangements constitute conflicts of interest that compromise the quality-assurance function accreditation is intended to serve. Drawing on a novel dataset constructed from IRS Form 990 XML filings for 25 accreditor-association pairs over a seven-year panel (2017–2023), we develop and operationalize a three-part typology of capture mechanisms: structural subordination, financial entanglement, and governance overlap. We construct a Regulatory Capture Index (RCI) to measure the intensity of structural capture across the sample. Twenty-two of the 25 pairs are joined by a shared employer identification number, a consolidated filing, or a single legal identity, leaving three structurally separate accreditors; all fourteen licensure-gated health professions pairs score at the maximum RCI of 1.0. Scores are bimodal and static, with no pair occupying an intermediate position and none altering its organizational form across the panel. Because shared legal identity leaves no arm’s-length financial or governance record, separation is observationally indistinguishable from complete entanglement for 88 percent of the sample, suggesting that the arrangements that most compromise independence are precisely those that generate the least evidence of it.",
-      "abstract_cn": "",
+      "abstract_cn": "本文考察了联邦认可的项目认证机构与其附属专业和行业协会之间的结构性联系，认为这些组织安排构成了利益冲突，损害了认证本应发挥的质量保障功能。基于一个从IRS表格990 XML申报文件中构建的新数据集，涵盖25对认证机构-协会配对、跨越七年面板（2017-2023），我们开发并操作化了一种由三部分构成的俘获机制类型学：结构性从属、财务纠缠和治理重叠。我们构建了一个监管俘获指数（RCI），以衡量样本中结构性俘获的强度。在25对配对中，有二十二对通过共享雇主识别号、合并申报或单一法律身份而联结在一起，剩下三个结构上独立的认证机构；所有十四个受执照限制的卫生专业配对均达到最大RCI值1.0。得分呈双峰且静态分布，没有任何配对处于中间位置，也没有任何配对在面板期间改变其组织形式。由于共享法律身份不留下任何保持距离的财务或治理记录，对于样本中88%的部分而言，分离在观察上与完全纠缠无法区分，这表明最损害独立性的安排恰恰是那些产生最少独立性证据的安排。",
       "abstract_snippet_en": "This paper examines the structural ties between federally recognized programmatic accreditors and their affiliated professional and trade associations, arguing that these organizational arrangements...",
       "doi": "10.1016/j.euroecorev.2026.105467",
       "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126002114?dgcid=rss_sd_all",
@@ -176,7 +176,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18189,
+                "remaining": 18134,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -184,7 +184,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18189,
+            "remaining": 18134,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -192,15 +192,15 @@
         "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-11T15:28:19+00:00",
+        "source_hash": "9356dbfddbf742349884cca8f59a8f9341f088e3e64b403b537295b9644b16af"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -241,7 +241,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18188,
+                "remaining": 18133,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -249,7 +249,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18188,
+            "remaining": 18133,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -306,7 +306,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18187,
+                "remaining": 18132,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -314,7 +314,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18187,
+            "remaining": 18132,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -370,7 +370,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18186,
+                "remaining": 18131,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -378,7 +378,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18186,
+            "remaining": 18131,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -433,7 +433,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18185,
+                "remaining": 18130,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -441,7 +441,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18185,
+            "remaining": 18130,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -496,7 +496,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18184,
+                "remaining": 18129,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -504,7 +504,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18184,
+            "remaining": 18129,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -561,7 +561,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18183,
+                "remaining": 18128,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -569,7 +569,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18183,
+            "remaining": 18128,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -625,7 +625,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18182,
+                "remaining": 18127,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -633,7 +633,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18182,
+            "remaining": 18127,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -689,7 +689,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18181,
+                "remaining": 18126,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -697,7 +697,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18181,
+            "remaining": 18126,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -753,7 +753,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18180,
+                "remaining": 18125,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -761,7 +761,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18180,
+            "remaining": 18125,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -816,7 +816,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18179,
+                "remaining": 18124,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -824,7 +824,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18179,
+            "remaining": 18124,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -880,7 +880,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18178,
+                "remaining": 18123,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -888,7 +888,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18178,
+            "remaining": 18123,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -945,7 +945,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18177,
+                "remaining": 18122,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -953,7 +953,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18177,
+            "remaining": 18122,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1009,7 +1009,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18176,
+                "remaining": 18121,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1017,7 +1017,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18176,
+            "remaining": 18121,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1073,7 +1073,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18175,
+                "remaining": 18120,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1081,7 +1081,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18175,
+            "remaining": 18120,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1137,7 +1137,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18174,
+                "remaining": 18119,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1145,7 +1145,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18174,
+            "remaining": 18119,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1203,7 +1203,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18173,
+                "remaining": 18118,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1211,7 +1211,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18173,
+            "remaining": 18118,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1268,7 +1268,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18172,
+                "remaining": 18117,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1276,7 +1276,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18172,
+            "remaining": 18117,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1332,7 +1332,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18171,
+                "remaining": 18116,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1340,7 +1340,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18171,
+            "remaining": 18116,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1365,9 +1365,136 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.euroecorev.2026.105485",
+      "paper_id": "doi:10.1016/j.euroecorev.2026.105494",
       "sequence": 22,
       "source_sequence": 22,
+      "article_type": "research-article",
+      "title_en": "On the empirical relevance of the exchange rate as a shock absorber at the zero lower bound",
+      "title_cn": "论汇率在零利率下限作为冲击吸收器的经验相关性",
+      "authors": [
+        "David Finck",
+        "Mathias Hoffmann",
+        "Patrick Hürtgen"
+      ],
+      "abstract_en": "The New Keynesian argument is that flexible exchange rate regimes cannot stabilize cyclical developments at the ZLB, as the real exchange rate appreciates in response to adverse demand shocks. We estimate the effects of a negative domestic demand shock on the real exchange rate for the euro area vis-à-vis the United States, Canada, and Japan by state-dependent sign-restricted local projection methods. We find a real depreciation when interest rates are not at the ZLB, but also when they are. The exchange rate can accommodate considerable variations in output, confirming its shock-absorbing capacity away from and during ZLB episodes. The stabilizing role of the exchange rate is accompanied by a significant expansion of the ECB’s balance sheet at the ZLB, while it remained unaffected in the non-ZLB period.",
+      "abstract_cn": "新凯恩斯主义的论点是，在零利率下限（ZLB），浮动汇率制度无法稳定周期性发展，因为实际汇率会因不利的需求冲击而升值。我们通过状态依赖的符号约束局部投影方法，估计了不利的国内需求冲击对欧元区相对于美国、加拿大和日本的实际汇率的影响。我们发现，当利率不在ZLB时会出现实际贬值，但当利率处于ZLB时也会出现实际贬值。汇率能够吸收产出的大幅波动，证实了其在ZLB之外和ZLB期间吸收冲击的能力。在ZLB，汇率的稳定作用伴随着欧洲央行资产负债表的显著扩张，而在非ZLB时期，欧洲央行资产负债表则未受影响。",
+      "abstract_snippet_en": "The New Keynesian argument is that flexible exchange rate regimes cannot stabilize cyclical developments at the ZLB, as the real exchange rate appreciates in response to adverse demand shocks. We estimate...",
+      "doi": "10.1016/j.euroecorev.2026.105494",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126002382?dgcid=rss_sd_all",
+      "publication_date": "November 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/190/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00142921",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 18115,
+                "resets_at": "2026-10-15T06:07:14+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 18115,
+            "resets_at": "2026-10-15T06:07:14+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-11T15:28:21+00:00",
+        "source_hash": "b6eaec1ad1ab08d7359fa1df956af61f690e35a8b69fc0f2dc2d0a3fa06dcc40"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.euroecorev.2026.105495",
+      "sequence": 23,
+      "source_sequence": 23,
+      "article_type": "research-article",
+      "title_en": "Income redistribution, preventive care, and longevity",
+      "title_cn": "收入再分配、预防性护理与寿命",
+      "authors": [
+        "Pablo Garcia-Sanchez",
+        "Olivier Pierrard"
+      ],
+      "abstract_en": "Would government intervention aimed at reducing socioeconomic inequalities lead to a healthier population and longer lives? We address this question using a structural life-cycle model with heterogeneous agents. The model is calibrated to U.S. survey and actuarial data, reproducing the age-at-death distribution, income inequality, medical expenditure patterns, the value of a statistical life, and the education–longevity gradient. We find that a universal basic income flattens the longevity gap across education levels but reduces overall longevity by weakening incentives for preventive care, a result that contrasts with recent statistical studies suggesting redistribution would increase population longevity. Instead, subsidies for preventive care raise average longevity but steepen the education–longevity gradient. In both cases, welfare effects remain uneven across education groups.",
+      "abstract_cn": "旨在减少社会经济不平等的政府干预是否会使人口更健康、寿命更长？我们使用一个具有异质性主体的结构性生命周期模型来研究这一问题。该模型根据美国调查和精算数据进行校准，能够复现死亡年龄分布、收入不平等、医疗支出模式、统计生命价值以及教育与寿命的梯度。我们发现，普遍基本收入缩小了不同教育水平之间的寿命差距，但通过削弱预防性护理的激励降低了总体寿命，这一结果与近期表明再分配会提高人口寿命的统计研究形成对比。相反，对预防性护理的补贴提高了平均寿命，但加剧了教育与寿命的梯度。在这两种情况下，福利效应在不同教育群体之间仍然不均衡。",
+      "abstract_snippet_en": "Would government intervention aimed at reducing socioeconomic inequalities lead to a healthier population and longer lives? We address this question using a structural life-cycle model with heterogeneous...",
+      "doi": "10.1016/j.euroecorev.2026.105495",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0014292126002394?dgcid=rss_sd_all",
+      "publication_date": "November 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/european-economic-review/vol/190/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00142921",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 18114,
+                "resets_at": "2026-10-15T06:07:14+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 18114,
+            "resets_at": "2026-10-15T06:07:14+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-10-11T15:28:23+00:00",
+        "source_hash": "a0a5541d7ce9a0d891bf90a83dde15d8abd7aa7a44eae50c8e6fd5677610c040"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.euroecorev.2026.105485",
+      "sequence": 24,
+      "source_sequence": 24,
       "article_type": "research-article",
       "title_en": "Do women comply more than men? Experimental evidence from a general population sample",
       "title_cn": "女性比男性更顺从吗？来自一般人群样本的实验证据",
@@ -1397,7 +1524,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18170,
+                "remaining": 18113,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1405,7 +1532,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18170,
+            "remaining": 18113,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1431,8 +1558,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.euroecorev.2026.105488",
-      "sequence": 23,
-      "source_sequence": 23,
+      "sequence": 25,
+      "source_sequence": 25,
       "article_type": "research-article",
       "title_en": "Ratcheting up Paris",
       "title_cn": "逐步提高巴黎协定的力度",
@@ -1461,7 +1588,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18169,
+                "remaining": 18112,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1469,7 +1596,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18169,
+            "remaining": 18112,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1495,8 +1622,8 @@
     },
     {
       "paper_id": "doi:10.1016/j.euroecorev.2026.105489",
-      "sequence": 24,
-      "source_sequence": 24,
+      "sequence": 26,
+      "source_sequence": 26,
       "article_type": "research-article",
       "title_en": "Green jobs require green skills: Why production subsidies are not enough",
       "title_cn": "绿色岗位需要绿色技能：为什么生产补贴还不够",
@@ -1523,7 +1650,7 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18168,
+                "remaining": 18111,
                 "resets_at": "2026-10-15T06:07:14+00:00",
                 "els_status": "OK"
               }
@@ -1531,7 +1658,7 @@
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 18168,
+            "remaining": 18111,
             "resets_at": "2026-10-15T06:07:14+00:00",
             "els_status": "OK"
           }
@@ -1563,49 +1690,48 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/00142921",
-    "official_item_count": 24,
-    "publishable_item_count": 24,
+    "official_item_count": 26,
+    "publishable_item_count": 26,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 24,
-    "authors_complete": 24,
-    "abstract_en_complete": 24,
-    "translation_complete": 23,
+    "doi_complete": 26,
+    "authors_complete": 26,
+    "abstract_en_complete": 26,
+    "translation_complete": 26,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
       "publisher_rss_reverse_order_normalized",
-      "official_order_unverified",
-      "translation_incomplete"
+      "official_order_unverified"
     ],
     "content_counts": {
-      "official_items": 24,
-      "observed_items": 24,
-      "publishable_items": 24,
-      "research_articles": 24,
+      "official_items": 26,
+      "observed_items": 26,
+      "publishable_items": 26,
+      "research_articles": 26,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 24
+      "catalog_content_items": 26
     }
   },
   "content_counts": {
-    "official_items": 24,
-    "observed_items": 24,
-    "publishable_items": 24,
-    "research_articles": 24,
+    "official_items": 26,
+    "observed_items": 26,
+    "publishable_items": 26,
+    "research_articles": 26,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 24
+    "catalog_content_items": 26
   },
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "publisher_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }
