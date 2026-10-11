@@ -17,10 +17,12 @@ const fields = readJson("collections/fields.json", {
   journals: [] as Record<string, unknown>[],
 });
 const backfill = readJson("backfill-status.json", {
+  updated_at: "",
   coverage: { publication_ready: 0, missing: 0 },
 });
 const monitoring = readJson("monitoring.json", {
   summary: { failed: 0 },
+  updated_at: "",
   status: "unknown",
 });
 const top5Count = Number(top5.summary?.configured_journals || top5.journals?.length || 5);
@@ -29,6 +31,8 @@ const journalCount = top5Count + fieldCount;
 const coverage = backfill.coverage || {};
 const readyIssues = Number(coverage.publication_ready || 0);
 const missingIssues = Number(coverage.missing || 0);
+const snapshotDate = String(backfill.updated_at || monitoring.updated_at || "").slice(0, 10);
+const previewMode = import.meta.env.PUBLIC_PREVIEW_MODE === "1";
 const failedJournals = Number(monitoring.summary?.failed || 0);
 const top5Highlights: any[] = (top5.journals || []).slice(0, 5);
 ---
@@ -40,11 +44,11 @@ const top5Highlights: any[] = (top5.journals || []).slice(0, 5);
   <main class="journal-home">
     <section class="journal-hero">
       <div class="journal-hero-copy">
-        <p class="section-kicker">ACADEMIC DOOR · JOURNALS</p>
-        <h1>从顶刊最新一期，到领域期刊历史卷期。</h1>
+        <p class="section-kicker">JOURNALS</p>
+        <h1>Academic Door · 期刊</h1>
         <p class="journal-hero-lead">
-          Academic Door · 期刊连接「顶刊之门」与「领域之门」，提供可追溯的中英文卷期档案、
-          论文摘要与跨刊检索。
+          顶刊之门 · 领域之门 · 跨刊检索。提供中英文卷期档案、论文标题与摘要，
+          并保留期刊来源与出版信息。
         </p>
         <div class="hero-actions" aria-label="期刊主要入口">
           <a class="button button-primary" href="./top5/">进入顶刊之门</a>
@@ -55,13 +59,15 @@ const top5Highlights: any[] = (top5.journals || []).slice(0, 5);
       <aside class="journal-trust-card" aria-label="当前数据概览">
         <p class="trust-eyebrow">CURRENT LIBRARY</p>
         <strong>{journalCount}</strong>
-        <span>本监测期刊</span>
+        <span>监测期刊：顶刊 {top5Count} 本 + 领域 {fieldCount} 本</span>
         <dl>
           <div><dt>历史卷期可发布</dt><dd>{readyIssues || "—"}</dd></div>
-          <div><dt>确认缺失</dt><dd class:list={[{ warning: missingIssues > 0 }]}>{missingIssues}</dd></div>
+          <div><dt>已确认缺失卷期</dt><dd class:list={[{ warning: missingIssues > 0 }]}>{missingIssues}</dd></div>
           <div><dt>监测失败</dt><dd class:list={[{ warning: failedJournals > 0 }]}>{failedJournals}</dd></div>
         </dl>
-        <a href="./status/">查看数据状态</a>
+        <p class="trust-explainer">“缺失”指权威出版目录中应有、但档案尚未收录的卷期，并非缺失论文数。</p>
+        {previewMode && <p class="trust-snapshot">预览数据快照{snapshotDate ? ` · ${snapshotDate} UTC` : ""} · 非实时统计</p>}
+        <a href="./status/#scope-title">查看指标定义及数据状态</a>
       </aside>
     </section>
 
