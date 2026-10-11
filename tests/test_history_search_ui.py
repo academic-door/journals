@@ -85,14 +85,13 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         self.assertIn("论文顺序待核对", page)
         self.assertNotIn("数据快照在正常更新窗口内", page)
 
-    def test_status_consumes_release_freshness_contract_without_large_client_fetches(self) -> None:
+    def test_public_status_uses_a_dated_static_snapshot(self) -> None:
         page = (ROOT / "src/pages/status/index.astro").read_text(encoding="utf-8")
-        self.assertIn("api/v1/slo.json", page)
-        self.assertIn("已核对的出版目录", page)
+        self.assertIn("backfill.updated_at", page)
+        self.assertIn('timeZone: "UTC"', page)
+        self.assertNotIn("fetch(", page)
         self.assertNotIn("expected set", page)
         self.assertNotIn("source-authority", page)
-        self.assertNotIn('fetch(\`\${base}api/v1/backfill-status.json\`', page)
-        self.assertNotIn('fetch(\`\${base}api/v1/source-audit.json\`', page)
 
     def test_reader_footer_discloses_ai_assisted_translation(self) -> None:
         layout = (ROOT / "src/layouts/Layout.astro").read_text(encoding="utf-8")
