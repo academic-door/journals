@@ -9,6 +9,7 @@ class ComposerFastPathSenderTests(unittest.TestCase):
         cls.workflow = (ROOT / ".github/workflows/update-journals.yml").read_text(encoding="utf-8")
         cls.sender = (ROOT / "scripts/request_composer_reconcile.sh").read_text(encoding="utf-8")
         cls.smoke = (ROOT / ".github/workflows/composer-dispatch-acceptance.yml").read_text(encoding="utf-8")
+        cls.monitor = (ROOT / ".github/workflows/monitor-journals.yml").read_text(encoding="utf-8")
 
     def test_request_follows_successful_private_sync_and_precedes_email(self):
         lines = self.workflow
@@ -16,6 +17,16 @@ class ComposerFastPathSenderTests(unittest.TestCase):
         self.assertIn("if: steps.collect.outcome == 'success' && steps.composer.outcome == 'success'", lines)
         self.assertIn("continue-on-error: true", lines.split("- name: Request Composer runner reconciliation",1)[1].split("- name: Send private new-issue email",1)[0])
         self.assertIn("if: steps.collect.outcome == 'success' && steps.composer.outcome == 'success'",lines.split("- name: Send private new-issue email",1)[1])
+
+    def test_monitor_dispatch_is_guarded_by_real_private_sync(self):
+        workflow = self.monitor
+        self.assertLess(workflow.index("Sync audited issues to private Composer"), workflow.index("Request Composer runner reconciliation"))
+        self.assertLess(workflow.index("Request Composer runner reconciliation"), workflow.index("Send private new-issue email"))
+        section = workflow.split("- name: Request Composer runner reconciliation", 1)[1].split("- name: Send private new-issue email", 1)[0]
+        self.assertIn("steps.changed.outputs.has_updates == 'true' && steps.composer.outcome == 'success'", section)
+        self.assertIn("continue-on-error: true", section)
+        self.assertIn("COMPOSER_RUNNER_DISPATCH_TOKEN", section)
+        self.assertIn("run: bash scripts/request_composer_reconcile.sh", section)
 
     def test_request_only_and_target_scoped(self):
         self.assertIn("COMPOSER_RUNNER_DISPATCH_TOKEN", self.workflow)
