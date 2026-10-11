@@ -16,7 +16,7 @@ async function open(path) {
 }
 
 try {
-  for (const path of ["", "top5/", "fields/", "search/", "status/", "composer/"]) {
+  for (const path of ["", "top5/", "fields/", "search/", "status/", "composer/", "themes/"]) {
     const { page, url } = await open(path);
     assert.ok(await page.locator(".preview-banner").isVisible(), `${url} preview banner missing`);
     const robots = await page.locator('meta[name="robots"]').getAttribute("content");
@@ -29,6 +29,10 @@ try {
       `${url} parent route`,
     );
     assert.ok(await page.locator(".child-brand").isVisible(), `${url} child identity missing`);
+    const readerCopy = await page.locator("body").innerText();
+    for (const jargon of ["公开页面只展示结果", "公开端不会加载私有", "内部运维仪表盘", "source-authority", "canonical archive", "expected set", "私有 renderer"]) {
+      assert.ok(!readerCopy.includes(jargon), `${url} leaked internal narration: ${jargon}`);
+    }
     const nav = (await page.locator(".reader-nav a").allTextContents()).map((value) => value.trim());
     assert.deepEqual(nav, ["顶刊之门", "领域之门", "跨刊检索"], `${url} nav order`);
     assert.ok(
@@ -59,6 +63,8 @@ try {
   {
     const { page } = await open("composer/?journal=aer&issue=aer-116-9");
     assert.ok(await page.getByRole("heading", { name: "发布预览" }).isVisible());
+    assert.ok(await page.getByRole("heading", { name: "文章排版示例" }).isVisible());
+    assert.equal(await page.locator(".capability-list, .showcase-notes").count(), 0);
     assert.equal(await page.locator("#markdown-editor").count(), 0);
     assert.equal(await page.locator("#copy-rich").count(), 0);
     const privateHref = await page.locator("#private-composer-link").getAttribute("href");
@@ -73,6 +79,15 @@ try {
     assert.ok(await page.getByRole("heading", { name: "数据状态" }).isVisible());
     assert.equal(await page.locator(".history-table").count(), 0);
     assert.equal(await page.locator(".quality-table").count(), 0);
+    assert.ok(await page.getByRole("heading", { name: "指标说明" }).isVisible());
+    assert.ok(await page.getByText("可阅读卷期").isVisible());
+    await page.close();
+  }
+
+  {
+    const { page } = await open("themes/");
+    assert.ok(await page.getByRole("heading", { name: "此页面已停止使用" }).isVisible());
+    assert.ok(await page.getByRole("link", { name: "查看发布预览" }).isVisible());
     await page.close();
   }
 
