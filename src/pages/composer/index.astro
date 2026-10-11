@@ -30,7 +30,7 @@ const privateComposer = "https://academic-door-composer.academic-door.workers.de
 
 <Layout
   title="Composer Preview / 发布预览 · Academic Door"
-  description="Academic Door Composer 的只读发布预览。完整编辑、复制与发布工作流位于受保护的内部工作台。"
+  description="查看期刊文章的手机端排版示例；编辑与发布准备可进入 Composer 工作台。"
 >
   <main class="composer-preview-page" data-base={base} data-private-composer={privateComposer}>
     <section class="composer-preview-hero">
@@ -38,8 +38,8 @@ const privateComposer = "https://academic-door-composer.academic-door.workers.de
         <p class="section-kicker">COMPOSER PREVIEW</p>
         <h1>发布预览</h1>
         <p>
-          Composer 是 Academic Door 的内部出版工作台。这里仅展示一份只读成品预览，
-          不提供匿名编辑、复制、导出、主题实验或草稿状态。
+          看看期刊文章整理后的手机端阅读效果。需要编辑、调整顺序或准备发布，
+          可以进入 Composer 工作台。
         </p>
         <div class="composer-preview-actions">
           <a id="private-composer-link" class="button button-primary" href={privateComposer}>
@@ -48,38 +48,20 @@ const privateComposer = "https://academic-door-composer.academic-door.workers.de
           <a class="button" href={`${base}top5/`}>返回顶刊之门</a>
         </div>
         <p class="composer-access-note">
-          工作台受身份验证保护；期刊与卷期标识会从 Academic Door 期刊页面原样传递。
+          Composer 工作台需要登录。
         </p>
       </div>
-      <aside class="capability-list" aria-label="Composer 能力边界">
-        <p>PRIVATE WORKBENCH</p>
-        <ul>
-          <li>结构化期刊 / Working Paper intake</li>
-          <li>出版模板与手机预览</li>
-          <li>编辑、排序与发布准备</li>
-          <li>微信富文本与导出工作流</li>
-        </ul>
-        <small>公开页面只展示结果，不公开内部实现。</small>
-      </aside>
     </section>
 
     <section class="composer-showcase" aria-labelledby="preview-title">
       <div class="section-heading editorial-heading">
         <div>
-          <p class="section-kicker">READ-ONLY SHOWCASE</p>
-          <h2 id="preview-title">代表性期刊成品</h2>
+          <p class="section-kicker">ARTICLE PREVIEW</p>
+          <h2 id="preview-title">文章排版示例</h2>
         </div>
-        <p id="preview-context">使用当前公开期刊数据生成的只读示例。</p>
+        <p id="preview-context">以下展示部分期刊论文的排版效果。</p>
       </div>
       <div class="showcase-stage">
-        <div class="showcase-notes">
-          <span>01 · Canonical intake</span>
-          <span>02 · Editorial composition</span>
-          <span>03 · Publication preview</span>
-          <p>
-            公开端不会加载私有 renderer、Theme Lab、custom CSS、复制/导出逻辑或草稿历史。
-          </p>
-        </div>
         <div class="phone-shell showcase-phone">
           <article id="composer-preview-card" class="public-composer-preview">
             <p class="preview-loading">正在载入代表性卷期……</p>
@@ -126,11 +108,10 @@ const privateComposer = "https://academic-door-composer.academic-door.workers.de
         .slice(0, 3);
       const journalName = payload.journal_name || payload.journal_id?.toUpperCase() || "Journal";
       const label = issueLabel(payload);
-      context.textContent = `${journalName} · ${label} · 只展示前 ${articles.length} 篇作为能力样例`;
+      context.textContent = `${journalName} · ${label} · 展示 ${articles.length} 篇论文`;
       preview.innerHTML = `
         <p class="preview-brand">ACADEMIC DOOR · JOURNALS</p>
         <h1>${escapeHtml(journalName)} ${escapeHtml(label)}</h1>
-        <blockquote><p>本期内容由 Academic Door 结构化期刊数据生成。公开页仅展示成品预览。</p></blockquote>
         <h2>目录与摘要</h2>
         ${articles.map((article, index) => `
           <section class="preview-article">
