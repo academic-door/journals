@@ -77,13 +77,15 @@ class HistoryAndSearchUiTests(unittest.TestCase):
         self.assertIn('id="journal-tab-${escapeHtml(journal.journal_id)}"', explorer)
         self.assertIn('issuePanel.setAttribute("aria-labelledby", activeTab.id)', explorer)
 
-    def test_status_separates_source_acceptance_from_official_order(self) -> None:
+    def test_public_status_describes_reader_data_not_operator_failures(self) -> None:
         page = (ROOT / "src/pages/status/index.astro").read_text(encoding="utf-8")
-        self.assertIn("sourceAccepted", page)
-        self.assertIn('journal.order_verification === "official_verified"', page)
-        self.assertIn("已核对官网或出版社来源", page)
-        self.assertIn("论文顺序待核对", page)
-        self.assertNotIn("数据快照在正常更新窗口内", page)
+        self.assertIn("数据说明", page)
+        self.assertIn("已收录卷期", page)
+        self.assertIn("已确认尚未收录的卷期", page)
+        self.assertIn("期刊官网", page)
+        self.assertNotIn("monitoring.json", page)
+        self.assertNotIn("监测失败", page)
+        self.assertNotIn("awaitingOfficial", page)
 
     def test_public_status_uses_a_dated_static_snapshot(self) -> None:
         page = (ROOT / "src/pages/status/index.astro").read_text(encoding="utf-8")
