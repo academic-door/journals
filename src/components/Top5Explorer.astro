@@ -24,8 +24,8 @@ interface JournalSummary {
 const {
   collectionId = "top5",
   kicker = "TOP 5 ECONOMICS JOURNALS",
-  heading = "经济学 TOP5 最新卷期",
-  description = "按期刊官网顺序整理中英文目录与摘要。",
+  heading = "顶刊之门",
+  description = "浏览五本经济学顶级期刊的卷期目录与中英文摘要。",
 } = Astro.props;
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
@@ -76,12 +76,12 @@ const initialIssue = initialIssuePath
       <select id="field-filter" aria-label="按研究领域筛选期刊">
         <option value="all">全部领域</option>
         <option value="general">综合顶刊</option>
-        <option value="theory">理论与产业组织顶刊</option>
-        <option value="public_history_international">公共、经济史与国际顶刊</option>
-        <option value="finance">金融顶刊</option>
-        <option value="development_applied">发展与应用顶刊</option>
-        <option value="urban_macro_labor_metrics_environment">城市、宏观、劳动、计量与环境顶刊</option>
-        <option value="agriculture_resources">农业与资源环境顶刊</option>
+        <option value="theory">理论与产业组织</option>
+        <option value="public_history_international">公共、经济史与国际</option>
+        <option value="finance">金融</option>
+        <option value="development_applied">发展与应用</option>
+        <option value="urban_macro_labor_metrics_environment">城市、宏观、劳动、计量与环境</option>
+        <option value="agriculture_resources">农业与资源环境</option>
       </select>
     </label>
   )}
@@ -434,7 +434,7 @@ const initialIssue = initialIssuePath
       <div class="issue-note-stack">
         <div class="issue-note ${ready ? "complete" : ""}">
           ${ready
-            ? "可复制发布"
+            ? "已收录 · 可阅读"
             : sourcePending
               ? "内容已齐，待来源核验"
             : abstracts < total
