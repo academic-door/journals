@@ -1,10 +1,23 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 const dataBase = import.meta.env.PUBLIC_JOURNAL_DATA_BASE || base;
+const collectionCount = (name: string, fallback: number): number => {
+  try {
+    const json = JSON.parse(readFileSync(path.join(process.cwd(), "public", "api", "v1", "collections", `${name}.json`), "utf8"));
+    return Number(json.summary?.configured_journals ?? json.journals?.length ?? fallback);
+  } catch {
+    return fallback;
+  }
+};
+const topFiveCount = collectionCount("top5", 5);
+const fieldCount = collectionCount("fields", 44);
+const allCount = topFiveCount + fieldCount;
 ---
 
 <Layout
@@ -19,11 +32,11 @@ const dataBase = import.meta.env.PUBLIC_JOURNAL_DATA_BASE || base;
     <nav class="curated-paths" aria-label="编辑型研究入口">
       <a href="?china=1">
         <span>中国相关论文</span>
-        <small>从 49 刊最新卷期中筛选</small>
+        <small>从全部 {allCount} 本监测期刊（顶刊 {topFiveCount} + 领域 {fieldCount}）的最新卷期筛选</small>
       </a>
       <a href={base + "fields/"}>
         <span>按领域进入</span>
-        <small>浏览 44 本领域期刊</small>
+        <small>浏览 {fieldCount} 本领域期刊（不含 Top Five）</small>
       </a>
     </nav>
 
