@@ -121,6 +121,28 @@ class SemanticResolverTests(unittest.TestCase):
                 self.assertNotEqual(sq, tq, f"{source!r} <-> {translated!r}")
 
 
+    def test_written_partitive_subset_is_a_reported_count(self) -> None:
+        # EER 190 / DOI 10.1016/j.euroecorev.2026.105467:
+        # the source says "Twenty-two of the 25 pairs".  It is a measured
+        # subset, not an omissible pronoun like "one of the ...".
+        source = "Twenty-two of the 25 accreditor-association pairs share an identity."
+        correct = "在25对认证机构与协会组合中，22对拥有共同身份。"
+        corrupt = "在25对认证机构与协会组合中，23对拥有共同身份。"
+
+        self.assertEqual(["22", "25"], _semantic_numbers(source))
+        source_q, translated_q = resolve_semantic_quantities(source, correct)
+        self.assertEqual(source_q, translated_q)
+        self.assertNotEqual(
+            *resolve_semantic_quantities(source, corrupt)
+        )
+        # Keep the existing narrow pronoun exemption intact.
+        self.assertEqual(["25"], _semantic_numbers("One of the 25 pairs"))
+
+        validate_translation(_article(source), _translation(correct))
+        with self.assertRaises(TranslationError):
+            validate_translation(_article(source), _translation(corrupt))
+
+
 class ProductionGateActivatedTests(unittest.TestCase):
     """Lock Stage C semantic quantity comparison as production authority."""
 
