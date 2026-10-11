@@ -683,9 +683,8 @@ main,
 .composer-preview-page { padding-bottom: 76px; }
 .composer-preview-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
-  gap: 60px;
-  padding: 72px 0 56px;
+  grid-template-columns: minmax(0, 1fr);
+  padding: 56px 0 44px;
   border-bottom: 1px solid var(--line);
 }
 .composer-preview-hero h1 {
@@ -698,35 +697,16 @@ main,
 }
 .composer-preview-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .composer-access-note { font-size: .76rem; }
-.capability-list {
-  padding: 25px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 15px;
-}
-.capability-list > p { margin: 0; color: var(--green); font-size: .67rem; font-weight: 850; letter-spacing: .14em; }
-.capability-list ul { margin: 22px 0; padding: 0; list-style: none; }
-.capability-list li { padding: 10px 0; border-top: 1px solid var(--line); font-size: .83rem; font-weight: 720; }
-.capability-list small { color: var(--muted); }
 .composer-showcase { padding-top: 64px; }
 .showcase-stage {
   display: grid;
-  grid-template-columns: minmax(220px, .55fr) minmax(320px, 1fr);
-  gap: 44px;
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   margin-top: 26px;
   padding: 36px;
   background: #eef2ef;
   border-radius: 18px;
 }
-.showcase-notes {
-  display: grid;
-  gap: 12px;
-  position: sticky;
-  top: 24px;
-}
-.showcase-notes span { color: var(--green); font-size: .74rem; font-weight: 820; }
-.showcase-notes p { margin: 12px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.75; }
 .phone-shell {
   width: min(100%, 440px);
   margin: 0 auto;
@@ -979,7 +959,6 @@ main,
   .abstract-panel { padding: 18px 0; }
   .abstract-panel + .abstract-panel { padding: 18px 0; border-top: 1px solid var(--line); border-left: 0; }
   .showcase-stage { grid-template-columns: 1fr; padding: 22px; }
-  .showcase-notes { position: static; }
   .status-metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .status-scope-note { grid-template-columns: 1fr; gap: 22px; }
   .site-footer { grid-template-columns: 1fr; }
