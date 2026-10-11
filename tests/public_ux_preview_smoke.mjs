@@ -50,6 +50,7 @@ try {
     assert.ok(await page.getByText(/监测期刊：顶刊 5 本 \+ 领域 44 本/).isVisible());
     assert.ok(await page.getByText(/预览数据快照.*非实时统计/).isVisible());
     assert.ok(await page.getByText("已确认缺失卷期").isVisible());
+    assert.equal(await page.getByText("监测失败").count(), 0);
     await page.close();
   }
 
@@ -76,11 +77,13 @@ try {
 
   {
     const { page } = await open("status/");
-    assert.ok(await page.getByRole("heading", { name: "数据状态" }).isVisible());
+    assert.ok(await page.getByRole("heading", { name: "数据说明" }).isVisible());
     assert.equal(await page.locator(".history-table").count(), 0);
     assert.equal(await page.locator(".quality-table").count(), 0);
-    assert.ok(await page.getByRole("heading", { name: "指标说明" }).isVisible());
-    assert.ok(await page.getByText("可阅读卷期").isVisible());
+    assert.ok(await page.getByRole("heading", { name: "来源与更新" }).isVisible());
+    assert.ok(await page.getByText("已收录卷期", { exact: true }).isVisible());
+    assert.ok(await page.getByText("已确认尚未收录的卷期", { exact: true }).isVisible());
+    assert.equal(await page.getByText("监测失败").count(), 0);
     await page.close();
   }
 
