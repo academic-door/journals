@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-10-12T10:26:53+00:00
+Updated: 2026-10-12T11:08:31+00:00
 
 Discovery coverage: 1210 discovered · 1209 archived · 1209 publication ready · 1 missing · 0 source pending
 
@@ -1350,4 +1350,4 @@ Discovery coverage: 1210 discovered · 1209 archived · 1209 publication ready �
 | WD | wd-205-c | 2026 | ready |  |
 | WD | wd-206-c | 2026 | ready |  |
 | WD | wd-207-c | 2026 | ready |  |
-| WD | wd-208-c | 2026 | blocked | MetadataFallbackError: Crossref returned no usable issue 208/ |
+| WD | wd-208-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 208/ |
