@@ -666,11 +666,14 @@ _EN_FOLD_RE = re.compile(
     r"(?P<fold>fold)\b"
     r"(?![A-Za-z])"
 )
+# Bare "points" can measure a numerical *index* (e.g. AQI 0.772 points),
+# not percentage-point changes. Only explicitly percent-qualified units count
+# as percentages; leaving bare points as numeric scalars prevents false errors.
 # English "percentage points" ("by 5.1 percentage points"):
 _EN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z0-9])"
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
+    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
 )
 _EN_WRITTEN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z])"
@@ -681,13 +684,27 @@ _EN_DECADE_AND_HALF_RE = re.compile(
     r"(?i)(?<![A-Za-z])(?:a\s+|one\s+)?decade\s+and\s+a\s+half\b"
 )
 
+# A percentage-point unit can be inherited by a following *rate/probability*
+# outcome in the same sentence.  AEJPOL DOI 10.1257/pol.20240361 uses
+# "... 14 percentage points (pp), the likelihood ... by 19 points".
+# This bounded syntax MUST NOT turn unrelated bare index/AQI points into %.
+_EN_RATE_CONTEXT_POINTS_RE = re.compile(
+    r"(?i)\bpercentage\s+points?(?:\s*\(pp\))?"
+    r"(?P<outcome>[^.!?\n]{0,200}?\b(?:likelihood|probability|rate|share)\b"
+    r"[^.!?\n]{0,120}?\bby\s+)"
+    r"(?P<amount>\d+(?:\.\d+)?)\s+points\b"
+)
+_EN_INDEX_POINT_CONTEXT_RE = re.compile(
+    r"(?i)\b(?:AQI|index|indices|score|scores|rating|ratings|basis)\b"
+)
+
 # English "percentage points" range ("3.6-6.9 percentage points"):
 _EN_PERCENTAGE_POINTS_RANGE_RE = re.compile(
     r"(?i)(?<![A-Za-z0-9])"
     r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
     r"\s*(?:to|[-–—])\s*"
     r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"[-\s]*(?:percentage[-\s]*points?|points?|pp|p\.p\.|pct)\.?\b"
+    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
 )
 
 # English written-cardinal percent range ("three to six percent"):
@@ -1083,7 +1100,10 @@ _CN_CURRENCY_CANONICAL = {
 
 
 _EN_EACH_PERCENTAGE_POINT_RE = re.compile(
-    r"(?i)\b(?:each|every)\s+percentage[-\s]*point\b"
+    # WD 208: "an additional percentage point" carries one unit increment,
+    # which Chinese can faithfully spell out as 每增加1个百分点. Only source-
+    # explicit unit expressions qualify; translated extra ones still fail.
+    r"(?i)\b(?:(?:each|every)|(?:an?\s+additional))\s+percentage[-\s]*point\b"
 )
 _CN_EACH_EXPLICIT_ONE_PERCENTAGE_POINT_RE = re.compile(
     r"每[^，。；;:!?]{0,24}?(?:1|一)\s*个?\s*百分点"
@@ -1130,11 +1150,11 @@ def _reconcile_explicit_one_for_each_percentage_point(
     source_q: "Counter[str]",
     translated_q: "Counter[str]",
 ) -> None:
-    """Allow explicit 1 percentage point for English each/every percentage point.
+    """Allow explicit 1 for each/every or an additional percentage point.
 
     English can encode the unit denominator without a surface numeral, as in
-    "for each percentage point increase". Chinese commonly renders the same
-    meaning as "每增加一个百分点". Reconcile only the extra translated 1%
+    "for each percentage point increase" or "an additional percentage point".
+    Chinese commonly renders this as "每增加一个百分点". Reconcile only the extra translated 1%
     inside that bounded structure; unrelated added percentages remain gating.
     """
 
@@ -1347,6 +1367,17 @@ def _semantic_numbers(value: str) -> list[str]:
         amt=match.group("value")
         num=_quantity_token(Decimal(_canonical_number(amt))) if any(ch.isdigit() for ch in amt) else str(_parse_chinese_numeral(amt))
         record(num+"%", span)
+
+    # Context-bound implicit unit: prior explicit percentage points and a
+    # subsequent rate/probability outcome in the same sentence. An explicit
+    # index/score/basis-point context keeps its own units, even if it says rate.
+    for match in _EN_RATE_CONTEXT_POINTS_RE.finditer(value):
+        if _EN_INDEX_POINT_CONTEXT_RE.search(match.group("outcome")):
+            continue
+        span = match.span("amount")
+        if overlaps(span):
+            continue
+        record(_quantity_token(Decimal(_canonical_number(match.group("amount"))))+"%", span)
 
     # 0h. English "percentage points" ("by 5.1 percentage points" -> 5.1%).
     for match in _EN_PERCENTAGE_POINTS_RANGE_RE.finditer(value):
