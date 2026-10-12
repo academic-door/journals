@@ -31,6 +31,7 @@ from collectors.article_types import (  # noqa: E402
     exclusion_reason,
     official_no_abstract_exception,
     is_publishable_type,
+    normalize_issue_taxonomy,
 )
 from scripts.update_journals import (
     PUBLIC_API,
@@ -425,6 +426,12 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
     candidate["articles"] = merged_articles
     candidate["expected_article_count"] = len(merged_articles)
     candidate["research_article_count"] = len(merged_articles)
+    if "excluded_items" in evidence:
+        derived = [row for row in candidate.get("quality", {}).get("excluded_items", [])
+                   if str(row.get("doi", "")).strip().lower() in evidence_positions
+                   and str(row.get("doi", "")).strip().lower() not in {a["doi"].lower() for a in merged_articles}]
+        candidate.setdefault("quality", {})["excluded_items"] = copy.deepcopy(evidence["excluded_items"]) + derived
+        candidate = normalize_issue_taxonomy(candidate)
     if restored_count or len(merged_articles) != len(archive_articles):
         candidate = normalize_issue_content(candidate)
     quality = candidate.setdefault("quality", {})

@@ -75,3 +75,9 @@ class WD208OfficialOrderTests(unittest.TestCase):
     def test_co2_display_whitespace_is_bounded(self):
         self.assertEqual(_normalized_title("CO 2 emissions"),_normalized_title("CO2 emissions"))
         self.assertNotEqual(_normalized_title("CO 3 emissions"),_normalized_title("CO2 emissions"))
+
+    def test_history_import_records_editorial_exclusion_before_readiness(self):
+        result = apply_evidence(self.issue,self.e)
+        self.assertEqual(len(result["quality"]["excluded_items"]),4)
+        self.assertEqual(result["quality"]["content_counts"]["editorial_material"],1)
+        self.assertNotEqual(result["publication_state"],"ready")
