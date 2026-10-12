@@ -60,6 +60,37 @@ class ScienceDirectBrowserArchiveMetadataRetryTests(unittest.TestCase):
             result = fetch_issue_metadata(requests.Session(), [PII], timeout=90)
         return fake, result
 
+    def test_undated_official_observation_defers_archive_rebuild(self) -> None:
+        # A source-backed browser roster is a valid observation even if it
+        # does not assert an issue publication date.  The history importer
+        # must not fabricate that date or fail before official reconciliation.
+        roster = {
+            "journal_id": "wd",
+            "issue_id": "wd-208-c",
+            "official_url": "https://www.sciencedirect.com/journal/world-development/vol/208/suppl/C",
+            "captured_at": "2026-10-12T16:16:21.399Z",
+            "items": [{"title": "Example", "href": "https://www.sciencedirect.com/science/article/pii/S0305750X2600197X"}],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = root / "wd-208-c.json"
+            path.write_text(json.dumps(roster), encoding="utf-8")
+            with patch(
+                "scripts.build_sciencedirect_browser_archives.fetch_issue_metadata",
+                side_effect=AssertionError("undated roster must not invoke metadata lookups"),
+            ):
+                results, deferred = process_batch(
+                    [path],
+                    state_root=root / "state",
+                    cache_root=root / "cache",
+                    translate=True,
+                )
+        self.assertEqual(results, [])
+        self.assertEqual(len(deferred), 1)
+        self.assertEqual(deferred[0]["issue_id"], "wd-208-c")
+        self.assertIn("no source-backed publication_date", deferred[0]["error"])
+        self.assertIn("official evidence reconciliation", deferred[0]["error"])
+
     def test_issue_identity_uses_issue_specific_url_and_issue_id(self) -> None:
         roster = {
             "journal_id": "joe",

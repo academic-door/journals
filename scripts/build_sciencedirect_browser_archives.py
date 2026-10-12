@@ -402,6 +402,17 @@ def build_rich_snapshot(
     session: requests.Session,
     journal: dict[str, Any],
 ) -> dict[str, Any]:
+    # This builder reconstructs an archive, which requires a real publication
+    # date.  A browser-authorized official-roster observation can legitimately
+    # omit that date (e.g. an order-only correction to an existing READY issue).
+    # Defer only the reconstruction: process_batch catches ValueError and the
+    # controlled history workflow can independently apply the official roster
+    # evidence to the already published archive. Never invent a date.
+    if not str(roster.get("publication_date") or "").strip():
+        raise ValueError(
+            "browser roster has no source-backed publication_date; "
+            "defer archive reconstruction to official evidence reconciliation"
+        )
     all_roster_items = list(roster.get("items", []))
     # Publisher front matter and corrections are retained in the original
     # browser roster for later exclusion evidence, but their PIIs are not
