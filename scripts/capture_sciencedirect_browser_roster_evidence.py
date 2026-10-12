@@ -166,7 +166,7 @@ def build_evidence(
     seen: set[str] = set()
     matched_archive_dois: set[str] = set()
     missing_official_count = 0
-    for browser_item in snapshot.get("items", []):
+    for source_sequence, browser_item in enumerate(snapshot.get("items", []), 1):
         pii = _pii(browser_item.get("href"))
         title = str(browser_item.get("title", "")).strip()
         browser_doi = str(browser_item.get("doi", "")).strip().casefold()
@@ -217,6 +217,9 @@ def build_evidence(
                     raise ValueError(f"official title mismatch for {pii}")
             evidence_item: dict[str, Any] = {
                 "sequence": len(items) + 1,
+                "source_sequence": source_sequence,
+                "source_id": f"pii:{pii}",
+                "official_article_url": f"https://www.sciencedirect.com/science/article/pii/{pii}",
                 "doi": doi,
                 "title_en": evidence_title,
             }
@@ -242,6 +245,9 @@ def build_evidence(
         excluded_item = {
             "title_en": title,
             "reason": f"official-{article_type}",
+            "source_sequence": source_sequence,
+            "source_id": f"pii:{pii}",
+            "source_url": f"https://www.sciencedirect.com/science/article/pii/{pii}",
         }
         if doi:
             excluded_item["doi"] = doi
@@ -263,6 +269,7 @@ def build_evidence(
         "journal_id": str(issue["journal_id"]),
         "issue_id": str(issue["issue_id"]),
         "official_url": official_url,
+        "publisher_issue_status": str(snapshot.get("publisher_issue_status", "")),
         "allow_archive_reorder": True,
         "excluded_item_count": len(excluded),
         "excluded_items": excluded,

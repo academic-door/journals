@@ -235,12 +235,15 @@ def _restored_article(
         "source_url": source_url,
         "sources": {
             "roster": official_url,
-            "metadata": source_url,
-            "abstract_en": source_url,
+            "metadata": str(item.get("authors_source_url") or source_url),
+            "abstract_en": str(item.get("abstract_source_url") or source_url),
         },
         "translation": {"status": "missing"},
         "quality_flags": ["title_cn_missing", "abstract_cn_missing"],
     }
+    if item.get("doi_source"):
+        article["sources"]["doi"] = str(item["doi_source"])
+        article["sources"]["doi_url"] = str(item.get("doi_source_url", ""))
     if abstract_exception:
         article.update(
             title_cn=abstract_exception["title_cn"],
@@ -409,6 +412,7 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
                 abstract_exception=abstract_exception,
             )
         article.setdefault("sources", {})["roster"] = official_url
+        article["source_sequence"] = int(item.get("source_sequence", sequence))
         merged_articles.append(article)
     candidate["articles"] = merged_articles
     candidate["expected_article_count"] = len(merged_articles)
