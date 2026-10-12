@@ -690,9 +690,12 @@ _EN_DECADE_AND_HALF_RE = re.compile(
 # This bounded syntax MUST NOT turn unrelated bare index/AQI points into %.
 _EN_RATE_CONTEXT_POINTS_RE = re.compile(
     r"(?i)\bpercentage\s+points?(?:\s*\(pp\))?"
-    r"[^.!?]{0,200}?\b(?:likelihood|probability|rate|share)\b"
-    r"[^.!?]{0,120}?\bby\s+"
+    r"(?P<outcome>[^.!?\n]{0,200}?\b(?:likelihood|probability|rate|share)\b"
+    r"[^.!?\n]{0,120}?\bby\s+)"
     r"(?P<amount>\d+(?:\.\d+)?)\s+points\b"
+)
+_EN_INDEX_POINT_CONTEXT_RE = re.compile(
+    r"(?i)\b(?:AQI|index|indices|score|scores|rating|ratings|basis)\b"
 )
 
 # English "percentage points" range ("3.6-6.9 percentage points"):
@@ -1147,11 +1150,11 @@ def _reconcile_explicit_one_for_each_percentage_point(
     source_q: "Counter[str]",
     translated_q: "Counter[str]",
 ) -> None:
-    """Allow explicit 1 percentage point for English each/every percentage point.
+    """Allow explicit 1 for each/every or an additional percentage point.
 
     English can encode the unit denominator without a surface numeral, as in
-    "for each percentage point increase". Chinese commonly renders the same
-    meaning as "每增加一个百分点". Reconcile only the extra translated 1%
+    "for each percentage point increase" or "an additional percentage point".
+    Chinese commonly renders this as "每增加一个百分点". Reconcile only the extra translated 1%
     inside that bounded structure; unrelated added percentages remain gating.
     """
 
@@ -1366,8 +1369,11 @@ def _semantic_numbers(value: str) -> list[str]:
         record(num+"%", span)
 
     # Context-bound implicit unit: prior explicit percentage points and a
-    # subsequent rate/probability outcome in the same sentence.
+    # subsequent rate/probability outcome in the same sentence. An explicit
+    # index/score/basis-point context keeps its own units, even if it says rate.
     for match in _EN_RATE_CONTEXT_POINTS_RE.finditer(value):
+        if _EN_INDEX_POINT_CONTEXT_RE.search(match.group("outcome")):
+            continue
         span = match.span("amount")
         if overlaps(span):
             continue
