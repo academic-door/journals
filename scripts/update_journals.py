@@ -1318,6 +1318,33 @@ def refresh_elsevier_abstracts(
     return issue
 
 
+def apply_configured_current_roster(
+    issue: dict[str, Any], key: str, config: dict[str, Any]
+) -> dict[str, Any]:
+    if not config.get("official_roster_evidence_path"):
+        return issue
+    from scripts.official_current_roster import apply_current_roster
+
+    state = read_json(MONITOR_STATE_PATH) or {}
+    monitored = state.get("journals", {}).get(key, {}).get("candidate", {})
+    detected_dois = None
+    if str(monitored.get("volume", "")) == str(issue.get("volume", "")):
+        # unseen_dois is a delta, not the full roster after a partial release.
+        # Reconstruct the known same-issue membership before checking evidence.
+        unseen = monitored.get("unseen_dois")
+        if isinstance(unseen, list):
+            observed = set(map(str.casefold, unseen))
+            excluded: set[str] = set()
+            baseline = read_json(public_issue_path(config["id"])) or {}
+            if baseline.get("issue_id") == issue.get("issue_id"):
+                observed.update(str(a.get("doi", "")).casefold() for a in baseline.get("articles", []))
+                excluded = {str(a.get("doi", "")).casefold() for a in baseline.get("quality", {}).get("excluded_items", []) if a.get("doi")}
+            if monitored.get("doi_count") is not None and len(observed) != monitored["doi_count"]:
+                raise ValueError("monitor DOI delta cannot reconstruct the complete candidate")
+            detected_dois = sorted(observed | excluded)
+    return apply_current_roster(issue, config, detected_dois=detected_dois)
+
+
 def collect_one(
     key: str,
     config: dict[str, Any],
@@ -1379,6 +1406,7 @@ def collect_one(
                     expected_volume=expected_volume,
                     expected_issue=expected_issue,
                 )()
+                issue = apply_configured_current_roster(issue, key, config)
                 if re_enrich_elsevier:
                     issue = refresh_elsevier_abstracts(issue, config)
                 if not is_detected_snapshot(issue):
@@ -1398,6 +1426,7 @@ def collect_one(
                     issue = refresh_elsevier_abstracts(issue, config)
                 report["primary_error"] = primary_error
                 report["transport"] = "metadata_fallback"
+                issue = apply_configured_current_roster(issue, key, config)
         issue = preserve_existing_content(issue, detected_before or previous_detected)
         issue = preserve_existing_content(issue, previous)
         # A publisher's current endpoint can lag RSS or a previously detected
