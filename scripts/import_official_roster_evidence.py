@@ -31,6 +31,7 @@ from collectors.article_types import (  # noqa: E402
     exclusion_reason,
     official_no_abstract_exception,
     is_publishable_type,
+    normalize_issue_taxonomy,
 )
 from scripts.update_journals import (
     PUBLIC_API,
@@ -79,6 +80,7 @@ def _normalized_title(value: object) -> str:
     # authorized browser snapshot (for example ``P M 2.5``), while its article
     # metadata uses the equivalent compact token ``PM2.5``.
     text = re.sub(r"\bP\s*M\s*2\s*\.\s*5\b", "PM2.5", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bCO\s+2\b", "CO2", text)
     # Publisher cards and deposited metadata routinely differ only in smart
     # quotes, daggers, hyphenation, spacing, capitalization, or an optional
     # article ("the"). DOI identity and order remain the hard keys; collapse
@@ -154,6 +156,11 @@ def validate_evidence(evidence: dict[str, Any]) -> None:
             seen.add(doi)
             if not _normalized_title(item.get("title_en")):
                 errors.append(f"item {expected}: title_en missing")
+            if "publisher_article_type" in item and item["publisher_article_type"] not in {
+                "research article", "review article", "mini review", "short communication",
+                "full length article", "data article", "discussion",
+            }:
+                errors.append(f"item {expected}: unsupported publisher article type")
             detail_fields = ("authors", "abstract_en", "source_url")
             has_detail = any(item.get(field) for field in detail_fields)
             if has_detail:
@@ -412,11 +419,19 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
                 abstract_exception=abstract_exception,
             )
         article.setdefault("sources", {})["roster"] = official_url
+        if item.get("publisher_article_type"):
+            article["publisher_article_type"] = item["publisher_article_type"]
         article["source_sequence"] = int(item.get("source_sequence", sequence))
         merged_articles.append(article)
     candidate["articles"] = merged_articles
     candidate["expected_article_count"] = len(merged_articles)
     candidate["research_article_count"] = len(merged_articles)
+    if "excluded_items" in evidence:
+        derived = [row for row in candidate.get("quality", {}).get("excluded_items", [])
+                   if str(row.get("doi", "")).strip().lower() in evidence_positions
+                   and str(row.get("doi", "")).strip().lower() not in {a["doi"].lower() for a in merged_articles}]
+        candidate.setdefault("quality", {})["excluded_items"] = copy.deepcopy(evidence["excluded_items"]) + derived
+        candidate = normalize_issue_taxonomy(candidate)
     if restored_count or len(merged_articles) != len(archive_articles):
         candidate = normalize_issue_content(candidate)
     quality = candidate.setdefault("quality", {})

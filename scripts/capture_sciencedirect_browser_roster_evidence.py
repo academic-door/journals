@@ -223,6 +223,11 @@ def build_evidence(
                 "doi": doi,
                 "title_en": evidence_title,
             }
+            # Preserve the publisher subtype separately from the established
+            # public taxonomy, which includes scholarly reviews as research.
+            label = re.match(r"(Research article|Review article|Mini review|Short communication|Full length article|Data article|Discussion)", str(browser_item.get("box_text", "")), re.I)
+            if label:
+                evidence_item["publisher_article_type"] = label.group(1).casefold()
             if evidence_title != title:
                 evidence_item["official_display_title_en"] = title
             if article is None:
@@ -248,6 +253,7 @@ def build_evidence(
             "source_sequence": source_sequence,
             "source_id": f"pii:{pii}",
             "source_url": f"https://www.sciencedirect.com/science/article/pii/{pii}",
+            "article_type": "correction" if article_type == "erratum" else article_type,
         }
         if doi:
             excluded_item["doi"] = doi
