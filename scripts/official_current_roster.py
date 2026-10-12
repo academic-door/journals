@@ -63,11 +63,25 @@ def apply_current_roster(
     official_dois = {row["doi"].casefold() for row in all_rows}
     if len(official_dois) != len(all_rows):
         raise ValueError("official included/excluded DOI identities overlap")
-    if detected_dois is not None and set(map(str.casefold, detected_dois)) != official_dois:
-        raise ValueError("detected DOI set changed since the official observation")
+    if detected_dois is not None:
+        detected = set(map(str.casefold, detected_dois))
+        publishable = {row["doi"].casefold() for row in items}
+        # Metadata discovery may omit an editorial-board DOI. It may never
+        # omit a publishable DOI or introduce an unobserved identity.
+        if not publishable <= detected <= official_dois:
+            raise ValueError("detected DOI set changed since the official observation")
 
     by_doi = {row["doi"].casefold(): row for row in items}
+    by_pii = {_pii(row["source_id"]): row for row in items}
     candidate = copy.deepcopy(issue)
+    for article in candidate.get("articles", []):
+        if not str(article.get("doi", "")).strip():
+            row = by_pii.get(_pii(article.get("source_url")))
+            if row is None or _normalized_title(article.get("title_en")) != _normalized_title(row["title_en"]):
+                raise ValueError("missing collector DOI lacks matching official PII/title")
+            article["doi"] = row["doi"]
+            article["paper_id"] = f"doi:{row['doi']}"
+            article.setdefault("sources", {})["doi"] = row.get("doi_source_url", evidence["official_url"])
     collector_dois = [str(row.get("doi", "")).casefold() for row in candidate.get("articles", [])]
     if len(set(collector_dois)) != len(collector_dois):
         raise ValueError("collector DOI roster contains duplicates")
@@ -86,6 +100,8 @@ def apply_current_roster(
             if field == "abstract_en":
                 missing = not clean_abstract_label(article.get(field))
             if missing:
+                if not row.get(field):
+                    raise ValueError(f"official evidence cannot restore missing {field}")
                 article[field] = copy.deepcopy(row[field])
                 article.setdefault("sources", {})[field] = row.get(
                     "abstract_source_url" if field == "abstract_en" else "authors_source_url",

@@ -199,6 +199,22 @@ class OfficialCurrentRosterTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "detected DOI set changed"):
                     update.apply_configured_current_roster(self.issue, "ENERGY", CONFIG)
 
+    def test_missing_rss_dois_restored_only_by_exact_official_pii_title(self):
+        issue = copy.deepcopy(self.issue)
+        for article in issue["articles"][:4]:
+            article["doi"] = ""
+            article["paper_id"] = "pii:" + article["source_url"].rsplit("/", 1)[-1]
+        result = self.apply(issue)
+        self.assertEqual(result["quality"]["doi_complete"], 33)
+        self.assertEqual(len({a["doi"] for a in result["articles"]}), 33)
+        self.assertNotEqual(result["publication_state"], "ready")
+        for kind in ("pii", "title", "duplicate"):
+            bad = copy.deepcopy(issue)
+            if kind == "pii": bad["articles"][0]["source_url"] = "https://www.sciencedirect.com/science/article/pii/S0000000000000000"
+            if kind == "title": bad["articles"][0]["title_en"] = "Unknown title"
+            if kind == "duplicate": bad["articles"].append(copy.deepcopy(bad["articles"][0]))
+            with self.assertRaises(ValueError): self.apply(bad)
+
 
 if __name__ == "__main__":
     unittest.main()
