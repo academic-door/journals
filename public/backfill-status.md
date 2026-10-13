@@ -1,13 +1,18 @@
 # Field journal history backfill status
 
-Updated: 2026-10-13T03:50:50+00:00
+Updated: 2026-10-13T05:51:30+00:00
 
-Discovery coverage: 1195 discovered · 1192 archived · 1192 publication ready · 3 missing · 0 source pending
+Discovery coverage: 1210 discovered · 1209 archived · 1209 publication ready · 1 missing · 0 source pending
 
 | Period | Complete | Partial | Blocked | Pending |
 |---|---|---|---|---|
 | 2023-2024 | 671 | 0 | 2 | 35 |
-| 2025-2026 | 625 | 0 | 3 | 0 |
+| 2023-2026 | 300 | 0 | 0 | 0 |
+| 2024-2024 | 12 | 0 | 0 | 0 |
+| 2025-2026 | 1 | 0 | 0 | 0 |
+| 2026-2026 | 10 | 0 | 0 | 0 |
+| elsevier-2026-browser | 0 | 0 | 0 | 0 |
+| final3-2026-browser | 0 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
 |---|---|---|---|---|
@@ -138,9 +143,9 @@ Discovery coverage: 1195 discovered · 1192 archived · 1192 publication ready �
 | AJAE | ajae-105-5 | 2023 | source_pending |  |
 | AJAE | ajae-106-1 | 2024 | source_pending |  |
 | AJAE | ajae-106-2 | 2024 | source_pending |  |
-| AJAE | ajae-106-3 | 2024 | source_pending |  |
-| AJAE | ajae-106-4 | 2024 | source_pending |  |
-| AJAE | ajae-106-5 | 2024 | source_pending |  |
+| AJAE | ajae-106-3 | 2024 | source_pending | source authority pending official verification |
+| AJAE | ajae-106-4 | 2024 | source_pending | source authority pending official verification |
+| AJAE | ajae-106-5 | 2024 | source_pending | source authority pending official verification |
 | AJAE | ajae-107-1 | 2025 | ready |  |
 | AJAE | ajae-107-2 | 2025 | ready |  |
 | AJAE | ajae-107-3 | 2025 | ready |  |
@@ -548,7 +553,7 @@ Discovery coverage: 1195 discovered · 1192 archived · 1192 publication ready �
 | JEBO | jebo-217-c | 2024 | ready |  |
 | JEBO | jebo-218-c | 2024 | ready |  |
 | JEBO | jebo-219-c | 2024 | ready |  |
-| JEBO | jebo-220-c | 2024 | ready |  |
+| JEBO | jebo-220-c | 2024 | ready | archive_missing |
 | JEBO | jebo-221-c | 2024 | ready |  |
 | JEBO | jebo-222-c | 2024 | ready |  |
 | JEBO | jebo-223-c | 2024 | ready |  |
@@ -740,9 +745,9 @@ Discovery coverage: 1195 discovered · 1192 archived · 1192 publication ready �
 | JF | jf-79-1 | 2024 | ready |  |
 | JF | jf-79-2 | 2024 | source_pending |  |
 | JF | jf-79-3 | 2024 | source_pending |  |
-| JF | jf-79-4 | 2024 | source_pending |  |
-| JF | jf-79-5 | 2024 | source_pending |  |
-| JF | jf-79-6 | 2024 | source_pending |  |
+| JF | jf-79-4 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-5 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-6 | 2024 | source_pending | source authority pending official verification |
 | JF | jf-80-1 | 2025 | ready |  |
 | JF | jf-80-2 | 2025 | ready |  |
 | JF | jf-80-3 | 2025 | ready |  |
@@ -1345,4 +1350,4 @@ Discovery coverage: 1195 discovered · 1192 archived · 1192 publication ready �
 | WD | wd-205-c | 2026 | ready |  |
 | WD | wd-206-c | 2026 | ready |  |
 | WD | wd-207-c | 2026 | ready |  |
-| WD | wd-208-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 208/ |
+| WD | wd-208-c | 2026 | ready |  |
