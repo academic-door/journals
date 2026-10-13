@@ -17,6 +17,11 @@ DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.I)
 PII_RE = re.compile(r"(?:^pii:|/pii/)([A-Z0-9]+)(?:[?/#]|$)", re.I)
 ISSUE_URL = re.compile(r"^/journal/[^/]+/vol/([^/]+)/suppl/([^/]+)/?$", re.I)
 METHODS = {"browser-authorized", "official-page-read", "official-issue-page"}
+PILOT_SLUGS = {
+    "jeem": "journal-of-environmental-economics-and-management",
+    "jie": "journal-of-international-economics",
+    "energy": "energy-economics",
+}
 
 
 def doi(value):
@@ -60,6 +65,10 @@ def reconcile(publisher, archive, *, last_verified_at=None):
         errors.append("invalid_official_issue_url")
     elif not issue.endswith("-" + match.group(1).lower() + "-" + match.group(2).lower()):
         errors.append("official_url_volume_issue_mismatch")
+    if journal not in PILOT_SLUGS:
+        errors.append("journal_outside_approved_pilot")
+    elif parsed.path.split("/")[2:3] != [PILOT_SLUGS[journal]]:
+        errors.append("official_url_journal_mismatch")
     method = str(publisher.get("method") or "")
     if method not in METHODS:
         errors.append("source_method_not_authorized")
@@ -77,6 +86,8 @@ def reconcile(publisher, archive, *, last_verified_at=None):
     if not computable:
         errors.append("publisher_rows_not_available")
         pub_items, pub_excluded = [], []
+    elif not pub_items and not pub_excluded:
+        errors.append("publisher_empty_roster_unverifiable")
     archive_items = archive.get("articles")
     archive_excluded = (archive.get("quality") or {}).get("excluded_items")
     if not isinstance(archive_items, list) or not isinstance(archive_excluded, list):
@@ -84,7 +95,7 @@ def reconcile(publisher, archive, *, last_verified_at=None):
         archive_items, archive_excluded = [], []
 
     seen_doi, seen_pii, seen_sequence = set(), set(), set()
-    research, excluded, types = [], [], {}
+    research, excluded, types, official_pii_by_doi = [], [], {}, {}
     for category, rows in (("research", pub_items), ("excluded", pub_excluded)):
         ordinals = []
         for row in rows:
@@ -106,6 +117,8 @@ def reconcile(publisher, archive, *, last_verified_at=None):
                 errors.append("publisher_duplicate_pii")
             else:
                 seen_pii.add(p)
+                if d:
+                    official_pii_by_doi[d] = p
             seq = row.get("source_sequence")
             if not isinstance(seq, int) or seq <= 0:
                 errors.append("publisher_ordinal_missing")
@@ -139,6 +152,19 @@ def reconcile(publisher, archive, *, last_verified_at=None):
     archived_ex = archive_dois(archive_excluded, "excluded")
     if set(archived) & set(archived_ex):
         errors.append("archive_type_identity_collision")
+    archive_pii_seen = set()
+    for row in archive_items + archive_excluded:
+        if not isinstance(row, dict):
+            continue
+        identifier = pii(row)
+        if not identifier:
+            continue  # Archive may legitimately lack first-party PII.
+        if identifier in archive_pii_seen:
+            errors.append("archive_duplicate_pii")
+        archive_pii_seen.add(identifier)
+        official_identifier = official_pii_by_doi.get(doi(row.get("doi")))
+        if official_identifier and identifier != official_identifier:
+            errors.append("publisher_archive_pii_conflict")
 
     pub_set, archive_set = set(research), set(archived)
     excluded_set, archived_ex_set = set(excluded), set(archived_ex)
