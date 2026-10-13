@@ -133,11 +133,16 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
     def test_publisher_observed_excluded_dois_survive_conversion(self) -> None:
         snapshot = self._snapshot()
         editorial_pii = "S0305750X26002026"
-        correction_pii = "S0305750X26002389"
+        correction_pii = "S0305750X2600149X"
         snapshot["items"][0]["doi"] = "10.1016/s0305-750x(26)00252-4"
         snapshot["items"][0]["doi_source"] = "official-article-page"
-        snapshot["items"][2]["doi"] = "10.1016/j.worlddev.2026.107540"
-        snapshot["items"][2]["doi_source"] = "official-article-page"
+        snapshot["items"].append({
+            "href": "https://www.sciencedirect.com/science/article/pii/" + correction_pii,
+            "title": "Corrigendum to an earlier study",
+            "box_text": "Corrigendum",
+            "doi": "10.1016/j.worlddev.2026.107540",
+            "doi_source": "official-article-page",
+        })
         with patch.object(capture, "apply_evidence"):
             evidence = capture.build_evidence(snapshot, self._staging_issue(), excluded_dois={})
         excluded = {row["source_id"]: row for row in evidence["excluded_items"]}
