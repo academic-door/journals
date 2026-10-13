@@ -173,8 +173,15 @@ class OfficialCurrentRosterTests(unittest.TestCase):
                 result, report = collect_one("ENERGY", CONFIG, translate=False)
             self.assertEqual(result["issue_id"], "energy-162-c")
             self.assertEqual(json.loads(target.read_text(encoding="utf-8")), previous)
-            self.assertIn("translation incomplete: 0/33", report["error"])
+            # Real translation-cache overlays can reuse any number of the
+            # 33 source-identical translations. A partial result must still
+            # preserve the last READY issue; it need not remain at 0/33.
             detected = json.loads((target.parent / "detected.json").read_text(encoding="utf-8"))
+            translated = detected["quality"]["translation_complete"]
+            self.assertGreaterEqual(translated, 0)
+            self.assertLess(translated, 33)
+            self.assertIn(f"translation incomplete: {translated}/33", report["error"])
+            self.assertIn("preserving the last complete public issue", report["error"])
             self.assertEqual(detected["source_status"], "official_verified")
             self.assertNotEqual(detected["publication_state"], "ready")
 
