@@ -130,6 +130,31 @@ class ScienceDirectBrowserRosterEvidenceTests(unittest.TestCase):
         self.assertEqual(issue["articles"][0]["title_en"], evidence["items"][0]["title_en"])
         self.assertEqual(official, evidence["items"][0]["official_display_title_en"])
 
+    def test_publisher_observed_excluded_dois_survive_conversion(self) -> None:
+        snapshot = self._snapshot()
+        editorial_pii = "S0305750X26002026"
+        correction_pii = "S0305750X26002389"
+        snapshot["items"][0]["doi"] = "10.1016/s0305-750x(26)00252-4"
+        snapshot["items"][0]["doi_source"] = "official-article-page"
+        snapshot["items"][2]["doi"] = "10.1016/j.worlddev.2026.107540"
+        snapshot["items"][2]["doi_source"] = "official-article-page"
+        with patch.object(capture, "apply_evidence"):
+            evidence = capture.build_evidence(snapshot, self._staging_issue(), excluded_dois={})
+        excluded = {row["source_id"]: row for row in evidence["excluded_items"]}
+        self.assertEqual(excluded["pii:" + editorial_pii]["doi"],
+                         "10.1016/s0305-750x(26)00252-4")
+        self.assertEqual(excluded["pii:" + correction_pii]["doi"],
+                         "10.1016/j.worlddev.2026.107540")
+
+    def test_conflicting_excluded_doi_mapping_fails_closed(self) -> None:
+        snapshot = self._snapshot()
+        snapshot["items"][0]["doi"] = "10.1016/s0305-750x(26)00252-4"
+        with self.assertRaisesRegex(ValueError, "excluded DOI identity conflict"):
+            capture.build_evidence(
+                snapshot, self._staging_issue(),
+                excluded_dois={"S0305750X26002026": "10.1016/j.worlddev.2026.999999"},
+            )
+
     def test_explicit_nonresearch_types_are_excluded(self) -> None:
         issue = self._staging_issue()
         snapshot = self._snapshot()
