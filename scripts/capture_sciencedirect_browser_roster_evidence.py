@@ -242,11 +242,18 @@ def build_evidence(
             continue
         if article_type not in ALLOWED_EXCLUDED_TYPES:
             raise ValueError(f"unclassified official browser item {pii}")
-        doi = (
-            str(article["doi"]).strip().casefold()
-            if article is not None
-            else str(excluded_dois.get(pii, "")).strip().casefold()
+        # Publisher-observed excluded-item DOIs must survive conversion.
+        # Earlier conversion dropped the DOI for an unarchived correction even
+        # when the immutable official browser snapshot already recorded it.
+        # If two independent DOI identity surfaces disagree, fail closed.
+        archived_doi = (
+            str(article.get("doi", "")).strip().casefold() if article is not None else ""
         )
+        mapped_doi = str(excluded_dois.get(pii, "")).strip().casefold()
+        doi_candidates = {v for v in (archived_doi, browser_doi, mapped_doi) if v}
+        if len(doi_candidates) > 1:
+            raise ValueError(f"excluded DOI identity conflict for official PII {pii}")
+        doi = next(iter(doi_candidates), "")
         excluded_item = {
             "title_en": title,
             "reason": f"official-{article_type}",
