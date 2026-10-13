@@ -157,5 +157,26 @@ class PublisherCoverageSentinelTests(unittest.TestCase):
                       result["verification_errors"])
 
 
+    def test_empty_roster_and_unrelated_journal_url_fail_closed(self):
+        publisher, archive = self.energy_case()
+        empty = copy.deepcopy(publisher)
+        empty["items"], empty["excluded_items"], empty["excluded_item_count"] = [], [], 0
+        result = reconcile(empty, archive)
+        self.assertEqual("verification_blocked", result["publisher_coverage"])
+        self.assertIn("publisher_empty_roster_unverifiable", result["verification_errors"])
+        misplaced = copy.deepcopy(publisher)
+        misplaced["official_url"] = ("https://www.sciencedirect.com/journal/"
+                                     "journal-of-international-economics/vol/163/suppl/C")
+        result = reconcile(misplaced, archive)
+        self.assertIn("official_url_journal_mismatch", result["verification_errors"])
+
+    def test_archive_pii_conflict_fails_closed(self):
+        publisher, archive = self.energy_case()
+        archive["articles"][0]["source_url"] = publisher["items"][1]["official_article_url"]
+        result = reconcile(publisher, archive)
+        self.assertIn("publisher_archive_pii_conflict", result["verification_errors"])
+        self.assertEqual("verification_blocked", result["publisher_coverage"])
+
+
 if __name__ == "__main__":
     unittest.main()
