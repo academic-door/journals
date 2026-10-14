@@ -2565,7 +2565,20 @@ def fetch_crossref_current_issue(
     for sequence, item in enumerate(research_items, start=1):
         doi = str(item.get("DOI", "")).strip().lower()
         title = _clean_markup(_first(item.get("title")))
-        abstract = _clean_markup(str(item.get("abstract", "")))
+        raw_abstract = str(item.get("abstract", ""))
+        abstract = _clean_markup(raw_abstract)
+        # Crossref JATS often starts with <jats:title>Abstract</jats:title>.
+        # This is a structural heading, not the article's abstract text.
+        # Remove only that explicit XML heading, never a genuine first word.
+        if (
+            re.match(
+                r"^\s*<jats:title>\s*Abstract\s*</jats:title>",
+                raw_abstract,
+                flags=re.IGNORECASE,
+            )
+            and abstract.startswith("Abstract ")
+        ):
+            abstract = abstract[len("Abstract "):]
         abstract_source = "crossref" if abstract else ""
         elsevier_url = ""
         elsevier_lookup: dict[str, Any] = {}
