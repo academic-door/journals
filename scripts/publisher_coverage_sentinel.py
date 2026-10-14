@@ -118,7 +118,7 @@ def reconcile(publisher, archive, *, last_verified_at=None):
             source_parsed = urlparse(source_link)
             if (source_parsed.scheme != "https"
                     or source_parsed.hostname != "www.sciencedirect.com"
-                    or not source_parsed.path.startswith("/science/article/pii/")
+                    or not re.fullmatch(r"/science/article/pii/[A-Z0-9]+", source_parsed.path, re.I)
                     or not p):
                 errors.append("publisher_article_source_invalid")
             if strict_capture:
@@ -195,6 +195,21 @@ def reconcile(publisher, archive, *, last_verified_at=None):
     archived_ex = archive_dois(archive_excluded, "excluded")
     if set(archived) & set(archived_ex):
         errors.append("archive_type_identity_collision")
+    wrong_archive_research_type = sorted({
+        doi(row.get("doi")) for row in archive_items
+        if isinstance(row, dict) and row.get("article_type")
+        and str(row["article_type"]).casefold() not in {
+            "research-article", "comment", "response", "review-article",
+            "short-communication", "discussion", "data-article",
+        } and doi(row.get("doi"))
+    })
+    wrong_archive_excluded_type = sorted({
+        doi(row.get("doi")) for row in archive_excluded
+        if isinstance(row, dict) and row.get("article_type")
+        and str(row["article_type"]).casefold() in {
+            "research-article", "review-article", "short-communication",
+        } and doi(row.get("doi"))
+    })
     archive_pii_seen = set()
     for row in archive_items + archive_excluded:
         if not isinstance(row, dict):
@@ -226,6 +241,8 @@ def reconcile(publisher, archive, *, last_verified_at=None):
         "research_misclassified_as_excluded": sorted(pub_set & archived_ex_set),
         "nonresearch_misclassified_as_research": sorted(excluded_set & archive_set),
         "publisher_subtype_mismatch_dois": subtype_delta,
+        "archive_research_type_mismatch_dois": wrong_archive_research_type,
+        "archive_excluded_type_mismatch_dois": wrong_archive_excluded_type,
         "research_order_mismatch": wrong_order,
         "publisher_research_order": research,
         "archive_research_order": archived,
@@ -239,7 +256,8 @@ def reconcile(publisher, archive, *, last_verified_at=None):
         "missing_research_dois", "extra_archived_research_dois",
         "missing_exclusion_dois", "extra_archived_exclusion_dois",
         "research_misclassified_as_excluded", "nonresearch_misclassified_as_research",
-        "publisher_subtype_mismatch_dois")) or wrong_order)
+        "publisher_subtype_mismatch_dois", "archive_research_type_mismatch_dois",
+        "archive_excluded_type_mismatch_dois")) or wrong_order)
     errors = sorted(set(errors))
     status = "verification_blocked" if errors else ("publisher_changed" if changed else "reconciled_as_of")
     return {
