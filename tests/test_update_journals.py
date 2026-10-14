@@ -23,6 +23,7 @@ from scripts.update_journals import (
     merge_issue_audit_metadata,
     order_verification_status,
     prefer_ready_archive,
+    preserve_existing_content,
     select_display_issue,
     write_archive_index,
     write_search_indexes,
@@ -1387,6 +1388,61 @@ class LatestIssuePreferenceTests(unittest.TestCase):
         )
 
 
+
+
+
+class CrossrefAbstractLabelRecoveryTests(unittest.TestCase):
+    def source(self, abstract, *, provider="crossref", title="QJE guaranteed income"):
+        return {
+            "issue_id": "qje-141-4", "journal_id": "qje",
+            "research_article_count": 1,
+            "articles": [{
+                "doi": "10.1093/qje/qjag042",
+                "title_en": title, "abstract_en": abstract,
+                "abstract_cn": "", "title_cn": "",
+                "sources": {"abstract_en": provider},
+                "translation": {"status": "missing"},
+                "quality_flags": ["title_cn_missing", "abstract_cn_missing"],
+                "authors": ["Researcher"],
+            }],
+            "quality": {"flags": [], "abstract_en_complete": 1},
+        }
+
+    def baseline(self):
+        old = self.source("A fully validated abstract with 4.2 percentage points and 1–2 hours.")
+        a = old["articles"][0]
+        a["title_cn"] = "已验证的中文标题"
+        a["abstract_cn"] = "已验证的中文摘要含4.2个百分点和1至2小时。"
+        a["translation"] = {"status": "complete", "source_hash": "existing-sha"}
+        return old
+
+    def test_exact_crossref_display_heading_reuses_unchanged_verified_content(self):
+        old = self.baseline()
+        fresh = self.source("Abstract " + old["articles"][0]["abstract_en"])
+        result = preserve_existing_content(fresh, old)["articles"][0]
+        self.assertEqual(old["articles"][0]["abstract_en"], result["abstract_en"])
+        self.assertEqual(old["articles"][0]["abstract_cn"], result["abstract_cn"])
+        self.assertEqual("complete", result["translation"]["status"])
+
+    def test_real_abstract_change_remains_fail_closed(self):
+        old = self.baseline()
+        fresh = self.source("Abstract A fully validated abstract with 5.2 percentage points and 1–2 hours.")
+        result = preserve_existing_content(fresh, old)["articles"][0]
+        self.assertNotEqual(old["articles"][0]["abstract_en"], result["abstract_en"])
+        self.assertFalse(result["abstract_cn"])
+        self.assertNotEqual("complete", result["translation"]["status"])
+
+    def test_non_crossref_or_changed_title_never_reuses_heading(self):
+        old = self.baseline()
+        for changes in [
+            {"provider": "publisher-api"},
+            {"title": "Different paper"},
+        ]:
+            with self.subTest(changes=changes):
+                fresh = self.source("Abstract " + old["articles"][0]["abstract_en"], **changes)
+                result = preserve_existing_content(fresh, old)["articles"][0]
+                self.assertTrue(result["abstract_en"].startswith("Abstract "))
+                self.assertFalse(result["abstract_cn"])
 
 
 if __name__ == "__main__":
