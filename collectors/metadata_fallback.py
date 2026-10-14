@@ -2572,7 +2572,7 @@ def fetch_crossref_current_issue(
         # Remove only that explicit XML heading, never a genuine first word.
         if (
             re.match(
-                r"^\\s*<jats:title>\\s*Abstract\\s*</jats:title>",
+                r"^\s*<jats:title>\s*Abstract\s*</jats:title>",
                 raw_abstract,
                 flags=re.IGNORECASE,
             )
