@@ -1432,17 +1432,25 @@ class CrossrefAbstractLabelRecoveryTests(unittest.TestCase):
         self.assertFalse(result["abstract_cn"])
         self.assertNotEqual("complete", result["translation"]["status"])
 
-    def test_non_crossref_or_changed_title_never_reuses_heading(self):
+    def test_changed_title_never_reuses_prior_translation(self):
         old = self.baseline()
-        for changes in [
-            {"provider": "publisher-api"},
-            {"title": "Different paper"},
-        ]:
-            with self.subTest(changes=changes):
-                fresh = self.source("Abstract " + old["articles"][0]["abstract_en"], **changes)
-                result = preserve_existing_content(fresh, old)["articles"][0]
-                self.assertFalse(result["abstract_cn"])
-                self.assertNotEqual("complete", result["translation"]["status"])
+        fresh = self.source(
+            "Abstract " + old["articles"][0]["abstract_en"],
+            title="Different paper",
+        )
+        result = preserve_existing_content(fresh, old)["articles"][0]
+        self.assertFalse(result["abstract_cn"])
+        self.assertNotEqual("complete", result["translation"]["status"])
+
+    def test_existing_label_cleanup_is_source_agnostic_if_bytes_identical(self):
+        old = self.baseline()
+        fresh = self.source(
+            "Abstract " + old["articles"][0]["abstract_en"],
+            provider="publisher-api",
+        )
+        result = preserve_existing_content(fresh, old)["articles"][0]
+        self.assertEqual(old["articles"][0]["abstract_en"], result["abstract_en"])
+        self.assertEqual(old["articles"][0]["abstract_cn"], result["abstract_cn"])
 
 
 if __name__ == "__main__":
