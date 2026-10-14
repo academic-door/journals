@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-14T08:34:21+00:00",
+  "updated_at": "2026-10-14T12:37:59+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
-    "official_page_verified": 14,
+    "official_page_verified": 15,
     "publisher_feed_verified": 21,
-    "fallback_verified": 14,
+    "fallback_verified": 13,
     "needs_attention": 0,
     "missing": 0,
     "invariant_errors": 0
@@ -1808,26 +1808,26 @@
       "name": "World Development",
       "publisher": "Elsevier",
       "configured_source": "https://www.sciencedirect.com/journal/world-development/issues",
-      "status": "fallback_verified",
+      "status": "official_page_verified",
       "current": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "wd-208-c",
         "publication_date": "December 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/world-development/vol/208/suppl/C",
-        "roster_authority": "repec-publisher-supplied",
-        "roster_transport": "repec-serial-page",
-        "order_verified": false,
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 32,
-          "observed_items": 32,
+          "official_items": 33,
+          "observed_items": 33,
           "publishable_items": 29,
           "research_articles": 29,
           "comments": 0,
           "short_communications": 0,
           "corrections": 3,
-          "editorial_material": 0,
+          "editorial_material": 1,
           "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 32
@@ -1835,29 +1835,27 @@
         "abstracts_complete": 29,
         "translations_complete": 29,
         "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
+        "warnings": []
       },
       "detected": {
         "available": true,
-        "status": "fallback_verified",
+        "status": "official_page_verified",
         "issue_id": "wd-208-c",
         "publication_date": "December 2026",
         "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/world-development/vol/208/suppl/C",
-        "roster_authority": "repec-publisher-supplied",
-        "roster_transport": "repec-serial-page",
-        "order_verified": false,
+        "roster_authority": "official-issue-page",
+        "roster_transport": "browser-authorized",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 32,
-          "observed_items": 32,
+          "official_items": 33,
+          "observed_items": 33,
           "publishable_items": 29,
           "research_articles": 29,
           "comments": 0,
           "short_communications": 0,
           "corrections": 3,
-          "editorial_material": 0,
+          "editorial_material": 1,
           "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 32
@@ -1865,9 +1863,7 @@
         "abstracts_complete": 29,
         "translations_complete": 29,
         "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
+        "warnings": []
       }
     },
     {
