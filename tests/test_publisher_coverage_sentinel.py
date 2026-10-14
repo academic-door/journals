@@ -67,6 +67,68 @@ class PublisherCoverageSentinelTests(unittest.TestCase):
                          result["diff"]["missing_research_dois"])
         self.assertEqual("verification_blocked", result["publisher_coverage"])
 
+
+    def official_case(self, key):
+        source = ROOT / "tests/fixtures/publisher_coverage_official_browser_2026_10_14.json"
+        cases = json.loads(source.read_text(encoding="utf-8"))["cases"]
+        record = copy.deepcopy(cases[key])
+        return record["publisher"], record["archive"]
+
+    def test_official_jeem_five_missing_two_exclusions_with_verified_roster(self):
+        pub, arc = self.official_case("jeem_140")
+        result = reconcile(pub, arc)
+        self.assertEqual("publisher_changed", result["publisher_coverage"])
+        self.assertEqual([], result["verification_errors"])
+        self.assertFalse(result["diagnostic_only"])
+        self.assertEqual((9, 4, 2, 0), (
+            result["publisher_research_count"], result["archive_research_count"],
+            result["publisher_excluded_count"], result["archive_excluded_count"]))
+        self.assertEqual({
+            "10.1016/j.jeem.2026." + suffix
+            for suffix in ("103411", "103399", "103400", "103412", "103410")
+        }, set(result["diff"]["missing_research_dois"]))
+        self.assertEqual({
+            "10.1016/s0095-0696(26)00141-5", "10.1016/j.jeem.2026.103394"
+        }, set(result["diff"]["missing_exclusion_dois"]))
+        self.assertFalse(result["diff"]["research_order_mismatch"])
+
+    def test_official_jie_eight_exact_with_order_and_board_delta(self):
+        pub, arc = self.official_case("jie_163")
+        result = reconcile(pub, arc)
+        self.assertEqual("publisher_changed", result["publisher_coverage"])
+        self.assertEqual([], result["verification_errors"])
+        self.assertFalse(result["diagnostic_only"])
+        self.assertEqual([], result["diff"]["missing_research_dois"])
+        self.assertEqual([], result["diff"]["extra_archived_research_dois"])
+        self.assertEqual(["10.1016/s0022-1996(26)00094-2"],
+                         result["diff"]["missing_exclusion_dois"])
+        self.assertTrue(result["diff"]["research_order_mismatch"])
+        self.assertEqual(8, result["publisher_research_count"])
+
+    def test_official_browser_provenance_and_identity_fail_closed(self):
+        pub, arc = self.official_case("jie_163")
+        variations = [
+            ("missing timestamp", lambda p: p.pop("captured_at"), "publisher_observed_at_missing_or_invalid"),
+            ("candidate DOI", lambda p: p["items"][0].update(doi_source="crossref-candidate"),
+             "publisher_doi_source_unqualified"),
+            ("missing DOI evidence", lambda p: p["items"][0].pop("doi_evidence_ref"),
+             "publisher_doi_provenance_missing"),
+            ("untrusted article url", lambda p: p["items"][0].update(
+                official_article_url="https://example.com/science/article/pii/S0022199625001606"),
+             "publisher_article_source_invalid"),
+            ("contradictory subtype", lambda p: p["items"][0].update(
+                publisher_article_type="editorial"), "publisher_publishable_type_unclassified"),
+            ("bad excluded subtype", lambda p: p["excluded_items"][0].update(
+                article_type="research-article"), "publisher_excluded_type_unclassified"),
+        ]
+        for title, mutate, expected in variations:
+            with self.subTest(title=title):
+                payload = copy.deepcopy(pub)
+                mutate(payload)
+                result = reconcile(payload, arc)
+                self.assertEqual("verification_blocked", result["publisher_coverage"])
+                self.assertIn(expected, result["verification_errors"])
+
     def test_energy_exact_thirty_three_plus_one_correction(self):
         publisher, archive = self.energy_case()
         result = reconcile(publisher, archive)
