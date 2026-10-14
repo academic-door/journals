@@ -1435,5 +1435,40 @@ class ElsevierQuotaTest(unittest.TestCase):
         self.assertEqual(abstract, _strip_abstract_footnotes(abstract))
 
 
+
+class CrossrefJatsAbstractHeadingTests(unittest.TestCase):
+    def test_jats_abstract_heading_is_not_semantic_abstract_text(self):
+        items = [
+            item("Employment effects of guaranteed income", "1", "10.1093/qje/qjag042"),
+            item("Other genuine paper", "2", "10.1093/qje/qjag043"),
+        ]
+        items[0]["abstract"] = (
+            "<jats:title>Abstract</jats:title><jats:p>"
+            "Transfers changed labor force participation by 4.2 percentage points."
+            "</jats:p>"
+        )
+        items[1]["abstract"] = (
+            "<jats:p>Abstract reasoning is part of this genuine paragraph.</jats:p>"
+        )
+        result = fetch_crossref_current_issue(
+            journal_id="qje",
+            journal_name="The Quarterly Journal of Economics",
+            issn="0033-5533",
+            current_issue_url="https://academic.oup.com/qje/issue",
+            session=Session(items),
+            target_volume="10",
+            target_issue="2",
+        )
+        rows = {a["doi"]: a["abstract_en"] for a in result["articles"]}
+        self.assertEqual(
+            "Transfers changed labor force participation by 4.2 percentage points.",
+            rows["10.1093/qje/qjag042"],
+        )
+        self.assertEqual(
+            "Abstract reasoning is part of this genuine paragraph.",
+            rows["10.1093/qje/qjag043"],
+        )
+
+
 if __name__ == "__main__":
     unittest.main()
