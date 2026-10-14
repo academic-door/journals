@@ -209,6 +209,18 @@ class PublisherCoverageSentinelTests(unittest.TestCase):
         self.assertEqual([pub["items"][0]["doi"]],
                          result["diff"]["publisher_subtype_mismatch_dois"])
 
+
+    def test_archived_broad_type_mismatches_are_diagnostic_deltas(self):
+        publisher, archive = self.energy_case()
+        archive["articles"][0]["article_type"] = "editorial"
+        archive["quality"]["excluded_items"][0]["article_type"] = "research-article"
+        result = reconcile(publisher, archive)
+        self.assertEqual("publisher_changed", result["publisher_coverage"])
+        self.assertEqual([publisher["items"][0]["doi"]],
+                         result["diff"]["archive_research_type_mismatch_dois"])
+        self.assertEqual([publisher["excluded_items"][0]["doi"]],
+                         result["diff"]["archive_excluded_type_mismatch_dois"])
+
     def test_url_volume_mismatch_fails_closed(self):
         pub, archive = self.energy_case()
         pub["official_url"] = ("https://www.sciencedirect.com/journal/"
