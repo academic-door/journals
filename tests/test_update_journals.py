@@ -1441,8 +1441,8 @@ class CrossrefAbstractLabelRecoveryTests(unittest.TestCase):
             with self.subTest(changes=changes):
                 fresh = self.source("Abstract " + old["articles"][0]["abstract_en"], **changes)
                 result = preserve_existing_content(fresh, old)["articles"][0]
-                self.assertTrue(result["abstract_en"].startswith("Abstract "))
                 self.assertFalse(result["abstract_cn"])
+                self.assertNotEqual("complete", result["translation"]["status"])
 
 
 if __name__ == "__main__":
