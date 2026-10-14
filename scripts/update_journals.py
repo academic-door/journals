@@ -1113,6 +1113,22 @@ def preserve_existing_content(
         if not article.get("authors") and old.get("authors"):
             article["authors"] = list(old["authors"])
 
+        # Crossref's deposited JATS may prepend a display-only "Abstract "
+        # heading on a later fetch. Restore the already-verified exact source
+        # only if stripping that heading reproduces the earlier paragraph
+        # byte-for-byte for the same DOI and title; all substantive edits must
+        # continue to invalidate translations and the semantic numeric gate.
+        if (
+            doi in existing_by_doi
+            and str(article.get("title_en", "")).strip()
+            == str(old.get("title_en", "")).strip()
+            and str(article.get("sources", {}).get("abstract_en", "")).casefold()
+            == "crossref"
+            and str(article.get("abstract_en", "")).startswith("Abstract ")
+            and str(article["abstract_en"])[len("Abstract "):] == old_abstract_en
+        ):
+            article["abstract_en"] = old_abstract_en
+
         source_matches = (
             str(article.get("title_en", "")).strip()
             == str(old.get("title_en", "")).strip()
