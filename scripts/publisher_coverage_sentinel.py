@@ -80,6 +80,7 @@ def reconcile(publisher, archive, *, last_verified_at=None):
     if publisher.get("finalized") is False:
         errors.append("publisher_observation_not_final")
 
+    strict_capture = publisher.get("capture_mode") == "official-browser-accessibility-roster"
     pub_items = publisher.get("items")
     pub_excluded = publisher.get("excluded_items")
     computable = isinstance(pub_items, list) and isinstance(pub_excluded, list)
@@ -111,6 +112,48 @@ def reconcile(publisher, archive, *, last_verified_at=None):
                 seen_doi.add(d)
                 (research if category == "research" else excluded).append(d)
                 types[d] = str(row.get("publisher_article_type") or row.get("article_type") or row.get("reason") or category)
+            # Source identity must be the publisher article page, not merely a
+            # plausible PII string assembled from candidate metadata.
+            source_link = str(row.get("official_article_url") or row.get("source_url") or row.get("href") or "")
+            source_parsed = urlparse(source_link)
+            if (source_parsed.scheme != "https"
+                    or source_parsed.hostname != "www.sciencedirect.com"
+                    or not source_parsed.path.startswith("/science/article/pii/")
+                    or not p):
+                errors.append("publisher_article_source_invalid")
+            if strict_capture:
+                source_kind = str(row.get("doi_source") or "")
+                evidence_ref = str(row.get("doi_evidence_ref") or "")
+                if (not source_kind or not evidence_ref
+                        or not evidence_ref.startswith("https://")):
+                    errors.append("publisher_doi_provenance_missing")
+                elif source_kind.startswith("official-sciencedirect-article-"):
+                    if evidence_ref != source_link:
+                        errors.append("publisher_doi_evidence_mismatch")
+                elif source_kind == "existing-canonical-archive-pii-linked":
+                    if not re.fullmatch(
+                        r"https://github\.com/academic-door/journals/blob/[0-9a-f]{40}/public/api/v1/journals/[^/]+/issues/[^/]+\.json",
+                        evidence_ref,
+                    ):
+                        errors.append("publisher_doi_evidence_mismatch")
+                elif source_kind.startswith("owner-first-party-verified-"):
+                    if not re.fullmatch(
+                        r"https://github\.com/academic-door/journals/issues/[0-9]+",
+                        evidence_ref,
+                    ):
+                        errors.append("publisher_doi_evidence_mismatch")
+                else:
+                    errors.append("publisher_doi_source_unqualified")
+                if category == "research" and str(row.get("publisher_article_type") or "").lower() not in {
+                    "research article", "review article", "mini review", "short communication",
+                    "full length article", "data article", "discussion",
+                }:
+                    errors.append("publisher_publishable_type_unclassified")
+                if category == "excluded" and str(row.get("article_type") or "").lower() not in {
+                    "editorial", "correction", "book-review", "obituary",
+                    "publisher-note", "news", "announcement",
+                }:
+                    errors.append("publisher_excluded_type_unclassified")
             if not p:
                 errors.append("publisher_pii_missing_or_conflicting")
             elif p in seen_pii:
