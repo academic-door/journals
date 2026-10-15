@@ -1361,7 +1361,10 @@ def apply_configured_current_roster(
 ) -> dict[str, Any]:
     if not config.get("official_roster_evidence_path"):
         return issue
-    from scripts.official_current_roster import apply_current_roster
+    if key == "RESTAT" and config.get("id") == "restat":
+        from scripts.restat_current_roster import apply_restat_current_roster as apply_current_roster
+    else:
+        from scripts.official_current_roster import apply_current_roster
 
     state = read_json(MONITOR_STATE_PATH) or {}
     monitored = state.get("journals", {}).get(key, {}).get("candidate", {})
