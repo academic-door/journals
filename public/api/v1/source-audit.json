@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-15T08:17:39+00:00",
+  "updated_at": "2026-10-15T10:44:15+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 49,
-    "official_page_verified": 15,
+    "official_page_verified": 16,
     "publisher_feed_verified": 21,
-    "fallback_verified": 13,
+    "fallback_verified": 12,
     "needs_attention": 0,
     "missing": 0,
     "invariant_errors": 0
@@ -1871,7 +1871,7 @@
       "name": "The Review of Economics and Statistics",
       "publisher": "MIT Press",
       "configured_source": "https://direct.mit.edu/rest/issue",
-      "status": "fallback_verified",
+      "status": "official_page_verified",
       "current": {
         "available": true,
         "status": "official_page_verified",
@@ -1902,32 +1902,32 @@
       },
       "detected": {
         "available": true,
-        "status": "fallback_verified",
-        "issue_id": "restat-108-4",
-        "publication_date": "July 2026",
-        "publication_state": "ready",
-        "source_url": "https://direct.mit.edu/rest/issue",
-        "roster_authority": "crossref-provisional",
-        "roster_transport": "crossref",
-        "order_verified": false,
+        "status": "official_page_verified",
+        "issue_id": "restat-108-5",
+        "publication_date": "September 2026",
+        "publication_state": "translation_partial",
+        "source_url": "https://direct.mit.edu/rest/issue/108/5",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-page-read",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 22,
-          "observed_items": 22,
-          "publishable_items": 21,
+          "official_items": 24,
+          "observed_items": 24,
+          "publishable_items": 23,
           "research_articles": 21,
-          "comments": 0,
+          "comments": 2,
           "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 1,
+          "corrections": 1,
+          "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 21
+          "catalog_content_items": 24
         },
-        "abstracts_complete": 21,
-        "translations_complete": 21,
+        "abstracts_complete": 23,
+        "translations_complete": 22,
         "errors": [],
         "warnings": [
-          "crossref_provisional_roster"
+          "translation_incomplete"
         ]
       }
     },
