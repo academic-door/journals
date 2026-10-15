@@ -17,7 +17,7 @@ from urllib.parse import urlparse
 from scripts.import_official_roster_evidence import validate_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
-OLD = ROOT / "data/provenance/official-rosters/sciencedirect/energy-163-c.json"
+OLD = ROOT / "tests/fixtures/energy_163_official_previous_2026_10_12.json"
 CURRENT = ROOT / "tests/fixtures/energy_163_official_browser_2026_10_15.json"
 NEW = {
     "10.1016/j.eneco.2026.109642": "S0140988326005220",
