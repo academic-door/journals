@@ -16,7 +16,7 @@ from scripts.publisher_coverage_sentinel import reconcile
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ROOT / "tests/fixtures/publisher_coverage_issue_diagnostics.json"
-ENERGY = ROOT / "data/provenance/official-rosters/sciencedirect/energy-163-c.json"
+ENERGY = ROOT / "data/provenance/official-rosters/sciencedirect/history/energy-163-c-2026-10-12.json"
 
 
 class PublisherCoverageSentinelTests(unittest.TestCase):
