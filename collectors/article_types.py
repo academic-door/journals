@@ -23,6 +23,15 @@ OFFICIAL_NO_ABSTRACT_STATUS = "official_not_provided"
 # by a durable official-page evidence record in the owner repository.
 OFFICIAL_NO_ABSTRACT_EXCEPTIONS: dict[tuple[str, str], dict[str, str]] = {
     (
+        "restat-108-5",
+        "10.1162/rest.x.1825",
+    ): {
+        "title_cn": "对《提高孟加拉国与印度农村社区健康认知的随机试验》评论的回应（Siddique 等，2024）",
+        "abstract_note": "MIT Press RESTAT 108(5) 官方 Response 文章页未提供独立 Abstract；该项目归为有标题的 Comment，不得编造摘要。",
+        "source_url": "https://direct.mit.edu/rest/article/108/5/1468/138995/Response-to-the-Comment-on-Raising-Health",
+    },
+
+    (
         "jpe-131-10",
         "10.1086/725793",
     ): {
@@ -212,6 +221,7 @@ SHORT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 COMMENT_PATTERN = re.compile(
+    r"^\\s*response\\s+to\\s+the\\s+comment\\b|"
     r"\ba\s+comment\b|^\s*comments?(?:\s+on)?\b|"
     r"^\s*reply(?:\s+to)?\b|:\s*(?:a\s+)?comments?\s*$|"
     r":\s*reply\s*$|\bdiscussion\b",
