@@ -678,7 +678,8 @@ _EN_PERCENTAGE_POINTS_RE = re.compile(
 _EN_WRITTEN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z])"
     r"(?P<amount>" + _EN_CARD_PATTERN + r")"
-    r"\s*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
+    # Written number and unit must be separated: "app" is not "a pp" (1%).
+    r"(?:\s+|-)(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
 )
 _EN_DECADE_AND_HALF_RE = re.compile(
     r"(?i)(?<![A-Za-z])(?:a\s+|one\s+)?decade\s+and\s+a\s+half\b"
