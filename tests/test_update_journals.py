@@ -1442,6 +1442,52 @@ class CrossrefAbstractLabelRecoveryTests(unittest.TestCase):
         self.assertFalse(result["abstract_cn"])
         self.assertNotEqual("complete", result["translation"]["status"])
 
+    def test_cache_diagnostic_reports_only_metadata_and_preserves_gate(self):
+        import io
+        import tempfile
+        from contextlib import redirect_stdout
+        from pathlib import Path
+
+        issue = self.source(
+            "A full source paragraph with 4.2 percentage points in QJE."
+        )
+        doi = issue["articles"][0]["doi"]
+        entry = {
+            "title_cn": "严格验证的中文标题",
+            "abstract_cn": "严格验证的中文摘要。",
+            "source_hash": "different-source-sha256",
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "qje.json"
+            path.write_text(json.dumps({doi: entry}), encoding="utf-8")
+            buf = io.StringIO()
+            with redirect_stdout(buf):
+                result = apply_translation_cache(issue, cache_path=path)
+            line = buf.getvalue()
+        self.assertIn("reason=source_hash_mismatch", line)
+        self.assertIn(doi, line)
+        self.assertIn("cached_sha256=different-source-sha256", line)
+        self.assertNotIn("严格验证的中文摘要", line)
+        self.assertNotIn("A full source paragraph", line)
+        self.assertFalse(result["articles"][0]["abstract_cn"])
+        self.assertEqual(0, result["quality"]["translation_complete"])
+
+    def test_cache_diagnostic_missing_does_not_invent_translation(self):
+        import io
+        import tempfile
+        from contextlib import redirect_stdout
+        from pathlib import Path
+
+        issue = self.source("A sufficiently complete research abstract.")
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "qje.json"
+            path.write_text("{}", encoding="utf-8")
+            buf = io.StringIO()
+            with redirect_stdout(buf):
+                result = apply_translation_cache(issue, cache_path=path)
+        self.assertIn("[translation-cache] missing", buf.getvalue())
+        self.assertEqual(0, result["quality"]["translation_complete"])
+
     def test_existing_label_cleanup_is_source_agnostic_if_bytes_identical(self):
         old = self.baseline()
         fresh = self.source(

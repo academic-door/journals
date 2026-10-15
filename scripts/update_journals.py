@@ -299,6 +299,28 @@ def apply_translation_cache(
         article["abstract_cn"] = clean_abstract_label(article.get("abstract_cn"))
         translated = cache.get(article.get("doi", ""), {})
         cache_hash = str(translated.get("source_hash", ""))
+        # Only metadata: a rejected cache entry should be diagnosable
+        # without logging source texts, Chinese translations, or secrets.
+        if not translation_is_complete(article):
+            if not translated:
+                print(
+                    f"[translation-cache] missing doi={article.get('doi', '')} "
+                    f"cache={cache_path.name} source_sha256={_source_hash(article)}",
+                    flush=True,
+                )
+            elif not _translation_payload_is_current(article, translated):
+                reason = (
+                    "source_hash_mismatch"
+                    if cache_hash and cache_hash != _source_hash(article)
+                    else "semantic_or_structural_validation"
+                )
+                print(
+                    f"[translation-cache] rejected doi={article.get('doi', '')} "
+                    f"reason={reason} source_sha256={_source_hash(article)} "
+                    f"cached_sha256={cache_hash or 'unset'} "
+                    f"english_chars={len(str(article.get('abstract_en', '')))}",
+                    flush=True,
+                )
         cache_is_stale = bool(cache_hash and cache_hash != _source_hash(article))
         embedded_matches_cache = (
             article.get("title_cn") == translated.get("title_cn")
