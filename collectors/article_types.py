@@ -221,7 +221,7 @@ SHORT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 COMMENT_PATTERN = re.compile(
-    r"^\\s*response\\s+to\\s+the\\s+comment\\b|"
+    r"^\s*response\s+to\s+the\s+comment\b|"
     r"\ba\s+comment\b|^\s*comments?(?:\s+on)?\b|"
     r"^\s*reply(?:\s+to)?\b|:\s*(?:a\s+)?comments?\s*$|"
     r":\s*reply\s*$|\bdiscussion\b",
