@@ -16,7 +16,8 @@ from scripts.publisher_coverage_sentinel import reconcile
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ROOT / "tests/fixtures/publisher_coverage_issue_diagnostics.json"
-ENERGY = ROOT / "data/provenance/official-rosters/sciencedirect/energy-163-c.json"
+ENERGY = ROOT / "data/provenance/official-rosters/sciencedirect/history/energy-163-c-2026-10-12.json"
+ENERGY_CURRENT = ROOT / "data/provenance/official-rosters/sciencedirect/energy-163-c.json"
 
 
 class PublisherCoverageSentinelTests(unittest.TestCase):
@@ -128,6 +129,30 @@ class PublisherCoverageSentinelTests(unittest.TestCase):
                 result = reconcile(payload, arc)
                 self.assertEqual("verification_blocked", result["publisher_coverage"])
                 self.assertIn(expected, result["verification_errors"])
+
+    def test_energy_live_thirty_seven_vs_33_archive_detects_exact_four(self):
+        previous, archive = self.energy_case()
+        publisher = json.loads(ENERGY_CURRENT.read_text(encoding="utf-8"))
+        result = reconcile(publisher, archive, last_verified_at=previous["captured_at"])
+        self.assertEqual("publisher_changed", result["publisher_coverage"])
+        self.assertFalse(result["diagnostic_only"])
+        self.assertEqual([], result["verification_errors"])
+        self.assertEqual((37, 33, 1, 1), (
+            result["publisher_research_count"],
+            result["archive_research_count"],
+            result["publisher_excluded_count"],
+            result["archive_excluded_count"],
+        ))
+        self.assertEqual({
+            "10.1016/j.eneco.2026.109642",
+            "10.1016/j.eneco.2026.109643",
+            "10.1016/j.eneco.2026.109640",
+            "10.1016/j.eneco.2026.109646",
+        }, set(result["diff"]["missing_research_dois"]))
+        self.assertEqual([], result["diff"]["extra_archived_research_dois"])
+        self.assertEqual([], result["diff"]["missing_exclusion_dois"])
+        self.assertFalse(result["diff"]["research_order_mismatch"])
+        self.assertNotEqual(previous["captured_at"], publisher["captured_at"])
 
     def test_energy_exact_thirty_three_plus_one_correction(self):
         publisher, archive = self.energy_case()

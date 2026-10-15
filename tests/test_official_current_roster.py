@@ -12,7 +12,7 @@ from scripts.official_current_roster import apply_current_roster
 from scripts.update_journals import ROOT, collect_one, validate_issue
 
 
-EVIDENCE_PATH = "data/provenance/official-rosters/sciencedirect/energy-163-c.json"
+EVIDENCE_PATH = "data/provenance/official-rosters/sciencedirect/history/energy-163-c-2026-10-12.json"
 RAW_PATH = "data/provenance/browser-snapshots/sciencedirect/energy-163-c.json"
 CONFIG = {"id": "energy", "name": "Energy Economics", "collector": "elsevier",
           "current_issue_url": "https://www.sciencedirect.com/journal/energy-economics/issues",
