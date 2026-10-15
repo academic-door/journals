@@ -9,6 +9,7 @@ from pathlib import Path
 from scripts.translate_issue import (
     TranslationError,
     _source_hash,
+    _semantic_numbers,
     resolve_semantic_quantities,
     validate_translation,
 )
@@ -50,6 +51,13 @@ class QJEGuaranteedIncomeTranslationRegression(unittest.TestCase):
             + f"source={dict(source_numbers)}, translation={dict(target_numbers)}",
         )
         validate_translation(article, cache)
+
+    def test_plain_english_app_does_not_mean_one_percentage_point(self):
+        # Previously "app" was parsed as "a"+"pp" -> phantom 1%.
+        self.assertNotIn("1%", _semantic_numbers("data from a mobile phone app."))
+        self.assertIn("1%", _semantic_numbers("fell by one pp"))
+        self.assertIn("2%", _semantic_numbers("rose two percentage points"))
+        self.assertIn("4.2%", _semantic_numbers("fell 4.2 percentage points"))
 
     def test_genuinely_wrong_quantity_still_fails_closed(self):
         article, cache = self.source_and_cache()
