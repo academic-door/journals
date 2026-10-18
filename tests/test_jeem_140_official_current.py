@@ -56,10 +56,10 @@ class Jeem140SameVolumeTests(unittest.TestCase):
         validate_issue(issue)
 
     def test_not_a_crossref_trigger_but_strict_source(self):
-        self.assertEqual(self.current, apply_jeem_current_roster(
-            {**self.current, "issue_id": "jeem-139-c", "volume": "139"},
-            CONFIG,
-        ) if False else self.current)
+        previous = copy.deepcopy(self.current)
+        previous["issue_id"] = "jeem-139-c"
+        previous["volume"] = "139"
+        self.assertEqual(previous, apply_jeem_current_roster(previous, CONFIG))
         with self.assertRaisesRegex(ValueError, "unobserved"):
             apply_jeem_current_roster(self.current, CONFIG, detected_dois=self.old_dois + ["10.1016/j.jeem.2026.fake"])
         wrong = copy.deepcopy(self.current)
