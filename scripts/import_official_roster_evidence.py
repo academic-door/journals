@@ -46,6 +46,7 @@ from scripts.translate_issue import translate_missing
 
 ALLOWED_HOSTS = {
     "academic.oup.com",
+    "afajof.org",
     "direct.mit.edu",
     "journals.uchicago.edu",
     "le.uwpress.org",
