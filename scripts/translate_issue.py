@@ -2097,6 +2097,24 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
     return normalized
 
 
+# A dotted English p.p. is a percentage-*point* change, not a percentage
+# level. Semantic numeric multisets intentionally canonicalize both with %,
+# so validate this explicit unit independently instead of admitting 1.1% for
+# an observed 1.1 p.p. Keep the rule limited to unambiguous dotted p.p.
+_ABBREVIATED_PERCENTAGE_POINTS = re.compile(
+    r"(?i)(?<![A-Za-z0-9_])(?P<amount>\\d+(?:\\.\\d+)?)\\s+p\\.p\\.(?![A-Za-z0-9_])"
+)
+
+
+def _validate_abbreviated_percentage_point_units(source: str, target: str) -> None:
+    for match in _ABBREVIATED_PERCENTAGE_POINTS.finditer(source):
+        quantity = re.escape(match.group("amount"))
+        if re.search(rf"(?<![\\d.]){quantity}\\s*个?\\s*百分点", target) is None:
+            raise TranslationError(
+                f"Translation changed percentage-point unit for {match.group('amount')} p.p."
+            )
+
+
 def validate_translation(article: dict[str, Any], translated: dict[str, Any]) -> None:
     title_cn = str(translated.get("title_cn", "")).strip()
     abstract_cn = str(translated.get("abstract_cn", "")).strip()
@@ -2134,6 +2152,7 @@ def validate_translation(article: dict[str, Any], translated: dict[str, Any]) ->
     source_numbers, translated_numbers = resolve_semantic_quantities(
         source_text, translated_text
     )
+    _validate_abbreviated_percentage_point_units(source_text, translated_text)
     if source_numbers != translated_numbers:
         missing_numbers = list((source_numbers - translated_numbers).elements())
         added_numbers = list((translated_numbers - source_numbers).elements())
