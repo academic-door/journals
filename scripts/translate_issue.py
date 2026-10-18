@@ -2102,14 +2102,14 @@ def _normalize_written_number_translations(source: str, translated: str) -> str:
 # so validate this explicit unit independently instead of admitting 1.1% for
 # an observed 1.1 p.p. Keep the rule limited to unambiguous dotted p.p.
 _ABBREVIATED_PERCENTAGE_POINTS = re.compile(
-    r"(?i)(?<![A-Za-z0-9_])(?P<amount>\\d+(?:\\.\\d+)?)\\s+p\\.p\\.(?![A-Za-z0-9_])"
+    r"(?i)(?<![A-Za-z0-9_])(?P<amount>\d+(?:\.\d+)?)\s+p\.p\.(?![A-Za-z0-9_])"
 )
 
 
 def _validate_abbreviated_percentage_point_units(source: str, target: str) -> None:
     for match in _ABBREVIATED_PERCENTAGE_POINTS.finditer(source):
         quantity = re.escape(match.group("amount"))
-        if re.search(rf"(?<![\\d.]){quantity}\\s*个?\\s*百分点", target) is None:
+        if re.search(rf"(?<![\d.]){quantity}\s*个?\s*百分点", target) is None:
             raise TranslationError(
                 f"Translation changed percentage-point unit for {match.group('amount')} p.p."
             )
