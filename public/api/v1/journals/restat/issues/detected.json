@@ -7,10 +7,10 @@
   "issue": "5",
   "publication_date": "September 2026",
   "source_url": "https://direct.mit.edu/rest/issue/108/5",
-  "retrieved_at": "2026-10-18T15:54:05+00:00",
+  "retrieved_at": "2026-10-18T16:33:53+00:00",
   "expected_article_count": 23,
   "research_article_count": 23,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -57,13 +57,13 @@
       "source_sequence": 2,
       "article_type": "research-article",
       "title_en": "The Summer Drop in Female Employment",
-      "title_cn": "",
+      "title_cn": "女性夏季就业下降",
       "authors": [
         "Brendan M. Price",
         "Melanie Wasserman"
       ],
       "abstract_en": "We provide the first systematic account of summer declines in women’s labor market activity. From May to July, U.S. women’s employment-to-population ratio declines 1.1 p.p., whereas men’s rises; women’s hours worked fall 9.8%, twice the decline among men. School closures for summer break provide a unifying explanation. The summer drop aligns with cross-state differences in school closure timing, is concentrated among mothers with young school-aged children, and coincides with increased time spent on child care. Gender differences both within and across jobs explain gender gaps in summer exits from employment. Women’s summer work interruptions contribute to gender gaps in pay.",
-      "abstract_cn": "",
+      "abstract_cn": "我们首次系统梳理了女性劳动力市场活动在夏季下降的现象。从5月到7月，美国女性的就业人口比下降1.1个百分点，而男性的就业人口比上升；女性工作时长下降9.8%，降幅是男性的两倍。学校暑期放假为这些变化提供了统一解释。夏季下降的时间与各州暑期放假时间的差异相吻合，主要集中于有年幼学龄子女的母亲群体，同时伴随着儿童照料时间的增加。同一岗位内部及不同岗位之间的性别差异共同解释了夏季退出就业的性别差距。女性在夏季的工作中断加剧了薪酬方面的性别差距。",
       "doi": "10.1162/rest_a_01469",
       "source_url": "https://direct.mit.edu/rest/article/108/5/1174/122320/The-Summer-Drop-in-Female-Employment",
       "sources": {
@@ -72,12 +72,13 @@
         "abstract_en": "https://direct.mit.edu/rest/article/108/5/1174/122320/The-Summer-Drop-in-Female-Employment"
       },
       "translation": {
-        "status": "missing"
+        "status": "complete",
+        "provider": "g16-source-reviewed",
+        "prompt_version": "restat-1085-unit-verified-v1",
+        "translated_at": "2026-10-18T16:26:08.868Z",
+        "source_hash": "54478192cd7cc3656362d1495ad2dbe53e238d8d287cc370d8936de7211a97eb"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
@@ -903,11 +904,9 @@
     "doi_complete": 23,
     "authors_complete": 23,
     "abstract_en_complete": 23,
-    "translation_complete": 22,
+    "translation_complete": 23,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "official_item_count": 24,
     "publishable_item_count": 23,
     "content_counts": {
@@ -948,7 +947,7 @@
     "catalog_content_items": 24
   },
   "issue_label": "Vol. 108 · No. 5",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

@@ -1,50 +1,49 @@
 {
   "schema_version": "1.0",
-  "issue_id": "restat-108-4",
+  "issue_id": "restat-108-5",
   "journal_id": "restat",
   "journal_name": "The Review of Economics and Statistics",
   "volume": "108",
-  "issue": "4",
-  "publication_date": "July 2026",
-  "source_url": "https://direct.mit.edu/rest/issue/108/4",
-  "retrieved_at": "2026-07-28T05:38:02+00:00",
-  "expected_article_count": 21,
-  "research_article_count": 21,
+  "issue": "5",
+  "publication_date": "September 2026",
+  "source_url": "https://direct.mit.edu/rest/issue/108/5",
+  "retrieved_at": "2026-10-18T16:33:53+00:00",
+  "expected_article_count": 23,
+  "research_article_count": 23,
   "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1162/rest_a_01414",
+      "paper_id": "doi:10.1162/rest_a_01467",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Difference-in-Differences Estimators of Intertemporal Treatment Effects",
-      "title_cn": "跨期处理效应的双重差分估计量",
+      "title_en": "Imposing Policy on Reluctant Actors: The Hospital Desegregation Campaign and Black Postneonatal Mortality in the Deep South",
+      "title_cn": "对不情愿行为者施加政策：医院去种族隔离运动与深南部黑人产后新生儿死亡率",
       "authors": [
-        "Clément de Chaisemartin",
-        "Xavier D’Haultfœuille"
+        "D. Mark Anderson",
+        "Kerwin Kofi Charles",
+        "Daniel I. Rees"
       ],
-      "abstract_en": "We study treatment-effect estimation using panel data. The treatment may be nonbinary, nonabsorbing, and the outcome may be affected by treatment lags. We make a parallel-trends assumption and propose event-study estimators of the effect of being exposed to a weakly higher treatment dose for ℓ periods. We also propose normalized estimators that estimate a weighted average of the effects of the current treatment and its lags. We also analyze commonly used two-way fixed-effects regressions. Unlike our estimators, they can be biased in the presence of heterogeneous treatment effects. A local-projection version of those regressions is biased even with homogeneous effects.",
-      "abstract_cn": "我们使用面板数据研究处理效应估计。处理可以是非二元的、非吸收性的，且结果可能受到处理滞后的影响。我们做出平行趋势假设，并提出事件研究估计量，用于估计暴露于弱更高处理剂量 ℓ 个时期的影响。我们还提出归一化估计量，用于估计当前处理及其滞后效应的加权平均。我们还分析了常用的双向固定效应回归。与我们的估计量不同，在存在异质性处理效应时，它们可能有偏。这些回归的局部投影版本即使在同质效应下也有偏。",
-      "doi": "10.1162/rest_a_01414",
-      "source_url": "https://doi.org/10.1162/rest_a_01414",
-      "publication_date": "2026",
+      "abstract_en": "In 1966, Southern hospitals were barred from participating in Medicare unless they discontinued their longstanding practice of racial segregation. Using data from five Deep South states and exploiting county-level variation in Medicare certification dates, we find that gaining access to an ostensibly integrated hospital had no effect on Black postneonatal mortality. Similarly, there is little evidence that the campaign contributed to the trend toward in-hospital births among Southern Black mothers. These results are consistent with descriptions of the hospital desegregation campaign as producing only cosmetic changes and illustrate the limits of antidiscrimination policies imposed on reluctant actors.",
+      "abstract_cn": "在1966，南方医院被禁止参与Medicare，除非它们停止长期存在的种族隔离做法。使用来自五个深南部州的数据，并利用Medicare认证日期在县一级的差异，我们发现获得进入一家表面上整合的医院的机会对黑人产后新生儿死亡率没有影响。同样，几乎没有证据表明该运动促进了南方黑人母亲住院分娩的趋势。这些结果与将医院去种族隔离运动描述为只产生表面变化的说法一致，并说明了对不情愿行为者施加反歧视政策的局限。",
+      "doi": "10.1162/rest_a_01467",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1159/122325/Imposing-Policy-on-Reluctant-Actors-The-Hospital",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1159/122325/Imposing-Policy-on-Reluctant-Actors-The-Hospital",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1159/122325/Imposing-Policy-on-Reluctant-Actors-The-Hospital"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:27:57+00:00",
-        "source_hash": "855975222c1ca2d654076091450c7e8a01ce67e633b74c8621dcf9716980116d"
+        "translated_at": "2026-10-15T10:40:19+00:00",
+        "source_hash": "d4b7ef31743755863f62ba0bf8eccb901ccd45fa733b4777993d55b579b4c929"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -53,39 +52,34 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01519",
+      "paper_id": "doi:10.1162/rest_a_01469",
       "sequence": 2,
       "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "Machine Learning Can Predict Shooting Victimization Well Enough to Help Prevent It",
-      "title_cn": "机器学习能够足够好地预测枪击受害以帮助预防它",
+      "title_en": "The Summer Drop in Female Employment",
+      "title_cn": "女性夏季就业下降",
       "authors": [
-        "Sara B. Heller",
-        "Benjamin Jakubowski",
-        "Zubin Jelveh",
-        "Max Kapustin"
+        "Brendan M. Price",
+        "Melanie Wasserman"
       ],
-      "abstract_en": "Using Chicago police data, we train a machine learning model to predict the risk of being shot in the next 18 months. Out-of-sample accuracy is strikingly high. A central concern with using police data is “baking in” bias, or overestimating risk for groups likelier to interact with police conditional on behavior. Our predictions, however, accurately recover risk across demographic groups. Legal, ethical, and practical barriers should prevent using victimization predictions to target law enforcement. But using them to target social services could increase both the potential for interventions to reduce shootings and the available statistical power to detect those reductions.",
-      "abstract_cn": "使用芝加哥警察数据，我们训练一个机器学习模型来预测在接下来18个月内被枪击的风险。样本外准确率显著地高。使用警察数据的一个核心担忧是“固化”偏见，或在给定行为条件下高估更可能与警察互动的群体的风险。然而，我们的预测准确地恢复了跨人口群体的风险。法律、伦理和实践障碍应阻止使用受害预测来针对执法。但使用它们来针对社会服务既可以增加减少枪击的干预潜力，也可以增加检测这些减少的可用统计功效。",
-      "doi": "10.1162/rest_a_01519",
-      "source_url": "https://doi.org/10.1162/rest_a_01519",
-      "publication_date": "2026",
+      "abstract_en": "We provide the first systematic account of summer declines in women’s labor market activity. From May to July, U.S. women’s employment-to-population ratio declines 1.1 p.p., whereas men’s rises; women’s hours worked fall 9.8%, twice the decline among men. School closures for summer break provide a unifying explanation. The summer drop aligns with cross-state differences in school closure timing, is concentrated among mothers with young school-aged children, and coincides with increased time spent on child care. Gender differences both within and across jobs explain gender gaps in summer exits from employment. Women’s summer work interruptions contribute to gender gaps in pay.",
+      "abstract_cn": "我们首次系统梳理了女性劳动力市场活动在夏季下降的现象。从5月到7月，美国女性的就业人口比下降1.1个百分点，而男性的就业人口比上升；女性工作时长下降9.8%，降幅是男性的两倍。学校暑期放假为这些变化提供了统一解释。夏季下降的时间与各州暑期放假时间的差异相吻合，主要集中于有年幼学龄子女的母亲群体，同时伴随着儿童照料时间的增加。同一岗位内部及不同岗位之间的性别差异共同解释了夏季退出就业的性别差距。女性在夏季的工作中断加剧了薪酬方面的性别差距。",
+      "doi": "10.1162/rest_a_01469",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1174/122320/The-Summer-Drop-in-Female-Employment",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1174/122320/The-Summer-Drop-in-Female-Employment",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1174/122320/The-Summer-Drop-in-Female-Employment"
       },
       "translation": {
         "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:27:58+00:00",
-        "source_hash": "6fa7f2c360badbfb98f6455affab6cc1f004b56fb02b848dab3c99bf3db60d46"
+        "provider": "g16-source-reviewed",
+        "prompt_version": "restat-1085-unit-verified-v1",
+        "translated_at": "2026-10-18T16:26:08.868Z",
+        "source_hash": "54478192cd7cc3656362d1495ad2dbe53e238d8d287cc370d8936de7211a97eb"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -94,36 +88,37 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01438",
+      "paper_id": "doi:10.1162/rest_a_01482",
       "sequence": 3,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "School Choice, Student Sorting, and Academic Performance",
-      "title_cn": "择校、学生分选与学业表现",
+      "title_en": "What Lies Behind the Returns to Schooling: The Role of Labor Market Sorting and Worker Heterogeneity",
+      "title_cn": "教育回报背后是什么：劳动力市场排序与工人异质性的作用",
       "authors": [
-        "Andrei Munteanu"
+        "Pedro Portugal",
+        "Hugo Reis",
+        "Paulo Guimarães",
+        "Ana Rute Cardoso"
       ],
-      "abstract_en": "This study examines the impact of school choice on academic achievement. I use differences in the number of schools across similar Romanian towns, generating variation in school choice for local students, who compete for seats via test scores. I find that more school choice results in increased sorting of students by admission scores across different schools. Sorting widens achievement gaps between high- and low-admission score students. High-scorers having access to better teachers and peer effects are the primary factors explaining these widening gaps. Last, between-school competition via school choice does not increase average achievement levels.",
-      "abstract_cn": "本研究考察择校对学业成绩的影响。我利用相似罗马尼亚城镇之间学校数量的差异，为当地学生制造择校方面的差异，这些学生通过考试成绩竞争席位。我发现，更多的择校导致不同学校之间按录取分数对学生进行的分选增加。分选扩大了高录取分数学生与低录取分数学生之间的成绩差距。高分学生能够接触到更好的教师和同伴效应，是解释这些差距扩大的主要因素。最后，通过择校实现的校际竞争并未提高平均成绩水平。",
-      "doi": "10.1162/rest_a_01438",
-      "source_url": "https://doi.org/10.1162/rest_a_01438",
-      "publication_date": "2026",
+      "abstract_en": "Do more educated workers earn higher wages partly because they have access to high-paying firms and occupations? We rely on linked employer-employee data to combine the estimation of AKM (Abowd-Kramarz-Margolis) models with the decomposition of the returns to schooling. We exploit exogenous variation in education driven by changes in compulsory education. We show that education provides access to better-paying workplaces and occupations: 30% of the overall return to education operates through the workplace channel and 12% through the occupation channel. The remainder is associated exclusively with the individual. Match quality plays a modest role in the returns to education.",
+      "abstract_cn": "受教育程度更高的工人工资更高，是否部分因为他们能够进入高薪企业和高薪职业？我们利用关联雇主-雇员数据，将AKM（Abowd-Kramarz-Margolis）模型的估计与教育回报的分解相结合。我们利用义务教育变化所驱动的教育外生变动。我们表明，教育提供了进入薪酬更高的工作场所和职业的机会：总体教育回报中30%通过工作场所渠道实现，12%通过职业渠道实现。其余部分则完全与个人相关。匹配质量在教育回报中发挥的作用不大。",
+      "doi": "10.1162/rest_a_01482",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1192/124126/What-Lies-Behind-the-Returns-to-Schooling-The-Role",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1192/124126/What-Lies-Behind-the-Returns-to-Schooling-The-Role",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1192/124126/What-Lies-Behind-the-Returns-to-Schooling-The-Role"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:00+00:00",
-        "source_hash": "8ab465698655443cf433a159df702161280b62df854f10bff898c31cf05488e3"
+        "translated_at": "2026-10-15T10:41:31+00:00",
+        "source_hash": "0fdf2975402080edf7c5d4ec593e29d1514a0762dbf7d95f3b14ad59a6f9e8ca"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -132,37 +127,37 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01405",
+      "paper_id": "doi:10.1162/rest_a_01468",
       "sequence": 4,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Baby Bumps in the Road: The Impact of Parenthood on Job Performance, Human Capital, and Career Advancement",
-      "title_cn": "路上的婴儿颠簸：为人父母对工作绩效、人力资本和职业晋升的影响",
+      "title_en": "Misperceived Social Norms and Willingness to Act Against Climate Change",
+      "title_cn": "被误解的社会规范与应对气候变化的意愿",
       "authors": [
-        "Olivia J. Healy",
-        "Jennifer A. Heissel"
+        "Peter Andre",
+        "Teodora Boneva",
+        "Felix Chopra",
+        "Armin Falk"
       ],
-      "abstract_en": "This paper explores whether and why a maternal child penalty to earnings would emerge even without changes in employment and hours worked. Using a matched event study design, we trace monthly changes in determinants of wages (job performance, human capital accumulation, and promotions). Data come from a usefully unusual setting with required multiyear employment and detailed personnel data: the U.S. Marine Corps. Mothers’ job performance initially declines, and gaps in promotion grow through 24 months postbirth. Fathers’ physical fitness performance drops somewhat but recovers. These patterns lead mothers to earn relatively lower wages, even absent changes in employment postbirth.",
-      "abstract_cn": "本文探讨即使就业和工作时间没有变化，母亲因生育而面临的收入惩罚是否以及为何会出现。采用匹配事件研究设计，我们追踪工资决定因素（工作绩效、人力资本积累和晋升）的月度变化。数据来自一个有用且不寻常的环境，该环境要求多年就业并提供详细的人事数据：美国海军陆战队。母亲的工作绩效最初下降，晋升差距在产后24个月内扩大。父亲的身体素质表现有所下降但会恢复。这些模式导致母亲即使产后就业没有变化，也获得相对较低的工资。",
-      "doi": "10.1162/rest_a_01405",
-      "source_url": "https://doi.org/10.1162/rest_a_01405",
-      "publication_date": "2026",
+      "abstract_en": "We document the individual willingness to act against climate change and study the role of social norms in a large sample of U.S. adults. Individual beliefs about social norms positively predict pro-climate donations, comparable in strength to universal moral values and economic preferences. However, we document systematic misperceptions of social norms. Respondents vastly underestimate the prevalence of climate-friendly behaviors and norms. Correcting these misperceptions in an experiment causally raises individual willingness to act against climate change and individual support for climate policies. The effects are strongest for individuals who are skeptical about the existence and threat of global warming.",
+      "abstract_cn": "我们在一个美国成年人的大样本中记录了个人应对气候变化的意愿，并研究了社会规范的作用。个人关于社会规范的信念正向预测亲气候捐赠，其强度与普遍道德价值观和经济偏好相当。然而，我们记录了社会规范的系统性误解。受访者极大地低估了气候友好行为和规范的普遍性。在一项实验中纠正这些误解，因果性地提高了个人应对气候变化的意愿和个人对气候政策的支持。对于怀疑全球变暖的存在和威胁的个体，这些效应最强。",
+      "doi": "10.1162/rest_a_01468",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1205/122326/Misperceived-Social-Norms-and-Willingness-to-Act",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1205/122326/Misperceived-Social-Norms-and-Willingness-to-Act",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1205/122326/Misperceived-Social-Norms-and-Willingness-to-Act"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:01+00:00",
-        "source_hash": "09239c06cc3e9f5f42a59ad10e6b7b078377f9449dad124e2c1e658f2b4166f0"
+        "translated_at": "2026-10-15T10:41:33+00:00",
+        "source_hash": "d6116eb9b0c35bee4db74de6b67b6ae7cbb41849794780674783ad7124733c37"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -171,79 +166,74 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01436",
+      "paper_id": "doi:10.1162/rest.a.271",
       "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Family-Leave Mandates and Female Labor at U.S. Firms: Evidence from a Trade Shock",
-      "title_cn": "家庭休假强制规定与美国企业中的女性劳动力：来自贸易冲击的证据",
+      "title_en": "Regulation by Reputation? Intermediaries, Labor Abuses, and International Migration",
+      "title_cn": "声誉监管？中介、劳动虐待与国际移民",
       "authors": [
-        "Fariha Kamal",
-        "Asha Sundaram",
-        "Cristina J. Tello-Trillo"
+        "A. Nilesh Fernando",
+        "Niharika Singh"
       ],
-      "abstract_en": "We examine how the 1993 Family and Medical Leave Act (FMLA) impacts the gender composition at U.S. firms experiencing a negative demand shock. Combining changes in Chinese imports across industries between 2000 and 2003 and a sharp regression discontinuity to identify FMLA status, we find that an increase in import competition decreases the share of female employment, earnings, and promotions at FMLA relative to non-FMLA firms. This effect is driven by women in prime child-bearing ages and without college degrees and is pronounced at firms with all male managers. These results suggest that job-protected leave mandates may exacerbate gender inequalities in response to adverse shocks.",
-      "abstract_cn": "我们考察了1993《家庭与医疗休假法》（FMLA）如何影响经历负面需求冲击的美国企业中的性别构成。结合2000至2003年间各行业中国进口的变化以及用于识别FMLA地位的清晰断点回归，我们发现，进口竞争的加剧降低了FMLA企业相对于非FMLA企业的女性就业、收入和晋升份额。这一效应由处于主要生育年龄且没有大学学位的女性驱动，并且在所有管理者均为男性的企业中尤为明显。这些结果表明，在面对不利冲击时，工作保护休假强制规定可能加剧性别不平等。",
-      "doi": "10.1162/rest_a_01436",
-      "source_url": "https://doi.org/10.1162/rest_a_01436",
-      "publication_date": "2026",
+      "abstract_en": "Migrant workers and employers rely on intermediaries to facilitate labor market placements. If information frictions obscure their reputation, however, intermediaries may underinvest in placement quality. Using data on more than 1.5 million Sri Lankan migrants to the Gulf region, we examine the effects of a government-run intermediary rating program that publicly revealed ratings two years after it was announced. Prior to the ratings’ public release, underperforming intermediaries invest in the rating criteria and place migrants in less abusive and more remunerative employment. Our results suggest the government’s threat of quality revelation induced intermediaries to prospectively screen employers and improve placement quality.",
+      "abstract_cn": "移民工人和雇主依赖中介来促进劳动力市场配置。然而，如果信息摩擦使中介的声誉不为人知，中介可能对安置质量投资不足。利用超过1.5百万斯里兰卡移民到海湾地区的数据，我们考察了一项政府运营的中介评级计划的效果，该计划在宣布两年后公开披露评级。在评级公开披露之前，表现不佳的中介会投资于评级标准，并将移民安置到虐待更少且报酬更高的工作中。我们的结果表明，政府威胁披露质量促使中介前瞻性地筛选雇主并提高安置质量。",
+      "doi": "10.1162/rest.a.271",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1222/131700/Regulation-by-Reputation-Intermediaries-Labor",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1222/131700/Regulation-by-Reputation-Intermediaries-Labor",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1222/131700/Regulation-by-Reputation-Intermediaries-Labor"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:03+00:00",
-        "source_hash": "d2a6309189824f4b1eef3a7d9319fedc5952f03337ef481714407ccdc13c59f9"
+        "translated_at": "2026-10-15T10:41:34+00:00",
+        "source_hash": "39bc216706b212ef5bc0f95ecbf4ac9a52ceab4a508394a75cd6d36f8cc62a70"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
-        "status": "yes",
-        "evidence": "abstract",
-        "matched_terms": [
-          "Chinese imports"
-        ],
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
         "source": "academic-door-rules-v1"
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01453",
+      "paper_id": "doi:10.1162/rest_a_01516",
       "sequence": 6,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Opioid Use, Mortality Risks, and Crime: Insights from a Rapid Reduction in Heroin Supply",
-      "title_cn": "阿片类药物使用、死亡风险与犯罪：来自海洛因供应快速减少的洞见",
+      "title_en": "No Line Left Behind: Assortative Matching Inside the Firm",
+      "title_cn": "不落下一行：企业内部的匹配选择",
       "authors": [
-        "Timothy J. Moore",
-        "Kevin T. Schnepel"
+        "Achyuta Adhvaryu",
+        "Vittorio Bassi",
+        "Anant Nyshadham",
+        "Jorge Tamayo"
       ],
-      "abstract_en": "In 2001, a large and sustained supply shock halted a heroin epidemic in Australia. We use drug offenses to identify individual opioid users and examine how the shock affected their mortality risks and criminal activity over the next eight years. Initially, gains from fewer overdoses are offset by drug substitution and more crime, including homicides. Most adverse effects dissipate over time, whereas persistent mortality reductions save the lives of around one in 48 individuals in our sample. Our results demonstrate that reducing the supply of illicit opioids can lead to meaningful longer-term improvements, even when the short-term effects are ambiguous.",
-      "abstract_cn": "在2001，一次大规模且持续的供应冲击终止了澳大利亚的海洛因流行。我们利用毒品犯罪来识别个体阿片类药物使用者，并考察该冲击如何影响他们在随后八年中的死亡风险和犯罪活动。最初，因过量用药减少而带来的收益被毒品替代和更多犯罪（包括凶杀）所抵消。大多数不利影响随时间消散，而持续的死亡率下降挽救了样本中约每48个人中一人的生命。我们的结果表明，减少非法阿片类药物的供应可以带来有意义的长期改善，即使短期影响并不明确。",
-      "doi": "10.1162/rest_a_01453",
-      "source_url": "https://doi.org/10.1162/rest_a_01453",
-      "publication_date": "2026",
+      "abstract_en": "We leverage the high degree of worker mobility across production lines in a large Indian manufacturer to estimate the sorting of workers to managers, using data on daily worker productivity. We find negative assortative matching (NAM): better workers tend to be matched with worse managers. Estimates of the production technology, however, reveal that productivity would increase by up to 4% under positive sorting. Exploiting a survey of managers and data on orders from multinational brands, we document that NAM arises, at least partly, because maintaining valuable relationships with buyers provides strong incentives to avoid delays on any given production line.",
+      "abstract_cn": "我们利用一家大型印度制造商中生产线上工人高度流动的特点，使用工人日生产率数据来估计工人对管理者的分类匹配。我们发现负向匹配（NAM）：更好的工人往往与更差的管理者匹配。然而，对生产技术的估计显示，在正向匹配下，生产率将提高多达4%。利用对管理者的调查和来自跨国品牌的订单数据，我们记录到，NAM的出现至少部分是因为与买家保持有价值的关系提供了强烈激励，以避免任何给定生产线上的延误。",
+      "doi": "10.1162/rest_a_01516",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1239/125014/No-Line-Left-Behind-Assortative-Matching-Inside",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1239/125014/No-Line-Left-Behind-Assortative-Matching-Inside",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1239/125014/No-Line-Left-Behind-Assortative-Matching-Inside"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:05+00:00",
-        "source_hash": "7fe0e906e2358b54957acdda65580baaf5acc1091267917350cc945221ad1495"
+        "translated_at": "2026-10-15T10:41:36+00:00",
+        "source_hash": "dcacec75cb7d74bf9703a25eed054d0b6ae4a1164108bf806235611c454e0689"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -252,37 +242,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01446",
+      "paper_id": "doi:10.1162/rest_a_01511",
       "sequence": 7,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "Knowledge Access: The Effects of Carnegie Libraries on Innovation",
-      "title_cn": "知识获取：卡内基图书馆对创新的影响",
+      "title_en": "Social Preferences and Redistributive Politics",
+      "title_cn": "社会偏好与再分配政治",
       "authors": [
-        "Enrico Berkes",
-        "Peter Nencka"
+        "Ernst Fehr",
+        "Thomas Epper",
+        "Julien Senn"
       ],
-      "abstract_en": "Between 1883 and 1919, Andrew Carnegie funded the construction of more than 1,500 public libraries across the United States, reducing the costs of accessing knowledge for millions. We study the effect of these libraries on innovation. Patenting in recipient places increased on average by 10%–12% in the 20 years following library construction relative to a novel control group of cities that applied for but did not build libraries. We show that access to scientific knowledge and increased collaboration opportunities are possible mechanisms.",
-      "abstract_cn": "在1883年至1919年之间，安德鲁·卡内基资助在美国各地建造了超过1,500座公共图书馆，降低了数百万人获取知识的成本。我们研究这些图书馆对创新的影响。与一个申请但未建造图书馆的新颖对照组城市相比，在图书馆建成后的20年中，受赠地的专利平均增加了10%–12%。我们表明，获取科学知识和增加合作机会是可能的机制。",
-      "doi": "10.1162/rest_a_01446",
-      "source_url": "https://doi.org/10.1162/rest_a_01446",
-      "publication_date": "2026",
+      "abstract_en": "We study the link between social preferences and a behaviorally validated measure of support for redistribution. We uncover three fundamentally distinct social preference types: predominantly selfish, inequality averse, and altruistic individuals. Inequality averse and altruistic individuals display a much stronger support for redistribution, particularly if they are more affluent. Beliefs about the role of effort and luck for success play no role for selfish individuals but are highly relevant for other-regarding individuals. Finally, while inequality averse individuals display strong support for policies aimed at reducing the incomes of the rich, altruistic individuals are considerably less supportive of these policies.",
+      "abstract_cn": "我们研究了社会偏好与一种经过行为验证的再分配支持度衡量指标之间的联系。我们发现了三种根本不同的社会偏好类型：以自利为主、不平等厌恶和利他主义个体。不平等厌恶和利他主义个体对再分配表现出强得多的支持，尤其是当他们更为富裕时。关于努力和运气对成功作用的信念对自利个体不起作用，但对顾及他人的个体高度相关。最后，虽然不平等厌恶个体对旨在降低富人收入的政策表现出强烈支持，但利他主义个体对这些政策的支持要低得多。",
+      "doi": "10.1162/rest_a_01511",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1254/124435/Social-Preferences-and-Redistributive-Politics",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1254/124435/Social-Preferences-and-Redistributive-Politics",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1254/124435/Social-Preferences-and-Redistributive-Politics"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:06+00:00",
-        "source_hash": "e193dbacd7da54bf6db2527b76afb54ecf72087abe81c5d1aef3179bc871f3c1"
+        "translated_at": "2026-10-15T10:41:38+00:00",
+        "source_hash": "9d4a431b7c775e144edcce328734c7cb198485705461f2ab872d5d8953e0ae8d"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -291,38 +280,38 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01455",
+      "paper_id": "doi:10.1162/rest_a_01487",
       "sequence": 8,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "Destruction, Policy, and the Evolving Consequences of Washington, DC’s 1968 Civil Disturbance",
-      "title_cn": "破坏、政策与华盛顿特区1968年骚乱的演变后果",
+      "title_en": "Language Barriers in Multinationals and Knowledge Transfers",
+      "title_cn": "跨国公司中的语言障碍与知识转移",
       "authors": [
-        "Leah Brooks",
-        "Jonathan Rose",
-        "Stan Veuger"
+        "Louise Guillouët",
+        "Amit K. Khandelwal",
+        "Rocco Macchiavello",
+        "Madhav Malhotra",
+        "Matthieu Teachout"
       ],
-      "abstract_en": "We study the aftermath of the 1968 Washington, D.C. civil disturbance to illuminate the mechanisms that drive urban redevelopment in the presence of low demand and racial tension. Using a within-block identification strategy, we show that destruction caused lots to remain vacant for the next thirty years and only recently converge in terms of structure value. The city acted to preclude for-profit land owners from leaving land vacant until demand conditions improved by purchasing nearly half of all properties in damaged neighborhoods. Despite this and other steps, the city had limited success in speeding up redevelopment.",
-      "abstract_cn": "我们研究1968年华盛顿特区骚乱的后果，以揭示在需求低迷和种族紧张背景下驱动城市再开发的机制。使用街区内部识别策略，我们表明破坏导致地块在接下来的三十年中保持空置，并且直到最近才在结构价值方面趋于一致。该市通过购买受损社区近一半的房产，采取行动阻止营利性土地所有者将土地空置直到需求条件改善。尽管采取了这一措施和其他步骤，该市在加快再开发方面成效有限。",
-      "doi": "10.1162/rest_a_01455",
-      "source_url": "https://doi.org/10.1162/rest_a_01455",
-      "publication_date": "2026",
+      "abstract_en": "We study communication frictions within multinationals (MNCs), hypothesizing that language barriers reduce management knowledge transfers within the organization. A distinct feature of such MNCs is a three-tier hierarchy: foreign managers (FMs) supervise domestic managers (DMs) who supervise production workers. Tailored surveys from our setting—MNCs in Myanmar—reveal that language barriers impede interactions between FMs and DMs. A first experimental protocol offers DMs free English courses and confirms that lowering communications costs increases their interactions with FMs. A second experimental protocol that asks human-resource managers at domestic firms to rate hypothetical resumes reveals that multinational experience and, specifically, DM-FM interactions are valued in the domestic labor market. Together, these results suggest that reducing language barriers can improve transfers of management knowledge, an interpretation supported by improvements in soft skills among treatment DMs in the first experiment. A model in which communication within MNCs is noncontractible—a realistic feature of workplace life—reveals that the experimental results are consistent with underinvestment in language training and provide a rationale for policy intervention.",
+      "abstract_cn": "我们研究跨国公司（MNCs）内部的沟通摩擦，假设语言障碍会减少组织内部的管理知识转移。此类跨国公司的一个显著特征是三层等级结构：外国经理（FMs）监督本国经理（DMs），本国经理再监督生产工人。我们在缅甸的跨国公司环境中进行的定制调查显示，语言障碍阻碍了FMs与DMs之间的互动。第一个实验方案向DMs提供免费英语课程，并证实降低沟通成本会增加他们与FMs的互动。第二个实验方案要求本国企业的人力资源经理对假设的简历进行评分，结果显示，跨国公司经历，特别是DM-FM互动，在本国劳动力市场中受到重视。综合来看，这些结果表明，减少语言障碍可以改善管理知识的转移，这一解释得到了第一个实验中处理组DMs软技能提升的支持。一个将跨国公司内部沟通视为不可契约的模型——这是职场生活的一个现实特征——表明实验结果与语言培训投资不足相一致，并为政策干预提供了依据。",
+      "doi": "10.1162/rest_a_01487",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1270/124135/Language-Barriers-in-Multinationals-and-Knowledge",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1270/124135/Language-Barriers-in-Multinationals-and-Knowledge",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1270/124135/Language-Barriers-in-Multinationals-and-Knowledge"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:08+00:00",
-        "source_hash": "8152bcde28897859b1edc4d3c73c763ae278ffec3257fc6049986e81bfc5008d"
+        "translated_at": "2026-10-15T10:41:40+00:00",
+        "source_hash": "3d0890a6555f03ced99ee53b976f7a1f8a8a5f2e2e0c3ba2c68cec8cf7463285"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -331,37 +320,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01466",
+      "paper_id": "doi:10.1162/rest_a_01498",
       "sequence": 9,
       "source_sequence": 9,
       "article_type": "research-article",
-      "title_en": "Using Rich Lists to Study the Super-Rich and Top Wealth Inequality: Insights from Switzerland",
-      "title_cn": "利用富豪榜研究超级富豪与顶层财富不平等：来自瑞士的洞见",
+      "title_en": "Disentangling the Effects of the 2018–2019 Tariffs on a Globally Connected U.S. Manufacturing Sector",
+      "title_cn": "解析2018-2019关税对全球关联的美国制造业部门的影响",
       "authors": [
-        "Enea Baselgia",
-        "Isabel Z. Martínez"
+        "Aaron Flaaen",
+        "Justin Pierce"
       ],
-      "abstract_en": "We present a new data set we built based on Swiss rich lists going back to 1989. We show, among other things, that 60% of the super-rich are heirs—a fraction twice as large as in the United States—and that wealth mobility at the very top has declined significantly. We find that top 0.01% wealth shares are higher than what previous estimates based on wealth tax statistics suggest. At the same time, we argue that rich list data lead to overestimating wealth inequality. Although rich lists are valuable to study the super-rich, we recommend using reported wealth figures with caution.",
-      "abstract_cn": "我们展示了一个基于可追溯至1989的瑞士富豪榜构建的新数据集。我们表明，除其他发现外，超级富豪中有60%是继承人——这一比例是美国的两倍——并且最顶层的财富流动性已显著下降。我们发现，顶层0.01%财富份额高于此前基于财富税统计的估计。同时，我们认为富豪榜数据会导致高估财富不平等。尽管富豪榜对于研究超级富豪很有价值，但我们建议谨慎使用所报告的财富数字。",
-      "doi": "10.1162/rest_a_01466",
-      "source_url": "https://doi.org/10.1162/rest_a_01466",
-      "publication_date": "2026",
+      "abstract_en": "This paper estimates the relationship between the U.S. tariff increases of 2018–2019 and outcomes in domestic manufacturing. Despite being intended to boost manufacturing activity, we find U.S. industries more exposed to tariff increases experience relative reductions in employment, as a small positive effect from import protection is offset by larger negative effects from rising input costs and retaliatory tariffs. Higher tariffs are also associated with relative increases in producer prices due to rising input costs. Last, we document broader labor market impacts, as counties more exposed to rising tariffs exhibit relative increases in unemployment and declines in labor force participation. No rights reserved. This work was authored as part of the Contributor's official duties as an Employee of the United States Government and is therefore a work of the United States Government. In accordance with 17 U.S.C. 105, no copyright protection is available for such works under U.S. Law.",
+      "abstract_cn": "本文估计了2018-2019美国关税上调与国内制造业结果之间的关系。尽管旨在提振制造业活动，我们发现受关税上调影响更大的美国行业经历了相对就业减少，因为进口保护带来的小幅正向效应被投入成本上升和报复性关税带来的更大负向效应所抵消。更高的关税还与投入成本上升导致的生产者价格相对上涨相关。最后，我们记录了更广泛的劳动力市场影响，因为受关税上升影响更大的县表现出失业率相对上升和劳动力参与率下降。无权利保留。本作品是作为美国政府雇员作者的官方职责的一部分创作的，因此是美国政府的作品。根据17 U.S.C. 105，此类作品在美国法律下不享有版权保护。",
+      "doi": "10.1162/rest_a_01498",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1289/124420/Disentangling-the-Effects-of-the-2018-2019-Tariffs",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1289/124420/Disentangling-the-Effects-of-the-2018-2019-Tariffs",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1289/124420/Disentangling-the-Effects-of-the-2018-2019-Tariffs"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:10+00:00",
-        "source_hash": "25ee2ade61887e463340ce89a83e3b398f145bbaba7cb0f0f1444c39d4e9190e"
+        "translated_at": "2026-10-15T10:41:41+00:00",
+        "source_hash": "a5d2065f90b9b35044adc525dda5824afb0c10004abfa0f27a441be597290a0f"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -370,38 +357,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01447",
+      "paper_id": "doi:10.1162/rest_a_01476",
       "sequence": 10,
       "source_sequence": 10,
       "article_type": "research-article",
-      "title_en": "Attrition and the Gender Patenting Gap",
-      "title_cn": "流失与性别专利差距",
+      "title_en": "Immigration and Worker-Firm Matching",
+      "title_cn": "移民与工人-企业匹配",
       "authors": [
-        "Abhay Aneja",
-        "Oren Reshef",
-        "Gauri Subramani"
+        "Gianluca Orefice",
+        "Giovanni Peri"
       ],
-      "abstract_en": "Women are underrepresented in patenting. In this study, we consider differential responsiveness to rejection as a contributor to the gender gap in invention. Leveraging the prosecution histories of almost one million U.S. patent applications and the quasirandom assignment of applications to examiners, we show that women are 3.6–6.9 percentage points less likely to continue in the application process following an early-stage rejection. Conditional on applying for a patent, male-female disparities in the propensity to abandon applications account for more than half of the overall gender gap in issued patents. We provide suggestive evidence that institutional support can help reduce the attrition gap.",
-      "abstract_cn": "女性在专利领域代表性不足。在本研究中，我们将对拒绝的差异性反应视为发明中性别差距的一个贡献因素。利用近一百万件美国专利申请的审查历史以及申请被准随机分配给审查员的情况，我们表明女性在早期阶段被拒绝后继续申请流程的可能性低3.6-6.9个百分点。在申请专利的条件下，放弃申请倾向上的男女差异占已授权专利总体性别差距的一半以上。我们提供提示性证据表明，机构支持有助于缩小流失差距。",
-      "doi": "10.1162/rest_a_01447",
-      "source_url": "https://doi.org/10.1162/rest_a_01447",
-      "publication_date": "2026",
+      "abstract_en": "Positive assortative matching increases both the wages of more productive workers and wage dispersion. We study the effect of immigration on positive assortative matching using French employer-employee data from 1995 to 2005. We find that increases in the share of immigrants, driven by historical networks across local labor markets, generated stronger positive assortative matching between workers and firms. We present evidence suggesting that this effect was associated with higher wages for more productive workers and that the findings are consistent with increased workers’ screening by firms.",
+      "abstract_cn": "正向 assortative matching 同时提高生产率更高工人的工资和工资离散度。我们使用 1995 至 2005 的法国雇主-雇员数据研究移民对正向 assortative matching 的影响。我们发现，由本地劳动力市场历史网络驱动的移民份额增加，在工人与企业之间产生了更强的正向 assortative matching。我们提供的证据表明，这一效应与生产率更高工人工资更高相关，并且这些发现与企业对工人筛选增强相一致。",
+      "doi": "10.1162/rest_a_01476",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1304/124128/Immigration-and-Worker-Firm-Matching",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1304/124128/Immigration-and-Worker-Firm-Matching",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1304/124128/Immigration-and-Worker-Firm-Matching"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:11+00:00",
-        "source_hash": "77da9408af0f0f28281f2580ca3a200bae1c3e72c7f7813bf5d28109d402a7e5"
+        "translated_at": "2026-10-15T10:41:43+00:00",
+        "source_hash": "2796fff919d6854c1ad4f02e22cc3e4820143c602c293b5a6640399ca183b767"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -410,39 +394,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01444",
+      "paper_id": "doi:10.1162/rest_a_01464",
       "sequence": 11,
       "source_sequence": 11,
       "article_type": "research-article",
-      "title_en": "Human Capital and Climate Change",
-      "title_cn": "人力资本与气候变化",
+      "title_en": "Asymptotics of Cointegration Tests for High-Dimensional Var(⁠ 𝑘 ⁠)",
+      "title_cn": "高维VAR(⁠𝑘⁠)协整检验的渐近性质",
       "authors": [
-        "Noam Angrist",
-        "Kevin Winseck",
-        "Harry Anthony Patrinos",
-        "Joshua Graff Zivin"
+        "Anna Bykhovskaya",
+        "Vadim Gorin"
       ],
-      "abstract_en": "Addressing climate change requires individual behavior change and voter support for pro-climate policies, yet surprisingly little is known about how to achieve these outcomes. In this paper, we estimate causal effects of additional education on pro-climate outcomes using new compulsory schooling law data across 20 European countries. We analyze effects on pro-climate beliefs and behaviors, as well as novel data on policy preferences and voting for green parties. Results show that a year of education substantially increases pro-climate beliefs, behaviors, and policy preferences.",
-      "abstract_cn": "应对气候变化需要个人行为改变和选民对支持气候政策的支持，然而令人惊讶的是，对于如何实现这些结果知之甚少。在本文中，我们利用20个欧洲国家的新义务教育法数据，估计额外教育对支持气候结果的因果效应。我们分析了对支持气候信念和行为的影响，以及关于政策偏好和投票给绿党的新数据。结果表明，一年的教育显著增加了支持气候的信念、行为和政策偏好。",
-      "doi": "10.1162/rest_a_01444",
-      "source_url": "https://doi.org/10.1162/rest_a_01444",
-      "publication_date": "2026",
+      "abstract_en": "The paper studies nonstationary high-dimensional vector autoregressions of order ⁠ , VAR( ⁠ ⁠ ). Additional deterministic terms such as trend or seasonality are allowed. The number of time periods, ⁠ , and the number of coordinates, ⁠ , are assumed to be large and of the same order. Under this regime the first-order asymptotics of the Johansen likelihood ratio (LR), Pillai-Bartlett, and Hotelling-Lawley tests for cointegration are derived: The test statistics converge to nonrandom integrals. For more refined analysis, the paper proposes and analyzes a modification of the Johansen test. The new test for the absence of cointegration converges to the partial sum of the Airy point process. Supporting Monte Carlo simulations indicate that the same behavior persists universally in many situations beyond those considered in our theorems. The paper presents empirical implementations of the approach for the analysis of S&P100 stocks and of cryptocurrencies. The latter example has a strong presence of multiple cointegrating relationships, while the results for the former are consistent with the null of no cointegration.",
+      "abstract_cn": "本文研究阶数为⁠、VAR(⁠⁠)的非平稳高维向量自回归。允许趋势或季节性等附加确定性项。时间期数⁠和坐标数⁠被假定为很大且同阶。在此机制下，推导了Johansen似然比（LR）、Pillai-Bartlett和Hotelling-Lawley协整检验的一阶渐近性质：检验统计量收敛于非随机积分。为进行更精细的分析，本文提出并分析了一种Johansen检验的修正。新的无协整检验收敛于Airy点过程的部分和。支持性Monte Carlo模拟表明，相同行为在许多超出我们定理所考虑的情形中普遍持续存在。本文给出了该方法在S&P100股票和加密货币分析中的实证应用。后一个例子存在强烈的多重协整关系，而前者的结果与无协整的原假设一致。",
+      "doi": "10.1162/rest_a_01464",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1319/122323/Asymptotics-of-Cointegration-Tests-for-High",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1319/122323/Asymptotics-of-Cointegration-Tests-for-High",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1319/122323/Asymptotics-of-Cointegration-Tests-for-High"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:12+00:00",
-        "source_hash": "c51089a750379473197a2d70359ae3e237e0d0042be191a8e096ef01887dd69c"
+        "translated_at": "2026-10-15T10:41:45+00:00",
+        "source_hash": "66b9f5e5d6dcb5dca52fbd174d16b13592111df7c3c210f6383b8234630a0858"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -451,37 +431,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01454",
+      "paper_id": "doi:10.1162/rest_a_01520",
       "sequence": 12,
       "source_sequence": 12,
       "article_type": "research-article",
-      "title_en": "Permanent and Transitory Responses to Capital Gains Taxes: Evidence from a Lifetime Exemption in Canada",
-      "title_cn": "资本利得税的永久性和暂时性反应：来自加拿大终身豁免的证据",
+      "title_en": "A Fundamental Connection: Exchange Rates and Macroeconomic Expectations",
+      "title_cn": "一个根本性联系：汇率与宏观经济预期",
       "authors": [
-        "Adam M. Lavecchia",
-        "Alisa Tazhitdinova"
+        "Vania Stavrakeva",
+        "Jenny Tang"
       ],
-      "abstract_en": "Using panel data on a 20% random sample of Canadian taxpayers, we study behavioral responses to the cancellation of a lifetime capital gains exemption that resulted in increased capital gains taxation for some individuals. We show that the exemption did not change the number of taxpayers reporting positive capital gains, and thus unlikely resulted in increased participation in capital markets. Furthermore, our results suggest that the cancellation increased the long-run capital gains realizations of tax filers with more unused exemption room but had a small, statistically insignificant impact on the capital gains realizations of those with little unused exemption room.",
-      "abstract_cn": "使用加拿大纳税人20%随机样本的面板数据，我们研究了对终身资本利得豁免取消的行为反应，该取消导致某些个人的资本利得税增加。我们表明，该豁免并未改变报告正资本利得的纳税人数量，因此不太可能导致资本市场参与增加。此外，我们的结果表明，取消增加了拥有更多未使用豁免空间的纳税申报者的长期资本利得实现，但对拥有很少未使用豁免空间的纳税申报者的资本利得实现产生了小的、统计上不显著的影响。",
-      "doi": "10.1162/rest_a_01454",
-      "source_url": "https://doi.org/10.1162/rest_a_01454",
-      "publication_date": "2026",
+      "abstract_en": "We disprove the exchange rate macroeconomic disconnect puzzle by showing that macroeconomic news can explain most variation in exchange rates at monthly and quarterly frequencies, accounting for up to 91% of the quarterly exchange rate variation during U.S. recessions and 65% over all periods. The main driver of the reconnect is exchange rates responding to past news—a result inconsistent with the theory of uncovered interest rate parity under full information rational expectations (UIP-FIRE). We discuss theoretical models that can explain this surprising result, including models featuring currency risk premia, regulatory or institutional frictions, or deviation from FIRE.",
+      "abstract_cn": "我们否定了汇率宏观经济脱节之谜，表明宏观经济新闻可以解释月度与季度频率下汇率的大部分变动，在美国衰退期间可解释高达91%的季度汇率变动，在所有时期可解释65%。重新连接的主要驱动因素是汇率对过去新闻的反应——这一结果与完全信息理性预期下的无抛补利率平价理论（UIP-FIRE）不一致。我们讨论了能够解释这一惊人结果的理论模型，包括具有货币风险溢价、监管或制度摩擦，或偏离FIRE特征的模型。",
+      "doi": "10.1162/rest_a_01520",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1332/125019/A-Fundamental-Connection-Exchange-Rates-and",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1332/125019/A-Fundamental-Connection-Exchange-Rates-and",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1332/125019/A-Fundamental-Connection-Exchange-Rates-and"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:14+00:00",
-        "source_hash": "82d2398425d3e6f3963e7b5129988577aa4c7664459f9f06c7909063682b299e"
+        "translated_at": "2026-10-15T10:41:47+00:00",
+        "source_hash": "fb7b32a660a096c35ed7f5121ff9c412ce5a1e053d654aaa44a22b4984102ba8"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -490,36 +468,34 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01445",
+      "paper_id": "doi:10.1162/rest_a_01470",
       "sequence": 13,
       "source_sequence": 13,
       "article_type": "research-article",
-      "title_en": "Monetary Policy and Home Buying Inequality",
-      "title_cn": "货币政策与购房不平等",
+      "title_en": "Coarse Wage Setting and Behavioral Firms",
+      "title_cn": "粗放式工资设定与行为型企业",
       "authors": [
-        "Daniel Ringo"
+        "Germán Reyes"
       ],
-      "abstract_en": "Does monetary policy influence who becomes a homeowner? Lower-income home buyers may be more sensitive to interest rates, at least in part because they more frequently come up against binding payment-to-income ratio constraints in credit decisions. Exploiting the timing of high-frequency observations of individual mortgage rate locks around monetary policy shocks, I find that a 1 percentage point policy-induced increase in mortgage rates lowers the presence of lower-income households in the population of home buyers by 1 to 2 percentage points immediately following the shock. Effects are substantially stronger among first-time home buyers and persist for approximately one year.",
-      "abstract_cn": "货币政策是否影响谁成为房主？低收入购房者可能对利率更敏感，至少部分原因是他们在信贷决策中更频繁地遇到具有约束力的还款收入比限制。利用货币政策冲击前后个人抵押贷款利率锁定高频观测的时间安排，我发现政策引发的抵押贷款利率上升1个百分点，会使低收入家庭在购房者群体中的占比在冲击后立即下降1至2个百分点。这种效应在首次购房者中显著更强，并持续约一年。",
-      "doi": "10.1162/rest_a_01445",
-      "source_url": "https://doi.org/10.1162/rest_a_01445",
-      "publication_date": "2026",
+      "abstract_en": "This paper shows that the bunching of wages at round numbers is partly driven by firm coarse wage setting. Using data from more than 200 million new hires in Brazil, I first establish that contracted salaries tend to cluster at round numbers. Then, I show that firms that tend to hire workers at round-numbered salaries have worse market outcomes. Next, I develop a wage-posting model in which optimization costs lead to the adoption of coarse rounded wages and provide evidence supporting two model predictions using two research designs. Finally, I examine some consequences of coarse wage setting for relevant economic outcomes.",
+      "abstract_cn": "本文表明，工资在整数金额上的聚集部分是由企业的粗放式工资设定驱动的。使用来自巴西超过200百万新雇员的数据，我首先确认合同工资往往聚集在整数金额上。然后，我表明倾向于以整数金额工资雇佣工人的企业市场表现更差。接下来，我构建了一个工资发布模型，其中优化成本导致采用粗略取整的工资，并使用两种研究设计提供了支持两个模型预测的证据。最后，我考察了粗放式工资设定对相关经济结果的一些影响。",
+      "doi": "10.1162/rest_a_01470",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1349/122322/Coarse-Wage-Setting-and-Behavioral-Firms",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1349/122322/Coarse-Wage-Setting-and-Behavioral-Firms",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1349/122322/Coarse-Wage-Setting-and-Behavioral-Firms"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:15+00:00",
-        "source_hash": "78808b4777a86683cba44fcd4f7eade19db077529d07c7b00ec25e88db73531c"
+        "translated_at": "2026-10-15T10:41:48+00:00",
+        "source_hash": "68358003940673730039e59273df722dad5717d86d9f645a264084a0b7cbc2ad"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -528,37 +504,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01442",
+      "paper_id": "doi:10.1162/rest_a_01490",
       "sequence": 14,
       "source_sequence": 14,
       "article_type": "research-article",
-      "title_en": "Urban Transit Infrastructure and Inequality",
-      "title_cn": "城市交通基础设施与不平等",
+      "title_en": "Time Use and Macroeconomic Uncertainty",
+      "title_cn": "时间利用与宏观经济不确定性",
       "authors": [
-        "Kwok Hao Lee",
-        "Brandon Joel Tan"
+        "Matteo Cacciatore",
+        "Stefano Gnocchi",
+        "Daniela Hauser"
       ],
-      "abstract_en": "We propose a quantitative spatial model featuring heterogeneous worker groups and their travel to consume nontradable goods and services. We consider the opening of the Downtown Line in Singapore, which connected regions where high-income households have residential amenities to where nontraded sectors are productive. Leveraging transit farecard data, we show that high-income workers saw large welfare gains but low-income workers gained little. Everyone enjoyed improved access to consumption opportunities, but low-income jobs in nontradables moved to less attractive workplaces. Abstracting from consumption travel understates the disparate impact across worker groups threefold.",
-      "abstract_cn": "我们提出一个定量空间模型，该模型包含异质性工人群体及其前往消费不可贸易商品和服务的出行。我们考虑新加坡 Downtown Line 的开通，该线路连接了高收入家庭拥有住宅便利设施的地区与不可贸易部门生产率较高的地区。利用公交票价卡数据，我们表明高收入工人获得了较大的福利收益，但低收入工人获益甚微。所有人都享有改善的消费机会可达性，但不可贸易部门中的低收入工作岗位转移到了吸引力较低的工作场所。忽略消费出行会将不同工人群体之间的差异性影响低估三倍。",
-      "doi": "10.1162/rest_a_01442",
-      "source_url": "https://doi.org/10.1162/rest_a_01442",
-      "publication_date": "2026",
+      "abstract_en": "We study the effects of uncertainty on time use and their macroeconomic implications. Employing data from the American Time Use Survey and the Bureau of Labor Statistics, we document that heightened uncertainty increases housework and reduces market hours, mildly impacting leisure. We then propose a model that quantitatively accounts for these estimates. We show that substitution between market and housework provides self-insurance to households, weakening precautionary motives. However, it also reduces aggregate demand, ultimately amplifying uncertainty’s recessionary impact. Time reallocation can lead to higher inflation, particularly when uncertainty is coupled with policies redirecting time use towards housework (e.g., lockdown restrictions).",
+      "abstract_cn": "我们研究不确定性对时间利用的影响及其宏观经济含义。利用美国时间使用调查和劳工统计局的数据，我们记录到不确定性加剧会增加家务劳动并减少市场工作时间，对闲暇的影响轻微。随后，我们提出一个模型，该模型在数量上解释了这些估计结果。我们表明，市场工作与家务劳动之间的替代为家庭提供了自我保险，削弱了预防性动机。然而，它也减少了总需求，最终放大了不确定性的衰退影响。时间重新配置可能导致更高的通胀，尤其是当不确定性与将时间利用转向家务劳动的政策（例如封锁限制）相结合时。",
+      "doi": "10.1162/rest_a_01490",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1363/124146/Time-Use-and-Macroeconomic-Uncertainty",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1363/124146/Time-Use-and-Macroeconomic-Uncertainty",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1363/124146/Time-Use-and-Macroeconomic-Uncertainty"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:17+00:00",
-        "source_hash": "6511ffc4cd9fac7fa74c04c03c9948305eccd9b0c24ffff9126ae20abdbfc7ec"
+        "translated_at": "2026-10-15T10:41:50+00:00",
+        "source_hash": "8a547ac155f6569b886af7534f7d1f35112e33a1522b15933bacd7367a7ff8ed"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -567,37 +542,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01456",
+      "paper_id": "doi:10.1162/rest_a_01527",
       "sequence": 15,
       "source_sequence": 15,
       "article_type": "research-article",
-      "title_en": "Critical Values Robust to P-Hacking",
-      "title_cn": "对P-hacking稳健的临界值",
+      "title_en": "The Long-Run Effects of Monetary Policy",
+      "title_cn": "货币政策的长期效应",
       "authors": [
-        "Adam McCloskey",
-        "Pascal Michaillat"
+        "Òscar Jordà",
+        "Sanjay R. Singh",
+        "Alan M. Taylor"
       ],
-      "abstract_en": "P-hacking is prevalent in reality but absent from classical hypothesis-testing theory. We therefore build a model of hypothesis testing that accounts for p-hacking. From the model, we derive critical values such that, if they are used to determine significance, and if p-hacking adjusts to the new significance standards, then spurious significant results do not occur more often than intended. Because of p-hacking, such robust critical values are larger than classical critical values. In the model calibrated to medical science, the robust critical value is the classical critical value for the same test statistic but with one-fifth of the significance level.",
-      "abstract_cn": "P-hacking在现实中普遍存在，但在经典假设检验理论中却缺席。因此，我们构建了一个考虑P-hacking的假设检验模型。从该模型中，我们推导出临界值，使得如果这些临界值被用于确定显著性，并且如果P-hacking根据新的显著性标准进行调整，那么虚假的显著结果不会比预期更频繁地出现。由于P-hacking的存在，这种稳健的临界值大于经典临界值。在根据医学科学校准的模型中，稳健临界值是对相同检验统计量但显著性水平为五分之一时的经典临界值。",
-      "doi": "10.1162/rest_a_01456",
-      "source_url": "https://doi.org/10.1162/rest_a_01456",
-      "publication_date": "2026",
+      "abstract_en": "We document that the real effects of monetary shocks last for over a decade. Our approach relies on identification of exogenous and nonsystematic monetary shocks using the trilemma of international finance; merged data from two new international historical cross-country databases; and econometric methods robust to long-horizon inconsistent estimates. Notably, the capital stock and total factor productivity (TFP) exhibit greater hysteresis than labor. When we allow for asymmetry, we find these effects with tightening shocks, but not with loosening shocks. When extending the horizon of the responses reported in several recent studies that use alternative monetary shocks, we find similarly persistent real effects, thus supporting our main findings.",
+      "abstract_cn": "我们记录到货币冲击的实际效应持续超过十年。我们的方法依赖于利用国际金融三难困境识别外生且非系统性的货币冲击；合并来自两个新的国际历史跨国数据库的数据；以及对长期不一致估计具有稳健性的计量经济学方法。值得注意的是，资本存量和全要素生产率（TFP）表现出比劳动更大的滞后效应。当我们允许不对称性时，我们发现这些效应在紧缩冲击下存在，但在宽松冲击下不存在。当我们将几项近期使用替代货币冲击的研究中报告的响应期限延长时，我们发现同样持久的实际效应，从而支持我们的主要发现。",
+      "doi": "10.1162/rest_a_01527",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1377/125029/The-Long-Run-Effects-of-Monetary-Policy",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1377/125029/The-Long-Run-Effects-of-Monetary-Policy",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1377/125029/The-Long-Run-Effects-of-Monetary-Policy"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:18+00:00",
-        "source_hash": "92b4218d3875637b5709c0d4edddabdd3a1c1b5dc686fddb82e3f6b8ef6eb1b9"
+        "translated_at": "2026-10-15T10:41:51+00:00",
+        "source_hash": "2d348569ffaf22f67d36948fdf063bc927878ab2a8788270f22a16f600fcfe05"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -606,36 +580,34 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01459",
+      "paper_id": "doi:10.1162/rest_a_01437",
       "sequence": 16,
       "source_sequence": 16,
       "article_type": "research-article",
-      "title_en": "Quantile Effects in Discrete Choice with Social Interactions",
-      "title_cn": "社会互动下离散选择中的分位数效应",
+      "title_en": "The Unobserved Returns to Entrepreneurship",
+      "title_cn": "创业的未观测回报",
       "authors": [
-        "Zhongjian Lin"
+        "Sarada"
       ],
-      "abstract_en": "This paper provides a method to study quantile effects in discrete choice with social interactions. The method is based on a behavioral social interactions model from quantile preference in decision making and demonstrates peer effects on different quantiles of discrete outcomes. The peer effects parameters are estimated by a nested pseudoscore (NPS) approach, which is developed to tackle the computational burden pertaining to the social interactions model. Consistency and asymptotic normality are established for the proposed NPS estimator. We illustrate the finite sample performance of the model and the estimator by Monte Carlo experiments and an application of peer effects among students on exercise decisions, using the National Longitudinal Study of Adolescent Health dataset.",
-      "abstract_cn": "本文提供了一种研究社会互动下离散选择中分位数效应的方法。该方法基于决策中分位数偏好的行为社会互动模型，并展示了同伴效应对离散结果不同分位数的影响。同伴效应参数通过嵌套伪得分（NPS）方法估计，该方法旨在解决与社会互动模型相关的计算负担。针对所提出的NPS估计量，建立了相合性和渐近正态性。我们通过蒙特卡洛实验以及使用全国青少年健康纵向研究数据集对学生锻炼决策中同伴效应的应用，说明了模型和估计量的有限样本表现。",
-      "doi": "10.1162/rest_a_01459",
-      "source_url": "https://doi.org/10.1162/rest_a_01459",
-      "publication_date": "2026",
+      "abstract_en": "This paper presents an alternative perspective to a long-standing empirical puzzle: that most entrepreneurs persevere despite persistently low earnings. Because entrepreneurial earnings are notoriously difficult to measure, I approach the question from an expenditure angle. I look at how switching into self-employment corresponds to changes in reported earnings versus expenditure. Using 45 years of longitudinal data, I find that individuals report earning 27.7% _less_ in self-employment, while spending 3.8% _more_ . This household expenditure premium accrues with entrepreneurial experience and is not offset by lower savings or longer work hours. The results hold in highly educated and incorporated business owner subsamples.",
+      "abstract_cn": "本文对一个长期存在的经验谜题提出了另一种视角：即大多数创业者尽管收入持续偏低却仍坚持创业。由于创业收入以难以衡量著称，我从支出角度切入这一问题。我考察了转入自雇状态如何对应于所报告的收益与支出的变化。利用45年的纵向数据，我发现个人报告在自雇状态下收入27.7%_更少_，而支出3.8%_更多_。这种家庭支出溢价随创业经验而累积，且未被更低的储蓄或更长的工作时间所抵消。该结果在受过高等教育和注册企业主子样本中依然成立。",
+      "doi": "10.1162/rest_a_01437",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1398/120194/The-Unobserved-Returns-to-Entrepreneurship",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1398/120194/The-Unobserved-Returns-to-Entrepreneurship",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1398/120194/The-Unobserved-Returns-to-Entrepreneurship"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:19+00:00",
-        "source_hash": "455a13dba182791d8356b88754e814c4d3890a09959dbde6df4da5a6fb1ed938"
+        "translated_at": "2026-10-15T10:41:53+00:00",
+        "source_hash": "a9655079031a34a91dda50bad4c926cfefef3c181f92de5505c6a27e26454781"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -644,36 +616,37 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01441",
+      "paper_id": "doi:10.1162/rest_a_01474",
       "sequence": 17,
       "source_sequence": 17,
       "article_type": "research-article",
-      "title_en": "Weak Identification in Low-Dimensional Factor Models with One or Two Factors",
-      "title_cn": "一或两个因子的低维因子模型中的弱识别",
+      "title_en": "Universal Basic Income: Inspecting the Mechanisms",
+      "title_cn": "全民基本收入：机制考察",
       "authors": [
-        "Gregory Fletcher Cox"
+        "Nir Jaimovich",
+        "Itay Saporta-Eksten",
+        "Ofer Setty",
+        "Yaniv Yedid-Levi"
       ],
-      "abstract_en": "This paper describes how to reparametrize low-dimensional factor models with one or two factors to fit weak identification theory developed for generalized method of moments models. Some identification-robust tests, here called “plug-in” tests, require a reparametrization to distinguish weakly identified parameters from strongly identified parameters. The reparametrizations in this paper make plug-in tests available for subvector hypotheses in low-dimensional factor models with one or two factors. Simulations show that the plug-in tests are less conservative than identification-robust tests that use the original parametrization. An empirical application to a factor model of parental investments in children is included.",
-      "abstract_cn": "本文描述了如何对含一或两个因子的低维因子模型进行重新参数化，以适用于为广义矩方法模型所发展的弱识别理论。一些识别稳健检验，此处称为“插入式”检验，需要重新参数化以区分弱识别参数与强识别参数。本文中的重新参数化使得插入式检验可用于含一或两个因子的低维因子模型中的子向量假设。模拟表明，插入式检验比使用原始参数化的识别稳健检验更不保守。文中包含一个对父母对子女投资的因子模型的实证应用。",
-      "doi": "10.1162/rest_a_01441",
-      "source_url": "https://doi.org/10.1162/rest_a_01441",
-      "publication_date": "2026",
+      "abstract_en": "We examine the mechanisms driving the aggregate and distributional impacts of Universal Basic Income (UBI) through model analysis of various UBI programs and financing schemes. The main adverse effect is the distortionary tax increase to fund UBI, reducing labor force participation. Secondary channels are a decline in demand for self-insurance, depressing aggregate capital, and a positive income effect that further deters labor force participation. Due to these channels, introducing UBI alongside existing social programs reduces output and average welfare. Partially substituting existing programs with UBI mitigates the adverse effects, increases average welfare, but does not deliver a Pareto improvement.",
+      "abstract_cn": "我们通过对各种全民基本收入（UBI）方案和融资计划的模型分析，考察驱动全民基本收入（UBI）总体影响和分配影响的机制。主要不利影响是为全民基本收入融资而增税造成的扭曲，降低了劳动力参与率。次要渠道是自我保险需求下降，压低总资本，以及进一步阻碍劳动力参与的正面收入效应。由于这些渠道，在现有社会计划之外引入全民基本收入会降低产出和平均福利。用全民基本收入部分替代现有计划可减轻不利影响，提高平均福利，但不会带来帕累托改进。",
+      "doi": "10.1162/rest_a_01474",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1414/124132/Universal-Basic-Income-Inspecting-the-Mechanisms",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1414/124132/Universal-Basic-Income-Inspecting-the-Mechanisms",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1414/124132/Universal-Basic-Income-Inspecting-the-Mechanisms"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:21+00:00",
-        "source_hash": "f025efdf8a23e39195ae83c64c980b8518be155e6660d09da9e2ec46cb1c8ad0"
+        "translated_at": "2026-10-15T10:41:54+00:00",
+        "source_hash": "b939afddc19a2da914eec31f5f687bc5695166572fa052eaf23aa5055b0104f1"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -682,38 +655,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01426",
+      "paper_id": "doi:10.1162/rest_a_01448",
       "sequence": 18,
       "source_sequence": 18,
       "article_type": "research-article",
-      "title_en": "Information Transmission in Groups: Peer Influence in High-Stakes, Irreversible Financial Decisions",
-      "title_cn": "群体中的信息传递：高风险、不可逆财务决策中的同伴影响",
+      "title_en": "When Nurses Travel: Labor Supply Responses to Peak Demand for Nurses",
+      "title_cn": "当护士出行：护士峰值需求的劳动供给反应",
       "authors": [
-        "Tom Ahn",
-        "Jesse M. Cunha",
-        "Patrick Veith"
+        "Joshua D. Gottlieb",
+        "Avi Zenilman"
       ],
-      "abstract_en": "We study the influence of workplace peers on a high-stakes, irreversible retirement plan choice. Midcareer U.S. military personnel choose between higher future pension payouts or an immediate bonus plus lower future payouts. With peers defined as those who have locked in their choices and personnel assignment rules ensuring that peer groups are exogenously formed, we capture the causal impact of peers. Greater peer take-up of the bonus, which is difficult to compare to the alternative plan but often extremely costly over one’s lifetime, discourages choosers from selecting the bonus. Peers have special impact within professional, race, and gender groups.",
-      "abstract_cn": "我们研究工作场所同伴对一项高风险、不可逆退休计划选择的影响。处于职业生涯中期的美国军人需要在更高的未来养老金支付与一笔即时奖金加上更低的未来支付之间做出选择。将同伴定义为那些已经锁定其选择的人，并且人员分配规则确保同伴群体是外生形成的，我们捕捉到了同伴的因果影响。同伴对奖金更高的接受率——该奖金难以与替代计划进行比较，但在一生中往往代价极高——会阻止选择者选择奖金。同伴在职业、种族和性别群体内具有特殊影响。",
-      "doi": "10.1162/rest_a_01426",
-      "source_url": "https://doi.org/10.1162/rest_a_01426",
-      "publication_date": "2026",
+      "abstract_en": "We study how a market uses temporary workers to accommodate extraordinary demand shocks. When COVID-19 surges, hospitals need additional nurses—especially in specialties central to COVID-19 care. By comparing markets for COVID-relevant and other specialties, we show that the market for travel nurses expands dramatically, and we estimate travel nurse labor supply across space. Supply is quite elastic, as workers can choose to travel where they are needed. Workers travel longer distances to temporary jobs when payment increases, suggesting that an integrated national market facilitates reallocation when demand spikes. But when national cases peak, travel distance is less responsive to local demand.",
+      "abstract_cn": "我们研究市场如何利用临时工来应对异常的需求冲击。当COVID-19激增时，医院需要额外的护士——尤其是在COVID-19护理核心的专业领域。通过比较COVID相关专业与其他专业的市场，我们表明旅行护士市场急剧扩张，并估计了旅行护士在空间上的劳动供给。供给相当富有弹性，因为工人可以选择前往需要他们的地方。当报酬增加时，工人会为临时工作走更远的距离，这表明一个一体化的全国市场在需求激增时促进了重新配置。但当全国病例达到峰值时，旅行距离对当地需求的反应减弱。",
+      "doi": "10.1162/rest_a_01448",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1424/120878/When-Nurses-Travel-Labor-Supply-Responses-to-Peak",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1424/120878/When-Nurses-Travel-Labor-Supply-Responses-to-Peak",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1424/120878/When-Nurses-Travel-Labor-Supply-Responses-to-Peak"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:22+00:00",
-        "source_hash": "6f31e12b3863646e9ffd0f02026b5d93adacbeb21e28d76a773f55d126ea7965"
+        "translated_at": "2026-10-15T10:41:56+00:00",
+        "source_hash": "35acb2c44a2764d0793a2513bde72c883e852b0d1231956630398b3e9c61dd3d"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -722,39 +692,35 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01428",
+      "paper_id": "doi:10.1162/rest_a_01449",
       "sequence": 19,
       "source_sequence": 19,
       "article_type": "research-article",
-      "title_en": "Is Hybrid Work the Best of Both Worlds? Evidence from a Field Experiment",
-      "title_cn": "混合工作是否两全其美？来自实地实验的证据",
+      "title_en": "Estimating Nursing Home Quality with Selection",
+      "title_cn": "估计存在选择时的养老院质量",
       "authors": [
-        "Prithwiraj Choudhury",
-        "Christos A. Makridis",
-        "Tarun Khanna",
-        "Kyle Schirmann"
+        "Andrew Olenski",
+        "Szymon Sacher"
       ],
-      "abstract_en": "This paper reports causal evidence on how the extent of hybrid work—the number of days worked from home relative to days worked from office—affects employee attitudes and performance. Workers who spent around two days in the office each week on average self-reported greater work-life balance, more job satisfaction, and lower isolation from colleagues compared to workers who spent more or fewer days in the office. Employees in the intermediate hybrid condition received no different performance ratings compared to peers who spent more or fewer days in the office.",
-      "abstract_cn": "本文报告了关于混合工作的程度——即在家工作的天数相对于在办公室工作的天数——如何影响员工态度和绩效的因果证据。与在办公室工作天数更多或更少的员工相比，平均每周在办公室工作约两天的员工自我报告了更好的工作与生活平衡、更高的工作满意度以及与同事更低的孤立感。与在办公室工作天数更多或更少的同事相比，处于中间混合工作条件下的员工获得的绩效评级没有差异。",
-      "doi": "10.1162/rest_a_01428",
-      "source_url": "https://doi.org/10.1162/rest_a_01428",
-      "publication_date": "2026",
+      "abstract_en": "We use variational inference (VI), a technique from the machine learning literature, to estimate a mortality-based Bayesian model of nursing home quality accounting for selection. We demonstrate how one can use VI to quickly and flexibly estimate a high-dimensional economic model with large datasets. Using our facility quality estimates, we examine the correlates of quality and find that public report cards have near-zero correlation. We then show that in contrast to prior literature, higher-quality nursing homes fared better during the pandemic: a one standard deviation increase in quality corresponds to 2.5% fewer COVID-19 cases.",
+      "abstract_cn": "我们使用变分推断（VI），一种来自机器学习文献的技术，来估计一个基于死亡率的贝叶斯养老院质量模型，并考虑选择问题。我们展示了如何使用VI快速灵活地估计具有大型数据集的高维经济模型。利用我们的设施质量估计，我们考察了质量的相关因素，发现公共报告卡的相关性几乎为零。然后我们表明，与先前文献相反，高质量的养老院在疫情期间表现更好：质量提高一个标准差对应于2.5%更少的COVID-19病例。",
+      "doi": "10.1162/rest_a_01449",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1437/120874/Estimating-Nursing-Home-Quality-with-Selection",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1437/120874/Estimating-Nursing-Home-Quality-with-Selection",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1437/120874/Estimating-Nursing-Home-Quality-with-Selection"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:23+00:00",
-        "source_hash": "6fcd12ee78d5bdcca9133ead7b4e69c9888ee4917131366fea2f1e2dff41df6d"
+        "translated_at": "2026-10-15T10:41:58+00:00",
+        "source_hash": "9616a93e3b6cf4824d335526d73d89276a61752bb9e72e6fcbf431f09a03163c"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -763,38 +729,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01451",
+      "paper_id": "doi:10.1162/rest_a_01457",
       "sequence": 20,
       "source_sequence": 20,
       "article_type": "research-article",
-      "title_en": "Disentangling Reputation from Selection Effects in Markets with Informational Asymmetries: A Field Experiment",
-      "title_cn": "在信息不对称市场中分离声誉效应与选择效应：一项实地实验",
+      "title_en": "Raising State Minimum Wages, Lowering Community College Enrollment",
+      "title_cn": "提高州最低工资，降低社区大学入学率",
       "authors": [
-        "Theodore Alysandratos",
-        "Sotiris Georganas",
-        "Matthias Sutter"
+        "Diane Whitmore Schanzenbach",
+        "Julia A. Turner",
+        "Sarah Turner"
       ],
-      "abstract_en": "In markets with asymmetric information between sellers and buyers, feedback mechanisms are important to increase market efficiency and reduce the informational disadvantage of buyers. Feedback mechanisms might work because of self-selection of more trustworthy sellers into markets with such mechanisms or because of reputational concerns of sellers. We show in a field experiment how to disentangle self-selection from reputation effects. Based on 476 taxi rides with four different types of taxis, we find strong evidence for reputation effects but little support for self-selection effects. We discuss policy implications of our findings.",
-      "abstract_cn": "在买卖双方信息不对称的市场中，反馈机制对于提高市场效率和减少买方的信息劣势非常重要。反馈机制可能起作用，是因为更值得信赖的卖方自我选择进入具有此类机制的市场，或者是因为卖方的声誉关切。我们在一项实地实验中展示了如何将自我选择与声誉效应分离。基于476次乘坐四种不同类型出租车的行程，我们发现了声誉效应的强有力证据，但几乎没有支持自我选择效应的证据。我们讨论了研究结果的政策含义。",
-      "doi": "10.1162/rest_a_01451",
-      "source_url": "https://doi.org/10.1162/rest_a_01451",
-      "publication_date": "2026",
+      "abstract_en": "Changes in the minimum wage may impact college enrollment and educational attainment. Using institutional data on college enrollment and program completion, we find that enrollment falls markedly among students at public two-year institutions in response to increases in the minimum wage. The largest enrollment effects are seen for those students who are enrolled part-time at community colleges. We find little evidence of negative effects on the attainment of certificates or degrees, suggesting that increases in the minimum wage are unlikely to divert students from degree attainment.",
+      "abstract_cn": "最低工资的变化可能影响大学入学率和教育程度。利用关于大学入学率和项目完成情况的机构数据，我们发现，面对最低工资的提高，公立两年制院校的学生入学率显著下降。入学率效应最大的是那些在社区大学非全日制入学的学生。我们几乎没有发现对证书或学位获得产生负面影响的证据，这表明最低工资的提高不太可能使学生偏离学位获得。",
+      "doi": "10.1162/rest_a_01457",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1448/120871/Raising-State-Minimum-Wages-Lowering-Community",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1448/120871/Raising-State-Minimum-Wages-Lowering-Community",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1448/120871/Raising-State-Minimum-Wages-Lowering-Community"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:25+00:00",
-        "source_hash": "c5d1d4562638f54af4bd91f00836d8a87f83379475f7e4dcc17f61e916f459bc"
+        "translated_at": "2026-10-15T10:41:59+00:00",
+        "source_hash": "112673b443b05d03fb4a3edba392c74d736e5b5170d2c6e927618ea55b190790"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -803,37 +767,114 @@
       }
     },
     {
-      "paper_id": "doi:10.1162/rest_a_01427",
+      "paper_id": "doi:10.1162/rest_a_01443",
       "sequence": 21,
       "source_sequence": 21,
       "article_type": "research-article",
-      "title_en": "Federal Tax Deductions and the Demand for Local Public Goods",
-      "title_cn": "联邦税收扣除与地方公共品需求",
+      "title_en": "Misspecified Exponential Regressions: Estimation, Interpretation, and Average Marginal Effects",
+      "title_cn": "误设的指数回归：估计、解释与平均边际效应",
       "authors": [
-        "Brent W. Ambrose",
-        "Maxence Valentin"
+        "J. M. C. Santos Silva",
+        "Rainer Winkelmann"
       ],
-      "abstract_en": "The U.S. tax system allows taxpayers to deduct local taxes from their taxable incomes. Using school district referendum results, we employ a continuous treatment two-way fixed-effects framework to provide causal evidence of a positive relation between the demand for local public goods and the share of residents deducting local taxes. We find that a 1 percentage point decrease in the share of residents deducting property taxes reduces tax and bond referendum approval rates by approximately 0.97 percentage points. Because these federal tax deductions disproportionately benefit higher-income individuals, they potentially widen disparities in public service provision across jurisdictions.",
-      "abstract_cn": "美国税制允许纳税人在其应税收入中扣除地方税。利用学区公投结果，我们采用连续处理双向固定效应框架，提供因果证据表明地方公共品需求与扣除地方税的居民比例之间存在正相关关系。我们发现，扣除财产税的居民比例下降1个百分点，会使税收和债券公投通过率降低约0.97个百分点。由于这些联邦税收扣除不成比例地惠及高收入个人，它们可能加宽各辖区之间公共服务提供的差距。",
-      "doi": "10.1162/rest_a_01427",
-      "source_url": "https://doi.org/10.1162/rest_a_01427",
-      "publication_date": "2026",
+      "abstract_en": "Exponential regressions are frequently used when outcomes are non-negative. They are attractive because they are easy to interpret and to estimate, using pseudomaximum likelihood (PML). However, the validity of these methods depends on the correct specification of the conditional expectation, and little is known regarding their properties when the conditional expectation is misspecified. We show that PML estimators of misspecified exponential models provide optimal approximations to the conditional expectation, in a weighted mean squared error sense, and we give conditions under which their Poisson PML estimator identifies average marginal effects.",
+      "abstract_cn": "当结果变量非负时，指数回归常被使用。它们之所以有吸引力，是因为易于解释和估计，可采用伪极大似然（PML）。然而，这些方法的有效性取决于条件期望的正确设定，而当条件期望被误设时，关于其性质所知甚少。我们表明，误设指数模型的PML估计量在加权均方误差意义下提供了对条件期望的最优近似，并给出了其泊松PML估计量识别平均边际效应的条件。",
+      "doi": "10.1162/rest_a_01443",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1458/120185/Misspecified-Exponential-Regressions-Estimation",
       "sources": {
-        "issue": "https://direct.mit.edu/rest/issue",
-        "roster": "https://direct.mit.edu/rest/issue/108/4",
-        "metadata": "crossref",
-        "abstract_en": "crossref"
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1458/120185/Misspecified-Exponential-Regressions-Estimation",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1458/120185/Misspecified-Exponential-Regressions-Estimation"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-chat",
-        "translated_at": "2026-09-19T08:28:26+00:00",
-        "source_hash": "2a40c25b31a19e21b255443cc1ce8e7fe035512902495b2e476696e57014cfde"
+        "translated_at": "2026-10-15T10:42:01+00:00",
+        "source_hash": "a33c991fd865dc2bc68912cac0d6d95103c146f9132506799f8a3f81f47bb324"
       },
       "quality_flags": [],
+      "publication_date": "September 2026",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest.x.1823",
+      "sequence": 22,
+      "source_sequence": 22,
+      "article_type": "comment",
+      "title_en": "A Comment on “Raising Health Awareness in Rural Communities: A Randomized Experiment in Bangladesh and India” by Siddique et al. (2024)",
+      "title_cn": "对Siddique等人（2024）《提高农村社区的健康意识：在孟加拉国和印度的一项随机实验》的评论",
+      "authors": [
+        "Anders Kjelsrud",
+        "Andreas Kotsadam",
+        "Ole Rogeberg",
+        "Abel Brodeur"
+      ],
+      "abstract_en": "Siddique et al. ( 2024 ) report large effects of a mobile phone-based health awareness campaign in a field experiment conducted in rural Bangladesh and India during the COVID-19 pandemic. Treatments are stated as being randomized at the village level in the Bangladesh arm, but analyses of available replication materials from this and related field experiments show that this was not the case: participants retained their treatment group assignment from two earlier studies run by the same NGO. Because these earlier studies reported large and persistent treatment effects, the treatment groups in Siddique et al. ( 2024 ) could plausibly differ systematically, raising issues of confounding and interaction effects that invalidate the analyses and interpretations of this study, affecting both internal and external validity.",
+      "abstract_cn": "Siddique等人（2024）报告了在COVID-19疫情期间于孟加拉国和印度农村进行的一项实地实验中，基于手机的健康意识宣传活动产生了巨大效果。文中称在孟加拉国分支中处理是在村庄层面随机化的，但对来自该实验及相关实地实验的可用复制材料的分析表明，情况并非如此：参与者保留了由同一非政府组织运行的两项早期研究中的处理组分配。由于这些早期研究报告了巨大且持续的处理效应，Siddique等人（2024）中的处理组可能存在系统性差异，引发了混杂和交互效应的问题，使本研究的分析和解释无效，影响了内部效度和外部效度。",
+      "doi": "10.1162/rest.x.1823",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1466/138996/A-Comment-on-Raising-Health-Awareness-in-Rural",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1466/138996/A-Comment-on-Raising-Health-Awareness-in-Rural",
+        "abstract_en": "https://direct.mit.edu/rest/article/108/5/1466/138996/A-Comment-on-Raising-Health-Awareness-in-Rural"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-10-15T10:42:02+00:00",
+        "source_hash": "9147581e3c300fda4408ed81eb71050c38606a8926f3e059a7f702ee82ab369a"
+      },
+      "quality_flags": [],
+      "publication_date": "September 2026",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1162/rest.x.1825",
+      "sequence": 23,
+      "source_sequence": 23,
+      "article_type": "comment",
+      "title_en": "Response to the Comment on “Raising Health Awareness in Rural Communities: A Randomized Experiment in Bangladesh and India” (Siddique et al., 2024)",
+      "title_cn": "对《提高孟加拉国与印度农村社区健康认知的随机试验》评论的回应（Siddique 等，2024）",
+      "authors": [
+        "Firoz Ahmed",
+        "Asad Islam",
+        "Debayan Pakrashi"
+      ],
+      "abstract_en": "",
+      "abstract_cn": "",
+      "doi": "10.1162/rest.x.1825",
+      "source_url": "https://direct.mit.edu/rest/article/108/5/1468/138995/Response-to-the-Comment-on-Raising-Health",
+      "sources": {
+        "roster": "https://direct.mit.edu/rest/issue/108/5",
+        "metadata": "https://direct.mit.edu/rest/article/108/5/1468/138995/Response-to-the-Comment-on-Raising-Health",
+        "abstract_en": "publisher-page-no-standalone-abstract"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "manual-official-title",
+        "prompt_version": "official-no-abstract-v1"
+      },
+      "quality_flags": [
+        "official_abstract_unavailable",
+        "abstract_en_missing"
+      ],
+      "abstract_status": "official_not_provided",
+      "abstract_note": "MIT Press RESTAT 108(5) 官方 Response 文章页未提供独立 Abstract；该项目归为有标题的 Comment，不得编造摘要。",
+      "publication_date": "September 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -845,65 +886,67 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "browser-authorized",
+    "roster_transport": "official-page-read",
     "roster_authority": "official-issue-page",
-    "roster_match_scope": "crossref-issue-group",
-    "publisher_page_status": "blocked",
+    "roster_match_scope": "official-publisher-issue-full",
+    "publisher_page_status": "first-party-observed",
     "excluded_item_count": 1,
     "excluded_items": [
       {
-        "title_en": "<i>Review of Economics and Statistics</i>\n                    2026 Annual\n                    Report",
-        "reason": "editorial_material",
-        "doi": "10.1162/rest.e.1731",
-        "article_type": "editorial"
+        "doi": "10.1162/rest.x.1827",
+        "title_en": "Author Requests for Removal from “Raising Health Awareness in Rural Communities: A Randomized Experiment in Bangladesh and India” (Siddique et al., 2024)",
+        "source_sequence": 24,
+        "reason": "correction_notice",
+        "article_type": "correction",
+        "source_url": "https://direct.mit.edu/rest/article/108/5/1470/138974/Author-Requests-for-Removal-from-Raising-Health"
       }
     ],
-    "doi_complete": 21,
-    "authors_complete": 21,
-    "abstract_en_complete": 21,
-    "translation_complete": 21,
+    "doi_complete": 23,
+    "authors_complete": 23,
+    "abstract_en_complete": 23,
+    "translation_complete": 23,
     "duplicate_count": 0,
     "flags": [],
-    "official_item_count": 22,
-    "publishable_item_count": 21,
+    "official_item_count": 24,
+    "publishable_item_count": 23,
     "content_counts": {
-      "official_items": 22,
-      "observed_items": 22,
-      "publishable_items": 21,
+      "official_items": 24,
+      "observed_items": 24,
+      "publishable_items": 23,
       "research_articles": 21,
-      "comments": 0,
+      "comments": 2,
       "short_communications": 0,
-      "corrections": 0,
-      "editorial_material": 1,
+      "corrections": 1,
+      "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 21
+      "catalog_content_items": 24
     },
     "official_roster_evidence": {
-      "captured_at": "2026-09-19T05:55:00+00:00",
-      "official_url": "https://direct.mit.edu/rest/issue/108/4",
-      "method": "browser-authorized",
-      "item_count": 21,
+      "captured_at": "2026-10-15T10:07:09.111Z",
+      "official_url": "https://direct.mit.edu/rest/issue/108/5",
+      "method": "official-page-read",
+      "item_count": 23,
       "excluded_item_count": 1,
       "archive_reordered": false,
-      "sequence_sha256": "d5d417cecbd9f56b9180a62baea2a60ad80f89218461fce53c210711cdd03d69",
+      "sequence_sha256": "5044408cb4c89c7d90f76f1b20ab92d5334b5ec105b83abbf576cea0ead99dfc",
       "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 22,
-    "observed_items": 22,
-    "publishable_items": 21,
+    "official_items": 24,
+    "observed_items": 24,
+    "publishable_items": 23,
     "research_articles": 21,
-    "comments": 0,
+    "comments": 2,
     "short_communications": 0,
-    "corrections": 0,
-    "editorial_material": 1,
+    "corrections": 1,
+    "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 21
+    "catalog_content_items": 24
   },
-  "issue_label": "Vol. 108 · No. 4",
+  "issue_label": "Vol. 108 · No. 5",
   "content_status": "complete",
   "source_status": "official_verified",
   "publication_state": "ready"
