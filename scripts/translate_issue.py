@@ -673,13 +673,13 @@ _EN_FOLD_RE = re.compile(
 _EN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z0-9])"
     r"(?P<amount>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
+    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)(?![A-Za-z0-9_])"
 )
 _EN_WRITTEN_PERCENTAGE_POINTS_RE = re.compile(
     r"(?i)(?<![A-Za-z])"
     r"(?P<amount>" + _EN_CARD_PATTERN + r")"
     # Written number and unit must be separated: "app" is not "a pp" (1%).
-    r"(?:\s+|-)(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
+    r"(?:\s+|-)(?:percentage[-\s]*points?|pp|p\.p\.|pct)(?![A-Za-z0-9_])"
 )
 _EN_DECADE_AND_HALF_RE = re.compile(
     r"(?i)(?<![A-Za-z])(?:a\s+|one\s+)?decade\s+and\s+a\s+half\b"
@@ -705,7 +705,7 @@ _EN_PERCENTAGE_POINTS_RANGE_RE = re.compile(
     r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
     r"\s*(?:to|[-–—])\s*"
     r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)\.?\b"
+    r"[-\s]*(?:percentage[-\s]*points?|pp|p\.p\.|pct)(?![A-Za-z0-9_])"
 )
 
 # English written-cardinal percent range ("three to six percent"):
