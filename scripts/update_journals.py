@@ -1365,6 +1365,8 @@ def apply_configured_current_roster(
         from scripts.restat_current_roster import apply_restat_current_roster as apply_current_roster
     elif key == "JF" and config.get("id") == "jf":
         from scripts.afa_current_roster import apply_jf_current_roster as apply_current_roster
+    elif key == "JEH" and config.get("id") == "jeh":
+        from scripts.cambridge_current_roster import apply_jeh_current_roster as apply_current_roster
     else:
         from scripts.official_current_roster import apply_current_roster
 
