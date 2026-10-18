@@ -1363,6 +1363,8 @@ def apply_configured_current_roster(
         return issue
     if key == "RESTAT" and config.get("id") == "restat":
         from scripts.restat_current_roster import apply_restat_current_roster as apply_current_roster
+    elif key == "JF" and config.get("id") == "jf":
+        from scripts.afa_current_roster import apply_jf_current_roster as apply_current_roster
     else:
         from scripts.official_current_roster import apply_current_roster
 
