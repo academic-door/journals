@@ -48,6 +48,26 @@ class PercentagePointSemanticsTests(unittest.TestCase):
         with self.assertRaisesRegex(TranslationError, "semantic numeric quantities"):
             validate_translation(article(source), translation(translated))
 
+    def test_restat_dotted_pp_abbreviation_preserves_unit(self) -> None:
+        source = "Women's employment-to-population ratio declines 1.1 p.p., while hours worked fall 9.8%."
+        self.assertEqual(
+            Counter(_semantic_numbers(source)),
+            Counter({"1.1%": 1, "9.8%": 1}),
+        )
+        self.assert_valid(source, "女性就业人口比下降1.1个百分点，而工作时长下降9.8%。")
+
+    def test_restat_dotted_pp_cannot_be_changed_to_percent(self) -> None:
+        source = "Women's employment-to-population ratio declines 1.1 p.p., while hours worked fall 9.8%."
+        with self.assertRaisesRegex(TranslationError, "percentage-point unit"):
+            validate_translation(article(source), translation("女性就业人口比下降1.1%，而工作时长下降9.8%。"))
+
+    def test_restat_dotted_pp_missing_or_changed_amount_is_rejected(self) -> None:
+        source = "Women's employment-to-population ratio declines 1.1 p.p., while hours worked fall 9.8%."
+        for value in ("1.2个百分点", "1.1个指数点", ""):
+            with self.subTest(value=value):
+                with self.assertRaises(TranslationError):
+                    validate_translation(article(source), translation(f"女性就业人口比下降{value}，而工作时长下降9.8%。"))
+
     def test_wd_aqi_index_points_are_preserved(self) -> None:
         self.assertEqual(_semantic_numbers(AQI_SOURCE), ["0.772"])
         self.assert_valid(AQI_SOURCE, "空气质量指数（AQI）的差距为0.772个指数点。")
