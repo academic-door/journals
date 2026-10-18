@@ -1369,6 +1369,8 @@ def apply_configured_current_roster(
         from scripts.cambridge_current_roster import apply_jeh_current_roster as apply_current_roster
     elif key == "LANDECON" and config.get("id") == "landecon":
         from scripts.uwpress_current_roster import apply_landecon_current_roster as apply_current_roster
+    elif key == "JEEM" and config.get("id") == "jeem":
+        from scripts.jeem_current_roster import apply_jeem_current_roster as apply_current_roster
     else:
         from scripts.official_current_roster import apply_current_roster
 
