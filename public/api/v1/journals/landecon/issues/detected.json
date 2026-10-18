@@ -1,78 +1,48 @@
 {
   "schema_version": "1.0",
-  "issue_id": "landecon-102-3",
+  "issue_id": "landecon-102-4",
   "journal_id": "landecon",
   "journal_name": "Land Economics",
   "volume": "102",
-  "issue": "3",
-  "publication_date": "July 2026",
-  "source_url": "https://le.uwpress.org/content/current",
-  "retrieved_at": "2026-08-01T05:36:15+00:00",
-  "expected_article_count": 10,
-  "research_article_count": 10,
-  "status": "incomplete",
+  "issue": "4",
+  "publication_date": "October 2026",
+  "source_url": "https://le.uwpress.org/content/102/4",
+  "retrieved_at": "2026-10-18T17:57:08+00:00",
+  "expected_article_count": 8,
+  "research_article_count": 8,
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.3368/le.102.3.intro",
+      "paper_id": "doi:10.3368/le.102.4.011224-0004r2",
       "sequence": 1,
-      "source_sequence": 309,
+      "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "Introduction to the Special Issue",
-      "title_cn": "专题刊物导论",
+      "title_en": "Natural Resource Damages from Fishing Site Impairments Evidence from a Repeated Cross Section of New York Anglers",
+      "title_cn": "捕捞地点受损造成的自然资源损害：来自纽约州垂钓者重复横截面的证据",
       "authors": [
-        "Yongjie Ji",
-        "Daniel J. Phaneuf",
-        "Wendong Zhang"
+        "Charles Gibbons",
+        "David Sunding"
       ],
-      "abstract_en": "There is a long tradition in environmental economics of using visits to outdoor recreation sites to value environmental goods. Recreation demand (or travel cost) models combine data on trips individuals make to recreation destinations with imputed travel costs and attributes of recreation sites to",
-      "abstract_cn": "环境经济学中长期存在利用户外休闲场所访问来评估环境商品价值的传统。休闲需求（或旅行成本）模型结合了个人前往休闲目的地的旅行次数数据、推算的旅行成本以及休闲场所的属性，以",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.intro",
-      "source_url": "https://doi.org/10.3368/le.102.3.intro",
-      "publication_date": "2026",
+      "abstract_en": "Repeated surveys of New York State anglers eliciting fishing trips taken are used to estimate the willingness to pay (WTP) to avoid fish consumption advisories. We consider over 1,300 in-state origins and 1,700 destinations and use site-specific constants to address time-invariant unobserved characteristics. Conditional logit models produce WTP values between $2.91 and $5.96 per day, and mixed logit models give average values of $1.16–$1.72 per day. We also estimate the values of recreational amenities (e.g., boat launches), which can be used to offset resource losses.",
+      "abstract_cn": "利用对纽约州垂钓者重复调查所获取的钓鱼出行次数，估计避免鱼类消费警示的支付意愿（WTP）。我们考虑了超过 1,300 个州内起点和 1,700 个目的地，并使用地点特定常数来处理时不变不可观测特征。条件logit模型得出的WTP值为每天 2.91 美元至 5.96 美元，混合logit模型给出的平均值为每天 1.16–1.72 美元。我们还估计了休闲设施（例如船只下水坡道）的价值，这些价值可用于抵消资源损失。",
+      "doi": "10.3368/le.102.4.011224-0004r2",
+      "source_url": "https://le.uwpress.org/content/102/4/497",
       "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.intro"
+        "roster": "https://le.uwpress.org/content/102/4",
+        "metadata": "https://le.uwpress.org/content/102/4/497",
+        "abstract_en": "https://le.uwpress.org/content/102/4/497"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:51:56+00:00",
-        "source_hash": "5100ff10316e02c91698c9eff87ad1c3bd79d8ec01b76b59a0944550cc506c76"
+        "translated_at": "2026-10-18T17:57:10+00:00",
+        "source_hash": "bfbb612f3722c3a916c792a8386c4006440dafdbc1cd9b62f332beda730a6b45"
       },
       "quality_flags": [],
+      "publication_date": "October 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -81,67 +51,36 @@
       }
     },
     {
-      "paper_id": "doi:10.3368/le.102.3.013026-0018",
+      "paper_id": "doi:10.3368/le.102.4.052425-0039r1",
       "sequence": 2,
-      "source_sequence": 313,
+      "source_sequence": 2,
       "article_type": "research-article",
-      "title_en": "Quantifying Recreational Benefits from Fish Consumption Advisories",
-      "title_cn": "从渔业消费建议中量化休闲益处",
+      "title_en": "Applying the Contingent Behavior Method at the Regional Level Evidence from Forest Recreation",
+      "title_cn": "在区域层面应用条件行为方法：来自森林游憩的证据",
       "authors": [
-        "Xibo Wan",
-        "Yongwang Ren",
-        "Ruohao Zhang",
-        "Jiameng Zheng",
-        "Wendong Zhang"
+        "Oliver Becker",
+        "Tobias Börger",
+        "Jürgen Meyerhoff"
       ],
-      "abstract_en": "<h3>Abstract</h3> This paper examines the impact of fish consumption advisories on recreational behavior and visitor welfare using large-scale mobility data from Michigan. By integrating cellphone-based location data with a discrete choice modeling framework, we estimate the causal effects of advisories on recreation site selection and quantify the associated welfare benefits of disclosing risks. Our findings show that advisories significantly deter recreational visits, with an average visitor willing to pay approximately $72 per visit to avoid sites under advisories. We also find that disclosure on advisories led to aggregated welfare benefits of $3.45 million annually, highlighting its broader recreational benefits.",
-      "abstract_cn": "<h3>摘要</h3> 本文利用密歇根州的大规模出行数据，研究渔业消费建议对休闲行为和游客福利的影响。通过将手机定位数据与离散选择模型相结合，估算建议对休闲地点选择的因果效应，并量化披露风险的相关福利收益。研究结果显示，建议显著抑制休闲访问，平均每位游客愿意支付约$72美元以避免在建议区域内的地点。我们还发现，建议披露带来了每年$3.45至$百万美元的整体福利收益，凸显其更广泛的休闲益处。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.013026-0018",
-      "source_url": "https://doi.org/10.3368/le.102.3.013026-0018",
-      "publication_date": "2026",
+      "abstract_en": "Contingent behavior (CB) studies typically analyze changes in recreation demand at single sites by presenting identical scenarios to all respondents. This prevents assessing demand responses under diverse future conditions and across broader spatial scales. This article applies the CB method using a general population survey, integrating self-reported site characteristics with an experimental design to define CB scenarios. This allows recreation demand to be modeled as a function of multiple environmental attributes and analyzed regionally but requires adjusting the prediction procedure. Using data on forest recreation in Mecklenburg-Western Pomerania, Germany, we propose approaches for site- and region-level predictions.",
+      "abstract_cn": "条件行为（CB）研究通常通过向所有受访者呈现相同情景来分析单一地点的游憩需求变化。这阻碍了评估在多样化未来条件下以及更广泛空间尺度上的需求响应。本文使用一般人群调查应用CB方法，将自我报告的站点特征与实验设计相结合来定义CB情景。这使得游憩需求可以被建模为多个环境属性的函数并在区域层面进行分析，但需要调整预测程序。利用德国梅克伦堡-前波美拉尼亚的森林游憩数据，我们提出了站点层面和区域层面预测的方法。",
+      "doi": "10.3368/le.102.4.052425-0039r1",
+      "source_url": "https://le.uwpress.org/content/102/4/514",
       "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.013026-0018"
+        "roster": "https://le.uwpress.org/content/102/4",
+        "metadata": "https://le.uwpress.org/content/102/4/514",
+        "abstract_en": "https://le.uwpress.org/content/102/4/514"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:52:02+00:00",
-        "source_hash": "b09e45fc31f14434c13510dae98a1106b368900a2c76b564b528eabc46bb57b7"
+        "translated_at": "2026-10-18T17:57:12+00:00",
+        "source_hash": "02e100c596e4b275dfe3b82d254fc158e1ff1557a9fe158d8be2d118ba01dbb6"
       },
       "quality_flags": [],
+      "publication_date": "October 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -150,64 +89,36 @@
       }
     },
     {
-      "paper_id": "doi:10.3368/le.102.3.013026-0020",
+      "paper_id": "doi:10.3368/le.102.4.042225-0032r1",
       "sequence": 3,
-      "source_sequence": 339,
+      "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "Causal Recreation Demand Estimation with Cell Phone Mobility Data",
-      "title_cn": "基于手机出行数据的休闲需求因果估计",
+      "title_en": "Linking Forests to Airsheds Investigating Public Support and Willingness to Pay for Reducing Wildfire Smoke Exposure",
+      "title_cn": "将森林与空气域联系起来：考察公众对减少野火烟雾暴露的支持与支付意愿",
       "authors": [
-        "Nieyan Cheng",
-        "Xibo Wan"
+        "Ahmed Amine Jawhari",
+        "Benjamin A. Jones",
+        "Robert P. Berrens"
       ],
-      "abstract_en": "<h3>Abstract</h3> Accurately estimating the welfare impacts of environmental changes in recreation demand modeling requires robust causal inference methods. However, a persistent challenge remains as the zero market share issue restricts the causal inference application to broader regions and longer periods. To address this, we integrate empirical Bayes posterior mean estimation into a two-step random coefficient logit model, ensuring that sites with low or zero visitation are properly incorporated without distorting demand estimates. We apply this framework to the 2021 Huntington Beach oil spill, using high-frequency cellphone data to track changes in beach visits. By combining the Synthetic Difference-in-Differences (SDID) approach with empirical Bayes-adjusted market shares, we examine the causal effects of temporary beach closures on visitor welfare. Our findings reveal that Huntington Beach experienced the largest and most prolonged welfare loss, with an estimated aggregate loss of $1.0 million and weekly losses of $83 thousand persisting beyond the initial closure. In contrast, Newport Beach and Laguna Beach exhibited faster recoveries. This study advances recreation demand modeling by refining demand estimation for low-visit sites and strengthening causal inference techniques for environmental disruptions, ultimately providing a more reliable framework for assessing the economic costs of beach closures and other environmental policy interventions.",
-      "abstract_cn": "<h3>摘要</h3> 在休闲需求模型中准确估算环境变化的福利影响需要稳健的因果推断方法。然而，零市场份额问题限制了因果推断的应用范围至更广泛的区域和更长的时期。为此，本文将经验贝叶斯后验均值估计融入二步骤的随机系数逻辑模型，确保低访次或零访问量较少的地点得以合理纳入，而不扭曲需求估计。我们将该框架应用于2021亨廷顿海滩石油泄漏事件，利用高频手机数据追踪海滩访问变化。通过结合合成差分法（SDID）与经验贝叶斯调整的市场份额，我们分析了临时海滩关闭对游客福利的因果影响。研究结果显示，亨廷顿海滩经历了最大且持续时间最长的福利损失，估算总损失为1.0 百万美元，且每周损失为83 千美元，且这种损失持续超出初次关闭期。相比之下，纽波特海滩和拉古纳海滩的恢复速度较快。本研究通过改进低访次地点的需求估算和增强环境扰动的因果推断技术，推动了休闲需求模型的发展，最终为评估海滩关闭及其他环境政策干预的经济成本提供了更为可靠的分析框架。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.013026-0020",
-      "source_url": "https://doi.org/10.3368/le.102.3.013026-0020",
-      "publication_date": "2026",
+      "abstract_en": "Wildfire smoke reduction in the western United States presents a regional public-good challenge, as local fires send smoke across state lines. This study evaluates households’ willingness to pay (WTP) to reduce smoke through forest fuel treatments. A contingent-valuation referendum ( _N_ = 1,023; WTP _n_ = 623) with ex ante/ex post choice-purification screens yields a conservative median WTP of $94 to $123 (2021 US$) per year for one avoided smoke day. Valuations are higher among households that trust agencies, report health concerns, and support treatments. Preferences are polarized: 15% reject the prescribed fire smoke trade-off, showing near-zero WTP. These benefit estimates can inform benefit-cost analysis and budgetary appropriations.",
+      "abstract_cn": "美国西部减少野火烟雾是一项区域性公共品挑战，因为地方火灾产生的烟雾会跨越州界。本研究评估家庭通过森林燃料处理减少烟雾的支付意愿（WTP）。一项附带估值公投（_N_ = 1,023；WTP _n_ = 623）采用事前/事后选择净化筛选，得出每避免一天烟雾暴露的保守中位WTP为每年94美元至123美元（2021美元）。信任机构、报告健康关切并支持处理的家庭估值更高。偏好呈两极分化：15%拒绝规定的用火烟雾权衡，显示接近零的WTP。这些收益估计可为成本收益分析和预算拨款提供参考。",
+      "doi": "10.3368/le.102.4.042225-0032r1",
+      "source_url": "https://le.uwpress.org/content/102/4/534",
       "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.013026-0020"
+        "roster": "https://le.uwpress.org/content/102/4",
+        "metadata": "https://le.uwpress.org/content/102/4/534",
+        "abstract_en": "https://le.uwpress.org/content/102/4/534"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:52:08+00:00",
-        "source_hash": "742c6ec197893d5e6e1b04e53191f233011c61a3b2e3642dbb362610f3660a0b"
+        "translated_at": "2026-10-18T17:57:14+00:00",
+        "source_hash": "1a393bdc9a1689783ba94a614bcdaa0642caaf157fb8d72477acdd39ce5e639f"
       },
       "quality_flags": [],
+      "publication_date": "October 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -216,64 +127,36 @@
       }
     },
     {
-      "paper_id": "doi:10.3368/le.102.3.123025-0107",
+      "paper_id": "doi:10.3368/le.102.4.040325-0023r1",
       "sequence": 4,
-      "source_sequence": 361,
+      "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Valuing Offshore Habitat to Recreational Anglers Using Cell Phone Location Data",
-      "title_cn": "利用手机位置数据评估近海栖息地对休闲钓鱼者的价值",
+      "title_en": "We Love Green Households’ Valuation of Organic Farming and Challenges of Signaling",
+      "title_cn": "我们喜爱绿色：家庭对有机农业的估值与信号传递的挑战",
       "authors": [
-        "Mona Ahmadiani",
-        "Richard T. Woodward"
+        "Marine Coinon",
+        "Rachel Guillain",
+        "Sophie Legras"
       ],
-      "abstract_en": "<h3>Abstract</h3> Offshore structures, including operational and reefed energy platforms, strengthen marine habitats and generate economic value, motivating interest in quantifying their net benefits. We combine a Random Utility Model with Murdock9s (2006) site-choice approach to estimate the nonmarket value of offshore structures to recreational anglers in the Western Gulf of Mexicoi (2019-2022). Recreational fishing trips are identified in cellphone location data using a machine learning classifier trained on Automatic Identification System data. Location choices indicate that anglers value destinations farther offshore, particularly those with operating and reefed energy platforms, while other artificial reefs generate smaller and spatially variable benefits.",
-      "abstract_cn": "<h3>摘要</h3> 近海结构，包括运营中的和改造成礁石的能源平台，能够增强海洋栖息地并产生经济价值，这激发了人们对量化其净收益的兴趣。我们将随机效用模型与Murdock（2006）的场所选择方法相结合，估计了2019-2022年墨西哥湾西部休闲钓鱼者对近海结构的非市场价值。通过使用基于自动识别系统数据训练的机器学习分类器，在手机位置数据中识别出休闲钓鱼旅行。位置选择表明，钓鱼者更看重更远的近海目的地，特别是那些有运营和改造成礁石的能源平台的目的地，而其他人工礁石则产生较小且空间可变的收益。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.123025-0107",
-      "source_url": "https://doi.org/10.3368/le.102.3.123025-0107",
-      "publication_date": "2026",
+      "abstract_en": "Agricultural landscapes generate a complex bundle of positive and negative local externalities. This article estimates the impact of the type of farming (organic versus conventional) on residential property prices in France, using an exhaustive database of 2.9 million housing transactions merged with geolocalized land use data, and a dual identification strategy (buffer and distance-based). The results establish a clear hierarchy of preferences. At short distances, proximity to conventional agriculture is a significant baseline disamenity and organic farming is a mitigating factor. This premium increases with the extent of the organic landscape and is most pronounced in periurban areas.",
+      "abstract_cn": "农业景观产生了一组复杂的正负本地外部性。本文估计了农业类型（有机 versus 常规）对法国住宅房产价格的影响，使用了一个包含2.9百万住房交易的详尽数据库，并将其与地理定位的土地利用数据合并，采用双重识别策略（缓冲区与距离基础）。结果确立了明确的偏好层级。在短距离内，邻近常规农业是一个显著的基线负外部性，而有机农业是一个缓解因素。这一溢价随着有机景观范围的扩大而增加，并在城郊地区最为明显。",
+      "doi": "10.3368/le.102.4.040325-0023r1",
+      "source_url": "https://le.uwpress.org/content/102/4/555",
       "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.123025-0107"
+        "roster": "https://le.uwpress.org/content/102/4",
+        "metadata": "https://le.uwpress.org/content/102/4/555",
+        "abstract_en": "https://le.uwpress.org/content/102/4/555"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:25:44+00:00",
-        "source_hash": "6d18bdaec742c4128871fc79cbf6c577785962f8b6276331ab9f18502a091eec"
+        "translated_at": "2026-10-18T17:57:15+00:00",
+        "source_hash": "3aeb45488a8ade6152868fa7e71383bdef254643012d51f62268e3733f82eb3a"
       },
       "quality_flags": [],
+      "publication_date": "October 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -282,66 +165,37 @@
       }
     },
     {
-      "paper_id": "doi:10.3368/le.102.3.012726-0016",
+      "paper_id": "doi:10.3368/le.102.4.011525-0001r1",
       "sequence": 5,
-      "source_sequence": 380,
+      "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Estimating the Economic Value of Grassland Tourism Services Based on Mobile Phone Data",
-      "title_cn": "基于手机信令数据的草原旅游服务经济价值估算",
+      "title_en": "Agriculture and Solar Farms Heterogeneous Preferences Among Local Public Officials, the General Population, Landowners, and Nonlandowners",
+      "title_cn": "农业与太阳能农场：地方公职人员、一般人群、土地所有者与非土地所有者之间的异质性偏好",
       "authors": [
-        "Na Liu",
-        "Xinxin Lv",
-        "Pengfei Liu",
-        "Lingling Hou"
+        "Jian Chen",
+        "Hongli Feng",
+        "Elizabeth Hoffman",
+        "Luke Seaberg"
       ],
-      "abstract_en": "<h3>Abstract</h3> This study evaluates the economic value of grassland tourism in Inner Mongolia, China, using mobile phone signaling data to track tourist flows from 333 cities to 103 counties in 2020. A zonal travel cost model, both parametric and non-parametric, was employed. Results indicate the tourism value ranged from 585.9 to 598.4 billion CNY (US $84.9–86.7 billion), about 2.5 times the tourism revenue, constituting 29% of regional GDP. In the absence of COVID-19, the value would have reached 936.5 billion CNY. The study reveals spatial disparities, with grassland quality, infrastructure, and regional development driving tourism value.",
-      "abstract_cn": "<h3>摘要</h3> 本研究利用手机信令数据追踪333年103个城市到2020个县的旅游流量，评估了中国内蒙古草原旅游的经济价值。采用参数化和非参数化的分区旅行成本模型。结果表明，旅游价值在585.9至598.4亿元人民币（84.9至86.7亿美元）之间，约为旅游收入的2.5倍，占区域GDP的29%。在没有COVID-19的情况下，该价值将达到936.5亿元人民币。研究揭示了空间差异，草原质量、基础设施和区域发展是驱动旅游价值的因素。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.012726-0016",
-      "source_url": "https://doi.org/10.3368/le.102.3.012726-0016",
-      "publication_date": "2026",
+      "abstract_en": "Utility-scale solar development has raised considerable local land use concerns. We investigate stakeholders’ valuations for solar project attributes, focusing on land use trade-offs with a choice experiment in the state of Iowa that incorporates information treatments and choice uncertainty. Results indicate substantial heterogeneity, with public officials and landowners valuing high-quality farmland significantly more than the general population and nonlandowners. However, information treatments do not significantly affect attribute trade-offs, though they influence overall support for solar. Rankings of land use challenges vary with respondents’ farming backgrounds and solar experiences and interests. Findings highlight stakeholder-specific preferences shaping local acceptance of solar projects.",
+      "abstract_cn": "公用事业规模的太阳能开发引发了相当大的地方土地利用担忧。我们研究了利益相关者对太阳能项目属性的估值，聚焦于土地利用权衡，在爱荷华州开展了一项包含信息处理与选择不确定性的选择实验。结果表明存在显著异质性，公职人员和土地所有者对高质量农田的估值显著高于一般人群和非土地所有者。然而，信息处理对属性权衡没有显著影响，尽管它们影响了对太阳能的总体支持。土地利用挑战的排名随受访者的农业背景以及太阳能经验和兴趣而变化。研究结果凸显了塑造地方太阳能项目接受度的利益相关者特定偏好。",
+      "doi": "10.3368/le.102.4.011525-0001r1",
+      "source_url": "https://le.uwpress.org/content/102/4/573",
       "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.012726-0016"
+        "roster": "https://le.uwpress.org/content/102/4",
+        "metadata": "https://le.uwpress.org/content/102/4/573",
+        "abstract_en": "https://le.uwpress.org/content/102/4/573"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "mistral-ai/mistral-medium-2505",
-        "translated_at": "2026-07-26T20:26:08+00:00",
-        "source_hash": "ac8bca58e71a98d2c2ac39e0001220804870df7e3ea61bc442ba622e95a80e7c"
+        "translated_at": "2026-10-18T17:57:17+00:00",
+        "source_hash": "26e08688c4912bc7e7f5c296db209974284ec3e750b5dc2ad9ca25177ede6691"
       },
       "quality_flags": [],
+      "publication_date": "October 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -350,65 +204,34 @@
       }
     },
     {
-      "paper_id": "doi:10.3368/le.102.3.012626-0015",
+      "paper_id": "doi:10.3368/le.102.4.060225-0044r1",
       "sequence": 6,
-      "source_sequence": 400,
+      "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Are Mobile Device Location Data a Substitute for Travel Cost Surveys?",
-      "title_cn": "移动设备位置数据能否替代旅游成本调查？",
+      "title_en": "Quality Information and Market Segmentation in Auctions for Reducing Nonpoint-Source Pollution A Laboratory Experiment",
+      "title_cn": "减少非点源污染拍卖中的质量信息与市场分割：一项实验室实验",
       "authors": [
-        "Jude Bayham",
-        "Aaron J. Enriquez",
-        "Leslie Richardson"
+        "Nobuyuki Ito"
       ],
-      "abstract_en": "<h3>Abstract</h3> Mobile device location data offer a low-cost alternative for measuring visitation to outdoor recreation sites and are known to correlate with official visitation counts. Less is known about whether these data can recover recreation demand and consumer surplus comparable to surveybased methods. We compare travel cost models estimated using mobile device and survey data for 17 U.S. National Park Service sites. Results are mixed. We examine the roles of aggregation and sampling bias and use LASSO regression to assess whether sample and site characteristics explain discrepancies.",
-      "abstract_cn": "<h3>摘要</h3> 移动设备位置数据为衡量户外休闲场所访客量提供了一种低成本的替代方法，并且已知与官方访客统计数据存在相关性。关于这些数据是否能够恢复与调查方法相当的休闲需求和消费者剩余，尚不清楚。我们比较了使用移动设备数据和调查数据估算的美国国家公园管理局（17）场所的旅游成本模型。结果存在差异。我们考察了聚合和抽样偏差的作用，并采用LASSO回归评估样本和场所特征是否能解释差异。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.012626-0015",
-      "source_url": "https://doi.org/10.3368/le.102.3.012626-0015",
-      "publication_date": "2026",
+      "abstract_en": "Auctions have the potential to improve the cost-effectiveness of nonpoint-source pollution abatement to which applying the polluter-pays principle is difficult. Laboratory experiments have shown that revealing the environmental impacts of reducing polluting inputs to nonpoint sources (potential sellers) leads to the deterioration of auction performance. The auction mechanism that simultaneously achieves cost-effectiveness and transparency for reducing nonpoint-source pollution remains unclear. Through a laboratory experiment, I find that, although the disclosure of information on environmental impacts deteriorates auction performance, market segmentation, contrary to theoretical predictions, improves performance and cancels out these impacts.",
+      "abstract_cn": "拍卖有潜力提高非点源污染减排的成本有效性，而对此难以适用污染者付费原则。实验室实验表明，揭示减少非点源污染性投入（潜在卖方）的环境影响会导致拍卖绩效恶化。同时实现减少非点源污染的成本有效性和透明度的拍卖机制仍不清楚。通过一项实验室实验，我发现，尽管披露环境影响信息会恶化拍卖绩效，但市场分割与理论预测相反，会改善绩效并抵消这些影响。",
+      "doi": "10.3368/le.102.4.060225-0044r1",
+      "source_url": "https://le.uwpress.org/content/102/4/602",
       "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.012626-0015"
+        "roster": "https://le.uwpress.org/content/102/4",
+        "metadata": "https://le.uwpress.org/content/102/4/602",
+        "abstract_en": "https://le.uwpress.org/content/102/4/602"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:11+00:00",
-        "source_hash": "5b226905b1c3752a4dff1bc6bc502fe082ef0cf6c026ca22649d42cfdb4216d8"
+        "translated_at": "2026-10-18T17:57:18+00:00",
+        "source_hash": "a662c2c2add66e890a61ec1cc915bcbe11fc02e30ce04cdd5420c235b5b705d7"
       },
       "quality_flags": [],
+      "publication_date": "October 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -417,66 +240,38 @@
       }
     },
     {
-      "paper_id": "doi:10.3368/le.102.3.013026-0019",
+      "paper_id": "doi:10.3368/le.102.4.101524-0096r1",
       "sequence": 7,
-      "source_sequence": 418,
+      "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "Impact of Water Quality at the Beach on Disadvantaged Communities in Rhode Island",
-      "title_cn": "海滩水质对罗德岛弱势群体的影响",
+      "title_en": "Consumer Preferences for Sustainable Food Packaging A Joint Analysis of Random Utility Maximization and Random Regret Minimization",
+      "title_cn": "消费者对可持续食品包装的偏好：随机效用最大化与随机后悔最小化的联合分析",
       "authors": [
-        "Sonia Refulio-Coronado",
-        "Pengfei Liu",
-        "Nathaniel Merrill",
-        "Emi Uchida"
+        "Xiaolei Li",
+        "Qi Jiang",
+        "Wuyang Hu",
+        "Biqi Mao",
+        "Yanjun Ren"
       ],
-      "abstract_en": "<h3>Abstract</h3> Urbanization and agriculture have degraded US coastal waters, causing beach closures and disparities in access to clean beaches. This study examines racial and income disparities in how water quality affects recreational beach use in the southern Northeastern United States, using cell phone mobility data and satellite-derived water clarity measures. Results from a multiple-site zonal travel cost model show that <b><i>improved</i></b> water clarity increases beach visitation, with larger benefits accruing to more affluent, less diverse communities. These findings suggest that the recreational benefits of water quality improvements are inequitably distributed and have implications for policies prioritizing disadvantaged coastal communities.",
-      "abstract_cn": "<h3>摘要</h3> 城市化和农业活动已导致美国沿海水域退化，造成海滩关闭和清洁海滩访问的不平等。本研究采用手机出行数据和卫星水体透明度测量，分析了美国东北部南部地区水质对休闲海滩使用的种族和收入差异。多站点区域旅行成本模型的结果显示，<b><i>改善</i></b>水体透明度能增加海滩访问次数，且更富裕、少数族裔比例较低的社区受益更大。这些发现表明，水质改善带来的休闲益处分配不平等，并对优先考虑弱势沿海社区的政策具有启示意义。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.013026-0019",
-      "source_url": "https://doi.org/10.3368/le.102.3.013026-0019",
-      "publication_date": "2026",
+      "abstract_en": "Pollution caused by conventional plastic food packaging can pose a significant environmental challenge. Our study uses a discrete choice experiment to examine consumer preferences for various types of sustainable milk packaging. To reveal the behavioral mechanisms involved in decisions regarding sustainable packaging, we incorporate two behavioral choice frameworks: random utility maximization and random regret minimization. The results indicate that consumer preferences vary with the different behavioral frameworks, demonstrating significant heterogeneity in consumer tastes. Furthermore, consumer preferences for sustainable packaging are influenced by their purchase frequency, trust, and conservation awareness. Our findings support food industry’s sustainable transition and packaging adoption.",
+      "abstract_cn": "传统塑料食品包装造成的污染可能构成重大的环境挑战。本研究采用离散选择实验考察消费者对各类可持续牛奶包装的偏好。为揭示可持续包装决策中涉及的行为机制，我们纳入两种行为选择框架：随机效用最大化和随机后悔最小化。结果表明，消费者偏好在不同行为框架下存在差异，显示出消费者品味具有显著异质性。此外，消费者对可持续包装的偏好受其购买频率、信任和保护意识的影响。我们的发现支持食品行业的可持续转型与包装采用。",
+      "doi": "10.3368/le.102.4.101524-0096r1",
+      "source_url": "https://le.uwpress.org/content/102/4/625",
       "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.013026-0019"
+        "roster": "https://le.uwpress.org/content/102/4",
+        "metadata": "https://le.uwpress.org/content/102/4/625",
+        "abstract_en": "https://le.uwpress.org/content/102/4/625"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:19+00:00",
-        "source_hash": "3462651f589804caa6288f5e5b4dcf22464b79521729d3a5016620abb8b3abdc"
+        "translated_at": "2026-10-18T17:57:20+00:00",
+        "source_hash": "0a2d17ab83d97b6b8926cd5ec49cf4e549b29a23123cc8e1385d63e8b777b2b8"
       },
       "quality_flags": [],
+      "publication_date": "October 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -485,206 +280,36 @@
       }
     },
     {
-      "paper_id": "doi:10.3368/le.102.3.011626-0006",
+      "paper_id": "doi:10.3368/le.102.4.060225-0044r2",
       "sequence": 8,
-      "source_sequence": 437,
+      "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "Evaluating Mobility Data for Recreation Monitoring",
-      "title_cn": "评估出行数据在休闲监测中的应用",
+      "title_en": "Cash Crops and the Development-Environment Trade-Off Evidence from Benin",
+      "title_cn": "贝宁的经济作物与发展与环境权衡的证据",
       "authors": [
-        "Cameron Duff",
-        "Alice Antia",
-        "James Hilger",
-        "Eric Horsch",
-        "Nathaniel Merrill",
-        "Jason Murray",
-        "Samantha Winder",
-        "Spencer Wood",
-        "Matthew Zafonte"
+        "Raahil Madhok",
+        "Leikun Yin",
+        "Zhenong Jin"
       ],
-      "abstract_en": "<h3>Abstract</h3> Mobile device location data (or mobility data, MD) are a novel and exciting source of information for recreational monitoring. In this paper we analyze datasets from four commercial vendors across three case studies to illustrate some important challenges. Our results show inconsistent spatial-temporal patterns and correlations with on-site counts. Given this evidence, we describe a conceptual model of the potential sources of error and structural variability in visitation estimates derived from MD. We discuss approaches for evaluation of data quality and suggest a range of supplemental data products that vendors could provide to support recreation analysis.",
-      "abstract_cn": "<h3>摘要</h3> 移动设备位置数据（或出行数据，MD）是一种新颖且令人振奋的休闲监测信息来源。本文分析了来自四商业供应商在三案例研究中的数据集，以说明一些重要的挑战。我们的结果显示空间-时间模式和与现场计数的相关性不一致。鉴于这些证据，我们描述了一个关于由MD得出的访客估算中的潜在误差源和结构性变异的概念模型。我们讨论了数据质量评估的方法，并建议供应商可以提供一系列补充数据产品，以支持休闲分析。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.011626-0006",
-      "source_url": "https://doi.org/10.3368/le.102.3.011626-0006",
-      "publication_date": "2026",
+      "abstract_en": "Cash crops can boost local economies but compete with forests for land. We quantify this tension in Benin using variation in cashew cultivation driven by heterogeneous local responses to global cashew price volatility. We develop high-resolution cashew maps using a deep learning model trained on field data and pair it with gridded GDP data. Cashew cultivation degrades forests without generating detectable income gains. Muted income effects reflect concentrated benefits obscured in coarse GDP data and farmers valuing income-smoothing benefits of cashews over first-order gains. Cost-benefit calculations show each dollar earned from cashews incurs $16 in ecological costs.",
+      "abstract_cn": "经济作物可以促进当地经济发展，但会与森林争夺土地。我们利用当地对全球腰果价格波动的不同反应所驱动的腰果种植变化来量化贝宁的这种紧张局势。我们使用基于现场数据训练的深度学习模型来开发高分辨率腰果地图，并将其与网格 GDP 数据配对。腰果种植会导致森林退化，但不会产生可察觉的收入收益。收入效应减弱反映了粗略 GDP 数据中掩盖的集中效益，以及农民更看重腰果的收入平滑效益而不是一阶收益。成本效益计算表明，从腰果中赚取的每一美元都会产生 16 美元的生态成本。",
+      "doi": "10.3368/le.102.4.060225-0044r2",
+      "source_url": "https://le.uwpress.org/content/102/4/646",
       "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.011626-0006"
+        "roster": "https://le.uwpress.org/content/102/4",
+        "metadata": "https://le.uwpress.org/content/102/4/646",
+        "abstract_en": "https://le.uwpress.org/content/102/4/646"
       },
       "translation": {
         "status": "complete",
-        "provider": "github-models",
+        "provider": "google-translate",
+        "model": "gtx-en-zh-CN",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:26+00:00",
-        "source_hash": "8aa72352dc43e376ce1bc20243d5cd4b021336d20cd6b70375ceece5144d92e2"
+        "translated_at": "2026-10-18T17:57:45+00:00",
+        "source_hash": "afa88ebcc8558558ac15a4cfd07cd5aaa3c5f2cc72ebc4fb14833be8f02465d9"
       },
       "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.3368/le.102.3.011626-0005",
-      "sequence": 9,
-      "source_sequence": 455,
-      "article_type": "research-article",
-      "title_en": "Smart Device Recreation Data",
-      "title_cn": "智能设备休闲数据",
-      "authors": [
-        "Cameron Duff",
-        "Christopher Giguere",
-        "Jason Murray"
-      ],
-      "abstract_en": "<h3>Abstract</h3> Human mobility data (MD) from smartphones may offer a scalable alternative to fieldwork for Natural Resource Damage Assessments (NRDAs) and non-market valuation. We test MD9s utility for estimating recreational demand changes after a 2019 Houston tank fire. We apply count regressions and zonal travel cost models to calculate welfare losses. While this MD dataset reflects expected temporal patterns, comparisons with reference data reveal that \"coverage rates\" vary significantly across sites. This measurement error complicates counterfactual predictions. Economists should use caution when deriving absolute recreational value from MD.",
-      "abstract_cn": "<h3>摘要</h3> 来自智能手机的人类流动数据（MD）可能为自然资源损害评估（NRDAs）和非市场估值提供一种可扩展的替代实地调查的方法。我们检验了MD在估算2019休斯顿油罐火灾后休闲需求变化中的实用性。我们采用计数回归和区域旅行成本模型来计算福利损失。虽然该MD数据集反映了预期的时间模式，但与参考数据的比较显示，“覆盖率”在不同地点存在显著差异。这一测量误差增加了反事实预测的复杂性。经济学家在从MD中推导绝对休闲价值时应保持谨慎。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.011626-0005",
-      "source_url": "https://doi.org/10.3368/le.102.3.011626-0005",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.011626-0005"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:33+00:00",
-        "source_hash": "0c640db49d0e641b04b95f1e8787905f07f7936fca2216097394a5e4b06a493e"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.3368/le.102.3.012126-0010",
-      "sequence": 10,
-      "source_sequence": 471,
-      "article_type": "research-article",
-      "title_en": "Evaluating Precision, Privacy, and Representation with Cell Phone Data",
-      "title_cn": "利用手机数据评估精准性、隐私保护与代表性",
-      "authors": [
-        "Cristina Connolly",
-        "Sandro Steinbach",
-        "Mike Vo",
-        "Xibo Wan"
-      ],
-      "abstract_en": "<h3>Abstract</h3> While mobility data has emerged as a promising alternative for assessing the economic value of recreation, their reliability depends critically on how data are processed and protected. This paper systematically evaluates how key data-handling practices affect the accuracy of recreation demand estimation. Using a random utility model to analyze recreation visits at Cape Cod beaches from 2019-2022, we evaluate how methodological choices influence the marginal willingness to pay (MWTP) for avoiding fecal bacteria contamination. We find an average MWTP of $8.92 per visit when using the proposed practices, such as refined visit definitions, sampling weights, and long-term choice sets. Deviations from these practices can introduce significant biases: relaxing the minimum dwell time and applying differential privacy reduce MWTP by 57% and 65%, respectively, while short-term choice set definition inflates it by 10%. By demonstrating the sensitivity of welfare estimates to data-processing decisions, this study highlights the importance of transparent and judicious mobility data practices for credible environmental valuation and evidence-based policymaking.",
-      "abstract_cn": "<h3>摘要</h3> 虽然流动性数据已成为评估休闲经济价值的有前景的替代方案，但其可靠性在很大程度上依赖于数据的处理和保护方式。本文系统评估了关键数据处理方法如何影响休闲需求估算的准确性。利用随机效用模型分析来自2019-2022的凯普科德海滩休闲访问数据，我们评估了方法选择对避免粪便细菌污染的边际支付意愿（MWTP）的影响。结果显示，采用所提出的实践方法（如细化访问定义、采样权重和长期选择集）时，平均MWTP为8.92美元每次访问。偏离这些做法可能引入显著偏差：放宽最短停留时间和应用差分隐私分别使MWTP降低57%和65%，而短期选择集定义则使其上升10%。通过展示福利估算对数据处理决策的敏感性，本研究强调了透明且审慎的流动性数据处理实践在可信环境价值评估和循证政策制定中的重要性。",
-      "abstract_snippet_en": "",
-      "doi": "10.3368/le.102.3.012126-0010",
-      "source_url": "https://doi.org/10.3368/le.102.3.012126-0010",
-      "publication_date": "2026",
-      "sources": {
-        "issue": "https://le.uwpress.org/content/current",
-        "roster": "crossref:issn:0023-7639",
-        "metadata": "crossref",
-        "abstract_en": "openalex",
-        "abstract_lookup": {
-          "status": "insufficient_entitlement",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-sciencedirect-search",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-scopus-doi",
-              "status_code": 401,
-              "outcome": "unauthorized"
-            },
-            {
-              "source": "elsevier-article-doi",
-              "status_code": 403,
-              "outcome": "insufficient_entitlement"
-            }
-          ]
-        },
-        "openalex": "https://api.openalex.org/works/https://doi.org/10.3368/le.102.3.012126-0010"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "github-models",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "openai/gpt-4.1-nano",
-        "translated_at": "2026-07-26T19:53:41+00:00",
-        "source_hash": "37e91c691db6173851be8887a6c766efd1ad0745f789b70590ed2cdaa184a7d4"
-      },
-      "quality_flags": [],
+      "publication_date": "October 2026",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -696,49 +321,59 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "crossref",
-    "roster_authority": "crossref-provisional",
-    "roster_match_scope": "crossref-issue-group",
-    "publisher_page_status": "blocked",
+    "roster_transport": "official-page-read",
+    "roster_authority": "official-issue-page",
+    "roster_match_scope": "official-publisher-issue-full",
+    "publisher_page_status": "first-party-observed",
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 10,
-    "authors_complete": 10,
-    "abstract_en_complete": 10,
-    "translation_complete": 10,
+    "doi_complete": 8,
+    "authors_complete": 8,
+    "abstract_en_complete": 8,
+    "translation_complete": 8,
     "duplicate_count": 0,
-    "flags": [
-      "publisher_html_blocked_crossref_fallback",
-      "crossref_provisional_roster"
-    ],
-    "official_item_count": 10,
-    "publishable_item_count": 10,
+    "flags": [],
+    "official_item_count": 8,
+    "publishable_item_count": 8,
     "content_counts": {
-      "official_items": 10,
-      "observed_items": 10,
-      "publishable_items": 10,
-      "research_articles": 10,
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 8,
+      "research_articles": 8,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 10
+      "catalog_content_items": 8
+    },
+    "official_roster_evidence": {
+      "captured_at": "2026-10-18T17:08:13.562Z",
+      "official_url": "https://le.uwpress.org/content/102/4",
+      "method": "official-page-read",
+      "item_count": 8,
+      "excluded_item_count": 0,
+      "archive_reordered": false,
+      "sequence_sha256": "3fa470ca0db3eb50e6f00e30ffa5f353227313fef77031384dfc5a3d2688a58f",
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
-    "official_items": 10,
-    "observed_items": 10,
-    "publishable_items": 10,
-    "research_articles": 10,
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 8,
+    "research_articles": 8,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 10
+    "catalog_content_items": 8
   },
+  "issue_label": "Vol. 102 · No. 4",
+  "content_status": "complete",
+  "source_status": "official_verified",
   "publication_state": "ready"
 }
