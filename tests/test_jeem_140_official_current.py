@@ -40,7 +40,21 @@ class Jeem140SameVolumeTests(unittest.TestCase):
         self.assertEqual(old, self.current)
         self.assertEqual(9, len(issue["articles"]))
         self.assertEqual("official_verified", issue["source_status"])
-        self.assertEqual("translation_partial", issue["publication_state"])
+        # The production update executes this suite after source restoration
+        # and translation. The same 9-row publisher issue is legitimately
+        # partial when only the four older CN records exist, but ready when
+        # all nine source-qualified CN translations are already present.
+        complete_cn = sum(
+            bool(a.get("title_cn")) and bool(a.get("abstract_cn"))
+            for a in issue["articles"]
+        )
+        self.assertEqual(complete_cn, issue["quality"]["translation_complete"])
+        self.assertEqual(
+            "ready" if complete_cn == 9 else "translation_partial",
+            issue["publication_state"],
+        )
+        if complete_cn < 9:
+            self.assertNotEqual("ready", issue["publication_state"])
         self.assertEqual(9, issue["quality"]["abstract_en_complete"])
         self.assertEqual(9, issue["content_counts"]["research_articles"])
         self.assertEqual(1, issue["content_counts"]["editorial_material"])
