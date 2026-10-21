@@ -1377,7 +1377,11 @@ def apply_configured_current_roster(
         from scripts.official_current_roster import apply_current_roster
 
     state = read_json(MONITOR_STATE_PATH) or {}
-    monitored = state.get("journals", {}).get(key, {}).get("candidate", {})
+    journal_states = state.get("journals") if isinstance(state, dict) else None
+    journal_state = journal_states.get(key) if isinstance(journal_states, dict) else None
+    monitored = journal_state.get("candidate") if isinstance(journal_state, dict) else None
+    if not isinstance(monitored, dict):
+        monitored = {}
     detected_dois = None
     if str(monitored.get("volume", "")) == str(issue.get("volume", "")):
         # unseen_dois is a delta, not the full roster after a partial release.

@@ -4,11 +4,13 @@ import copy
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from scripts.import_official_roster_evidence import validate_evidence
 from scripts.jie_current_roster import apply_jie_current_roster
 import yaml
+import scripts.update_journals as update_journals
 
 from scripts.update_journals import (
     ROOT,
@@ -67,6 +69,23 @@ class JIE163OfficialCurrentTests(unittest.TestCase):
             (ROOT / "config/journals.yml").read_text(encoding="utf-8")
         )["journals"]["JIE"]
         restored = apply_configured_current_roster(copy.deepcopy(self.current), "JIE", config)
+        self.assertEqual(EXPECTED_ORDER, [a["doi"] for a in restored["articles"]])
+        self.assertEqual(2, len(restored["quality"]["excluded_items"]))
+
+    def test_null_monitor_entry_keeps_static_jie_roster_routing(self):
+        config = yaml.safe_load(
+            (ROOT / "config/journals.yml").read_text(encoding="utf-8")
+        )["journals"]["JIE"]
+        with tempfile.TemporaryDirectory() as directory:
+            state_path = Path(directory) / "monitor-state.json"
+            state_path.write_text(
+                json.dumps({"journals": {"JIE": None}}),
+                encoding="utf-8",
+            )
+            with patch.object(update_journals, "MONITOR_STATE_PATH", state_path):
+                restored = apply_configured_current_roster(
+                    copy.deepcopy(self.current), "JIE", config
+                )
         self.assertEqual(EXPECTED_ORDER, [a["doi"] for a in restored["articles"]])
         self.assertEqual(2, len(restored["quality"]["excluded_items"]))
 
