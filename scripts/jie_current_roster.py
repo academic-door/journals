@@ -14,7 +14,11 @@ from pathlib import Path
 from typing import Any
 
 from scripts.import_official_roster_evidence import apply_evidence, validate_evidence
-from scripts.update_journals import ROOT, normalize_issue_content
+from scripts.update_journals import (
+    ROOT,
+    normalize_issue_content,
+    preserve_existing_content,
+)
 
 ISSUE = "jie-163-c"
 OFFICIAL = "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C"
@@ -39,6 +43,7 @@ def apply_jie_current_roster(
     *,
     root: Path = ROOT,
     detected_dois: list[str] | None = None,
+    existing_issue: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if config.get("id") != "jie" or issue.get("journal_id") != "jie":
         raise ValueError("JIE official roster cannot be applied to another journal")
@@ -105,6 +110,9 @@ def apply_jie_current_roster(
     candidate["quality"].pop("browser_order_verification", None)
     candidate["quality"].pop("browser_capture", None)
     candidate = normalize_issue_content(candidate)
+    if existing_issue is not None:
+        candidate = preserve_existing_content(candidate, existing_issue)
+        candidate = normalize_issue_content(candidate)
     counts = candidate["content_counts"]
     if (
         len(candidate["articles"]) != 8
