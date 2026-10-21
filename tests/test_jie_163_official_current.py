@@ -89,6 +89,65 @@ class JIE163OfficialCurrentTests(unittest.TestCase):
         self.assertEqual(EXPECTED_ORDER, [a["doi"] for a in restored["articles"]])
         self.assertEqual(2, len(restored["quality"]["excluded_items"]))
 
+    def test_collect_one_reuses_matching_translations_before_jie_roster_gate(self):
+        recollected = copy.deepcopy(self.current)
+        for article in recollected["articles"]:
+            article["title_cn"] = ""
+            article["abstract_cn"] = ""
+            article["translation"] = {"status": "missing"}
+
+        with self.assertRaisesRegex(ValueError, "cannot pass first-party 8\\+2"):
+            apply_jie_current_roster(copy.deepcopy(recollected), CONFIG)
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            current_path = root / "current.json"
+            current_path.write_text(
+                json.dumps(self.current, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            config = {
+                **CONFIG,
+                "current_issue_url": self.evidence["official_url"],
+            }
+            with (
+                patch.object(update_journals, "public_issue_path", return_value=current_path),
+                patch.object(
+                    update_journals,
+                    "detected_issue_path",
+                    return_value=root / "detected.json",
+                ),
+                patch.object(
+                    update_journals,
+                    "MONITOR_STATE_PATH",
+                    root / "monitor-state.json",
+                ),
+                patch.object(
+                    update_journals,
+                    "collector_for",
+                    return_value=lambda: copy.deepcopy(recollected),
+                ),
+                patch.object(update_journals, "fallback_collector_for", return_value=None),
+                patch.object(update_journals, "apply_translation_cache", side_effect=lambda issue: issue),
+                patch.object(update_journals, "write_detected_snapshot"),
+                patch.object(update_journals, "archive_issue"),
+            ):
+                issue, report = update_journals.collect_one(
+                    "JIE",
+                    config,
+                    translate=False,
+                )
+
+        self.assertEqual("updated", report["result"])
+        self.assertEqual(EXPECTED_ORDER, [article["doi"] for article in issue["articles"]])
+        self.assertEqual(8, issue["quality"]["translation_complete"])
+        self.assertEqual(2, len(issue["quality"]["excluded_items"]))
+        old_by_doi = {article["doi"]: article for article in self.current["articles"]}
+        for article in issue["articles"]:
+            self.assertEqual(old_by_doi[article["doi"]]["title_cn"], article["title_cn"])
+            self.assertEqual(old_by_doi[article["doi"]]["abstract_cn"], article["abstract_cn"])
+            self.assertEqual("complete", article["translation"]["status"])
+
     def test_wrong_candidate_old_issue_and_wrong_journal_fail_closed(self):
         with self.assertRaisesRegex(ValueError, "not in official publisher"):
             apply_jie_current_roster(self.current, CONFIG, detected_dois=["10.1016/fake"])
