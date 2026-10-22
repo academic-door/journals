@@ -47,6 +47,36 @@ COMMENT_TITLE_OVERRIDES = {
 }
 UPDATE_REPORT = ROOT / "output" / "journal-update-report.json"
 ARCHIVE_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9._-]*$", re.IGNORECASE)
+JIE_163_ARCHIVE_CORRECTION_EVIDENCE = (
+    ROOT / "data" / "provenance" / "official-rosters" / "jie" / "jie-163-c.json"
+)
+JIE_163_OFFICIAL_RESEARCH_DOIS = (
+    "10.1016/j.jinteco.2025.104203",
+    "10.1016/j.jinteco.2025.104207",
+    "10.1016/j.jinteco.2025.104204",
+    "10.1016/j.jinteco.2026.104219",
+    "10.1016/j.jinteco.2026.104225",
+    "10.1016/j.jinteco.2026.104231",
+    "10.1016/j.jinteco.2026.104230",
+    "10.1016/j.jinteco.2026.104290",
+)
+JIE_163_LEGACY_ARCHIVE_DOIS = (
+    "10.1016/j.jinteco.2025.104203",
+    "10.1016/j.jinteco.2025.104204",
+    "10.1016/j.jinteco.2025.104207",
+    "10.1016/j.jinteco.2026.104219",
+    "10.1016/j.jinteco.2026.104225",
+    "10.1016/j.jinteco.2026.104230",
+    "10.1016/j.jinteco.2026.104231",
+    "10.1016/j.jinteco.2026.104290",
+)
+JIE_163_OFFICIAL_EXCLUDED_DOIS = (
+    "10.1016/s0022-1996(26)00094-2",
+    "10.1016/j.jinteco.2026.104295",
+)
+JIE_163_LEGACY_EXCLUDED_DOIS = (
+    "10.1016/j.jinteco.2026.104295",
+)
 
 
 class SourceLagError(RuntimeError):
@@ -670,18 +700,289 @@ def is_archivable_snapshot(issue: dict[str, Any]) -> bool:
     )
 
 
+def _doi_sequence(issue: dict[str, Any]) -> tuple[str, ...]:
+    return tuple(
+        str(article.get("doi", "")).strip().casefold()
+        for article in issue.get("articles", [])
+    )
+
+
+def _excluded_doi_sequence(issue: dict[str, Any]) -> tuple[str, ...]:
+    return tuple(
+        str(item.get("doi", "")).strip().casefold()
+        for item in issue.get("quality", {}).get("excluded_items", [])
+    )
+
+
+def _jie_163_candidate_matches_pinned_roster(
+    candidate: dict[str, Any],
+) -> bool:
+    if (
+        candidate.get("journal_id") != "jie"
+        or candidate.get("issue_id") != "jie-163-c"
+        or str(candidate.get("volume")) != "163"
+        or str(candidate.get("issue", "")).casefold() != "c"
+        or issue_publication_state(candidate) != "ready"
+        or issue_source_status(candidate) != "official_verified"
+    ):
+        return False
+
+    try:
+        from scripts.import_official_roster_evidence import validate_evidence
+
+        evidence = read_json(JIE_163_ARCHIVE_CORRECTION_EVIDENCE)
+        if evidence is None:
+            return False
+        validate_evidence(evidence)
+        captured_at = datetime.fromisoformat(
+            str(evidence["captured_at"]).replace("Z", "+00:00")
+        )
+        retrieved_at = datetime.fromisoformat(
+            str(candidate["retrieved_at"]).replace("Z", "+00:00")
+        )
+    except (KeyError, TypeError, ValueError, OSError):
+        return False
+
+    if (
+        evidence.get("finalized") is not True
+        or evidence.get("capture_mode") != "official-roster-evidence"
+        or evidence.get("journal_id") != "jie"
+        or evidence.get("issue_id") != "jie-163-c"
+        or evidence.get("official_url")
+        != "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C"
+        or evidence.get("method") != "official-page-read"
+        or captured_at.tzinfo is None
+        or captured_at > datetime.now(timezone.utc)
+        or retrieved_at.tzinfo is None
+        or retrieved_at < captured_at
+    ):
+        return False
+
+    official_items = sorted(
+        evidence.get("items", []),
+        key=lambda item: int(item.get("source_sequence", 0)),
+    )
+    official_excluded = sorted(
+        evidence.get("excluded_items", []),
+        key=lambda item: int(item.get("source_sequence", 0)),
+    )
+    expected_research = tuple(
+        doi.casefold() for doi in JIE_163_OFFICIAL_RESEARCH_DOIS
+    )
+    expected_excluded = tuple(
+        doi.casefold() for doi in JIE_163_OFFICIAL_EXCLUDED_DOIS
+    )
+    if (
+        tuple(str(item.get("doi", "")).casefold() for item in official_items)
+        != expected_research
+        or tuple(
+            int(item.get("source_sequence", 0)) for item in official_items
+        )
+        != tuple(range(3, 11))
+        or any(
+            item.get("publisher_article_type") != "research article"
+            for item in official_items
+        )
+        or tuple(
+            str(item.get("doi", "")).casefold() for item in official_excluded
+        )
+        != expected_excluded
+        or tuple(
+            int(item.get("source_sequence", 0)) for item in official_excluded
+        )
+        != (1, 2)
+        or any(
+            item.get("article_type") != "editorial"
+            for item in official_excluded
+        )
+        or any(
+            item.get("reason") != "editorial_material"
+            for item in official_excluded
+        )
+    ):
+        return False
+
+    quality = candidate.get("quality", {})
+    roster_evidence = quality.get("official_roster_evidence", {})
+    if (
+        quality.get("roster_authority") != "official-issue-page"
+        or quality.get("roster_transport") != "official-page-read"
+        or quality.get("roster_match_scope") != "official-publisher-issue-full"
+        or quality.get("official_item_count") != 10
+        or quality.get("publishable_item_count") != 8
+        or quality.get("excluded_item_count") != 2
+        or quality.get("duplicate_count") != 0
+        or quality.get("translation_complete") != 8
+        or quality.get("content_counts", {}).get("research_articles") != 8
+        or quality.get("content_counts", {}).get("editorial_material") != 2
+        or roster_evidence.get("captured_at") != evidence.get("captured_at")
+        or roster_evidence.get("official_url") != evidence.get("official_url")
+        or roster_evidence.get("method") != evidence.get("method")
+        or roster_evidence.get("item_count") != 8
+        or roster_evidence.get("excluded_item_count") != 2
+        or roster_evidence.get("privacy_fields_stored") is not False
+        or quality.get("publisher_page_status") != "first-party-observed"
+    ):
+        return False
+
+    articles = candidate.get("articles", [])
+    if len(articles) != 8:
+        return False
+    for article, source in zip(articles, official_items, strict=True):
+        pii_match = re.search(
+            r"/pii/([A-Z0-9]+)",
+            str(article.get("source_url", "")),
+            re.IGNORECASE,
+        )
+        expected_source_id = str(source.get("source_id", "")).split(":", 1)[-1]
+        if (
+            str(article.get("doi", "")).casefold()
+            != str(source.get("doi", "")).casefold()
+            or article.get("sequence") != source.get("sequence")
+            or article.get("source_sequence") != source.get("source_sequence")
+            or article.get("article_type") != "research-article"
+            or not pii_match
+            or pii_match.group(1).upper() != expected_source_id.upper()
+            or article.get("translation", {}).get("status") != "complete"
+            or not str(article.get("title_cn", "")).strip()
+            or not str(article.get("abstract_cn", "")).strip()
+        ):
+            return False
+
+    excluded = sorted(
+        quality.get("excluded_items", []),
+        key=lambda item: int(item.get("source_sequence", 0)),
+    )
+    if len(excluded) != 2:
+        return False
+    excluded_fields = (
+        "doi",
+        "title_en",
+        "source_sequence",
+        "source_id",
+        "article_type",
+        "reason",
+        "source_url",
+    )
+    for actual, source in zip(excluded, official_excluded, strict=True):
+        if any(
+            str(actual.get(field, "")).casefold()
+            != str(source.get(field, "")).casefold()
+            for field in excluded_fields
+        ):
+            return False
+    return True
+
+
+def _matches_jie_163_official_archive_correction(
+    existing: dict[str, Any],
+    candidate: dict[str, Any],
+) -> str | None:
+    """Classify the single stale JIE archive or its idempotent corrected state."""
+
+    if (
+        existing.get("journal_id") != "jie"
+        or existing.get("issue_id") != "jie-163-c"
+        or str(existing.get("volume")) != "163"
+        or str(existing.get("issue", "")).casefold() != "c"
+        or issue_publication_state(existing) != "ready"
+        or not _jie_163_candidate_matches_pinned_roster(candidate)
+    ):
+        return None
+
+    old_by_doi = {
+        str(article.get("doi", "")).casefold(): article
+        for article in existing.get("articles", [])
+    }
+    candidate_by_doi = {
+        str(article.get("doi", "")).casefold(): article
+        for article in candidate.get("articles", [])
+    }
+    for doi in JIE_163_OFFICIAL_RESEARCH_DOIS:
+        old_article = old_by_doi.get(doi.casefold())
+        new_article = candidate_by_doi.get(doi.casefold())
+        if not old_article or not new_article or any(
+            new_article.get(field) != old_article.get(field)
+            for field in ("title_cn", "abstract_cn", "translation")
+        ):
+            return None
+
+    legacy_archive = (
+        issue_source_status(existing) == "publisher_verified"
+        and existing.get("quality", {}).get("roster_authority")
+        == "repec-publisher-supplied"
+        and existing.get("quality", {}).get("roster_transport")
+        == "repec-serial-page"
+        and existing.get("quality", {}).get("roster_match_scope")
+        == "repec-volume-items"
+        and _doi_sequence(existing)
+        == tuple(doi.casefold() for doi in JIE_163_LEGACY_ARCHIVE_DOIS)
+        and _excluded_doi_sequence(existing)
+        == tuple(doi.casefold() for doi in JIE_163_LEGACY_EXCLUDED_DOIS)
+    )
+    if legacy_archive:
+        return "stale"
+
+    candidate_evidence = candidate.get("quality", {}).get(
+        "official_roster_evidence", {}
+    )
+    existing_quality = existing.get("quality", {})
+    already_corrected = (
+        issue_source_status(existing) == "official_verified"
+        and existing_quality.get("roster_authority") == "official-issue-page"
+        and existing_quality.get("roster_transport") == "official-page-read"
+        and existing_quality.get("roster_match_scope")
+        == "official-publisher-issue-full"
+        and existing_quality.get("official_item_count") == 10
+        and existing_quality.get("publishable_item_count") == 8
+        and existing_quality.get("excluded_item_count") == 2
+        and existing_quality.get("official_roster_evidence")
+        == candidate_evidence
+        and _doi_sequence(existing)
+        == tuple(doi.casefold() for doi in JIE_163_OFFICIAL_RESEARCH_DOIS)
+        and _excluded_doi_sequence(existing)
+        == tuple(doi.casefold() for doi in JIE_163_OFFICIAL_EXCLUDED_DOIS)
+    )
+    return "current" if already_corrected else None
+
+
+def _preserve_jie_163_archive_observation(existing: dict[str, Any], candidate: dict[str, Any]) -> None:
+    """Carry forward original first-seen/observed-at values without inventing them."""
+
+    for field in ("first_seen_at", "observed_at"):
+        if field in existing:
+            if candidate.get(field) not in (None, existing[field]):
+                raise ValueError(f"JIE archive correction conflicts with existing {field}")
+            candidate[field] = copy.deepcopy(existing[field])
+
+    old_by_doi = {
+        str(article.get("doi", "")).casefold(): article
+        for article in existing.get("articles", [])
+    }
+    for article in candidate.get("articles", []):
+        old_article = old_by_doi.get(str(article.get("doi", "")).casefold(), {})
+        for field in ("first_seen_at", "observed_at"):
+            if field in old_article:
+                if article.get(field) not in (None, old_article[field]):
+                    raise ValueError(
+                        f"JIE archive correction conflicts with article {field}"
+                    )
+                article[field] = copy.deepcopy(old_article[field])
+
+
 def archive_issue(
     issue: dict[str, Any],
     *,
     api_root: Path = PUBLIC_API,
     replace_non_ready: bool = False,
+    correct_jie_163_ready_archive: bool = False,
 ) -> Path | None:
     """Save one validated issue snapshot.
 
-    Published-ready archives remain immutable.  A provisional archive may be
-    replaced only when the same issue is recollected with complete content and
-    verified publisher authority.  This permits a Crossref candidate to be
-    promoted after official reconciliation without opening a downgrade path.
+    Ready archives remain immutable by default. The sole bounded exception is
+    an explicitly enabled correction of the known stale JIE 163 archive after
+    the candidate is matched to its pinned first-party 8+2 roster. Provisional
+    archives retain their existing promotion path.
     """
 
     journal_id = str(issue.get("journal_id", ""))
@@ -703,8 +1004,6 @@ def archive_issue(
             for field in identity_fields
         ):
             raise RuntimeError(f"archive collision at {target}")
-        if not replace_non_ready:
-            return target
         existing_state = issue_publication_state(existing)
         candidate_is_ready = (
             issue.get("content_status") == "complete"
@@ -712,7 +1011,39 @@ def archive_issue(
             in {"official_verified", "publisher_verified"}
             and issue.get("publication_state") == "ready"
         )
-        if existing_state == "ready" or not candidate_is_ready:
+        if correct_jie_163_ready_archive:
+            correction_state = _matches_jie_163_official_archive_correction(
+                existing,
+                issue,
+            )
+            if correction_state == "current":
+                return target
+            if existing_state != "ready" or correction_state != "stale":
+                raise ValueError(
+                    "JIE 163 READY archive correction failed its exact source/history gate"
+                )
+            replacement = copy.deepcopy(issue)
+            _preserve_jie_163_archive_observation(existing, replacement)
+            temporary = target.with_suffix(target.suffix + ".tmp")
+            temporary.write_text(
+                json.dumps(replacement, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            temporary.replace(target)
+            readback = read_json(target)
+            if (
+                readback is None
+                or _doi_sequence(readback)
+                != tuple(doi.casefold() for doi in JIE_163_OFFICIAL_RESEARCH_DOIS)
+                or _excluded_doi_sequence(readback)
+                != tuple(doi.casefold() for doi in JIE_163_OFFICIAL_EXCLUDED_DOIS)
+                or issue_source_status(readback) != "official_verified"
+            ):
+                raise RuntimeError("JIE 163 archive correction read-back failed")
+            return target
+        if existing_state == "ready":
+            return target
+        if not replace_non_ready or not candidate_is_ready:
             return target
         temporary = target.with_suffix(target.suffix + ".tmp")
         temporary.write_text(
@@ -721,6 +1052,8 @@ def archive_issue(
         )
         temporary.replace(target)
         return target
+    if correct_jie_163_ready_archive:
+        raise ValueError("JIE 163 correction expected the known stale READY archive")
     write_json(target, issue)
     return target
 
@@ -1421,6 +1754,7 @@ def collect_one(
     enrich_detected: bool = False,
     translation_provider_state: dict[str, str] | None = None,
     re_enrich_elsevier: bool = False,
+    correct_jie_163_ready_archive: bool = False,
 ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     report: dict[str, Any] = {
         "journal": key,
@@ -1654,7 +1988,18 @@ def collect_one(
         readback = read_json(target)
         if readback is None or readback.get("issue_id") != issue["issue_id"]:
             raise RuntimeError("public issue write-back verification failed")
-        archive_issue(issue)
+        archive_issue(
+            issue,
+            correct_jie_163_ready_archive=(
+                correct_jie_163_ready_archive
+                and key == "JIE"
+                and config.get("id") == "jie"
+            ),
+        )
+        if correct_jie_163_ready_archive and key == "JIE":
+            report["archive_correction"] = (
+                "jie-163 source-qualified READY archive reconciled"
+            )
         report.update(
             {
                 "result": "updated",
@@ -2207,7 +2552,15 @@ def main() -> int:
         help="Force Elsevier API abstract lookups even when an abstract already "
         "exists (keeps roster and order untouched; never downgrades to a teaser).",
     )
+    parser.add_argument(
+        "--correct-jie-163-ready-archive",
+        action="store_true",
+        help="Apply the single bounded G16-approved correction to the known stale "
+        "JIE 163 READY archive; requires --journal JIE.",
+    )
     args = parser.parse_args()
+    if args.correct_jie_163_ready_archive and args.journal != "JIE":
+        parser.error("--correct-jie-163-ready-archive requires --journal JIE")
 
     selected = [
         key
@@ -2227,6 +2580,7 @@ def main() -> int:
             enrich_detected=args.enrich_detected,
             translation_provider_state=translation_provider_state,
             re_enrich_elsevier=args.re_enrich_elsevier,
+            correct_jie_163_ready_archive=args.correct_jie_163_ready_archive,
         )
         refreshed[key] = issue
         reports.append(report)
@@ -2240,6 +2594,7 @@ def main() -> int:
         "translate": args.translate,
         "enrich_detected": args.enrich_detected,
         "re_enrich_elsevier": args.re_enrich_elsevier,
+        "correct_jie_163_ready_archive": args.correct_jie_163_ready_archive,
         "results": reports,
         "translation_provider_state": translation_provider_state,
         "available_journals": sorted(available),
