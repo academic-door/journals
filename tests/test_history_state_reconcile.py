@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -186,6 +188,15 @@ class HistoryStateReconcileTests(unittest.TestCase):
             )
             self.assertEqual(0, report["created_count"])
             self.assertEqual("ambiguous_discovery_owner", report["skipped"]["aer-114-1"])
+
+    def test_recovery_script_starts_as_a_standalone_actions_command(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        result = subprocess.run(
+            [sys.executable, "scripts/reconcile_missing_history_state.py", "--help"],
+            cwd=root, capture_output=True, text=True, check=False,
+        )
+        self.assertEqual(0, result.returncode, result.stderr)
+        self.assertIn("--api-root", result.stdout)
 
     def test_reconciles_stale_state_when_archive_and_index_agree(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
