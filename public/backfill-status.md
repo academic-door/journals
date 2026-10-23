@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-10-23T13:31:44+00:00
+Updated: 2026-10-23T14:12:28+00:00
 
 Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready · 0 missing · 0 source pending
 
@@ -11,7 +11,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | 2024-2024 | 12 | 0 | 0 | 0 |
 | 2025-2026 | 1 | 0 | 0 | 0 |
 | 2026-2026 | 10 | 0 | 0 | 0 |
-| elsevier-2026-browser | 0 | 0 | 0 | 0 |
+| elsevier-2026-browser | 13 | 0 | 0 | 0 |
 | final3-2026-browser | 0 | 0 | 0 | 0 |
 
 | Journal | Issue | Year | Status | Note |
@@ -31,6 +31,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | AEJAPP | aejapp-18-1 | 2026 | ready |  |
 | AEJAPP | aejapp-18-2 | 2026 | ready |  |
 | AEJAPP | aejapp-18-3 | 2026 | ready |  |
+| AEJAPP | aejapp-18-4 | 2026 | ready |  |
 | AEJMACRO | aejmacro-15-1 | 2023 | ready |  |
 | AEJMACRO | aejmacro-15-2 | 2023 | ready |  |
 | AEJMACRO | aejmacro-15-3 | 2023 | ready |  |
@@ -46,6 +47,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | AEJMACRO | aejmacro-18-1 | 2026 | ready |  |
 | AEJMACRO | aejmacro-18-2 | 2026 | ready |  |
 | AEJMACRO | aejmacro-18-3 | 2026 | ready |  |
+| AEJMACRO | aejmacro-18-4 | 2026 | ready |  |
 | AEJMICRO | aejmicro-15-1 | 2023 | ready |  |
 | AEJMICRO | aejmicro-15-2 | 2023 | ready |  |
 | AEJMICRO | aejmicro-15-3 | 2023 | ready |  |
@@ -113,6 +115,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | AER | aer-115-8 | 2025 | ready |  |
 | AER | aer-115-9 | 2025 | ready |  |
 | AER | aer-116-1 | 2026 | ready |  |
+| AER | aer-116-10 | 2026 | ready |  |
 | AER | aer-116-2 | 2026 | ready |  |
 | AER | aer-116-3 | 2026 | ready |  |
 | AER | aer-116-4 | 2026 | ready |  |
@@ -155,7 +158,9 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | AJAE | ajae-108-2 | 2026 | ready |  |
 | AJAE | ajae-108-3 | 2026 | ready |  |
 | AJAE | ajae-108-4 | 2026 | ready |  |
+| AJAE | ajae-108-5 | 2026 | ready |  |
 | CER | cer-100-c | 2026 | ready |  |
+| CER | cer-101-c | 2026 | ready |  |
 | CER | cer-77-c | 2023 | ready |  |
 | CER | cer-78-c | 2023 | ready |  |
 | CER | cer-79-c | 2023 | ready |  |
@@ -288,6 +293,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | EER | eer-187-c | 2026 | ready |  |
 | EER | eer-188-c | 2026 | ready |  |
 | EER | eer-189-c | 2026 | ready |  |
+| EER | eer-190-c | 2026 | ready |  |
 | EJ | ej-133-650 | 2023 | ready |  |
 | EJ | ej-133-651 | 2023 | ready |  |
 | EJ | ej-133-652 | 2023 | ready |  |
@@ -398,6 +404,8 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | ERE | ere-88-8 | 2025 | ready |  |
 | ERE | ere-88-9 | 2025 | ready |  |
 | ERE | ere-89-1 | 2026 | ready |  |
+| ERE | ere-89-10 | 2026 | ready |  |
+| ERE | ere-89-11 | 2026 | ready |  |
 | ERE | ere-89-2 | 2026 | ready |  |
 | ERE | ere-89-3 | 2026 | ready |  |
 | ERE | ere-89-4 | 2026 | ready |  |
@@ -436,6 +444,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | FOODPOLICY | foodpolicy-141-c | 2026 | ready |  |
 | FOODPOLICY | foodpolicy-142-c | 2026 | ready |  |
 | FOODPOLICY | foodpolicy-143-c | 2026 | ready |  |
+| FOODPOLICY | foodpolicy-144-c | 2026 | ready |  |
 | GEB | geb-137-c | 2023 | ready |  |
 | GEB | geb-138-c | 2023 | ready |  |
 | GEB | geb-139-c | 2023 | ready |  |
@@ -459,6 +468,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | GEB | geb-157-c | 2026 | ready |  |
 | GEB | geb-158-c | 2026 | ready |  |
 | GEB | geb-159-c | 2026 | ready |  |
+| GEB | geb-160-c | 2026 | ready |  |
 | IER | ier-64-1 | 2023 | ready |  |
 | IER | ier-64-2 | 2023 | ready |  |
 | IER | ier-64-3 | 2023 | ready |  |
@@ -514,6 +524,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JCE | jce-53-4 | 2025 | ready |  |
 | JCE | jce-54-1 | 2026 | ready |  |
 | JCE | jce-54-2 | 2026 | ready |  |
+| JCE | jce-54-3 | 2026 | ready |  |
 | JDE | jde-160-c | 2023 | ready |  |
 | JDE | jde-161-c | 2023 | ready |  |
 | JDE | jde-162-c | 2023 | ready |  |
@@ -553,7 +564,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JEBO | jebo-217-c | 2024 | ready |  |
 | JEBO | jebo-218-c | 2024 | ready |  |
 | JEBO | jebo-219-c | 2024 | ready |  |
-| JEBO | jebo-220-c | 2024 | ready | archive_missing |
+| JEBO | jebo-220-c | 2024 | ready |  |
 | JEBO | jebo-221-c | 2024 | ready |  |
 | JEBO | jebo-222-c | 2024 | ready |  |
 | JEBO | jebo-223-c | 2024 | ready |  |
@@ -630,6 +641,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JEDC | jedc-189-c | 2026 | ready |  |
 | JEDC | jedc-190-c | 2026 | ready |  |
 | JEDC | jedc-191-c | 2026 | ready |  |
+| JEDC | jedc-192-c | 2026 | ready |  |
 | JEEA | jeea-21-1 | 2023 | ready |  |
 | JEEA | jeea-21-2 | 2023 | ready |  |
 | JEEA | jeea-21-3 | 2023 | ready |  |
@@ -690,6 +702,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JEH | jeh-85-4 | 2025 | ready |  |
 | JEH | jeh-86-1 | 2026 | ready |  |
 | JEH | jeh-86-2 | 2026 | ready |  |
+| JEH | jeh-86-3 | 2026 | ready |  |
 | JEP | jep-37-1 | 2023 | ready |  |
 | JEP | jep-37-2 | 2023 | ready |  |
 | JEP | jep-37-3 | 2023 | ready |  |
@@ -804,6 +817,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JFE | jfe-182-c | 2026 | ready |  |
 | JFE | jfe-183-c | 2026 | ready |  |
 | JFE | jfe-184-c | 2026 | ready |  |
+| JFE | jfe-185-c | 2026 | ready |  |
 | JHE | jhe-100-c | 2025 | ready |  |
 | JHE | jhe-101-c | 2025 | ready |  |
 | JHE | jhe-102-c | 2025 | ready |  |
@@ -900,6 +914,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JME | jme-160-c | 2026 | ready |  |
 | JME | jme-161-c | 2026 | ready |  |
 | JME | jme-162-c | 2026 | ready |  |
+| JME | jme-163-c | 2026 | ready |  |
 | JOE | joe-232-1 | 2023 | ready |  |
 | JOE | joe-232-2 | 2023 | ready |  |
 | JOE | joe-233-1 | 2023 | ready |  |
@@ -936,9 +951,14 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JOE | joe-252-c | 2025 | ready |  |
 | JOE | joe-253-c | 2026 | ready |  |
 | JOE | joe-254-c | 2026 | ready |  |
+| JOE | joe-254-pa | 2026 | ready |  |
+| JOE | joe-254-pb | 2026 | ready |  |
 | JOE | joe-255-c | 2026 | ready |  |
 | JOE | joe-256-c | 2026 | ready |  |
+| JOE | joe-256-pa | 2026 | ready |  |
+| JOE | joe-256-pb | 2026 | ready |  |
 | JOE | joe-257-c | 2026 | ready |  |
+| JOE | joe-258-c | 2026 | ready |  |
 | JPE | jpe-131-1 | 2023 | source_pending |  |
 | JPE | jpe-131-10 | 2023 | ready |  |
 | JPE | jpe-131-11 | 2023 | source_pending |  |
@@ -1051,7 +1071,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JUE | jue-152-c | 2026 | ready |  |
 | JUE | jue-153-c | 2026 | ready |  |
 | JUE | jue-154-c | 2026 | ready |  |
-| JUE | jue-156-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 156/ |
+| JUE | jue-156-c | 2026 | ready |  |
 | LABECO | labeco-100-c | 2026 | ready |  |
 | LABECO | labeco-101-c | 2026 | ready |  |
 | LABECO | labeco-102-c | 2026 | ready |  |
@@ -1086,6 +1106,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | LANDECON | landecon-102-1 | 2026 | ready |  |
 | LANDECON | landecon-102-2 | 2026 | ready |  |
 | LANDECON | landecon-102-3 | 2026 | ready |  |
+| LANDECON | landecon-102-4 | 2026 | ready |  |
 | LANDECON | landecon-99-1 | 2023 | ready |  |
 | LANDECON | landecon-99-2 | 2023 | ready |  |
 | LANDECON | landecon-99-3 | 2023 | ready |  |
@@ -1198,7 +1219,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | RED | red-59-c | 2026 | ready |  |
 | RED | red-60-c | 2026 | ready |  |
 | RED | red-61-c | 2026 | ready |  |
-| RED | red-62-c | 2026 | ready | MetadataFallbackError: Crossref returned no usable issue 62/ |
+| RED | red-62-c | 2026 | ready |  |
 | RES | res-90-1 | 2023 | ready |  |
 | RES | res-90-2 | 2023 | ready |  |
 | RES | res-90-3 | 2023 | ready |  |

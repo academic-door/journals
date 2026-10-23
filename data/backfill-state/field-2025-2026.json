@@ -336,7 +336,7 @@
       "last_error": "",
       "retry_class": "manual",
       "content_status": "complete",
-      "source_status": "official_verified",
+      "source_status": "publisher_verified",
       "publication_state": "ready"
     },
     "foodpolicy-130-c": {
@@ -1161,7 +1161,7 @@
       "last_error": "",
       "retry_class": "manual",
       "content_status": "complete",
-      "source_status": "publisher_verified",
+      "source_status": "official_verified",
       "publication_state": "ready"
     },
     "jet-223-c": {
@@ -1759,7 +1759,7 @@
       "last_error": "",
       "retry_class": "manual",
       "content_status": "complete",
-      "source_status": "publisher_verified",
+      "source_status": "official_verified",
       "publication_state": "ready"
     },
     "jme-149-c": {
@@ -1941,7 +1941,7 @@
       "last_error": "",
       "retry_class": "manual",
       "content_status": "complete",
-      "source_status": "official_verified",
+      "source_status": "publisher_verified",
       "publication_state": "ready"
     },
     "joe-247-c": {
@@ -2084,7 +2084,7 @@
       "last_error": "",
       "retry_class": "manual",
       "content_status": "complete",
-      "source_status": "official_verified",
+      "source_status": "publisher_verified",
       "publication_state": "ready"
     },
     "jpube-241-c": {
@@ -6799,7 +6799,7 @@
       "last_error": "",
       "retry_class": "manual",
       "content_status": "complete",
-      "source_status": "official_verified",
+      "source_status": "publisher_verified",
       "publication_state": "ready"
     },
     "jce-53-1": {
@@ -8237,15 +8237,15 @@
       "volume": "62",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/review-of-economic-dynamics/vol/62/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 62/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-20T08:13:50+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "labeco-101-c": {
       "journal": "LABECO",
@@ -8327,15 +8327,15 @@
       "volume": "156",
       "issue": "c",
       "official_url": "https://www.sciencedirect.com/journal/journal-of-urban-economics/vol/156/suppl/C",
-      "status": "blocked",
-      "last_error": "MetadataFallbackError: Crossref returned no usable issue 156/",
+      "status": "ready",
+      "last_error": "",
       "retry_class": "manual",
       "attempt_count": 3,
       "last_attempt_at": "2026-09-20T08:15:27+00:00",
       "last_error_code": "MetadataFallbackError",
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked"
+      "content_status": "complete",
+      "source_status": "publisher_verified",
+      "publication_state": "ready"
     },
     "energy-162-c": {
       "journal": "ENERGY",
@@ -8416,9 +8416,121 @@
       "content_status": "complete",
       "source_status": "publisher_verified",
       "publication_state": "ready"
+    },
+    "aejapp-18-4": {
+      "journal": "AEJAPP",
+      "year": 2026,
+      "volume": "18",
+      "issue": "4",
+      "official_url": "https://www.aeaweb.org/issues/862",
+      "status": "ready",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "operational_state_recovered_from": "canonical_archive_and_index"
+    },
+    "aejmacro-18-4": {
+      "journal": "AEJMACRO",
+      "year": 2026,
+      "volume": "18",
+      "issue": "4",
+      "official_url": "https://www.aeaweb.org/issues/863",
+      "status": "ready",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "operational_state_recovered_from": "canonical_archive_and_index"
+    },
+    "aer-116-10": {
+      "journal": "AER",
+      "year": 2026,
+      "volume": "116",
+      "issue": "10",
+      "official_url": "https://www.aeaweb.org/issues/864",
+      "status": "ready",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "operational_state_recovered_from": "canonical_archive_and_index"
+    },
+    "ajae-108-5": {
+      "journal": "AJAE",
+      "year": 2026,
+      "volume": "108",
+      "issue": "5",
+      "official_url": "https://onlinelibrary.wiley.com/toc/14678276/2026/108/5",
+      "status": "ready",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "operational_state_recovered_from": "canonical_archive_and_index"
+    },
+    "ere-89-10": {
+      "journal": "ERE",
+      "year": 2026,
+      "volume": "89",
+      "issue": "10",
+      "official_url": "https://link.springer.com/journal/10640/volumes-and-issues/89-10",
+      "status": "ready",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "operational_state_recovered_from": "canonical_archive_and_index"
+    },
+    "ere-89-11": {
+      "journal": "ERE",
+      "year": 2026,
+      "volume": "89",
+      "issue": "11",
+      "official_url": "https://link.springer.com/journal/10640/volumes-and-issues/89-11",
+      "status": "ready",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "operational_state_recovered_from": "canonical_archive_and_index"
+    },
+    "jeh-86-3": {
+      "journal": "JEH",
+      "year": 2026,
+      "volume": "86",
+      "issue": "3",
+      "official_url": "https://www.cambridge.org/core/journals/journal-of-economic-history/issue/5C841620FE586A5FCE7C9ADE68540AA9",
+      "status": "ready",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "operational_state_recovered_from": "canonical_archive_and_index"
+    },
+    "landecon-102-4": {
+      "journal": "LANDECON",
+      "year": 2026,
+      "volume": "102",
+      "issue": "4",
+      "official_url": "https://le.uwpress.org/content/102/4",
+      "status": "ready",
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
+      "last_error": "",
+      "retry_class": "manual",
+      "operational_state_recovered_from": "canonical_archive_and_index"
     }
   },
-  "updated_at": "2026-10-23T01:49:27+00:00",
+  "updated_at": "2026-10-23T14:11:16+00:00",
   "discovery": {
     "EER": {
       "issue_ids": [
