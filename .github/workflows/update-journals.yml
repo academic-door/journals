@@ -165,12 +165,13 @@ jobs:
             python scripts/rebuild_public_snapshot.py
             python scripts/publish_data_delta.py rebuild-archive-indexes \
               --root "$GITHUB_WORKSPACE"
+            # Use the same complete durable state-shard scope as the 2h monitor.
+            # A restricted subset otherwise causes release-derived coverage to
+            # oscillate between 1197/1194/3 and 1212/1211/1 across producers.
             state_args=()
-            for state in \
-              data/backfill-state/field-2023-2024.json \
-              data/backfill-state/field-2025-2026.json; do
-              if [ -f "$data_tree/$state" ]; then
-                state_args+=(--state "$data_tree/$state")
+            for state in "$data_tree"/data/backfill-state/*.json; do
+              if [ -f "$state" ]; then
+                state_args+=(--state "$state")
               fi
             done
             if [ "${#state_args[@]}" -gt 0 ]; then
