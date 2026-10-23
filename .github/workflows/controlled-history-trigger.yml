@@ -435,3 +435,25 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - name: Probe one AJAE 105(1) first-party page; refuse unverifiable data
         run: python scripts/probe_legacy_wiley_source.py
+
+  legacy_chicago_probe:
+    # A second publisher-family check after #460's Wiley transport denial.
+    # Fixed JPE 131(1), one HTTP attempt, no credentials or data write.
+    if: >-
+      github.event.issue.number == 460 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      github.event.comment.body == '/history-legacy-chicago-probe'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Probe only JPE 131(1) first-party UChicago TOC
+        run: python scripts/probe_legacy_chicago_source.py
