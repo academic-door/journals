@@ -154,6 +154,48 @@ class HistoryCoverageAuditTests(unittest.TestCase):
             index_path.write_text(json.dumps(payload), encoding="utf-8")
         return issue_id
 
+    def test_historical_browser_capture_keeps_original_revision_and_provenance(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            states, journals, api_root = self._fixture(Path(directory))
+            snapshot = states[0]["discovery"]["AER"]
+            snapshot["collector_revision"] = "publisher-browser-authority-v1"
+            snapshot["authority"] = "official_archive_snapshot"
+            report = audit_history_integrity(
+                states, journals=journals, api_root=api_root
+            )
+        self.assertEqual("pass", report["status"], report["errors"])
+        self.assertEqual(
+            [
+                {
+                    "journal": "AER",
+                    "authority": "official_archive_snapshot",
+                    "collector_revision": "publisher-browser-authority-v1",
+                    "refreshed_at": "2026-08-11T00:00:00+00:00",
+                }
+            ],
+            report["historical_capture_snapshots"],
+        )
+
+    def test_stale_revision_still_fails_without_historical_capture_authority(self) -> None:
+        for authority, revision in (
+            ("crossref_candidate", "publisher-browser-authority-v1"),
+            ("official_archive_snapshot", "unknown-browser-revision-v3"),
+        ):
+            with self.subTest(authority=authority, revision=revision):
+                with tempfile.TemporaryDirectory() as directory:
+                    states, journals, api_root = self._fixture(Path(directory))
+                    snapshot = states[0]["discovery"]["AER"]
+                    snapshot["collector_revision"] = revision
+                    snapshot["authority"] = authority
+                    report = audit_history_integrity(
+                        states, journals=journals, api_root=api_root
+                    )
+                self.assertEqual("fail", report["status"])
+                self.assertTrue(
+                    any("stale collector_revision" in err for err in report["errors"])
+                )
+                self.assertEqual([], report["historical_capture_snapshots"])
+
     def test_four_way_consistency_passes(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             states, journals, api_root = self._fixture(Path(directory))
