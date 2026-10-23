@@ -288,7 +288,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         strict_audit = workflow.index(
             "python scripts/audit_public_data.py --strict-provenance --strict-history-period-duplicates"
         )
-        window = workflow[progress - 220 : strict_audit]
+        window = workflow[workflow.rfind('if [ "${{ inputs.repair_dates_only', 0, progress) : strict_audit]
         self.assertIn('inputs.repair_dates_only', window)
         self.assertIn('!= "true"', window)
         self.assertIn(
@@ -318,7 +318,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
     def test_supports_date_repair_only_without_recovery_or_composer_sync(self) -> None:
         workflow = self.workflow()
         self.assertIn("repair_dates_only:", workflow)
-        self.assertIn("|| inputs.repair_dates_only || inputs.repair_content_only || inputs.repair_ready_contract_only)", workflow)
+        self.assertIn("|| inputs.repair_dates_only || inputs.repair_content_only || inputs.repair_ready_contract_only || inputs.repair_state_only)", workflow)
         self.assertIn("inputs.repair_dates_only == false", workflow)
         self.assertIn(
             "needs.publish.result == 'success' && inputs.repair_dates_only == false",
