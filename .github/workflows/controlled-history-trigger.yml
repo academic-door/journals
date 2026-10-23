@@ -213,6 +213,33 @@ jobs:
       repair_dates_only: true
     secrets: inherit
 
+  history_state_repair:
+    if: >-
+      github.event.issue.number == 205 &&
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.login == 'SIMON-WORLD' &&
+      github.event.comment.body == '/history-state-repair'
+    uses: ./.github/workflows/history-sprint.yml
+    permissions:
+      actions: read
+      contents: write
+      models: read
+    with:
+      max_issues: "1"
+      max_translations: "0"
+      categories: __history_state_repair_only__
+      source_run_id: ""
+      state_source_run_id: ""
+      strict_final: false
+      evidence_issue_ids: ""
+      capture_wiley_evidence: false
+      capture_cambridge_evidence: false
+      repair_dates_only: false
+      repair_content_only: false
+      repair_ready_contract_only: false
+      repair_state_only: true
+    secrets: inherit
+
   wave_a:
     if: >-
       github.event.issue.number == 205 &&
