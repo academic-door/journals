@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 
 from scripts.history_state_reconcile import reconcile_state_file
+from scripts.reconcile_missing_history_state import reconcile_missing_ready
 from scripts.update_journals import normalize_issue_content, stamp_issue_readiness
 
 
@@ -106,6 +107,85 @@ class HistoryStateReconcileTests(unittest.TestCase):
         state_path.write_text(json.dumps(state), encoding="utf-8")
         journals = {"AER": {"id": "aer", "name": "AER"}}
         return state_path, archive_path, index_path, journals
+
+    def _remove_existing_state_but_keep_official_discovery(self, state_path: Path) -> None:
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        state["issues"] = {}
+        state["discovery"]["AER"].update(
+            {
+                "authority": "official_archive",
+                "refreshed_at": "2026-09-01T00:00:00+00:00",
+                "issue_years": {"aer-114-1": 2024},
+                "issue_refs": {
+                    "aer-114-1": {
+                        "journal": "AER",
+                        "year": 2024,
+                        "volume": "114",
+                        "issue": "1",
+                        "official_url": "https://www.aeaweb.org/issues/700",
+                    }
+                },
+            }
+        )
+        state_path.write_text(json.dumps(state), encoding="utf-8")
+
+    def test_recovers_missing_ready_operational_row_without_fabricating_observation(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state_path, archive_path, index_path, journals = self._fixture(root)
+            self._remove_existing_state_but_keep_official_discovery(state_path)
+            archive_before, index_before = archive_path.read_bytes(), index_path.read_bytes()
+            report = reconcile_missing_ready(
+                [state_path], journals=journals, api_root=root / "api"
+            )
+            state = json.loads(state_path.read_text(encoding="utf-8"))
+            entry = state["issues"]["aer-114-1"]
+            self.assertEqual(1, report["created_count"])
+            self.assertEqual("ready", entry["publication_state"])
+            self.assertEqual("official_verified", entry["source_status"])
+            self.assertEqual("canonical_archive_and_index", entry["operational_state_recovered_from"])
+            for forbidden in ("attempt_count", "last_attempt_at", "refreshed_at", "authority_observed_at"):
+                self.assertNotIn(forbidden, entry)
+            self.assertEqual(archive_before, archive_path.read_bytes())
+            self.assertEqual(index_before, index_path.read_bytes())
+            repeated = reconcile_missing_ready([state_path], journals=journals, api_root=root / "api")
+            self.assertEqual(0, repeated["created_count"])
+
+    def test_missing_ready_recovery_fails_closed_on_disagreeing_archive_index(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state_path, _, _, journals = self._fixture(root, index_source_status="source_pending")
+            self._remove_existing_state_but_keep_official_discovery(state_path)
+            prior = state_path.read_bytes()
+            report = reconcile_missing_ready([state_path], journals=journals, api_root=root / "api")
+            self.assertEqual(0, report["created_count"])
+            self.assertEqual("archive_index_disagree", report["skipped"]["aer-114-1"])
+            self.assertEqual(prior, state_path.read_bytes())
+
+    def test_missing_ready_recovery_does_not_promote_candidate_discovery(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state_path, _, _, journals = self._fixture(root)
+            self._remove_existing_state_but_keep_official_discovery(state_path)
+            state = json.loads(state_path.read_text(encoding="utf-8"))
+            state["discovery"]["AER"]["authority"] = "crossref_candidate"
+            state_path.write_text(json.dumps(state), encoding="utf-8")
+            report = reconcile_missing_ready([state_path], journals=journals, api_root=root / "api")
+            self.assertEqual(0, report["created_count"])
+            self.assertEqual("unqualified_discovery_identity", report["skipped"]["aer-114-1"])
+
+    def test_missing_ready_recovery_rejects_ambiguous_discovery_state_owners(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state_path, _, _, journals = self._fixture(root)
+            self._remove_existing_state_but_keep_official_discovery(state_path)
+            duplicate = root / "second.json"
+            duplicate.write_bytes(state_path.read_bytes())
+            report = reconcile_missing_ready(
+                [state_path, duplicate], journals=journals, api_root=root / "api"
+            )
+            self.assertEqual(0, report["created_count"])
+            self.assertEqual("ambiguous_discovery_owner", report["skipped"]["aer-114-1"])
 
     def test_reconciles_stale_state_when_archive_and_index_agree(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
