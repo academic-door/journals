@@ -1154,20 +1154,29 @@ def write_archive_index(
             }
         )
     entries.sort(key=archive_publication_sort_key, reverse=True)
-    write_json(
-        api_root / "journals" / journal_id / "issues" / "index.json",
-        {
-            "schema_version": "1.0",
-            "journal_id": journal_id,
-            "journal_name": journal_name,
-            "updated_at": updated_at,
-            "issue_count": len(entries),
-            "current_url": (
-                f"/journals/api/v1/journals/{journal_id}/issues/current.json"
-            ),
-            "issues": entries,
-        },
-    )
+    index_path = api_root / "journals" / journal_id / "issues" / "index.json"
+    index_payload = {
+        "schema_version": "1.0",
+        "journal_id": journal_id,
+        "journal_name": journal_name,
+        "updated_at": updated_at,
+        "issue_count": len(entries),
+        "current_url": (
+            f"/journals/api/v1/journals/{journal_id}/issues/current.json"
+        ),
+        "issues": entries,
+    }
+    previous = read_json(index_path)
+    if previous is not None and "updated_at" in previous:
+        # Rebuild time is not evidence of a fresh publisher observation.
+        # Keep byte-identical indexes (and their original timestamp) when
+        # only the build's updated_at would change.
+        without_build_timestamp = lambda payload: {
+            key: value for key, value in payload.items() if key != "updated_at"
+        }
+        if without_build_timestamp(previous) == without_build_timestamp(index_payload):
+            return
+    write_json(index_path, index_payload)
 
 
 def search_record(
