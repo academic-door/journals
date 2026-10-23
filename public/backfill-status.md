@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-10-23T08:35:50+00:00
+Updated: 2026-10-23T13:31:44+00:00
 
 Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready · 0 missing · 0 source pending
 
@@ -143,9 +143,9 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | AJAE | ajae-105-5 | 2023 | source_pending |  |
 | AJAE | ajae-106-1 | 2024 | source_pending |  |
 | AJAE | ajae-106-2 | 2024 | source_pending |  |
-| AJAE | ajae-106-3 | 2024 | source_pending | source authority pending official verification |
-| AJAE | ajae-106-4 | 2024 | source_pending | source authority pending official verification |
-| AJAE | ajae-106-5 | 2024 | source_pending | source authority pending official verification |
+| AJAE | ajae-106-3 | 2024 | source_pending |  |
+| AJAE | ajae-106-4 | 2024 | source_pending |  |
+| AJAE | ajae-106-5 | 2024 | source_pending |  |
 | AJAE | ajae-107-1 | 2025 | ready |  |
 | AJAE | ajae-107-2 | 2025 | ready |  |
 | AJAE | ajae-107-3 | 2025 | ready |  |
@@ -745,9 +745,9 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JF | jf-79-1 | 2024 | ready |  |
 | JF | jf-79-2 | 2024 | source_pending |  |
 | JF | jf-79-3 | 2024 | source_pending |  |
-| JF | jf-79-4 | 2024 | source_pending | source authority pending official verification |
-| JF | jf-79-5 | 2024 | source_pending | source authority pending official verification |
-| JF | jf-79-6 | 2024 | source_pending | source authority pending official verification |
+| JF | jf-79-4 | 2024 | source_pending |  |
+| JF | jf-79-5 | 2024 | source_pending |  |
+| JF | jf-79-6 | 2024 | source_pending |  |
 | JF | jf-80-1 | 2025 | ready |  |
 | JF | jf-80-2 | 2025 | ready |  |
 | JF | jf-80-3 | 2025 | ready |  |

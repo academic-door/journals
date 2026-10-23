@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-10-23T08:36:34+00:00
+Generated: 2026-10-23T13:32:28+00:00
 
 ## Summary
 
