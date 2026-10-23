@@ -660,6 +660,40 @@ class PublicationGateTests(unittest.TestCase):
         self.assertEqual(2, index["issue_count"])
         self.assertEqual(["demo-2-1", "demo-1-1"], [item["issue_id"] for item in index["issues"]])
 
+    def test_archive_index_rebuild_preserves_unchanged_timestamp(self) -> None:
+        import json
+        import tempfile
+        from pathlib import Path
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            archive_issue(archive_fixture("demo-1-1", "1"), api_root=root)
+            index_path = root / "journals" / "demo" / "issues" / "index.json"
+            write_archive_index(
+                "demo", "Demo Journal",
+                updated_at="2026-10-21T00:00:00+00:00", api_root=root,
+            )
+            unchanged_bytes = index_path.read_bytes()
+
+            write_archive_index(
+                "demo", "Demo Journal",
+                updated_at="2026-10-22T00:00:00+00:00", api_root=root,
+            )
+            self.assertEqual(unchanged_bytes, index_path.read_bytes())
+            self.assertEqual(
+                "2026-10-21T00:00:00+00:00",
+                json.loads(index_path.read_text(encoding="utf-8"))["updated_at"],
+            )
+
+            archive_issue(archive_fixture("demo-2-1", "2"), api_root=root)
+            write_archive_index(
+                "demo", "Demo Journal",
+                updated_at="2026-10-23T00:00:00+00:00", api_root=root,
+            )
+            changed = json.loads(index_path.read_text(encoding="utf-8"))
+            self.assertEqual(2, changed["issue_count"])
+            self.assertEqual("2026-10-23T00:00:00+00:00", changed["updated_at"])
+
     def test_archive_index_sorts_real_months_and_restores_issue_numbers(self) -> None:
         import json
         import tempfile
