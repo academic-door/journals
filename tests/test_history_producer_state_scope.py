@@ -36,6 +36,23 @@ class HistoryProducerStateScopeTests(unittest.TestCase):
                 self.assertIn('state_args+=(--state "$state")', script)
                 self.assertIn("python scripts/audit_history_coverage.py", script)
 
+    def test_both_history_producers_publish_the_gap_manifest(self) -> None:
+        """Backfill coverage and gap manifest must share the same state scope."""
+        for workflow_name in ("monitor-journals.yml", "update-journals.yml"):
+            with self.subTest(workflow=workflow_name):
+                script = _history_publish_steps(workflow_name)[0]
+                self.assertIn("python scripts/build_gap_manifest.py", script)
+                self.assertIn("--out-json public/api/v1/gap-manifest.json", script)
+                self.assertIn("--out-md public/gap-manifest.md", script)
+                self.assertIn(
+                    '"$data_tree/public/gap-manifest.md"',
+                    script,
+                )
+                self.assertIn(
+                    'git -C "$data_tree" add public/gap-manifest.md',
+                    script,
+                )
+
     def test_targeted_update_does_not_restrict_history_to_two_periods(self) -> None:
         script = _history_publish_steps("update-journals.yml")[0]
         self.assertNotIn("data/backfill-state/field-2023-2024.json \\", script)
