@@ -180,6 +180,11 @@ jobs:
                 --api-root public/api/v1 \
                 --out-json public/api/v1/backfill-status.json \
                 --out-md public/backfill-status.md
+              python scripts/build_gap_manifest.py \
+                "${state_args[@]}" \
+                --api-root public/api/v1 \
+                --out-json public/api/v1/gap-manifest.json \
+                --out-md public/gap-manifest.md
             fi
             python scripts/audit_source_alignment.py --strict
             if [ -f scripts/audit_history_coverage.py ] && [ "${#state_args[@]}" -gt 0 ]; then
@@ -204,6 +209,10 @@ jobs:
               cp "$GITHUB_WORKSPACE/public/backfill-status.md" \
                 "$data_tree/public/backfill-status.md"
             fi
+            if [ -f "$GITHUB_WORKSPACE/public/gap-manifest.md" ]; then
+              cp "$GITHUB_WORKSPACE/public/gap-manifest.md" \
+                "$data_tree/public/gap-manifest.md"
+            fi
 
             git -C "$data_tree" rm -f --ignore-unmatch public/search.js
             git -C "$data_tree" config user.name "academic-door-bot"
@@ -211,6 +220,7 @@ jobs:
             git -C "$data_tree" add -A public/api data/translation-cache
             git -C "$data_tree" add public/project-manifest.json
             [ ! -f "$data_tree/public/backfill-status.md" ] || git -C "$data_tree" add public/backfill-status.md
+            [ ! -f "$data_tree/public/gap-manifest.md" ] || git -C "$data_tree" add public/gap-manifest.md
             if git -C "$data_tree" diff --cached --quiet; then
               echo "No public data changes."
               exit 0
