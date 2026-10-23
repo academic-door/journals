@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-23T08:06:25+00:00",
+  "generated_at": "2026-10-23T08:36:34+00:00",
   "target_years": [
     2023,
     2024,
@@ -61,8 +61,7 @@
   ],
   "discovery_snapshot_missing_journals": [],
   "summary": {
-    "ready": 1211,
-    "recoverable": 1
+    "ready": 1212
   },
   "records": [
     {
@@ -10395,8 +10394,8 @@
       "authority": "official_archive",
       "refreshed_at": "2026-10-23T01:30:01+00:00",
       "collector_revision": "history-integrity-2026-08-11",
-      "category": "recoverable",
-      "reason": "archive_missing",
+      "category": "ready",
+      "reason": "content and official source gates passed",
       "status": "",
       "retry_class": "",
       "collector": "repec",
@@ -10404,16 +10403,16 @@
       "last_attempt_at": "",
       "last_error_code": "",
       "next_retry_at": "",
-      "archive_exists": false,
-      "content_status": "blocked",
-      "source_status": "source_pending",
-      "publication_state": "blocked",
+      "archive_exists": true,
+      "content_status": "complete",
+      "source_status": "official_verified",
+      "publication_state": "ready",
       "counts": {
-        "articles": 0,
-        "abstract_en": 0,
-        "translation_cn": 0
+        "articles": 2,
+        "abstract_en": 2,
+        "translation_cn": 2
       },
-      "next_action": "run official collector and validate archive"
+      "next_action": "no action"
     },
     {
       "issue_id": "ere-89-2",
