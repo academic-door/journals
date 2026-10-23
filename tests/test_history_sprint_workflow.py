@@ -40,7 +40,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
                     command.index("git archive origin/data public/api"),
                     command.index('MAIN_CACHE="$main_cache" python -'),
                 )
-                script = command.split("python - <<'PY'\\n", 1)[1].split("\\nPY", 1)[0]
+                script = command.split("python - <<'PY'\n", 1)[1].split("\nPY", 1)[0]
                 with tempfile.TemporaryDirectory() as temporary:
                     root = Path(temporary)
                     pinned_dir = root / "main-cache"
