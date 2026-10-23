@@ -43,6 +43,23 @@ def _index_entries(path: Path) -> tuple[dict[str, dict[str, Any]], str]:
         return {}, f"index_invalid: {type(error).__name__}: {error}"
 
 
+# Version stamps from time-bounded, first-party browser captures describe a
+# different acquisition family. They must remain attached to their original
+# observed snapshots; comparing them with the automated collector's revision
+# falsely reports a source upgrade as an unperformed acquisition.
+HISTORICAL_BROWSER_CAPTURE_REVISIONS = frozenset(
+    {"elsevier-browser-authority-v1", "publisher-browser-authority-v1"}
+)
+
+
+def _is_historical_browser_capture(snapshot: dict[str, Any]) -> bool:
+    return (
+        snapshot.get("authority") == "official_archive_snapshot"
+        and snapshot.get("collector_revision") in HISTORICAL_BROWSER_CAPTURE_REVISIONS
+        and bool(str(snapshot.get("refreshed_at", "")).strip())
+    )
+
+
 def _state_publication(entry: dict[str, Any]) -> str:
     value = str(entry.get("publication_state") or entry.get("status") or "")
     return "ready" if value == "complete" else value
@@ -112,6 +129,7 @@ def audit_history_integrity(
     api_root: Path,
 ) -> dict[str, Any]:
     errors: list[str] = []
+    historical_capture_snapshots: list[dict[str, str]] = []
     merged_issues: dict[str, Any] = {}
     excluded_ids: set[str] = set()
     for state in states:
@@ -137,7 +155,18 @@ def audit_history_integrity(
                 errors.append(f"{journal}: discovery refreshed_at missing")
             if not str(snapshot.get("authority", "")):
                 errors.append(f"{journal}: discovery authority missing")
-            if snapshot.get("collector_revision") != COLLECTOR_REVISION:
+            if _is_historical_browser_capture(snapshot):
+                # Audit provenance without inventing a new browser observation.
+                # Current publisher freshness is a separate, time-bounded gate.
+                historical_capture_snapshots.append(
+                    {
+                        "journal": str(journal),
+                        "authority": "official_archive_snapshot",
+                        "collector_revision": str(snapshot["collector_revision"]),
+                        "refreshed_at": str(snapshot["refreshed_at"]),
+                    }
+                )
+            elif snapshot.get("collector_revision") != COLLECTOR_REVISION:
                 errors.append(
                     f"{journal}: stale collector_revision "
                     f"{snapshot.get('collector_revision', '')!r}"
@@ -249,6 +278,7 @@ def audit_history_integrity(
         "counts": counts,
         "error_count": len(errors),
         "errors": errors,
+        "historical_capture_snapshots": historical_capture_snapshots,
     }
 
 
