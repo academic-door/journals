@@ -76,6 +76,30 @@ class HistorySprintWorkflowTests(unittest.TestCase):
                             "retained", merged["historical-data-only"]["source_hash"]
                         )
 
+    def test_state_only_recovery_remains_guarded_and_strict(self) -> None:
+        workflow = self.workflow()
+        trigger = (
+            Path(__file__).resolve().parents[1]
+            / ".github" / "workflows" / "controlled-history-trigger.yml"
+        ).read_text(encoding="utf-8")
+        self.assertIn("repair_state_only:", workflow)
+        self.assertIn("group: journal-data-update", workflow)
+        self.assertIn("inputs.repair_state_only == false", workflow)
+        self.assertIn("if: inputs.repair_state_only", workflow)
+        state_fix = workflow.index("python scripts/reconcile_missing_history_state.py")
+        strict = workflow.index("python scripts/audit_public_data.py --strict-provenance")
+        self.assertLess(state_fix, strict)
+        self.assertIn("--report-json", workflow[state_fix:strict])
+        self.assertIn(
+            "needs.publish.result == 'success' && inputs.repair_dates_only == false && inputs.repair_state_only == false",
+            workflow,
+        )
+        self.assertIn("github.event.issue.number == 205", trigger)
+        self.assertIn("github.event.comment.user.login == 'SIMON-WORLD'", trigger)
+        self.assertIn("github.event.comment.body == '/history-state-repair'", trigger)
+        self.assertIn("repair_state_only: true", trigger)
+        self.assertIn("state_source_run_id: \"\"", trigger)
+
     def test_repairs_jpube_dates_before_strict_audit(self) -> None:
         workflow = self.workflow()
         repair = workflow.index("python scripts/repair_history_dates.py")
@@ -130,7 +154,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         evidence_only = "inputs.evidence_issue_ids != ''"
         shard_work = "inputs.source_run_id != '' || needs.collect.result != 'skipped'"
         self.assertIn(
-            f"if: always() && ({evidence_only} || {shard_work} || inputs.repair_dates_only || inputs.repair_content_only || inputs.repair_ready_contract_only)",
+            f"if: always() && ({evidence_only} || {shard_work} || inputs.repair_dates_only || inputs.repair_content_only || inputs.repair_ready_contract_only || inputs.repair_state_only)",
             publish_block,
         )
         for step in (
@@ -320,7 +344,7 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         self.assertIn("repair_ready_contract_only:", workflow)
         self.assertIn("python scripts/repair_ready_payload_contract.py --api-root public/api/v1", workflow)
         self.assertIn("inputs.repair_ready_contract_only == false", workflow)
-        self.assertIn("|| inputs.repair_ready_contract_only)", workflow)
+        self.assertIn("|| inputs.repair_ready_contract_only || inputs.repair_state_only)", workflow)
         self.assertIn(
             "continue-on-error: ${{ inputs.repair_content_only == false && inputs.repair_ready_contract_only == false }}",
             workflow,
