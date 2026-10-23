@@ -1,7 +1,14 @@
 from __future__ import annotations
 
+import json
+import os
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
+
+import yaml
 
 
 class HistorySprintWorkflowTests(unittest.TestCase):
@@ -10,6 +17,64 @@ class HistorySprintWorkflowTests(unittest.TestCase):
         return (root / ".github" / "workflows" / "history-sprint.yml").read_text(
             encoding="utf-8"
         )
+
+    def test_both_recovery_jobs_restore_main_pinned_cache_without_losing_data_rows(self) -> None:
+        """Reproduce the 4 QJE/RESTAT KeyErrors from the history publish job."""
+        parsed = yaml.safe_load(self.workflow())
+        pinned = (
+            ("qje.json", "10.1093/qje/qjag042"),
+            ("restat.json", "10.1162/rest_a_01469"),
+        )
+        for job_name, step_name in (
+            ("collect", "Restore last-known-good data branch"),
+            ("publish", "Restore data baseline and snapshot it"),
+        ):
+            with self.subTest(job=job_name):
+                steps = parsed["jobs"][job_name]["steps"]
+                command = next(step["run"] for step in steps if step.get("name") == step_name)
+                self.assertLess(
+                    command.index('cp -R data/translation-cache/. "$main_cache/"'),
+                    command.index("git archive origin/data public/api"),
+                )
+                self.assertLess(
+                    command.index("git archive origin/data public/api"),
+                    command.index('MAIN_CACHE="$main_cache" python -'),
+                )
+                script = command.split("python - <<'PY'\n", 1)[1].split("\nPY", 1)[0]
+                with tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    pinned_dir = root / "main-cache"
+                    target_dir = root / "data" / "translation-cache"
+                    pinned_dir.mkdir()
+                    target_dir.mkdir(parents=True)
+                    for file_name, doi in pinned:
+                        (pinned_dir / file_name).write_text(
+                            json.dumps({doi: {"source_hash": "pinned"}}), encoding="utf-8"
+                        )
+                        (target_dir / file_name).write_text(
+                            json.dumps({
+                                "historical-data-only": {"source_hash": "retained"},
+                                doi: {"source_hash": "stale"},
+                            }),
+                            encoding="utf-8",
+                        )
+                    result = subprocess.run(
+                        [sys.executable, "-c", script],
+                        cwd=root,
+                        env={**os.environ, "MAIN_CACHE": str(pinned_dir)},
+                        capture_output=True,
+                        text=True,
+                        check=False,
+                    )
+                    self.assertEqual(0, result.returncode, result.stderr)
+                    for file_name, doi in pinned:
+                        merged = json.loads(
+                            (target_dir / file_name).read_text(encoding="utf-8")
+                        )
+                        self.assertEqual("pinned", merged[doi]["source_hash"])
+                        self.assertEqual(
+                            "retained", merged["historical-data-only"]["source_hash"]
+                        )
 
     def test_repairs_jpube_dates_before_strict_audit(self) -> None:
         workflow = self.workflow()
