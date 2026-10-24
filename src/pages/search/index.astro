@@ -1,9 +1,23 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 const base = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
+const dataBase = import.meta.env.PUBLIC_JOURNAL_DATA_BASE || base;
+const collectionCount = (name: string, fallback: number): number => {
+  try {
+    const json = JSON.parse(readFileSync(path.join(process.cwd(), "public", "api", "v1", "collections", `${name}.json`), "utf8"));
+    return Number(json.summary?.configured_journals ?? json.journals?.length ?? fallback);
+  } catch {
+    return fallback;
+  }
+};
+const topFiveCount = collectionCount("top5", 5);
+const fieldCount = collectionCount("fields", 44);
+const allCount = topFiveCount + fieldCount;
 ---
 
 <Layout
@@ -15,18 +29,18 @@ const base = import.meta.env.BASE_URL.endsWith("/")
       <p class="section-kicker">SEARCH</p>
       <h1>跨刊检索</h1>
     </section>
-    <nav class="curated-paths" aria-label="编辑型研究入口">
+    <nav class="curated-paths" aria-label="快捷入口">
       <a href="?china=1">
         <span>中国相关论文</span>
-        <small>从 49 刊最新卷期中筛选</small>
+        <small>从全部 {allCount} 本监测期刊（顶刊 {topFiveCount} + 领域 {fieldCount}）的最新卷期筛选</small>
       </a>
       <a href={base + "fields/"}>
         <span>按领域进入</span>
-        <small>浏览 44 本领域期刊</small>
+        <small>浏览 {fieldCount} 本领域期刊（不含 Top Five）</small>
       </a>
     </nav>
 
-    <form id="global-search-form" class="global-search-toolbar" role="search" data-base={base}>
+    <form id="global-search-form" class="global-search-toolbar" role="search" data-base={dataBase}>
       <label class="global-search-input">
         <span class="sr-only">检索论文</span>
         <input
@@ -79,7 +93,7 @@ const base = import.meta.env.BASE_URL.endsWith("/")
     </form>
 
     <section id="global-search-status" class="global-search-status" aria-live="polite">
-      输入关键词或选择筛选条件后开始检索。数据只在检索时载入。
+      输入关键词或选择条件，点击“检索”查看论文。
     </section>
     <section id="global-search-results" class="search-results" aria-label="检索结果"></section>
   </main>
