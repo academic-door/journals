@@ -16,6 +16,7 @@ from scripts.journal_monitor import (
     Candidate,
     detect_all,
     evaluate_observation,
+    fetch_crossref_items,
     issue_fingerprint,
     run_deep_updates,
     select_candidate,
@@ -86,6 +87,61 @@ class LifecycleInstrumentationTests(unittest.TestCase):
             "2026-09-27T11:00:00+00:00",
             next_issue["authority_observed_at"],
         )
+
+
+class IndexedCrossrefDiscoveryTests(unittest.TestCase):
+    def _response(self, items: list[dict]) -> SimpleNamespace:
+        return SimpleNamespace(json=lambda: {"message": {"items": items}})
+
+    def test_opt_in_finds_late_doi_of_same_issue(self) -> None:
+        # The published-date first page misses the late-indexed article.
+        published = [crossref_item("10.1234/a"), crossref_item("10.1234/b")]
+        indexed = [crossref_item("10.1234/c"), crossref_item("10.1234/a")]
+        config = {
+            "id": "demo", "issn": "0000-0000",
+            "index_recent_updates": True,
+        }
+        with patch(
+            "scripts.journal_monitor._request_with_retry",
+            side_effect=[self._response(published), self._response(indexed)],
+        ) as request:
+            items = fetch_crossref_items(config, BASELINE)
+        self.assertEqual(2, request.call_count)
+        indexed_filter = request.call_args_list[1].kwargs["params"]["filter"]
+        self.assertIn("from-index-date:", indexed_filter)
+        self.assertIn("until-index-date:", indexed_filter)
+        self.assertEqual(3, len(items))
+        candidate = select_candidate(items, BASELINE, today=date(2026, 10, 25))
+        self.assertIsNotNone(candidate)
+        self.assertEqual(("10.1234/c",), candidate.unseen_dois)
+        status, _observation = evaluate_observation(candidate, BASELINE, {})
+        self.assertEqual("confirmed", status)
+
+    def test_non_opted_journals_keep_single_crossref_request(self) -> None:
+        with patch(
+            "scripts.journal_monitor._request_with_retry",
+            return_value=self._response([crossref_item("10.1234/a")]),
+        ) as request:
+            items = fetch_crossref_items(
+                {"id": "demo", "issn": "0000-0000"}, BASELINE
+            )
+        self.assertEqual(1, request.call_count)
+        self.assertEqual(1, len(items))
+
+    def test_indexed_probe_failure_preserves_published_discovery(self) -> None:
+        with patch(
+            "scripts.journal_monitor._request_with_retry",
+            side_effect=[
+                self._response([crossref_item("10.1234/c")]),
+                RuntimeError("supplemental endpoint unavailable"),
+            ],
+        ):
+            items = fetch_crossref_items(
+                {"id": "demo", "issn": "0000-0000", "index_recent_updates": True},
+                BASELINE,
+            )
+        candidate = select_candidate(items, BASELINE, today=date(2026, 10, 25))
+        self.assertEqual(("10.1234/c",), candidate.unseen_dois)
 
 
 class CandidateSelectionTests(unittest.TestCase):
