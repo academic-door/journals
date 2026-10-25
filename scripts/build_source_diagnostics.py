@@ -10,13 +10,18 @@ from collections import Counter
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import sys
 from typing import Any
 
 import yaml
 
-from scripts.publisher_coverage_sentinel import reconcile
-
 ROOT = Path(__file__).resolve().parents[1]
+# Direct `python scripts/build_source_diagnostics.py` runs with scripts/ on
+# sys.path; package imports need the owner repository root as well.
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from scripts.publisher_coverage_sentinel import reconcile
 PILOT = {"jeem", "jie", "energy"}
 
 
