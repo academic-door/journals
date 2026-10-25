@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import copy
 import json
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -96,6 +99,27 @@ class SourceDiagnosticsTests(unittest.TestCase):
         self.assertEqual("verification_blocked", result["journals"][0]["publisher_coverage"])
         self.assertIsNone(result["journals"][0]["publisher_observed_at"])
         self.assertNotEqual(self.generated, result["journals"][0]["last_verified_at"])
+
+    def test_direct_script_invocation_matches_monitor_workflow(self):
+        # CI module imports succeed with repository root on sys.path; the real
+        # monitor invokes the source file directly and must work as well.
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "source-diagnostics.json"
+            completed = subprocess.run(
+                [
+                    sys.executable, str(ROOT / "scripts/build_source_diagnostics.py"),
+                    "--api-root", str(ROOT / "public/api/v1"),
+                    "--out", str(output),
+                ],
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=60,
+            )
+            self.assertEqual(0, completed.returncode, completed.stderr)
+            data = json.loads(output.read_text(encoding="utf-8"))
+            self.assertEqual(49, data["summary"]["journals"])
 
     def test_existing_three_owner_capture_files_compare_without_network(self):
         # Uses real owner evidence, not the diagnostic-only DOI fixture.
