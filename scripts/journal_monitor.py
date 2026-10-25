@@ -341,7 +341,54 @@ def fetch_crossref_items(
     items = payload.get("message", {}).get("items", [])
     if not isinstance(items, list):
         raise RuntimeError("Crossref returned an invalid item list")
-    return [item for item in items if isinstance(item, dict)]
+    records = [item for item in items if isinstance(item, dict)]
+    if config.get("index_recent_updates"):
+        # A DOI added to an existing issue can retain an old publication date
+        # and fall outside the first 100 works sorted by "published". Crossref
+        # updates its index timestamp when metadata is reindexed. This small,
+        # opt-in pilot adds a second *discovery-only* view, not publisher roster
+        # authority, and leaves the original published-date probe intact.
+        indexed_since = (
+            datetime.now(timezone.utc).date() - timedelta(days=21)
+        ).isoformat()
+        try:
+            indexed_response = _request_with_retry(
+                client,
+                f"{CROSSREF_API}/journals/{config['issn']}/works",
+                params={
+                    "filter": (
+                        f"from-index-date:{indexed_since},"
+                        f"until-index-date:{datetime.now(timezone.utc).date().isoformat()},"
+                        f"from-pub-date:{start_year}-01-01,"
+                        f"until-pub-date:{until.isoformat()},type:journal-article"
+                    ),
+                    "sort": "indexed",
+                    "order": "desc",
+                    "rows": "100",
+                },
+                attempts=2,
+                timeout=30,
+            )
+            recent = indexed_response.json().get("message", {}).get("items", [])
+            if not isinstance(recent, list):
+                raise ValueError("Crossref indexed probe returned an invalid item list")
+            seen = {normalize_doi(str(item.get("DOI", ""))) for item in records}
+            for item in recent:
+                if not isinstance(item, dict):
+                    continue
+                doi = normalize_doi(str(item.get("DOI", "")))
+                if doi and doi not in seen:
+                    records.append(item)
+                    seen.add(doi)
+        except (requests.RequestException, RuntimeError, ValueError) as error:
+            # A supplemental metadata signal must not turn a working journal
+            # monitor into a failing publication path. Keep the base evidence.
+            print(
+                f"Crossref indexed discovery unavailable for "
+                f"{config.get('id', 'unknown')}: {type(error).__name__}",
+                file=sys.stderr,
+            )
+    return records
 
 
 def fetch_rss_dois(
