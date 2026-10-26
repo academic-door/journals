@@ -45,9 +45,11 @@ class GrowthCollectorSafetyTests(unittest.TestCase):
             verified_target(bad)
 
     def test_shared_collector_dispatch_is_bound_and_no_network_until_call(self):
-        func = collector_for(self.config)
-        self.assertTrue(callable(func))
+        # collector_for binds the implementation during factory construction;
+        # patch it before requesting the callable rather than after binding.
         with patch("collectors.springer.fetch_current_issue", return_value={"journal_id": "jegrowth"}) as mock:
+            func = collector_for(self.config)
+            self.assertTrue(callable(func))
             self.assertEqual("jegrowth", func()["journal_id"])
             mock.assert_called_once_with(self.config, expected_volume="", expected_issue="")
 
