@@ -1,0 +1,50 @@
+name: B8 Springer isolated official-source and translation pilot
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/b8_springer_pilot.py
+      - tests/fixtures/b8/springer-source-stage.json
+      - .github/workflows/b8-springer-pilot.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b8-springer-isolated-pilot
+  cancel-in-progress: false
+
+jobs:
+  growth:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Verify approved B8 publisher source and translate isolated candidate
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: deepseek-chat
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${DEEPSEEK_API_KEY:-}" ]; then
+            echo "::error::Existing translation provider secret is unavailable; fail closed."
+            exit 1
+          fi
+          python scripts/b8_springer_pilot.py \
+            --output-dir "${RUNNER_TEMP}/b8-growth" \
+            --translate --require-ready
+      - name: Preserve isolated candidate evidence for independent review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: b8-growth-isolated-readiness
+          path: ${{ runner.temp }}/b8-growth/
+          if-no-files-found: ignore
+          retention-days: 7
