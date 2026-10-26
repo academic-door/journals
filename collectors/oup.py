@@ -59,6 +59,12 @@ JOURNALS: dict[str, dict[str, str]] = {
         "journal_name": "The Review of Financial Studies",
         "current_issue_url": "https://academic.oup.com/rfs/issue",
     },
+    "joeg": {
+        "journal_id": "joeg",
+        "slug": "joeg",
+        "journal_name": "Journal of Economic Geography",
+        "current_issue_url": "https://academic.oup.com/joeg/issue",
+    },
 }
 
 ALIASES = {
@@ -69,6 +75,7 @@ ALIASES = {
     "ej": "ej",
     "jeea": "jeea",
     "rfs": "rfs",
+    "joeg": "joeg",
 }
 
 TRANSIENT_STATUS_CODES = {403, 408, 425, 429, 500, 502, 503, 504}
