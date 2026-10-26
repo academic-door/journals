@@ -224,6 +224,41 @@ class CandidateSelectionTests(unittest.TestCase):
         ]
         self.assertIsNone(select_candidate(items, BASELINE, today=date(2026, 7, 28)))
 
+    def test_jaere_early_november_crossref_detection(self) -> None:
+        import yaml
+        config = yaml.safe_load(
+            (Path(__file__).resolve().parents[1] / "config/journals.yml").read_text()
+        )["journals"]["JAERE"]
+        self.assertEqual(1, config["publication_lead_months"])
+        baseline = {
+            "issue_id": "jaere-13-5", "volume": "13", "issue": "5",
+            "publication_date": "September 2026", "articles": [],
+        }
+        records = [crossref_item(
+            "10.1234/november", volume="13", issue="6",
+            published=(2026, 11, 1),
+        )]
+        candidate = select_candidate(
+            records, baseline, today=date(2026, 10, 25),
+            publication_lead_months=config["publication_lead_months"],
+        )
+        self.assertIsNotNone(candidate)
+        self.assertEqual("13:6", candidate.issue_key)
+
+    def test_jie_future_december_issue_is_still_not_due_in_october(self) -> None:
+        baseline = {
+            "issue_id": "jie-163-c", "volume": "163", "issue": "C",
+            "publication_date": "October 2026", "articles": [],
+        }
+        records = [crossref_item(
+            "10.1234/december", volume="164", issue="",
+            published=(2026, 12, 1),
+        )]
+        self.assertIsNone(select_candidate(
+            records, baseline, today=date(2026, 10, 25),
+            publication_lead_months=1,
+        ))
+
     def test_next_month_issue_is_allowed_for_early_release_publishers(self) -> None:
         items = [
             crossref_item(
