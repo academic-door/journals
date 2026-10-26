@@ -501,9 +501,37 @@ def collector_for(
     raise ValueError(f"Unknown collector: {collector}")
 
 
-def fallback_collector_for(config: dict[str, Any]) -> Callable[[], dict[str, Any]] | None:
+def fallback_collector_for(
+    config: dict[str, Any],
+    *,
+    expected_volume: str = "",
+    expected_issue: str = "",
+) -> Callable[[], dict[str, Any]] | None:
     fallback = config.get("fallback", "")
     collectors: list[Callable[[], dict[str, Any]]] = []
+    if (
+        config.get("collector") == "chicago"
+        and fallback == "crossref-repec"
+        and config.get("repec_exact_issue_fallback") is True
+        and expected_volume
+        and expected_issue
+        and config.get("repec_series_code")
+    ):
+        # Only an explicitly identified candidate may use a publisher-supplied
+        # RePEc issue section as a roster fallback when official Chicago HTML
+        # is 403. Never turn a Crossref guess or a future schedule into READY.
+        from collectors.metadata_fallback import fetch_repec_history_issue
+
+        collectors.append(
+            lambda: fetch_repec_history_issue(
+                journal_id=str(config["id"]),
+                journal_name=str(config["name"]),
+                issn=str(config["issn"]),
+                volume=expected_volume,
+                issue=expected_issue,
+                repec_series_code=str(config["repec_series_code"]),
+            )
+        )
     if config.get("announcement_source") == "econometric_society_volume":
         from collectors.econometric_society import fetch_latest_econometrica_issue
 
@@ -1829,7 +1857,11 @@ def collect_one(
                     )
             except Exception as error:
                 primary_error = f"{type(error).__name__}: {error}"
-                fallback = fallback_collector_for(config)
+                fallback = fallback_collector_for(
+                    config,
+                    expected_volume=expected_volume,
+                    expected_issue=expected_issue,
+                )
                 if fallback is None:
                     raise
                 issue = fallback()
