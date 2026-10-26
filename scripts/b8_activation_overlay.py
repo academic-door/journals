@@ -94,6 +94,21 @@ def main() -> int:
     if fields.get("journals", []).count("JEGROWTH") != 1:
         raise ValueError("JEGROWTH must belong to Fields exactly once")
     subprocess.run([sys.executable, str(ROOT / "scripts/rebuild_public_snapshot.py")], cwd=ROOT, check=True)
+    # This is an ephemeral, deliberately degraded pre-first-monitor marker.
+    # Do NOT claim a first successful monitor check: only the independently
+    # attested source/translation issue was verified before promotion.
+    monitoring["summary"]["configured_journals"] = 50
+    monitoring["summary"]["warnings"] = int(monitoring["summary"].get("warnings", 0)) + 1
+    warnings = list(monitoring.get("warning_journals") or [])
+    if "JEGROWTH" in warnings:
+        raise ValueError("JEGROWTH was unexpectedly already monitored")
+    monitoring["warning_journals"] = [*warnings, "JEGROWTH"]
+    monitoring["status"] = "degraded"
+    monitoring["b8_transition_note"] = "JEGROWTH source READY, first scheduled operational probe pending"
+    (API / "monitoring.json").write_text(
+        json.dumps(monitoring, ensure_ascii=False, indent=2) + "\\n",
+        encoding="utf-8",
+    )
     subprocess.run([sys.executable, str(ROOT / "scripts/audit_source_alignment.py"), "--strict"], cwd=ROOT, check=True)
     generated = read_json(API / "health.json") or {}
     if generated.get("summary", {}).get("enabled_journals") != 50 or generated.get("summary", {}).get("available_journals") != 50:
