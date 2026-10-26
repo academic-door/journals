@@ -1,4 +1,6 @@
-# Academic Door 产品架构 v1.0
+# Academic Door Journals 产品架构
+
+> 当前 public product map / Parent-child navigation / Composer public-private boundary 以 main-control Decision 0019 与 `governance/PUBLIC_PRODUCT_MAP.md` 为准。本文只描述 Journals owner-local implementation；旧版“public full Composer”内容已被该决策取代。
 
 本文是 Academic Door 各项目和 Agent 的共同边界。子项目可以独立迭代，但不得各自发明重复的数据格式、导航、质量标准或发布流程。
 
@@ -17,30 +19,29 @@ Academic Door 面向中文读者建设开放、可靠、可检索、可复用的
 ## 2. 产品版图
 
 ```text
-Academic Door 主页 / 品牌入口
-├─ NBER Working Papers CN
-├─ Econ Papers Daily
-├─ Journals
-│  ├─ TOP5
-│  ├─ Econ Field Journals
-│  └─ Academic Door Composer
-└─ 共享能力
-   ├─ 统一论文与卷期 Schema
-   ├─ 来源与质量规则
-   ├─ 公共 JSON API / Project Manifest
-   ├─ 统一导航与品牌规范
-   └─ GitHub 协作、测试与隐私规范
+Academic Door 门厅 /
+├─ 每日之门 · Econ Papers Daily
+├─ 前沿之门 · Working Papers
+├─ 顶刊之门 · /journals/top5/
+└─ 领域之门 · /journals/fields/
+
+Academic Door · 期刊 /journals/
+├─ 顶刊之门
+├─ 领域之门
+├─ 跨刊检索
+├─ 数据状态
+└─ Composer Preview / 发布预览（只读 public entry）
 ```
 
-各层职责：
+`/journals/` 是期刊 umbrella landing，不是第五扇 Door。完整 Composer 是 internal subsystem，不是公开 Door。
 
 | 层级 | 负责内容 | 不负责内容 |
 |---|---|---|
-| 品牌主页 | 项目导航、品牌说明、统一入口、跨项目发现 | 复制保存各项目全部数据 |
-| 数据项目 | 官方数据采集、标准化、中文整理、质量门、公共接口 | 微信后台发布 |
-| 公共网站 | 浏览、搜索、筛选、归档、来源跳转 | 私有审核状态 |
-| Composer | 选文、编辑、主题预览、复制富文本、导出 | 代替作者判断和微信最终检查 |
-| 公众号运营 | 最终内容判断、平台项检查、发布 | 维护抓取器和中间同步队列 |
+| Parent 门厅 | 四扇公开 Door 的统一入口、品牌与跨产品导航 | 复制子产品全部业务 UI |
+| Journals 数据层 | 期刊采集、canonical issue/archive、双语整理、质量门、公共 API | 私有稿件与编辑状态 |
+| Journals 公共网站 | 顶刊/领域浏览、历史、检索、reader-safe Status、只读 Composer Preview | 匿名编辑、复制导出、Theme Lab |
+| 私有 Composer | 编辑、排序、renderer/theme、copy/export、草稿与 publication history | 期刊 source authority 与 canonical issue ownership |
+| 公众号运营 | 人工最终判断与发布 | 维护抓取器或公共数据状态 |
 
 ## 3. 默认七项架构决策
 
@@ -135,35 +136,21 @@ Academic Door 主页 / 品牌入口
 
 站点可以展示 `incomplete` 数据，但不得把它标为已完成；Composer 可以预览它，但在英文摘要和中文内容通过质量门前禁用复制与导出。目录顺序、备用来源、字段来源和完整 `quality_flags` 属于内部质量信息，统一在状态页与公共 API 披露，不在面向读者的卷期内容页显示技术性核验提示。
 
-## 7. Composer v1
+## 7. Composer public/private boundary
 
-Composer 是运营工作台，不是新的内容管理系统。
+Journals 不再发布完整匿名编辑器。
 
-必须具备：
+公开 `/journals/composer/` 的职责只有：
 
-- 从 Academic Door JSON 载入卷期。
-- 勾选或取消论文并即时重排。
-- Markdown 编辑和公众号预览同步。
-- 正式主题下拉只展示通过公众号复制兼容性与人工审美验收的主题；候选主题先进入独立 Theme Lab，不以数量代替质量。
-- 编辑区与手机预览实时同步；正式主题允许在不改变内容结构的前提下调整正文字号、行距、字体和强调色。
-- 高级用户可添加仅作用于正文预览的自定义 CSS；复制富文本时将最终计算样式内联，且不加载外部 CSS、字体或图片资源。
-- TOP5 首页在加载目录后预取已接入期刊的最新卷期，切换期刊复用本地请求缓存，避免每次点击重新等待网络。
-- 卷期年月以官方卷期页的 issue-level 日期为准；不得使用单篇论文在线发表时间替代整期期次日期。
-- 本地自动保存与恢复。
-- 复制带内联样式的富文本。
-- 导出 Markdown 和 HTML。
-- 保留论文官网链接、DOI 和来源说明。
+- 展示 bounded read-only Composer Preview / 发布预览；
+- 可读取公开 canonical issue 数据生成代表性只读成品；
+- 保留 `journal` / `issue` identity handoff；
+- 提供 **进入 Composer 工作台** 的 authenticated entry；
+- 不暴露 renderer、主题实验、custom CSS、草稿/历史、copy/export 或 authenticated ready payload。
 
-主题治理决策：Composer v1 至少保留一个可稳定生产的正式主题，并在 Theme Lab 中维持不少于两个可比较的实验主题。实验主题完成长标题、目录、公式、图片、图注、引用块、移动端和微信后台粘贴测试后，才能进入正式下拉框；未通过者可以继续实验或删除。该规则取代早期“至少三种正式主题”的数量要求。
+`/journals/themes/` 从 public IA 退役，可保留 noindex compatibility retirement surface。
 
-第一阶段明确不做：
-
-- Notion 双向同步。
-- 微信 API 自动建草稿。
-- 多人权限系统。
-- 服务端保存私有稿件。
-
-只有当网页复制流程已稳定、每天的编辑时间明显下降后，才评估云端保存和平台 API。
+完整工作台由私有 `academic-door/academic-door-composer` 负责。Journals 的 READY email / upstream sync 继续保持现有 canonical identity 与 sync-before-email contract。
 
 ## 8. GitHub 仓库版图
 
@@ -172,7 +159,7 @@ Composer 是运营工作台，不是新的内容管理系统。
 | `academic-door/academic-door.github.io` | 品牌主页与项目导航 |
 | `academic-door/nber-working-papers-cn` | NBER 数据、中文内容与站点 |
 | `academic-door/econ-paper-monitor` | 每日论文监测与站点 |
-| `academic-door/journals` | TOP5、Econ Field Journals、统一期刊引擎与 Composer |
+| `academic-door/journals` | 顶刊之门、领域之门、统一期刊引擎、跨刊检索、Status 与 public Composer Preview |
 | `academic-door/.github` | Organization 公开介绍 |
 | `academic-door/agent-workflow-template` | Agent 协作、PR、验收模板 |
 
@@ -185,8 +172,8 @@ Composer 是运营工作台，不是新的内容管理系统。
 - **主页 Agent：** 读取 Manifest、做导航和品牌体验，不改采集规则。
 - **NBER Agent：** 维护 NBER 官方批次与周/月报，不改 Journals Schema。
 - **Econ Papers Daily Agent：** 维护每日论文发现和筛选，不负责公众号排版。
-- **Journals Agent：** 维护期刊适配器、统一 Schema、质量门和站点。
-- **Composer Agent：** 维护编辑、预览、复制兼容和主题，不抓取期刊。
+- **Journals Agent：** 维护期刊适配器、统一 Schema、质量门、读者站点、public Preview/Entry 与 journal/issue upstream handoff。
+- **Composer Agent：** 维护私有编辑工作台、renderer、主题、复制/导出、草稿与 publication history，不重新定义期刊 canonical identity。
 - **数据质量 Agent：** 维护 fixture、数量/顺序/重复/来源审计，不直接编辑 UI。
 
 跨仓库需求通过 Issue 和 Project Manifest 协作，不允许 Agent 在未说明的情况下顺手重构其他项目。
@@ -226,8 +213,8 @@ v1 纵向样板完成需同时满足：
 - 详情页失败数为 0。
 - Schema、单元测试、隐私审计、静态构建全部通过。
 - GitHub Actions 可在云端完成采集、写入 `data`、触发部署。
-- Pages 的首页、TOP5、Composer、状态页和 JSON API 可访问。
-- Composer 可载入真实卷期、编辑、使用已批准主题并复制；Theme Lab 可隔离比较候选主题。
+- Pages 的期刊门厅、顶刊之门、领域之门、跨刊检索、Status、public Composer Preview 和 JSON API 可访问。
+- public Composer Preview 只读且保留 journal/issue handoff；完整编辑/主题/copy-export 在受保护的私有 Composer 中验证。
 - 不依赖旧 Notion/微信 API 链路。
 
 ## 12. 当前边界
