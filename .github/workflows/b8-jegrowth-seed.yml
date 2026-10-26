@@ -1,10 +1,9 @@
 name: B8 JEGROWTH guarded data seed
 
 on:
+  # Exact B8 source seed is already verified and committed to data.
+  # Manual recovery only: never crowd out the canonical Monitor writer.
   workflow_dispatch:
-  workflow_run:
-    workflows: [Deploy GitHub Pages]
-    types: [completed]
 
 permissions:
   contents: write
@@ -17,7 +16,7 @@ concurrency:
 
 jobs:
   seed-jegrowth:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
