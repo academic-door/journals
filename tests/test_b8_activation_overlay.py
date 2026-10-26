@@ -18,7 +18,13 @@ class B8ActivationBridgeTests(unittest.TestCase):
         cls.configs = yaml.safe_load((ROOT / "config/journals.yml").read_text())["journals"]
 
     def test_existing_49_live_is_unmodified(self):
-        self.assertEqual("no_op", review_activation_transition(self.manifest, self.configs, {}, None))
+        baseline = copy.deepcopy(self.configs)
+        baseline.pop("JEGROWTH", None)
+        self.assertEqual(49, len(baseline))
+        self.assertEqual(
+            "no_op",
+            review_activation_transition(self.manifest, baseline, {}, None),
+        )
 
     def test_reject_unapproved_50th_title(self):
         conf = copy.deepcopy(self.configs)
