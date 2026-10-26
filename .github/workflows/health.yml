@@ -160,7 +160,7 @@ jobs:
           if monitoring.get("status") != "healthy":
               raise AssertionError("journal monitor is not healthy")
           if monitor_summary.get("configured_journals") != expected:
-              raise AssertionError("monitor configured_journals is not 49")
+              raise AssertionError("monitor configured_journals differs from approved live scope")
           if monitor_summary.get("failed") != 0:
               raise AssertionError("journal monitor has failed journals")
           timestamp(monitoring, "monitoring", 6)
@@ -169,7 +169,7 @@ jobs:
           if source.get("status") != "healthy":
               raise AssertionError("source audit is not healthy")
           if source_summary.get("configured_journals") != expected:
-              raise AssertionError("source audit configured_journals is not 49")
+              raise AssertionError("source audit configured_journals differs from approved live scope")
           for key in ("needs_attention", "missing", "invariant_errors"):
               if source_summary.get(key) != 0:
                   raise AssertionError(f"source audit {key} is not zero")
