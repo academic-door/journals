@@ -44,16 +44,18 @@ jobs:
             exit 0
           fi
           python - <<'PY'
-          import json
+          import json, os
           import yaml
           from pathlib import Path
           m=json.loads(Path("config/journal-expansion-b8.json").read_text())
           spec=next(x for x in m["journals"] if x["key"]=="JEGROWTH")
           live=yaml.safe_load(Path("config/journals.yml").read_text())["journals"]
-          if m["launch_state"] != "staging_only" or spec["rollout_status"] != "not_enabled" or "JEGROWTH" in live:
-              raise SystemExit("B8 one-time seed window is closed; no data branch mutation permitted")
+          allowed=(m["launch_state"]=="staging_only" and spec["rollout_status"]=="not_enabled" and "JEGROWTH" not in live)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"allowed={str(allowed).lower()}\\n")
+          if not allowed:
+              print("B8 stage-only seeding window closed; no data mutation")
           PY
-          echo "allowed=true" >> "$GITHUB_OUTPUT"
       - name: Seed only two attested JEGROWTH issue payloads to data
         if: steps.fence.outputs.allowed == 'true'
         shell: bash
