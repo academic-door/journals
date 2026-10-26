@@ -106,7 +106,7 @@ def main() -> int:
     monitoring["status"] = "degraded"
     monitoring["b8_transition_note"] = "JEGROWTH source READY, first scheduled operational probe pending"
     (API / "monitoring.json").write_text(
-        json.dumps(monitoring, ensure_ascii=False, indent=2) + "\\n",
+        json.dumps(monitoring, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     subprocess.run([sys.executable, str(ROOT / "scripts/audit_source_alignment.py"), "--strict"], cwd=ROOT, check=True)
