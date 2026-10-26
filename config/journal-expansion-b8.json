@@ -3,7 +3,7 @@
   "batch_id": "b8-2026-10-26",
   "owner_issue": 470,
   "decision": "human_principal_approved",
-  "launch_state": "staging_only",
+  "launch_state": "partial_rollout_pending_verification",
   "baseline_live_journals": 49,
   "max_additional_titles": 8,
   "policy": "independent_per_title_ready_gates",
@@ -18,8 +18,9 @@
       "source_url": "https://link.springer.com/journal/10887",
       "sample_issue": "31/3",
       "sample_month": "2026-09",
-      "source_status": "official_issue_list_observed",
-      "rollout_status": "not_enabled"
+      "source_status": "first_party_springer_three_article_ready_candidate_verified",
+      "rollout_status": "activation_pending_production",
+      "acceptance_evidence": "academic-door/journals/actions/runs/40326883547"
     },
     {
       "key": "JAE",
