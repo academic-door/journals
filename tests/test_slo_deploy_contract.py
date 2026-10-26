@@ -42,7 +42,7 @@ class SloDeployContractTests(unittest.TestCase):
         self.assertIn('slo.get("alerting_enabled") is not False', text)
         self.assertIn('timestamp_field(slo, "slo", "generated_at", 6)', text)
         self.assertIn('if hard_failures:', text)
-        self.assertIn('if failure()', text)
+        self.assertIn('if: failure()', text)
 
 
 
