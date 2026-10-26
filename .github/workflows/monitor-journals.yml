@@ -142,6 +142,9 @@ jobs:
               output.write(f"has_updates={'true' if changed else 'false'}\n")
           PY
 
+      - name: Verify one-title B8 derived snapshot before strict prepublish audit
+        run: python scripts/b8_activation_overlay.py
+
       - name: Validate last-known-good output
         env:
           PYTHONPATH: ${{ github.workspace }}
