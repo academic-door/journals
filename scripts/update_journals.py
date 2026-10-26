@@ -476,6 +476,14 @@ def collector_for(
             expected_volume=expected_volume,
             expected_issue=expected_issue,
         )
+    if collector == "springer":
+        from collectors.springer import fetch_current_issue as fetch_springer
+
+        return lambda: fetch_springer(
+            config,
+            expected_volume=expected_volume,
+            expected_issue=expected_issue,
+        )
     if collector == "crossref":
         from collectors.metadata_fallback import fetch_crossref_current_issue
 
