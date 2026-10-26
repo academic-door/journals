@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-26T15:59:32+00:00",
+  "updated_at": "2026-10-26T21:06:47+00:00",
   "status": "healthy",
   "summary": {
-    "configured_journals": 49,
-    "official_page_verified": 20,
+    "configured_journals": 50,
+    "official_page_verified": 21,
     "publisher_feed_verified": 21,
     "fallback_verified": 8,
     "needs_attention": 0,
@@ -3257,6 +3257,51 @@
         "warnings": [
           "official_order_unverified"
         ]
+      }
+    },
+    {
+      "key": "JEGROWTH",
+      "journal_id": "jegrowth",
+      "short_name": "JEGROWTH",
+      "name": "Journal of Economic Growth",
+      "publisher": "Springer",
+      "configured_source": "https://link.springer.com/journal/10887/volumes-and-issues/31-3",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "jegrowth-31-3",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://link.springer.com/journal/10887/volumes-and-issues/31-3",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-page-read",
+        "order_verified": true,
+        "content_counts": {
+          "official_items": 3,
+          "observed_items": 3,
+          "publishable_items": 3,
+          "research_articles": 3,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 3
+        },
+        "abstracts_complete": 3,
+        "translations_complete": 3,
+        "errors": [],
+        "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
       }
     }
   ]
