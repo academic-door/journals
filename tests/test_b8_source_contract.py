@@ -14,7 +14,10 @@ class B8SourceContractTests(unittest.TestCase):
         live = yaml.safe_load((ROOT / "config/journals.yml").read_text())["journals"]
         result = validate_batch(manifest, live)
         self.assertEqual(8, result["approved_staged"])
-        self.assertEqual(0, result["promoted"])
+        self.assertEqual(1, result["promoted"])
+        self.assertEqual(1, result["production_verification_pending"])
+        self.assertTrue(live["JEGROWTH"]["enabled"])
+        self.assertEqual("springer", live["JEGROWTH"]["collector"])
         self.assertEqual(49, result["existing_live"])
 
     def test_joeg_uses_existing_oup_family(self):
