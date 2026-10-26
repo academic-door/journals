@@ -27,5 +27,24 @@ class SloDeployContractTests(unittest.TestCase):
         self.assertIn("--out-json public/api/v1/slo.json", text)
 
 
+    def test_public_health_validates_live_source_diagnostics_and_r4_baseline(self) -> None:
+        text = (ROOT / ".github/workflows/health.yml").read_text(encoding="utf-8")
+        # The health job runs without checkout: validate the actual public
+        # endpoints and keep the existing issue-on-failure behavior.
+        self.assertIn("/api/v1/source-diagnostics.json", text)
+        self.assertIn("/api/v1/slo.json", text)
+        self.assertIn('diagnostics = load("source-diagnostics.json")', text)
+        self.assertIn('slo = load("slo.json")', text)
+        self.assertIn('primary is not health["checks"][key]', text)
+        self.assertIn('"reconciled_as_of"', text)
+        self.assertIn('item.get("publisher_observed_at")', text)
+        self.assertIn('"baseline_metrics_only"', text)
+        self.assertIn('slo.get("alerting_enabled") is not False', text)
+        self.assertIn('timestamp_field(slo, "slo", "generated_at", 6)', text)
+        self.assertIn('if hard_failures:', text)
+        self.assertIn('if: failure()', text)
+
+
+
 if __name__ == "__main__":
     unittest.main()

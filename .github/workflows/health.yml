@@ -44,6 +44,14 @@ jobs:
           curl --fail --retry 3 --silent --show-error \
             "$base/api/v1/source-audit.json?health_run=${{ github.run_id }}" \
             > "$output/source-audit.json"
+          # Validate the already-published source-route and measurement-only
+          # freshness diagnostics; do not add a collector or stricter source gate.
+          curl --fail --retry 3 --silent --show-error \
+            "$base/api/v1/source-diagnostics.json?health_run=${{ github.run_id }}" \
+            > "$output/source-diagnostics.json"
+          curl --fail --retry 3 --silent --show-error \
+            "$base/api/v1/slo.json?health_run=${{ github.run_id }}" \
+            > "$output/slo.json"
           curl --fail --retry 3 --silent --show-error \
             "$base/api/v1/completeness/2026.json?health_run=${{ github.run_id }}" \
             > "$output/completeness-2026.json"
@@ -82,6 +90,8 @@ jobs:
           health = load("health.json")
           monitoring = load("monitoring.json")
           source = load("source-audit.json")
+          diagnostics = load("source-diagnostics.json")
+          slo = load("slo.json")
           completeness = load("completeness-2026.json")
           manifest = load("project-manifest.json")
           for name, payload in (
@@ -134,6 +144,79 @@ jobs:
                   raise AssertionError(f"source audit {key} is not zero")
           timestamp(source, "source-audit", 6)
 
+          # The 19 primary-transport failures are an independent source
+          # availability signal, NOT missing journal records. Check that
+          # diagnostics report the same boolean truth as health.json.
+          if diagnostics.get("schema_version") != "1.0":
+              raise AssertionError("source diagnostics schema is invalid")
+          timestamp_field(diagnostics, "source-diagnostics", "generated_at", 6)
+          records = diagnostics.get("journals")
+          if not isinstance(records, list) or len(records) != 49:
+              raise AssertionError("source diagnostics must list 49 journals")
+          reported_transport = {}
+          for item in records:
+              if not isinstance(item, dict):
+                  raise AssertionError("source diagnostic journal record is invalid")
+              jid = str(item.get("journal_id") or "")
+              key = f"{jid}_primary_transport"
+              if not jid or jid in reported_transport or key not in health.get("checks", {}):
+                  raise AssertionError("source diagnostics identity mismatch")
+              primary = item.get("primary_transport_available")
+              if not isinstance(primary, bool) or primary is not health["checks"][key]:
+                  raise AssertionError(f"{jid}: source transport disagrees with health")
+              reported_transport[jid] = primary
+              if item.get("publisher_coverage") not in {
+                  "not_automatically_checked", "reconciled_as_of",
+                  "publisher_changed", "verification_due",
+                  "verification_blocked",
+              }:
+                  raise AssertionError(f"{jid}: unknown publisher coverage status")
+              # An old first-party snapshot may be reconciled *as of* its
+              # observation, but a newly generated report is not a new
+              # publisher observation. Never infer completeness from READY.
+              if item.get("publisher_coverage") == "reconciled_as_of":
+                  observed = item.get("publisher_observed_at")
+                  if not observed:
+                      raise AssertionError(f"{jid}: verified without source time")
+                  stamp = datetime.fromisoformat(str(observed).replace("Z", "+00:00"))
+                  if stamp.tzinfo is None or stamp > now:
+                      raise AssertionError(f"{jid}: invalid publisher observation")
+          unavailable = sum(not x for x in reported_transport.values())
+          diag_summary = diagnostics.get("summary", {})
+          if diag_summary.get("journals") != 49 or (
+              diag_summary.get("primary_unavailable") != unavailable
+              or diag_summary.get("primary_available") != 49 - unavailable
+          ):
+              raise AssertionError("source diagnostics summary does not reconcile")
+
+          # R4 is currently an observational baseline. Validate publication
+          # and shape, not artificial source freshness thresholds/coverage.
+          if slo.get("schema_version") != "1.0" or (
+              slo.get("phase") != "baseline_metrics_only"
+          ):
+              raise AssertionError("R4 SLO baseline schema/phase is invalid")
+          if slo.get("alerting_enabled") is not False or (
+              slo.get("thresholds_defined") is not False
+          ):
+              raise AssertionError("R4 SLO must remain measurement-only")
+          timestamp_field(slo, "slo", "generated_at", 6)
+          if slo.get("product_truth", {}).get("journal_count") != 49:
+              raise AssertionError("R4 journal count mismatch")
+          metrics = slo.get("metrics", {})
+          if metrics.get("monitor_probe_freshness", {}).get(
+              "configured_journal_count"
+          ) != 49:
+              raise AssertionError("R4 monitor probe journal count mismatch")
+          for key in (
+              "expected_set_freshness",
+              "current_issue_authority_freshness",
+              "official_detection_to_canonical_ready_latency",
+          ):
+              if metrics.get(key, {}).get("measurement_state") not in {
+                  "direct", "partial", "count_only", "not_yet_measurable",
+              }:
+                  raise AssertionError(f"R4 {key} has no valid measurement state")
+
           if completeness.get("schema_version") != "1.3":
               raise AssertionError("completeness schema_version is not 1.3")
           if completeness.get("scope") != "journals_tracked":
@@ -166,7 +249,7 @@ jobs:
               raise AssertionError("all-journals RSS feed is empty or malformed")
           print(
               "public semantic health: 49/49 journals, complete translations, "
-              "fresh monitor, completeness endpoint present"
+              "fresh monitor, source diagnostics and R4 baseline present"
           )
           PY
 
