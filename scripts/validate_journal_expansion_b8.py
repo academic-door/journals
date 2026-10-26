@@ -1,4 +1,4 @@
-"""Validate approved B8 staging identities without expanding production journals."""
+"""Validate approved B8 identities and guarded per-title production transition."""
 from __future__ import annotations
 
 import argparse
@@ -17,6 +17,8 @@ FAMILIES = {
     "springer": "link.springer.com",
 }
 EXPECTED = {"IJIO", "JFI", "EJPE", "JIMF", "JOEG", "JAE", "JEGROWTH", "ITPF"}
+STATES = {"not_enabled", "activation_pending_production", "production_verified"}
+GROWTH_EXACT_SOURCE = "https://link.springer.com/journal/10887/volumes-and-issues/31-3"
 
 
 def validate_batch(manifest: dict, live_journals: dict) -> dict:
@@ -26,10 +28,8 @@ def validate_batch(manifest: dict, live_journals: dict) -> dict:
         raise ValueError("B8 journals must be a list")
     if manifest.get("schema_version") != "1.0":
         errors.append("invalid schema")
-    if manifest.get("launch_state") != "staging_only":
-        errors.append("unexpected production activation")
-    if manifest.get("baseline_live_journals") != len(live_journals):
-        errors.append("live journal count drift")
+    if manifest.get("baseline_live_journals") != 49:
+        errors.append("B8 approved baseline drift")
     if manifest.get("max_additional_titles") != 8 or len(items) != 8:
         errors.append("batch must contain exactly eight approved targets")
     keys = [item.get("key") for item in items]
@@ -39,22 +39,51 @@ def validate_batch(manifest: dict, live_journals: dict) -> dict:
         errors.append("batch titles drifted from approved eight")
     if len(set(ids)) != len(ids) or len(set(issns)) != len(issns):
         errors.append("duplicate journal id or ISSN")
-    live_ids = {str(x["id"]) for x in live_journals.values()}
-    live_issns = {str(x.get("issn") or "") for x in live_journals.values()}
+    promoted = [x for x in items if x.get("rollout_status") in {"activation_pending_production", "production_verified"}]
+    pending = [x for x in promoted if x.get("rollout_status") == "activation_pending_production"]
+    expected_state = (
+        "staging_only" if not promoted else
+        "partial_rollout_pending_verification" if pending else "partial_rollout"
+    )
+    if manifest.get("launch_state") != expected_state:
+        errors.append("B8 manifest launch_state mismatches independently promoted titles")
+    if len(live_journals) != 49 + len(promoted):
+        errors.append("live journal count drift beyond independently approved B8 titles")
+
+    live_ids = [str(x.get("id", "")) for x in live_journals.values()]
+    live_issns = [str(x.get("issn", "")) for x in live_journals.values()]
+    if len(live_ids) != len(set(live_ids)) or len(live_issns) != len(set(live_issns)):
+        errors.append("live journal id or ISSN collision")
+
     for item in items:
         family = item.get("publisher_family")
         key = str(item.get("key") or "")
         source = urlparse(str(item.get("source_url") or ""))
-        if family not in FAMILIES or (
-            source.scheme != "https" or source.hostname != FAMILIES.get(family)
-        ):
+        if family not in FAMILIES or source.scheme != "https" or source.hostname != FAMILIES.get(family):
             errors.append(f"{key}: invalid source family or host")
-        if key in live_journals or item.get("id") in live_ids:
-            errors.append(f"{key}: already live")
-        if item.get("issn") in live_issns:
-            errors.append(f"{key}: ISSN collision")
-        if item.get("rollout_status") != "not_enabled":
-            errors.append(f"{key}: unverified title enabled")
+        state = item.get("rollout_status")
+        if state not in STATES:
+            errors.append(f"{key}: unrecognized rollout state")
+        live = live_journals.get(key)
+        if live is None:
+            if state != "not_enabled":
+                errors.append(f"{key}: promoted without live configuration")
+            if item.get("id") in live_ids or item.get("issn") in live_issns:
+                errors.append(f"{key}: identity collision")
+        else:
+            if state == "not_enabled":
+                errors.append(f"{key}: enabled without independent promotion gate")
+            if not live.get("enabled") or str(live.get("id")) != item.get("id") or str(live.get("issn")) != item.get("issn"):
+                errors.append(f"{key}: live identity or enabled state mismatch")
+            # This first guarded tranche authorizes only the source-accepted growth
+            # title. Each future B8 title needs its own admission contract.
+            if (
+                key != "JEGROWTH"
+                or live.get("collector") != "springer"
+                or live.get("current_issue_url") != GROWTH_EXACT_SOURCE
+                or item.get("acceptance_evidence") != "academic-door/journals/actions/runs/40326883547"
+            ):
+                errors.append(f"{key}: missing independent publisher/source admission")
         if not str(item.get("name") or ""):
             errors.append(f"{key}: title missing")
         if not str(item.get("issn") or "") or len(str(item["issn"])) != 9:
@@ -62,10 +91,11 @@ def validate_batch(manifest: dict, live_journals: dict) -> dict:
     if errors:
         raise ValueError("; ".join(errors))
     return {
-        "existing_live": len(live_journals),
+        "existing_live": 49,
         "approved_staged": len(items),
         "by_publisher": dict(sorted(Counter(x["publisher_family"] for x in items).items())),
-        "promoted": 0,
+        "promoted": len(promoted),
+        "production_verification_pending": len(pending),
     }
 
 

@@ -85,8 +85,9 @@ def main() -> int:
         print("B8 activation index bridge: no mutation required")
         return 0
     monitoring = read_json(API / "monitoring.json") or {}
-    if monitoring.get("summary", {}).get("configured_journals") != 49:
-        raise ValueError("B8 pre-activation monitoring baseline is not 49")
+    observed_monitor_count = monitoring.get("summary", {}).get("configured_journals")
+    if observed_monitor_count not in (49, 50):
+        raise ValueError("B8 monitoring count is neither prior baseline nor newly observed 50")
     project = read_json(ROOT / "public/project-manifest.json") or {}
     if project.get("journal_count") != 49:
         raise ValueError("B8 pre-activation public manifest baseline is not 49")
@@ -94,6 +95,32 @@ def main() -> int:
     if fields.get("journals", []).count("JEGROWTH") != 1:
         raise ValueError("JEGROWTH must belong to Fields exactly once")
     subprocess.run([sys.executable, str(ROOT / "scripts/rebuild_public_snapshot.py")], cwd=ROOT, check=True)
+    if observed_monitor_count == 49:
+        # This is an ephemeral, deliberately degraded pre-first-monitor marker.
+        # Do NOT forge an actual successful operational monitor check.
+        monitoring["summary"]["configured_journals"] = 50
+        monitoring["summary"]["warnings"] = int(monitoring["summary"].get("warnings", 0)) + 1
+        warnings = list(monitoring.get("warning_journals") or [])
+        if "JEGROWTH" in warnings:
+            raise ValueError("JEGROWTH was unexpectedly already monitored")
+        monitoring["warning_journals"] = [*warnings, "JEGROWTH"]
+        monitoring["status"] = "degraded"
+        monitoring["b8_transition_note"] = "JEGROWTH source READY, first scheduled operational probe pending"
+        (API / "monitoring.json").write_text(
+            json.dumps(monitoring, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    else:
+        # The real scheduled Monitor has already observed 50; never overwrite
+        # its transport result with a synthetic transitional success/warning.
+        observed_keys = (
+            set(monitoring.get("last_successful_checks", {}))
+            | set(monitoring.get("warning_journals", []))
+            | set(monitoring.get("failed_journals", []))
+            | set(monitoring.get("awaiting_official_journals", []))
+        )
+        if "JEGROWTH" not in observed_keys:
+            raise ValueError("50-title monitor omitted the newly promoted journal")
     subprocess.run([sys.executable, str(ROOT / "scripts/audit_source_alignment.py"), "--strict"], cwd=ROOT, check=True)
     generated = read_json(API / "health.json") or {}
     if generated.get("summary", {}).get("enabled_journals") != 50 or generated.get("summary", {}).get("available_journals") != 50:

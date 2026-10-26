@@ -11,7 +11,12 @@ from scripts.b8_springer_pilot import (
 class B8SpringerPilotTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.manifest = json.loads(Path(MANIFEST).read_text(encoding="utf-8"))
+        cls.production_manifest = json.loads(Path(MANIFEST).read_text(encoding="utf-8"))
+        # Regress the original isolated pilot against its historical stage gate;
+        # after a guarded release, production must never re-enter this pilot.
+        cls.manifest = copy.deepcopy(cls.production_manifest)
+        cls.manifest["launch_state"] = "staging_only"
+        next(x for x in cls.manifest["journals"] if x["key"] == "JEGROWTH")["rollout_status"] = "not_enabled"
         cls.stage = json.loads(Path(FIXTURE).read_text(encoding="utf-8"))
         cls.spec, cls.source = approved_pilot(cls.stage, cls.manifest)
 
@@ -43,6 +48,10 @@ class B8SpringerPilotTests(unittest.TestCase):
     def test_exact_approved_immutable_stage(self):
         self.assertEqual(3, len(self.source["source_items"]))
         self.assertEqual("not_enabled", self.spec["rollout_status"])
+
+    def test_production_config_cannot_restart_staging_pilot(self):
+        with self.assertRaisesRegex(ValueError, "staging-only"):
+            approved_pilot(self.stage, self.production_manifest)
 
     def test_reject_publisher_order_change(self):
         evidence = self.evidence()
