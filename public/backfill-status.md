@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-10-26T07:32:22+00:00
+Updated: 2026-10-26T07:54:24+00:00
 
 Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready · 0 missing · 0 source pending
 
@@ -509,7 +509,7 @@ Discovery coverage: 1212 discovered · 1212 archived · 1212 publication ready �
 | JAERE | jaere-13-3 | 2026 | ready |  |
 | JAERE | jaere-13-4 | 2026 | ready |  |
 | JAERE | jaere-13-5 | 2026 | ready |  |
-| JAERE | jaere-13-6 | 2026 | blocked | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
+| JAERE | jaere-13-6 | 2026 | ready | HTTPError: 403 Client Error: Forbidden for url: https://www.journals.uchicago.ed |
 | JCE | jce-51-1 | 2023 | ready |  |
 | JCE | jce-51-2 | 2023 | ready |  |
 | JCE | jce-51-3 | 2023 | ready |  |
