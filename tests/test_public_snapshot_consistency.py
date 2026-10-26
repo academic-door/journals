@@ -29,14 +29,68 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
             if journal.get("enabled")
         }
 
-    def test_main_contains_one_current_snapshot_for_all_49_journals(self) -> None:
+    def _b8_growth_status(self) -> tuple[bool, bool]:
+        """Exactly one approved source-seeded candidate may precede activation.
+
+        The canonical data branch can receive one READY JEGROWTH payload while
+        the original 49-title production configuration remains in service.
+        After guarded config promotion, old 49-title fallback indexes may also
+        exist briefly in a PR checkout. Other or incomplete extras fail closed.
+        """
+        manifest = load_json(ROOT / "config" / "journal-expansion-b8.json")
+        growth = next((j for j in manifest.get("journals", []) if j.get("key") == "JEGROWTH"), {})
+        staged = (
+            manifest.get("launch_state") == "staging_only"
+            and growth.get("rollout_status") == "not_enabled"
+            and "JEGROWTH" not in self.enabled
+        )
+        pending = (
+            manifest.get("launch_state") == "partial_rollout_pending_verification"
+            and growth.get("rollout_status") == "activation_pending_production"
+            and "JEGROWTH" in self.enabled
+            and len(self.enabled) == 50
+        )
+        if not (staged or pending):
+            return False, False
+        if staged and len(self.enabled) != 49:
+            raise AssertionError("B8 original 49-title baseline changed")
+        return staged, pending
+
+    def _assert_source_accepted_growth(self) -> None:
+        from scripts.seed_b8_jegrowth_release import EXPECTED_DOIS
+        from scripts.update_journals import (
+            is_archivable_snapshot, issue_translation_semantics_valid,
+            issue_source_status, validate_issue,
+        )
+        issue = load_json(PUBLIC_API / "journals/jegrowth/issues/current.json")
+        validate_issue(issue)
+        self.assertEqual("jegrowth-31-3", issue.get("issue_id"))
+        self.assertEqual("official_verified", issue_source_status(issue))
+        self.assertEqual("ready", issue.get("publication_state"))
+        self.assertEqual(tuple(a.get("doi") for a in issue["articles"]), EXPECTED_DOIS)
+        self.assertEqual(3, issue["quality"].get("translation_complete"))
+        self.assertTrue(is_archivable_snapshot(issue))
+        self.assertTrue(issue_translation_semantics_valid(issue))
+
+    def test_current_snapshots_cover_all_enabled_journals_except_exact_b8_transition(self) -> None:
         configured_ids = {journal["id"] for journal in self.enabled.values()}
         checked_in_ids = {
             path.parents[1].name
             for path in (PUBLIC_API / "journals").glob("*/issues/current.json")
         }
-        self.assertEqual(49, len(configured_ids))
-        self.assertEqual(configured_ids, checked_in_ids)
+        staged, pending = self._b8_growth_status()
+        extras = checked_in_ids - configured_ids
+        missing = configured_ids - checked_in_ids
+        self.assertFalse(extras - {"jegrowth"})
+        self.assertFalse(missing - {"jegrowth"})
+        if extras:
+            self.assertTrue(staged, "unexpected data-branch publication before authorization")
+            self._assert_source_accepted_growth()
+        if missing:
+            self.assertTrue(pending, "enabled journal has no source-qualified current issue")
+            # Main's checked-in 49 fallback may predate the data-branch seed.
+            # Data-branch overlays and Pages must independently contain it.
+        self.assertEqual(configured_ids - missing | extras, checked_in_ids)
 
     def test_public_collections_partition_the_enabled_journals(self) -> None:
         memberships: list[str] = []
@@ -47,12 +101,15 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
             memberships.extend(
                 journal["journal_id"] for journal in payload["journals"]
             )
-        self.assertEqual(49, len(memberships))
-        self.assertEqual(49, len(set(memberships)))
-        self.assertEqual(
-            {journal["id"] for journal in self.enabled.values()},
-            set(memberships),
-        )
+        self.assertEqual(len(memberships), len(set(memberships)))
+        configured = {journal["id"] for journal in self.enabled.values()}
+        actual = set(memberships)
+        self.assertFalse(actual - configured, "unapproved journal membership")
+        missing = configured - actual
+        self.assertFalse(missing - {"jegrowth"}, "enabled journals missing from public collections")
+        if missing:
+            self.assertTrue(self._b8_growth_status()[1], "missing collection journal without B8 transition")
+        self.assertEqual(len(actual), len(configured) - len(missing))
 
     def test_health_monitoring_manifest_and_docs_use_same_counts(self) -> None:
         health = load_json(PUBLIC_API / "health.json")
@@ -66,16 +123,24 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
             | set(monitoring.get("failed_journals", []))
             | set(monitoring.get("awaiting_official_journals", []))
         )
-
-        self.assertEqual(49, health["summary"]["enabled_journals"])
-        self.assertEqual(49, health["summary"]["available_journals"])
-        self.assertEqual(49, monitoring["summary"]["configured_journals"])
-        self.assertEqual(set(self.enabled), monitoring_keys)
-        self.assertEqual(49, manifest["journal_count"])
-        self.assertEqual(44, manifest["field_journal_count"])
-        self.assertEqual(44, fields["summary"]["configured_journals"])
-        self.assertIn("44 本高水平经济学领域期刊", readme)
-        self.assertIn("全站合计 49 本", readme)
+        enabled_count = len(self.enabled)
+        reported_count = health["summary"]["enabled_journals"]
+        missing = enabled_count - reported_count
+        self.assertIn(missing, (0, 1), "health under-reports multiple journals")
+        if missing:
+            self.assertTrue(self._b8_growth_status()[1], "health may lag only guarded B8 promotion")
+        self.assertEqual(reported_count, health["summary"]["available_journals"])
+        self.assertEqual(reported_count, monitoring["summary"]["configured_journals"])
+        self.assertEqual(reported_count, manifest["journal_count"])
+        self.assertEqual(reported_count - 5, manifest["field_journal_count"])
+        self.assertEqual(reported_count - 5, fields["summary"]["configured_journals"])
+        keys = set(self.enabled)
+        if missing:
+            keys.discard("JEGROWTH")
+        self.assertEqual(keys, monitoring_keys)
+        # README announces configured product scope; the prior 49-count
+        # remains valid on staging-only main, updated to 50 on activation.
+        self.assertIn(f"全站合计 {enabled_count} 本", readme)
 
     def test_editorial_introduction_is_not_a_research_article(self) -> None:
         """Current snapshots must never publish a known editorial as research.
