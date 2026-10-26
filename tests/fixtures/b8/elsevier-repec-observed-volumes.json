@@ -1,0 +1,110 @@
+{
+  "schema_version": "b8-source-stage-v1",
+  "batch_issue": 470,
+  "owner_issue": 472,
+  "observed_on": "2026-10-26",
+  "family": "elsevier",
+  "notes": [
+    "The latest observed publisher-supplied RePEc serial volume is not proven the latest first-party ScienceDirect complete issue.",
+    "PII source ordering is observed; DOI/type/abstract/Chinese translations require evidence per title.",
+    "EJPE final PII S017626802600073X is publisher-labelled Corrigendum and must be excluded after official type adjudication."
+  ],
+  "journals": [
+    {
+      "journal": "IJIO",
+      "journal_id": "ijio",
+      "observed_volume": "108",
+      "observed_issue": "C",
+      "observed_year": 2026,
+      "source_url": "https://ideas.repec.org/s/eee/indorg.html",
+      "source_authority": "publisher_supplied_repec_serial",
+      "observed_source_order_pii": [
+        "S0167718726000354",
+        "S0167718726000366",
+        "S0167718726000433",
+        "S0167718726000561",
+        "S0167718726000627",
+        "S0167718726000639"
+      ],
+      "observed_source_item_count": 6,
+      "first_party_sciencedirect_toc_verified": false,
+      "doi_type_abstract_cn_translation_verified": false,
+      "release_eligible": false
+    },
+    {
+      "journal": "JFI",
+      "journal_id": "jfi",
+      "observed_volume": "67",
+      "observed_issue": "C",
+      "observed_year": 2026,
+      "source_url": "https://ideas.repec.org/s/eee/jfinin.html",
+      "source_authority": "publisher_supplied_repec_serial",
+      "observed_source_order_pii": [
+        "S1042957326000173",
+        "S1042957326000185",
+        "S1042957326000264",
+        "S1042957326000276",
+        "S1042957326000288",
+        "S104295732500052X",
+        "S104295732600029X"
+      ],
+      "observed_source_item_count": 7,
+      "first_party_sciencedirect_toc_verified": false,
+      "doi_type_abstract_cn_translation_verified": false,
+      "release_eligible": false
+    },
+    {
+      "journal": "EJPE",
+      "journal_id": "ejpe",
+      "observed_volume": "94",
+      "observed_issue": "C",
+      "observed_year": 2026,
+      "source_url": "https://ideas.repec.org/s/eee/poleco.html",
+      "source_authority": "publisher_supplied_repec_serial",
+      "observed_source_order_pii": [
+        "S0176268026000480",
+        "S0176268026000571",
+        "S0176268026000583",
+        "S0176268026000595",
+        "S0176268026000601",
+        "S0176268026000613",
+        "S0176268026000625",
+        "S0176268026000637",
+        "S0176268026000649",
+        "S0176268026000662",
+        "S0176268026000674",
+        "S0176268026000686",
+        "S0176268026000698",
+        "S0176268026000704",
+        "S0176268026000716",
+        "S017626802600056X",
+        "S017626802600073X"
+      ],
+      "observed_source_item_count": 17,
+      "first_party_sciencedirect_toc_verified": false,
+      "doi_type_abstract_cn_translation_verified": false,
+      "release_eligible": false
+    },
+    {
+      "journal": "JIMF",
+      "journal_id": "jimf",
+      "observed_volume": "168",
+      "observed_issue": "C",
+      "observed_year": 2026,
+      "source_url": "https://ideas.repec.org/s/eee/jimfin.html",
+      "source_authority": "publisher_supplied_repec_serial",
+      "observed_source_order_pii": [
+        "S0261560626001257",
+        "S0261560626001269",
+        "S0261560626001282",
+        "S0261560626001294",
+        "S0261560626001361",
+        "S0261560626001373"
+      ],
+      "observed_source_item_count": 6,
+      "first_party_sciencedirect_toc_verified": false,
+      "doi_type_abstract_cn_translation_verified": false,
+      "release_eligible": false
+    }
+  ]
+}
