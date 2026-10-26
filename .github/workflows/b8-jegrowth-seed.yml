@@ -52,7 +52,7 @@ jobs:
           live=yaml.safe_load(Path("config/journals.yml").read_text())["journals"]
           allowed=(m["launch_state"]=="staging_only" and spec["rollout_status"]=="not_enabled" and "JEGROWTH" not in live)
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-              output.write(f"allowed={str(allowed).lower()}\\n")
+              output.write(f"allowed={str(allowed).lower()}\n")
           if not allowed:
               print("B8 stage-only seeding window closed; no data mutation")
           PY
