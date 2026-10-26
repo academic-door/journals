@@ -1,0 +1,84 @@
+name: B8 JEGROWTH guarded data seed
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Deploy GitHub Pages]
+    types: [completed]
+
+permissions:
+  contents: write
+  actions: read
+
+# Same single-writer lock as Monitor/Update/Backfill, never direct PR-branch data writes.
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  seed-jegrowth:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Ensure source release is exact and promotion is still uncommitted
+        id: fence
+        shell: bash
+        env:
+          EVENT_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          EVENT_TYPE: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_TYPE" = workflow_run ] && [ "$EVENT_HEAD_SHA" != "$(git rev-parse HEAD)" ]; then
+            echo "Skip obsolete Pages release: not current main."
+            echo "allowed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          python - <<'PY'
+          import json, os
+          import yaml
+          from pathlib import Path
+          m=json.loads(Path("config/journal-expansion-b8.json").read_text())
+          spec=next(x for x in m["journals"] if x["key"]=="JEGROWTH")
+          live=yaml.safe_load(Path("config/journals.yml").read_text())["journals"]
+          allowed=(m["launch_state"]=="staging_only" and spec["rollout_status"]=="not_enabled" and "JEGROWTH" not in live)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"allowed={str(allowed).lower()}\n")
+          if not allowed:
+              print("B8 stage-only seeding window closed; no data mutation")
+          PY
+      - name: Seed only two attested JEGROWTH issue payloads to data
+        if: steps.fence.outputs.allowed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git fetch origin data
+          root="$RUNNER_TEMP/b8-data-worktree"
+          git worktree add --detach "$root" origin/data
+          python scripts/seed_b8_jegrowth_release.py --data-root "$root"
+          git -C "$root" config user.name academic-door-bot
+          git -C "$root" config user.email academic-door-bot@users.noreply.github.com
+          git -C "$root" add \
+            public/api/v1/journals/jegrowth/issues/current.json \
+            public/api/v1/journals/jegrowth/issues/jegrowth-31-3.json
+          if git -C "$root" diff --cached --quiet; then
+            echo "Exact attested JEGROWTH seed already present; no mutation."
+            exit 0
+          fi
+          git -C "$root" diff --cached --name-only | grep -Ev '^public/api/v1/journals/jegrowth/issues/(current|jegrowth-31-3)\.json$' && {
+            echo "::error::Out-of-scope data change"; exit 1;
+          } || true
+          git -C "$root" commit -m "Seed source-verified JEGROWTH 31(3) candidate without enabling"
+          # One-writer lock serializes other official data producers. Never force push.
+          git -C "$root" push origin HEAD:data
