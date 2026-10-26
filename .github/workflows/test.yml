@@ -44,6 +44,8 @@ jobs:
           fi
           SHADOW_MAIN_SHA="${{ github.sha }}" SHADOW_DATA_SHA="${data_sha}" \
             python scripts/audit_numeric_semantics_shadow.py
+      - name: B8 pending one-title transition (ephemeral release-derived indexes only)
+        run: python scripts/b8_activation_overlay.py
       - name: Freshness audit over ready, detected, and monitor layers
         run: |
           state="$RUNNER_TEMP/journal-monitor-state.json"
