@@ -1,4 +1,6 @@
 """Attested B8 source release is immutable and scoped to two issue files."""
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -10,6 +12,14 @@ from scripts.seed_b8_jegrowth_release import (
 
 
 class GrowthDataSeedTests(unittest.TestCase):
+    def test_direct_actions_script_invocation_resolves_repository_imports(self):
+        root = Path(__file__).resolve().parents[1]
+        result = subprocess.run(
+            [sys.executable, str(root / "scripts/seed_b8_jegrowth_release.py"), "--help"],
+            cwd=root, capture_output=True, text=True, check=True,
+        )
+        self.assertIn("--data-root", result.stdout)
+
     def test_immutable_human_triggered_artifact_contract(self):
         self.assertEqual(12652145198, ARTIFACT_ID)
         self.assertEqual(64, len(ARTIFACT_ZIP_SHA256))
