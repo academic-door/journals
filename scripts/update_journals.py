@@ -512,6 +512,7 @@ def fallback_collector_for(
     if (
         config.get("collector") == "chicago"
         and fallback == "crossref-repec"
+        and config.get("repec_exact_issue_fallback") is True
         and expected_volume
         and expected_issue
         and config.get("repec_series_code")
