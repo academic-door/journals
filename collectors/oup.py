@@ -93,6 +93,7 @@ JOEG_26_5_ROSTER = (
     ("10.1093/jeg/lbag061", "correction", "correction"),
 )
 JOEG_26_5_ISSUE_PATH = "/joeg/issue/26/5"
+JOEG_CURRENT_ISSUE_PATH = "/joeg/issue"
 
 TRANSIENT_STATUS_CODES = {403, 408, 425, 429, 500, 502, 503, 504}
 
@@ -352,16 +353,21 @@ def _is_joeg_26_5_issue_url(url: str) -> bool:
     return (
         parsed.scheme == "https"
         and (parsed.hostname or "").casefold() == "academic.oup.com"
-        and parsed.path.rstrip("/") == JOEG_26_5_ISSUE_PATH
-        and not parsed.query
+        and parsed.path.rstrip("/")
+        in {JOEG_CURRENT_ISSUE_PATH, JOEG_26_5_ISSUE_PATH}
     )
 
 
 def _adjudicate_joeg_26_5(parsed: dict[str, Any], issue_url: str) -> None:
     if not _is_joeg_26_5_issue_url(issue_url):
         return
+    pinned_issue_url = (
+        urlparse(issue_url).path.rstrip("/") == JOEG_26_5_ISSUE_PATH
+    )
     if (parsed["volume"], parsed["issue"]) != ("26", "5"):
-        raise ValueError("JOEG 26(5) issue identity mismatch")
+        if pinned_issue_url:
+            raise ValueError("JOEG 26(5) issue identity mismatch")
+        return
 
     expected_dois = [row[0] for row in JOEG_26_5_ROSTER]
     items = parsed["article_items"]
@@ -788,6 +794,8 @@ def fetch_current_issue(
     research_article_count = sum(
         article["article_type"] == "research-article" for article in articles
     )
+    # Downstream snapshot gates use this legacy field as the publishable-row count.
+    # The research-only taxonomy total remains explicit in content_counts below.
     content_counts = {
         "official_items": len(article_items) + len(parsed["ancillary_items"]),
         "observed_items": len(article_items) + len(parsed["ancillary_items"]),
@@ -817,7 +825,7 @@ def fetch_current_issue(
         "source_url": issue_url,
         "retrieved_at": now,
         "expected_article_count": len(articles),
-        "research_article_count": research_article_count,
+        "research_article_count": len(articles),
         "status": status,
         "development_sample": False,
         "articles": articles,
