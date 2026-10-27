@@ -3,7 +3,7 @@
   "batch_id": "b8-2026-10-26",
   "owner_issue": 470,
   "decision": "human_principal_approved",
-  "launch_state": "partial_rollout_pending_verification",
+  "launch_state": "partial_rollout",
   "baseline_live_journals": 49,
   "max_additional_titles": 8,
   "policy": "independent_per_title_ready_gates",
@@ -19,8 +19,19 @@
       "sample_issue": "31/3",
       "sample_month": "2026-09",
       "source_status": "first_party_springer_three_article_ready_candidate_verified",
-      "rollout_status": "activation_pending_production",
-      "acceptance_evidence": "academic-door/journals/actions/runs/40326883547"
+      "rollout_status": "production_verified",
+      "acceptance_evidence": "academic-door/journals/actions/runs/40326883547",
+      "production_acceptance": {
+        "production_pages": "https://github.com/academic-door/journals/actions/runs/40456991604",
+        "public_health": "https://github.com/academic-door/journals/actions/runs/40457442695",
+        "public_health_result": "SUCCESS_50_OF_50",
+        "current_data_snapshot": "3c904b7f2b984c422c08bf6bf65ac788d529bc52",
+        "public_issue": "https://academic-door.github.io/journals/api/v1/journals/jegrowth/issues/current.json",
+        "audited_issue": "jegrowth-31-3",
+        "ready_research_articles": 3,
+        "translated_research_articles": 3,
+        "checked_at": "2026-10-27"
+      }
     },
     {
       "key": "JAE",
