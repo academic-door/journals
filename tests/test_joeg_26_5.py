@@ -15,9 +15,18 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors import oup
+from scripts.translate_issue import validate_translation
+from scripts.update_journals import (
+    is_detected_snapshot,
+    is_publishable_snapshot,
+    issue_content_status,
+    issue_publication_state,
+    normalize_issue_content,
+)
 
 
 ISSUE_URL = "https://academic.oup.com/joeg/issue/26/5"
+CONFIGURED_ISSUE_URL = "https://academic.oup.com/joeg/issue"
 FIXTURE = ROOT / "tests" / "fixtures" / "b8" / "joeg-26-5-official-toc.json"
 
 
@@ -41,7 +50,7 @@ def issue_page(dois, *, volume="26", issue="5"):
               <meta name="citation_title" content="{html.escape(title)}">
               <meta name="citation_author" content="Test Author {sequence}">
               <meta name="citation_doi" content="{html.escape(doi)}">
-              <meta name="citation_abstract" content="Official fixture abstract {sequence}.">
+              <meta name="citation_abstract" content="This official fixture abstract {sequence} describes a synthetic economic geography topic for the issue-processing regression.">
             </head><body></body></html>
         """.encode("utf-8")
 
@@ -83,7 +92,7 @@ class Joeg265CollectorTests(unittest.TestCase):
 
         self.assertEqual("joeg-26-5", issue["issue_id"])
         self.assertEqual(9, issue["expected_article_count"])
-        self.assertEqual(6, issue["research_article_count"])
+        self.assertEqual(9, issue["research_article_count"])
         self.assertEqual(
             ["comment"] * 3 + ["research-article"] * 6,
             [article["article_type"] for article in issue["articles"]],
@@ -113,6 +122,90 @@ class Joeg265CollectorTests(unittest.TestCase):
         self.assertEqual("correction", excluded["article_type"])
         self.assertEqual("correction", excluded["publisher_section"])
         self.assertIn("translation_incomplete", issue["quality"]["flags"])
+
+    def test_configured_issue_alias_without_redirect_is_adjudicated(self):
+        issue_content, article_pages = issue_page(self.dois)
+
+        def fake_get(session, url, attempts=oup.MAX_ATTEMPTS):
+            del session, attempts
+            if url == CONFIGURED_ISSUE_URL:
+                # The configured /issue route returns 26(5) directly: no redirect.
+                return SimpleNamespace(content=issue_content, url=CONFIGURED_ISSUE_URL)
+            return SimpleNamespace(content=article_pages[url], url=url)
+
+        with patch.object(oup, "_get", side_effect=fake_get):
+            issue = oup.fetch_current_issue("joeg")
+
+        self.assertEqual(CONFIGURED_ISSUE_URL, issue["source_url"])
+        self.assertEqual("joeg-26-5", issue["issue_id"])
+        self.assertEqual(9, issue["research_article_count"])
+        self.assertEqual(6, issue["content_counts"]["research_articles"])
+        self.assertEqual(
+            ["comment"] * 3 + ["research-article"] * 6,
+            [article["article_type"] for article in issue["articles"]],
+        )
+
+    def test_configured_issue_alias_without_redirect_fails_closed_on_roster_drift(self):
+        observed_dois = self.dois[:]
+        observed_dois[0], observed_dois[1] = observed_dois[1], observed_dois[0]
+        issue_content, article_pages = issue_page(observed_dois)
+
+        def fake_get(session, url, attempts=oup.MAX_ATTEMPTS):
+            del session, attempts
+            if url == CONFIGURED_ISSUE_URL:
+                return SimpleNamespace(content=issue_content, url=CONFIGURED_ISSUE_URL)
+            return SimpleNamespace(content=article_pages[url], url=url)
+
+        with patch.object(oup, "_get", side_effect=fake_get):
+            with self.assertRaisesRegex(ValueError, "roster/order mismatch"):
+                oup.fetch_current_issue("joeg")
+
+    def test_normalized_readiness_counts_nine_rows_and_preserves_six_research_types(self):
+        issue_content, article_pages = issue_page(self.dois)
+
+        def fake_get(session, url, attempts=oup.MAX_ATTEMPTS):
+            del session, attempts
+            if url == CONFIGURED_ISSUE_URL:
+                return SimpleNamespace(content=issue_content, url=CONFIGURED_ISSUE_URL)
+            return SimpleNamespace(content=article_pages[url], url=url)
+
+        with patch.object(oup, "_get", side_effect=fake_get):
+            issue = oup.fetch_current_issue("joeg")
+
+        # Every mock detail is deliberately complete; this is a pipeline contract
+        # test and does not claim the real publisher metadata is complete.
+        self.assertTrue(is_detected_snapshot(issue))
+        self.assertTrue(is_publishable_snapshot(issue))
+        for sequence, article in enumerate(issue["articles"], start=1):
+            translated = {
+                "title_cn": f"JOEG测试文章 {sequence}",
+                "abstract_cn": (
+                    f"这段官方测试摘要 {sequence} 介绍处理回归使用的虚构经济地理主题，"
+                    "并用于检验分类与翻译计数流程。"
+                ),
+            }
+            validate_translation(article, translated)
+            article.update(translated)
+
+        normalized = normalize_issue_content(issue)
+
+        self.assertEqual(9, len(normalized["articles"]))
+        self.assertEqual(9, normalized["research_article_count"])
+        self.assertEqual(9, normalized["expected_article_count"])
+        self.assertEqual(6, normalized["content_counts"]["research_articles"])
+        self.assertEqual(3, normalized["content_counts"]["comments"])
+        self.assertEqual(9, normalized["content_counts"]["publishable_items"])
+        self.assertEqual(1, normalized["content_counts"]["corrections"])
+        self.assertEqual(1, normalized["quality"]["excluded_item_count"])
+        self.assertEqual(9, normalized["quality"]["abstract_en_complete"])
+        self.assertEqual(9, normalized["quality"]["authors_complete"])
+        self.assertEqual(9, normalized["quality"]["doi_complete"])
+        self.assertEqual(9, normalized["quality"]["translation_complete"])
+        self.assertTrue(is_detected_snapshot(normalized))
+        self.assertTrue(is_publishable_snapshot(normalized))
+        self.assertEqual("complete", issue_content_status(normalized))
+        self.assertEqual("ready", normalized["content_status"])
+        self.assertEqual("ready", normalized["publication_state"])
 
     def test_changed_roster_order_duplicate_missing_and_unknown_doi_fail_closed(self):
         cases = {
