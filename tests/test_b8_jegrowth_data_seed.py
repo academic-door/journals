@@ -31,7 +31,10 @@ class GrowthDataSeedTests(unittest.TestCase):
         self.assertIn("workflow_dispatch:", trigger_block)
         self.assertNotIn("workflow_run:", trigger_block)
         self.assertIn("group: journal-data-update", workflow)
-        self.assertIn("one-time seed window", workflow)
+        self.assertIn('m["launch_state"]=="staging_only"', workflow)
+        self.assertIn('spec["rollout_status"]=="not_enabled"', workflow)
+        self.assertIn('"JEGROWTH" not in live', workflow)
+        self.assertIn("if not allowed:", workflow)
 
     def test_digest_mismatch_fails_closed_before_unzip(self):
         with self.assertRaisesRegex(ValueError, "digest mismatch"):
