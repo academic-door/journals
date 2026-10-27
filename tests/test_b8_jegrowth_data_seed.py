@@ -25,6 +25,17 @@ class GrowthDataSeedTests(unittest.TestCase):
         self.assertEqual(64, len(ARTIFACT_ZIP_SHA256))
         self.assertEqual(3, len(set(EXPECTED_DOIS)))
 
+    def test_one_shot_seed_no_longer_auto_competes_with_production_monitor(self):
+        workflow = (Path(__file__).resolve().parents[1] / ".github/workflows/b8-jegrowth-seed.yml").read_text()
+        trigger_block = workflow.split("on:", 1)[1].split("permissions:", 1)[0]
+        self.assertIn("workflow_dispatch:", trigger_block)
+        self.assertNotIn("workflow_run:", trigger_block)
+        self.assertIn("group: journal-data-update", workflow)
+        self.assertIn('m["launch_state"]=="staging_only"', workflow)
+        self.assertIn('spec["rollout_status"]=="not_enabled"', workflow)
+        self.assertIn('"JEGROWTH" not in live', workflow)
+        self.assertIn("if not allowed:", workflow)
+
     def test_digest_mismatch_fails_closed_before_unzip(self):
         with self.assertRaisesRegex(ValueError, "digest mismatch"):
             verified_issue(b"not-a-verified-zip")

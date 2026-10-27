@@ -38,6 +38,12 @@ jobs:
           curl --fail --retry 3 --silent --show-error \
             "$base/api/v1/health.json?health_run=${{ github.run_id }}" \
             > "$output/health.json"
+          # A new title is not accepted merely because aggregate JSON says 50.
+          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" = "50" ]; then
+            curl --fail --retry 3 --silent --show-error \
+              "$base/api/v1/journals/jegrowth/issues/current.json?health_run=${{ github.run_id }}" \
+              > "$output/jegrowth-current.json"
+          fi
           curl --fail --retry 3 --silent --show-error \
             "$base/api/v1/monitoring.json?health_run=${{ github.run_id }}" \
             > "$output/monitoring.json"
@@ -103,10 +109,35 @@ jobs:
                   raise AssertionError(f"{name} schema_version is not 1.0")
 
           summary = health.get("summary", {})
-          if summary.get("enabled_journals") != 49:
-              raise AssertionError("health enabled_journals is not 49")
-          if summary.get("available_journals") != 49:
-              raise AssertionError("health available_journals is not 49")
+          expected = summary.get("enabled_journals")
+          if expected not in (49, 50):
+              raise AssertionError("health enabled_journals is outside the approved 49/50 rollout")
+          if summary.get("available_journals") != expected:
+              raise AssertionError("not every configured journal has a READY issue")
+          if expected == 50:
+              # Exactly one B8 source-approved title is eligible in this tranche.
+              growth = load("jegrowth-current.json")
+              expected_dois = [
+                  "10.1007/s10887-026-09265-x",
+                  "10.1007/s10887-026-09267-9",
+                  "10.1007/s10887-026-09266-w",
+              ]
+              articles = growth.get("articles", [])
+              if growth.get("journal_id") != "jegrowth" or growth.get("issue_id") != "jegrowth-31-3":
+                  raise AssertionError("newly enabled journal identity is not approved JEGROWTH 31(3)")
+              if [str(a.get("doi", "")) for a in articles] != expected_dois:
+                  raise AssertionError("JEGROWTH published DOI sequence differs from first-party source")
+              if growth.get("source_status") != "official_verified" or growth.get("publication_state") != "ready":
+                  raise AssertionError("JEGROWTH is not independently source-qualified READY")
+              quality = growth.get("quality", {})
+              if quality.get("translation_complete") != 3 or quality.get("flags"):
+                  raise AssertionError("JEGROWTH translation/quality gate failed")
+              if any(
+                  not a.get("authors") or not a.get("title_en") or not a.get("title_cn")
+                  or not a.get("abstract_en") or not a.get("abstract_cn")
+                  for a in articles
+              ):
+                  raise AssertionError("JEGROWTH public author/English/Chinese fields are incomplete")
           if health.get("content_status") != "complete":
               raise AssertionError("public translations are incomplete")
           if not summary.get("articles") or (
@@ -128,8 +159,8 @@ jobs:
           monitor_summary = monitoring.get("summary", {})
           if monitoring.get("status") != "healthy":
               raise AssertionError("journal monitor is not healthy")
-          if monitor_summary.get("configured_journals") != 49:
-              raise AssertionError("monitor configured_journals is not 49")
+          if monitor_summary.get("configured_journals") != expected:
+              raise AssertionError("monitor configured_journals differs from approved live scope")
           if monitor_summary.get("failed") != 0:
               raise AssertionError("journal monitor has failed journals")
           timestamp(monitoring, "monitoring", 6)
@@ -137,8 +168,8 @@ jobs:
           source_summary = source.get("summary", {})
           if source.get("status") != "healthy":
               raise AssertionError("source audit is not healthy")
-          if source_summary.get("configured_journals") != 49:
-              raise AssertionError("source audit configured_journals is not 49")
+          if source_summary.get("configured_journals") != expected:
+              raise AssertionError("source audit configured_journals differs from approved live scope")
           for key in ("needs_attention", "missing", "invariant_errors"):
               if source_summary.get(key) != 0:
                   raise AssertionError(f"source audit {key} is not zero")
@@ -151,8 +182,8 @@ jobs:
               raise AssertionError("source diagnostics schema is invalid")
           timestamp_field(diagnostics, "source-diagnostics", "generated_at", 6)
           records = diagnostics.get("journals")
-          if not isinstance(records, list) or len(records) != 49:
-              raise AssertionError("source diagnostics must list 49 journals")
+          if not isinstance(records, list) or len(records) != expected:
+              raise AssertionError("source diagnostics count must equal all enabled journals")
           reported_transport = {}
           for item in records:
               if not isinstance(item, dict):
@@ -181,11 +212,13 @@ jobs:
                   stamp = datetime.fromisoformat(str(observed).replace("Z", "+00:00"))
                   if stamp.tzinfo is None or stamp > now:
                       raise AssertionError(f"{jid}: invalid publisher observation")
+          if expected == 50 and "jegrowth" not in reported_transport:
+              raise AssertionError("newly enabled journal missing from source diagnostics")
           unavailable = sum(not x for x in reported_transport.values())
           diag_summary = diagnostics.get("summary", {})
-          if diag_summary.get("journals") != 49 or (
+          if diag_summary.get("journals") != expected or (
               diag_summary.get("primary_unavailable") != unavailable
-              or diag_summary.get("primary_available") != 49 - unavailable
+              or diag_summary.get("primary_available") != expected - unavailable
           ):
               raise AssertionError("source diagnostics summary does not reconcile")
 
@@ -200,12 +233,12 @@ jobs:
           ):
               raise AssertionError("R4 SLO must remain measurement-only")
           timestamp_field(slo, "slo", "generated_at", 6)
-          if slo.get("product_truth", {}).get("journal_count") != 49:
+          if slo.get("product_truth", {}).get("journal_count") != expected:
               raise AssertionError("R4 journal count mismatch")
           metrics = slo.get("metrics", {})
           if metrics.get("monitor_probe_freshness", {}).get(
               "configured_journal_count"
-          ) != 49:
+          ) != expected:
               raise AssertionError("R4 monitor probe journal count mismatch")
           for key in (
               "expected_set_freshness",
@@ -222,21 +255,21 @@ jobs:
           if completeness.get("scope") != "journals_tracked":
               raise AssertionError("completeness scope is invalid")
           reconciliation = completeness.get("reconciliation", {})
-          if reconciliation.get("journal_count") != 49:
-              raise AssertionError("completeness journal_count is not 49")
+          if reconciliation.get("journal_count") != expected:
+              raise AssertionError("completeness journal_count differs from enabled scope")
           status_total = sum(
               int(reconciliation.get(key, 0))
               for key in ("complete", "partial", "not_measured", "source_blocked")
           )
-          if status_total != 49:
+          if status_total != expected:
               raise AssertionError("completeness status counts do not reconcile")
-          if len(completeness.get("journals", [])) != 49:
+          if len(completeness.get("journals", [])) != expected:
               raise AssertionError("completeness journal records do not reconcile")
           timestamp_field(completeness, "completeness", "generated_at", 6)
 
           if manifest.get("project_id") != "journals":
               raise AssertionError("project manifest id is invalid")
-          if manifest.get("journal_count") != 49 or manifest.get("available_journal_count") != 49:
+          if manifest.get("journal_count") != expected or manifest.get("available_journal_count") != expected:
               raise AssertionError("project manifest journal counts do not reconcile")
           if manifest.get("status") != health.get("status"):
               raise AssertionError("manifest and health status disagree")
@@ -248,7 +281,7 @@ jobs:
           if "<rss" not in feed or "<item" not in feed:
               raise AssertionError("all-journals RSS feed is empty or malformed")
           print(
-              "public semantic health: 49/49 journals, complete translations, "
+              f"public semantic health: {expected}/{expected} journals, complete translations, "
               "fresh monitor, source diagnostics and R4 baseline present"
           )
           PY

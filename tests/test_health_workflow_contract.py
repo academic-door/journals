@@ -40,6 +40,22 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
         # And it must still allow manual/scheduled runs (non-workflow_run).
         self.assertIn("github.event_name != 'workflow_run'", guard)
 
+    def test_first_b8_title_extends_count_without_relaxing_health_gates(self) -> None:
+        raw = HEALTH.read_text(encoding="utf-8")
+        self.assertIn("expected not in (49, 50)", raw)
+        self.assertIn('if monitoring.get("status") != "healthy":', raw)
+        self.assertIn('if source.get("status") != "healthy":', raw)
+        self.assertIn('if summary.get("available_journals") != expected:', raw)
+        self.assertIn('if monitor_summary.get("configured_journals") != expected:', raw)
+        self.assertIn('if source_summary.get("configured_journals") != expected:', raw)
+        self.assertIn('if reconciliation.get("journal_count") != expected:', raw)
+        self.assertIn('if expected == 50:', raw)
+        self.assertIn('"10.1007/s10887-026-09265-x"', raw)
+        self.assertIn('"10.1007/s10887-026-09267-9"', raw)
+        self.assertIn('"10.1007/s10887-026-09266-w"', raw)
+        self.assertIn('growth.get("publication_state") != "ready"', raw)
+        self.assertIn('if expected == 50 and "jegrowth" not in reported_transport:', raw)
+
     def test_no_deploy_health_loop(self) -> None:
         # health.yml must not itself be one of the workflows that trigger deploy,
         # and must not trigger the deploy workflow.
