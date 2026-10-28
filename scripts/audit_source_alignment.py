@@ -34,6 +34,10 @@ def source_status(issue: dict[str, Any], errors: list[str]) -> str:
     quality = issue.get("quality", {})
     flags = set(quality.get("flags", []))
     authority = str(quality.get("roster_authority", ""))
+    if issue.get("public_mode") == "metadata_first_rights_qualified_v1":
+        # Do not launder publisher-supplied RePEc into first-party issue HTML.
+        return ("publisher_feed_verified" if issue.get("source_status") == "publisher_verified"
+                else "official_page_verified")
     if authority == "publisher-rss":
         return "publisher_feed_verified"
     if {
@@ -91,7 +95,14 @@ def audit_snapshot(
         "translation_incomplete",
     ):
         if flag in flags:
+            if issue.get("public_mode") == "metadata_first_rights_qualified_v1" and flag in {
+                "abstract_en_incomplete", "translation_incomplete"
+            }:
+                continue  # Rights-withheld public text is not a source or translation defect.
             warnings.append(flag)
+    if issue.get("public_mode") == "metadata_first_rights_qualified_v1":
+        if issue.get("public_content", {}).get("rights_withheld_articles"):
+            warnings.append("rights_withheld_public_abstracts")
     status = source_status(issue, errors)
     return {
         "available": True,

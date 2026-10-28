@@ -13,13 +13,24 @@ SOURCE = ROOT / "public/api/v1/journals/jegrowth/issues/current.json"
 class B8RightsQualifiedProjectionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        # Synthetic JAE-shaped test only; never a source/production claim.
         cls.original = json.loads(SOURCE.read_text(encoding="utf-8"))
+        cls.original["journal_id"] = "jae"
+        cls.original["issue_id"] = "jae-41-6"
+        cls.original["volume"] = "41"
+        cls.original["issue"] = "6"
+        cls.original["journal_name"] = "Journal of Applied Econometrics"
+        cls.original["source_url"] = "https://onlinelibrary.wiley.com/toc/10991255/2026/41/6"
+        for row, suffix in zip(cls.original["articles"], ("70067", "70061", "70071"), strict=True):
+            row["doi"] = "10.1002/jae." + suffix
+            row["source_url"] = "https://onlinelibrary.wiley.com/doi/10.1002/jae." + suffix
+            row["sources"] = {"issue": cls.original["source_url"], "roster": cls.original["source_url"]}
 
     def project(self, candidate=None, decisions=None):
         return project_b8_issue(
             candidate if candidate is not None else self.original,
-            expected_journal_id="jegrowth",
-            expected_issue_id="jegrowth-31-3",
+            expected_journal_id="jae",
+            expected_issue_id="jae-41-6",
             rights_by_doi=decisions,
         )
 

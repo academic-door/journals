@@ -21,7 +21,7 @@ ISSUE_FIELDS = {
     "schema_version", "issue_id", "journal_id", "journal_name", "volume",
     "issue", "publication_date", "source_url", "retrieved_at",
     "expected_article_count", "research_article_count", "status",
-    "articles", "quality", "content_counts", "issue_label",
+    "source_status", "articles", "quality", "content_counts", "issue_label",
 }
 SAFE_SOURCE_KEYS = {"issue", "roster", "metadata", "abstract_en"}
 
@@ -168,4 +168,119 @@ def project_b8_issue(
     # Exclusion evidence is retained separately as canonical source candidate;
     # no private excluded-item text can leak through this public projection.
     public.pop("content_counts", None)
+    validate_public_projection(public)
     return public
+
+# B8-only product scope; older, already-accepted 50 journal payload contracts
+# cannot be silently switched to metadata mode by a generic source producer.
+METADATA_B8_IDS = frozenset({"jae", "joeg", "itpf", "ijio", "jfi", "ejpe", "jimf"})
+ISSUE_SOURCE_HOSTS = {
+    "jae": {"onlinelibrary.wiley.com"},
+    "joeg": {"academic.oup.com"},
+    "itpf": {"link.springer.com", "ideas.repec.org"},
+    "ijio": {"www.sciencedirect.com", "ideas.repec.org"},
+    "jfi": {"www.sciencedirect.com", "ideas.repec.org"},
+    "ejpe": {"www.sciencedirect.com", "ideas.repec.org"},
+    "jimf": {"www.sciencedirect.com", "ideas.repec.org"},
+}
+
+
+def validate_public_projection(issue: dict) -> None:
+    """Independently validate a public B8 projection, including rights absence.
+
+    This check is run *again* by generic publication/readiness/auditors, not
+    trusted merely because a source staging script claimed readiness.
+    """
+    if (
+        issue.get("public_mode") != MODE
+        or issue.get("journal_id") not in METADATA_B8_IDS
+        or issue.get("content_status") != "metadata_complete"
+        or issue.get("publication_state") != "ready"
+        or issue.get("source_status") not in {"official_verified", "publisher_verified"}
+    ):
+        raise ValueError("invalid B8 metadata public mode/authority/readiness")
+    expected_identity = "-".join((
+        str(issue.get("journal_id", "")), str(issue.get("volume", "")),
+        str(issue.get("issue", ""))
+    ))
+    if issue.get("issue_id", "").casefold() != expected_identity.casefold():
+        raise ValueError("metadata public issue ID differs from volume/issue")
+    if not _https_url(issue.get("source_url")) or (
+        urlparse(issue["source_url"]).hostname
+        not in ISSUE_SOURCE_HOSTS[issue["journal_id"]]
+    ):
+        raise ValueError("metadata issue source publisher-family URL invalid")
+    q = issue.get("quality") or {}
+    a = issue.get("articles") or []
+    if (
+        not isinstance(a, list) or not a
+        or not q.get("roster_match") or not q.get("order_preserved")
+        or q.get("duplicate_count") != 0
+        or q.get("doi_complete") != len(a)
+        or q.get("authors_complete") != len(a)
+        or issue.get("research_article_count") != len(a)
+        or issue.get("expected_article_count") != len(a)
+    ):
+        raise ValueError("metadata roster/order/DOI/author completeness failed")
+    public = issue.get("public_content") or {}
+    if public.get("mode") != MODE or public.get("metadata_articles") != len(a):
+        raise ValueError("metadata public summary is invalid")
+    dois = [str(x.get("doi", "")).strip().casefold() for x in a]
+    if not all(dois) or len(set(dois)) != len(a):
+        raise ValueError("metadata issue DOI missing or duplicated")
+    visible = 0
+    for i, article in enumerate(a, 1):
+        if (
+            article.get("sequence") != i
+            or not str(article.get("title_en", "")).strip()
+            or not isinstance(article.get("authors"), list)
+            or not article["authors"]
+            or not all(str(author).strip() for author in article["authors"])
+            or not _https_url(article.get("source_url"))
+            or article.get("article_type") not in {
+                "research-article", "comment", "short-communication"
+            }
+        ):
+            raise ValueError("metadata public article identity/type/URL invalid")
+        extra = set(article) - (
+            PROJECTION_FIELDS | {"publication_date", "source_sequence", "china_relevance"}
+        )
+        if extra:
+            raise ValueError("unscreened public article fields: " + ",".join(sorted(extra)))
+        if any(
+            key not in SAFE_SOURCE_KEYS or not isinstance(value, str) or not _https_url(value)
+            for key, value in (article.get("sources") or {}).items()
+        ):
+            raise ValueError("metadata public source contains unreviewed data")
+        rights = article.get("public_rights") or {}
+        status = rights.get("status")
+        if status == "withheld":
+            if (
+                any(str(article.get(k, "")).strip() for k in
+                    ("abstract_en", "abstract_cn", "title_cn"))
+                or article.get("translation", {}).get("status") != "rights_withheld"
+            ):
+                raise ValueError("withheld abstract or translation leaked to public")
+        elif status == "verified_cc_by_4_0":
+            if (
+                rights.get("license_url") != CC_BY_4
+                or not _https_url(rights.get("evidence_url"))
+                or not str(rights.get("reviewed_by", "")).strip()
+                or not str(rights.get("attribution", "")).strip()
+                or not str(rights.get("adaptation_notice", "")).strip()
+                or article.get("translation", {}).get("status") != "complete"
+                or not all(str(article.get(k, "")).strip() for k in
+                    ("abstract_en", "abstract_cn", "title_cn"))
+            ):
+                raise ValueError("unverified or incomplete licensed public content")
+            visible += 1
+        else:
+            raise ValueError("unrecognized per-article public rights")
+    if (
+        public.get("abstracts_en_visible") != visible
+        or public.get("translations_cn_visible") != visible
+        or public.get("rights_withheld_articles") != len(a) - visible
+        or q.get("abstract_en_complete") != visible
+        or q.get("translation_complete") != visible
+    ):
+        raise ValueError("metadata public rights/translation counts drift")

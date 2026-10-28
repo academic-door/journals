@@ -82,10 +82,12 @@ const resultCard = (record) => `
     <h2>${escapeHtml(record.title_cn || record.title_en)}</h2>
     ${record.title_cn && record.title_cn !== record.title_en ? `<p class="paper-title-en">${escapeHtml(record.title_en)}</p>` : ""}
     <p class="paper-authors">${escapeHtml((record.authors || []).join(", "))}</p>
-    <div class="search-result-abstracts">
-      <p>${escapeHtml(record.abstract_en || (record.abstract_status === "official_not_provided" ? "The publisher did not provide a standalone Abstract; refer to the official full text." : ""))}</p>
-      <p>${escapeHtml(record.abstract_cn || (record.abstract_status === "official_not_provided" ? "官方未提供独立 Abstract；请参阅官方全文。" : ""))}</p>
-    </div>
+    ${record.public_mode === "metadata_first_rights_qualified_v1" && record.public_rights?.status === "withheld"
+      ? `<p class="issue-note">仅收录书目元数据：英文摘要及中文翻译尚无已核实公开授权，请查看出版商原文。</p>`
+      : `<div class="search-result-abstracts">
+          <p>${escapeHtml(record.abstract_en || (record.abstract_status === "official_not_provided" ? "The publisher did not provide a standalone Abstract; refer to the official full text." : ""))}</p>
+          <p>${escapeHtml(record.abstract_cn || (record.abstract_status === "official_not_provided" ? "官方未提供独立 Abstract；请参阅官方全文。" : ""))}</p>
+        </div>`}
     <footer class="paper-meta">
       ${record.doi ? `<span>DOI ${escapeHtml(record.doi)}</span>` : "<span></span>"}
       <a href="${escapeHtml(record.source_url)}" target="_blank" rel="noreferrer">查看期刊原文</a>

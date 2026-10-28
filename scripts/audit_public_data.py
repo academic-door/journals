@@ -416,10 +416,28 @@ def main(
         dois = [article["doi"] for article in articles]
         if not all(dois) or len(dois) != len(set(dois)):
             findings.append(f"{journal['id']}: DOI completeness/uniqueness failed")
+        if issue.get("public_mode") == "metadata_first_rights_qualified_v1":
+            from scripts.b8_rights_qualified import validate_public_projection
+            try:
+                validate_public_projection(issue)
+            except (ValueError, TypeError, KeyError) as error:
+                findings.append(f"{journal['id']}: rights-qualified metadata gate: {error}")
         for article in articles:
             label = f"{journal['id']}:{article['doi'] or article['paper_id']}"
             if not article["authors"]:
                 findings.append(f"{label}: authors missing")
+            if issue.get("public_mode") == "metadata_first_rights_qualified_v1":
+                if article.get("public_rights", {}).get("status") == "verified_cc_by_4_0":
+                    try:
+                        validate_translation(article, {
+                            "title_cn": article.get("title_cn", ""),
+                            "abstract_cn": article.get("abstract_cn", ""),
+                        })
+                    except TranslationError as error:
+                        findings.append(f"{label}: licensed translation invalid: {error}")
+                    else:
+                        totals["translated"] += 1
+                continue
             if not abstract_is_complete(article):
                 findings.append(f"{label}: English abstract missing")
             if not translation_is_complete(article):

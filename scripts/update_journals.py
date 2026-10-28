@@ -27,6 +27,7 @@ from collectors.article_types import (
     translation_is_complete,
 )
 from scripts.china_relevance import annotate_issue, classify_china_relevance
+from scripts.b8_rights_qualified import MODE as B8_METADATA_MODE, validate_public_projection
 from scripts.freshness_announcements import announcement_entry_fields
 from scripts.translate_issue import (
     TranslationError,
@@ -121,6 +122,8 @@ def issue_content_status(issue: dict[str, Any]) -> str:
     """Classify content completeness independently from source authority."""
 
     count = int(issue.get("research_article_count", 0))
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        return "metadata_complete" if is_publishable_snapshot(issue) else "blocked"
     if not is_publishable_snapshot(issue):
         return "blocked"
     if count > 0 and int(issue.get("quality", {}).get("translation_complete", 0)) == count:
@@ -198,7 +201,7 @@ def issue_publication_state(issue: dict[str, Any]) -> str:
 
     content_status = issue_content_status(issue)
     source_status = issue_source_status(issue)
-    if content_status == "complete" and source_status in {
+    if content_status in {"complete", "metadata_complete"} and source_status in {
         "official_verified",
         "publisher_verified",
     }:
@@ -727,6 +730,8 @@ def write_detected_snapshot(issue: dict[str, Any]) -> Path:
 
 
 def is_archivable_snapshot(issue: dict[str, Any]) -> bool:
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        return is_publishable_snapshot(issue)
     quality = issue.get("quality", {})
     count = int(issue.get("research_article_count", 0))
     return (
@@ -1221,7 +1226,7 @@ def search_record(
     journal: dict[str, Any],
 ) -> dict[str, Any]:
     relevance = article.get("china_relevance") or classify_china_relevance(article)
-    return {
+    record = {
         "journal_id": issue["journal_id"],
         "journal_short_name": journal.get("short_name", issue["journal_id"].upper()),
         "journal_name": issue.get("journal_name", journal.get("name", "")),
@@ -1248,6 +1253,10 @@ def search_record(
         "source_status": issue_source_status(issue),
         "publication_state": issue_publication_state(issue),
     }
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        record["public_mode"] = B8_METADATA_MODE
+        record["public_rights"] = article["public_rights"]
+    return record
 
 
 def write_search_indexes(
@@ -1404,6 +1413,8 @@ def structural_flags(issue: dict[str, Any]) -> list[str]:
         "publisher_rss_lag_crossref_fallback",
         "official_order_unverified",
     }
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        content_only |= {"abstract_en_incomplete", "rights_qualified_metadata"}
     return [
         flag for flag in issue.get("quality", {}).get("flags", [])
         if flag not in content_only
@@ -1423,6 +1434,12 @@ def order_verification_status(issue: dict[str, Any]) -> str:
 
 
 def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        try:
+            validate_public_projection(issue)
+        except (TypeError, ValueError, KeyError):
+            return False
+        return True
     article_count = len(issue.get("articles", []))
     research_count = issue.get("research_article_count", 0)
     quality = issue.get("quality", {})
@@ -2084,7 +2101,13 @@ def collect_one(
 
 
 def issue_translation_semantics_valid(issue: dict[str, Any]) -> bool:
-    """Return whether a snapshot still satisfies the current translation gate."""
+    """Return whether public translation fields satisfy their mode-specific gate."""
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        try:
+            validate_public_projection(issue)
+        except (TypeError, ValueError, KeyError):
+            return False
+        return True
     for article in issue.get("articles", []):
         if not translation_is_complete(article):
             return False
@@ -2261,6 +2284,7 @@ def update_indexes(
     usable_count = 0
     translated_articles = 0
     total_articles = 0
+    rights_withheld_articles = 0
     monitor_state = read_json(MONITOR_STATE_PATH) or {}
     monitor_entries = monitor_state.get("journals", {})
 
@@ -2338,6 +2362,11 @@ def update_indexes(
             total = issue["research_article_count"]
             translated_articles += translated
             total_articles += total
+            if issue.get("public_mode") == B8_METADATA_MODE:
+                withheld = issue["public_content"]["rights_withheld_articles"]
+                rights_withheld_articles += withheld
+                entry["public_mode"] = B8_METADATA_MODE
+                entry["rights_withheld_articles"] = withheld
             entry.update(
                 {
                     "status": issue["status"],
@@ -2486,6 +2515,7 @@ def update_indexes(
             int(entry.get("translation_complete", 0)) for entry in entries
         )
         collection_articles = sum(int(entry.get("article_count", 0)) for entry in entries)
+        collection_withheld = sum(int(entry.get("rights_withheld_articles", 0)) for entry in entries)
         collection_data_healthy = bool(entries) and collection_usable == len(entries) and all(
             entry.get("data_status") == "healthy" for entry in entries
         )
@@ -2499,12 +2529,16 @@ def update_indexes(
             "title_cn": definition.get("name_cn", ""),
             "updated_at": updated_at,
             "data_status": "healthy" if collection_data_healthy else "degraded",
-            "content_status": "complete" if collection_content_complete else "translation_incomplete",
+            "content_status": (
+                "rights_qualified" if collection_withheld else
+                "complete" if collection_content_complete else "translation_incomplete"
+            ),
             "summary": {
                 "configured_journals": len(entries),
                 "available_journals": collection_usable,
                 "articles": collection_articles,
                 "translated_articles": collection_translated,
+                **({"rights_withheld_articles": collection_withheld} if collection_withheld else {}),
             },
             "journals": entries,
         }
@@ -2521,12 +2555,16 @@ def update_indexes(
         "schema_version": "1.0",
         "updated_at": updated_at,
         "status": "healthy" if data_healthy else "degraded",
-        "content_status": "complete" if content_complete else "translation_incomplete",
+        "content_status": (
+            "rights_qualified" if rights_withheld_articles else
+            "complete" if content_complete else "translation_incomplete"
+        ),
         "summary": {
             "enabled_journals": enabled_count,
             "available_journals": usable_count,
             "articles": total_articles,
             "translated_articles": translated_articles,
+            **({"rights_withheld_articles": rights_withheld_articles} if rights_withheld_articles else {}),
         },
         "checks": checks,
     }
