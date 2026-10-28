@@ -17,6 +17,8 @@ class B8RightsQualifiedProjectionTests(unittest.TestCase):
         cls.original = json.loads(SOURCE.read_text(encoding="utf-8"))
         cls.original["journal_id"] = "jae"
         cls.original["issue_id"] = "jae-41-6"
+        cls.original["volume"] = "41"
+        cls.original["issue"] = "6"
         cls.original["journal_name"] = "Journal of Applied Econometrics"
         cls.original["source_url"] = "https://onlinelibrary.wiley.com/toc/10991255/2026/41/6"
         for row, suffix in zip(cls.original["articles"], ("70067", "70061", "70071"), strict=True):
