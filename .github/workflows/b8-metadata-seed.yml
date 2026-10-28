@@ -118,23 +118,27 @@ jobs:
             --journal "$TITLE" \
             --artifact-dir "$RUNNER_TEMP/b8-private-source" \
             --data-root "$RUNNER_TEMP/b8-data-worktree"
-          git -C "$RUNNER_TEMP/b8-data-worktree" add -- \
-            "public/api/v1/journals/${TITLE,,}/issues/current.json"
-          # Only the two exact approved paths can be written by seed helper.
           TITLE="$TITLE" python - <<'PY'
-          import os
+          import os, subprocess
           from pathlib import Path
           from scripts.seed_b8_rights_qualified import SPECS
-          title=os.environ["TITLE"]
-          journal_id,issue_id,*_=SPECS[title]
-          worktree=Path(os.environ["RUNNER_TEMP"])/"b8-data-worktree"
-          rel=Path("public/api/v1/journals")/journal_id/"issues"/f"{issue_id}.json"
-          os.system("git -C " + str(worktree) + " add -- " + str(rel))
+          j=os.environ["TITLE"]
+          jid,issue_id,*_=SPECS[j]
+          root=Path(os.environ["RUNNER_TEMP"])/"b8-data-worktree"
+          prefix=f"public/api/v1/journals/{jid}/issues/"
+          allowed={prefix+"current.json",prefix+issue_id+".json"}
+          subprocess.run(["git","-C",str(root),"add","--",*sorted(allowed)],check=True)
+          changed=subprocess.check_output(
+              ["git","-C",str(root),"diff","--cached","--name-only"],
+              text=True,
+          ).splitlines()
+          if not set(changed) <= allowed:
+              raise SystemExit("out-of-scope staged data path")
+          if not changed:
+              print("Already present; no data mutation")
+          else:
+              print("Scope-verified metadata-only paths:",sorted(changed))
           PY
-          git -C "$RUNNER_TEMP/b8-data-worktree" diff --cached --name-only \
-             | grep -Ev "^public/api/v1/journals/${TITLE,,}/issues/(current|[a-z0-9-]+)\\.json$" && {
-               echo "::error::Disallowed staged production path"; exit 1;
-             } || true
 
       - name: Commit scoped data seed and verify non-force readback
         env:
