@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from dataclasses import replace
 import sys
 import unittest
 from pathlib import Path
@@ -381,6 +382,83 @@ class WileyCollectorTests(unittest.TestCase):
             wiley._get(session, "https://doi.org/10.3982/ECTA11111")
         self.assertEqual("non_official_url", context.exception.code)
         self.assertEqual([], session.calls)
+
+
+    def test_jae_41_6_replications_are_exact_issue_only(self):
+        def make_items():
+            out = []
+            for number, doi in enumerate(wiley.JAE_41_6_DOIS, 1):
+                replication = number > 10
+                out.append(
+                    wiley.InventoryItem(
+                        source_sequence=number,
+                        section="Replication" if replication else "Research Article",
+                        title=f"Official Article {number}",
+                        source_url="https://onlinelibrary.wiley.com/doi/" + doi,
+                        doi=doi,
+                        authors=("Official Author",),
+                        exclusion_reason="section-not-original-articles" if replication else "",
+                    )
+                )
+            return out
+
+        source = wiley.JAE_41_6_OFFICIAL_TOC
+
+        def adjudicate(items, journal_id="jae", volume="41", issue="6",
+                       requested_url=source, resolved_url=source):
+            return wiley._adjudicate_jae_41_6_inventory(
+                items, journal_id=journal_id, volume=volume, issue=issue,
+                requested_url=requested_url, resolved_url=resolved_url,
+            )
+
+        original = make_items()
+        self.assertEqual(2, sum(bool(x.exclusion_reason) for x in original))
+        accepted = adjudicate(original)
+        self.assertEqual(12, len(accepted))
+        self.assertFalse(any(x.exclusion_reason for x in accepted))
+        self.assertEqual(
+            ["research-article", "research-article"],
+            [wiley._article_from_inventory(x, {
+                "article_type": "Replication", "doi": x.doi,
+                "title": x.title, "authors": ["Official Author"],
+                "abstract": "Official original replication study abstract",
+            }, issue_volume="41", issue_number="6")["article_type"]
+             for x in accepted[-2:]],
+        )
+        self.assertFalse(any(
+            "detail_article_type_mismatch" in wiley._article_from_inventory(
+                x, {"article_type": "Replication", "doi": x.doi},
+                issue_volume="41", issue_number="6",
+            )["quality_flags"] for x in accepted[-2:]
+        ))
+        self.assertTrue(all(x.exclusion_reason for x in
+                            adjudicate(original, journal_id="ecta")[-2:]))
+        unrelated_issue_url = "https://onlinelibrary.wiley.com/toc/10991255/2026/41/5"
+        self.assertTrue(all(x.exclusion_reason for x in adjudicate(
+            original, issue="5", requested_url=unrelated_issue_url,
+            resolved_url=unrelated_issue_url,
+        )[-2:]))
+        for changed in (
+            original[:-1],
+            [*original[:-2], original[-1], original[-2]],
+            [*original[:-1], replace(original[-1], doi="10.1002/jae.invalid")],
+            [*original[:-2], replace(original[-2], section="Research Article"),
+             original[-1]],
+        ):
+            with self.assertRaises(wiley.WileyParseError):
+                adjudicate(changed)
+        with self.assertRaises(wiley.WileyParseError):
+            adjudicate(original, issue="5")
+        with self.assertRaises(wiley.WileyParseError):
+            adjudicate(original, volume="40")
+        with self.assertRaises(wiley.WileyParseError):
+            adjudicate(original,
+                       requested_url="https://onlinelibrary.wiley.com/journal/10991255")
+        with self.assertRaises(wiley.WileyParseError):
+            adjudicate(original,
+                       resolved_url="https://onlinelibrary.wiley.com/toc/10991255/current")
+        # Unrelated Wiley issues preserve their existing section exclusions.
+        self.assertFalse(wiley._is_research_section("Replication"))
 
 
 if __name__ == "__main__":

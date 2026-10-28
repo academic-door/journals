@@ -4,7 +4,7 @@ import email.utils
 import re
 import time
 from concurrent.futures import ThreadPoolExecutor
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime, timezone
 from typing import Any, Callable, Iterable
 from urllib.parse import urljoin, urlparse
@@ -22,6 +22,20 @@ USER_AGENT = (
 )
 DEFAULT_TIMEOUT = (10, 35)
 DEFAULT_ATTEMPTS = 4
+
+# Publisher-qualified, issue-scoped JAE Vol 41 No 6 DOI roster.
+# Replication contributions require the canonical research-article contract,
+# but only these two source-qualified items are eligible for that override.
+JAE_41_6_OFFICIAL_TOC = "https://onlinelibrary.wiley.com/toc/10991255/2026/41/6"
+JAE_41_6_DOIS = (
+    "10.1002/jae.70067", "10.1002/jae.70061",
+    "10.1002/jae.70071", "10.1002/jae.70074",
+    "10.1002/jae.70076", "10.1002/jae.70078",
+    "10.1002/jae.70077", "10.1002/jae.70073",
+    "10.1002/jae.70075", "10.1002/jae.70069",
+    "10.1002/jae.70064", "10.1002/jae.70072",
+)
+JAE_41_6_REPLICATION_DOIS = frozenset(JAE_41_6_DOIS[-2:])
 RETRYABLE_STATUS_CODES = {408, 425, 429, 500, 502, 503, 504}
 DOI_PATTERN = re.compile(r"10\.\d{4,9}/[^\s\"'<>?&#]+", re.IGNORECASE)
 VOLUME_ISSUE_PATTERNS = (
@@ -500,6 +514,80 @@ def _inventory_from_node(
     )
 
 
+def _adjudicate_jae_41_6_inventory(
+    items: list[InventoryItem],
+    *,
+    journal_id: str,
+    volume: str,
+    issue: str,
+    requested_url: str,
+    resolved_url: str,
+) -> list[InventoryItem]:
+    """Guard exactly one authoritative Wiley issue; never globally enable Replication."""
+    if journal_id != "jae":
+        return items
+    pin = urlparse(JAE_41_6_OFFICIAL_TOC)
+    request = urlparse(requested_url)
+    if (volume, issue) != ("41", "6"):
+        if (request.scheme, request.hostname, request.path) == (
+            pin.scheme, pin.hostname, pin.path
+        ):
+            raise WileyParseError(
+                "jae_41_6_wrong_issue_identity",
+                "Pinned Wiley JAE 41(6) URL served a different issue.",
+                url=requested_url,
+            )
+        return items
+    if any(
+        (parsed.scheme, parsed.hostname, parsed.path)
+        != (pin.scheme, pin.hostname, pin.path)
+        for parsed in (urlparse(requested_url), urlparse(resolved_url))
+    ):
+        raise WileyParseError(
+            "jae_41_6_unpinned_issue_source",
+            "Exact Wiley JAE 41(6) publisher issue URL required.",
+            url=requested_url,
+        )
+    rows = [
+        item for item in items
+        if item.doi in JAE_41_6_DOIS
+        or item.section.casefold().strip() == "replication"
+        or _is_research_section(item.section)
+    ]
+    if (
+        len(items) not in (12, 13)
+        or len(rows) != len(JAE_41_6_DOIS)
+        or tuple(item.doi for item in rows) != JAE_41_6_DOIS
+        or any(
+            (
+                _normalise_section(item.section) == "replication"
+            ) != (item.doi in JAE_41_6_REPLICATION_DOIS)
+            for item in rows
+        )
+        or any(
+            item.exclusion_reason
+            for item in rows
+            if item.doi not in JAE_41_6_REPLICATION_DOIS
+        )
+        or any(
+            item.title.casefold().strip() != "issue information"
+            or not item.exclusion_reason
+            for item in items if item not in rows
+        )
+    ):
+        raise WileyParseError(
+            "jae_41_6_official_roster_mismatch",
+            "JAE 41(6) DOI, order, section, or exclusion differs from official TOC.",
+            url=requested_url,
+        )
+    return [
+        replace(item, exclusion_reason="")
+        if item.doi in JAE_41_6_REPLICATION_DOIS
+        else item
+        for item in items
+    ]
+
+
 def _fallback_anchor_inventory(
     soup: BeautifulSoup, base_url: str
 ) -> tuple[list[InventoryItem], bool]:
@@ -867,8 +955,14 @@ def _article_from_inventory(
         flags.append("detail_volume_mismatch")
     if detail.get("issue") and issue_number and detail["issue"] != issue_number:
         flags.append("detail_issue_mismatch")
-    if detail.get("article_type") and not _is_research_section(
-        detail["article_type"]
+    issue_scoped_replication = (
+        (issue_volume, issue_number) == ("41", "6")
+        and item.doi in JAE_41_6_REPLICATION_DOIS
+        and _normalise_section(item.section) == "replication"
+        and _normalise_section(detail.get("article_type", "")) == "replication"
+    )
+    if detail.get("article_type") and not (
+        _is_research_section(detail["article_type"]) or issue_scoped_replication
     ):
         flags.append("detail_article_type_mismatch")
     if not doi:
@@ -1071,6 +1165,14 @@ def fetch_current_issue(
         )
         if not volume and not issue and expected_volume and expected_issue:
             volume, issue = str(expected_volume), str(expected_issue)
+        inventory = _adjudicate_jae_41_6_inventory(
+            inventory,
+            journal_id=journal_id,
+            volume=volume,
+            issue=issue,
+            requested_url=current_issue_url,
+            resolved_url=resolved_url,
+        )
     except WileyCollectorError as exc:
         return _error_issue(
             current_issue_url,
