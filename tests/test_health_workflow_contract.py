@@ -42,19 +42,28 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
 
     def test_first_b8_title_extends_count_without_relaxing_health_gates(self) -> None:
         raw = HEALTH.read_text(encoding="utf-8")
-        self.assertIn("expected not in (49, 50)", raw)
+        self.assertIn("expected not in (49, 50, 51)", raw)
         self.assertIn('if monitoring.get("status") != "healthy":', raw)
         self.assertIn('if source.get("status") != "healthy":', raw)
         self.assertIn('if summary.get("available_journals") != expected:', raw)
         self.assertIn('if monitor_summary.get("configured_journals") != expected:', raw)
         self.assertIn('if source_summary.get("configured_journals") != expected:', raw)
         self.assertIn('if reconciliation.get("journal_count") != expected:', raw)
-        self.assertIn('if expected == 50:', raw)
+        self.assertIn('if expected >= 50:', raw)
         self.assertIn('"10.1007/s10887-026-09265-x"', raw)
         self.assertIn('"10.1007/s10887-026-09267-9"', raw)
         self.assertIn('"10.1007/s10887-026-09266-w"', raw)
         self.assertIn('growth.get("publication_state") != "ready"', raw)
-        self.assertIn('if expected == 50 and "jegrowth" not in reported_transport:', raw)
+        self.assertIn('if expected >= 50 and "jegrowth" not in reported_transport:', raw)
+        self.assertIn("if expected == 51:", raw)
+        self.assertIn('jae.get("issue_id") != "jae-41-6"', raw)
+        self.assertIn('"10.1002/jae.70067"', raw)
+        self.assertIn('"10.1002/jae.70072"', raw)
+        self.assertIn('jae.get("public_mode") != "metadata_first_rights_qualified_v1"', raw)
+        self.assertIn('rights.get("rights_withheld_articles") != 12', raw)
+        self.assertIn('summary.get("translated_articles") + 12 != summary.get("articles")', raw)
+        self.assertIn('and monitoring.get("warning_journals") == ["JAE"]', raw)
+        self.assertIn('if not pending_jae:', raw)
 
     def test_no_deploy_health_loop(self) -> None:
         # health.yml must not itself be one of the workflows that trigger deploy,
