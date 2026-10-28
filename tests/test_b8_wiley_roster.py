@@ -13,27 +13,32 @@ class WileyB8IssueStageTests(unittest.TestCase):
         self.assertEqual("731-744", rows[0]["page_range"])
         self.assertEqual("900-906", rows[-1]["page_range"])
         self.assertEqual(12, len({x["title_en"] for x in rows}))
-        # Exact first-party Wiley article pages verify the first two DOI/type/author rows.
-        self.assertEqual(2, evidence["verified_first_party_article_doi_count"])
+        # DOI/order is publisher-sourced, not inferred from online-first dates or RePEc.
+        expected_dois = [
+            "10.1002/jae.70067", "10.1002/jae.70061",
+            "10.1002/jae.70071", "10.1002/jae.70074",
+            "10.1002/jae.70076", "10.1002/jae.70078",
+            "10.1002/jae.70077", "10.1002/jae.70073",
+            "10.1002/jae.70075", "10.1002/jae.70069",
+            "10.1002/jae.70064", "10.1002/jae.70072",
+        ]
+        self.assertEqual(expected_dois, [x["doi"] for x in rows])
+        self.assertEqual(12, evidence["verified_first_party_article_doi_count"])
+        self.assertEqual(12, len(set(expected_dois)))
         self.assertEqual(
-            ["10.1002/jae.70067", "10.1002/jae.70061"],
-            [x["doi"] for x in rows[:2]],
+            ["research_article"] * 10 + ["replication"] * 2,
+            [x["publisher_section"] for x in rows],
         )
-        self.assertEqual(
-            ["731-744", "745-760"],
-            [x["page_range"] for x in rows[:2]],
-        )
-        self.assertTrue(
-            all(x["doi_status"] == "verified_first_party_article"
-                and x["type_status"] == "verified_first_party_research_article"
-                and x["publisher_article_url"] == "https://onlinelibrary.wiley.com/doi/" + x["doi"]
-                and len(x["authors_en"]) == 4
-                and x["en_abstract_status"] == "visible_first_party_not_ingested"
-                for x in rows[:2])
-        )
-        # Candidate rows 3-12 remain unqualified; neither full TOC nor CN is ready.
-        self.assertTrue(all(x["doi"] is None and x["doi_status"].startswith("pending_") for x in rows[2:]))
-        self.assertTrue(all(x["type_status"].startswith("pending_") for x in rows[2:]))
+        self.assertTrue(all(x["doi_status"] == "verified_first_party_article"
+                            and x["type_status"] == "verified_first_party_issue_toc_section"
+                            and x["publisher_article_url"] == "https://onlinelibrary.wiley.com/doi/" + x["doi"]
+                            and x["authors_en"]
+                            and x["en_abstract_status"] == "visible_first_party_not_ingested"
+                            for x in rows))
+        self.assertTrue(all(x["eligibility"] == "research_candidate" for x in rows[:10]))
+        self.assertTrue(all(x["eligibility"] == "pending_canonical_replication_adjudication" for x in rows[10:]))
+        self.assertEqual("Page 729: ISSUE INFORMATION", evidence["official_issue_information_excluded"])
+        self.assertEqual("https://onlinelibrary.wiley.com/toc/10991255/2026/41/6", evidence["publisher_issue_index"])
+        self.assertTrue(evidence["first_party_full_toc_verified"])
         self.assertFalse(evidence["doi_type_abstract_translation_verified"])
-        self.assertFalse(evidence["first_party_full_toc_verified"])
         self.assertFalse(evidence["enabled"])
