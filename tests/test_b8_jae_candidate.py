@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import unittest
 
-from scripts.b8_jae_candidate import make_candidate, make_report
+from scripts.b8_jae_candidate import make_candidate, make_report, restore_publisher_verified_math
 from collectors.jae_crossref_audit import CROSSREF_ENDPOINT
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -76,6 +76,33 @@ class JAECandidateMaterializationTests(unittest.TestCase):
         wrong[0]["volume"] = "40"
         with self.assertRaisesRegex(ValueError, "identity_mismatch"):
             make_candidate(self.stage, wrong, retrieved_at="2026-10-28T08:00:00+00:00")
+
+    def test_wiley_verified_formula_repairs_one_doi_only(self):
+        broken = (
+            "A publication test is shown to follow a standard distribution "
+            "under the null hypothesis and possess power against local "
+            "alternatives at the parametric rate , where is the sample size."
+        )
+        corrected, repair = restore_publisher_verified_math("10.1002/jae.70077", broken)
+        self.assertTrue(repair)
+        self.assertIn("χ²", corrected)
+        self.assertIn("n^(-1/2)", corrected)
+        self.assertIn("where n is the sample size", corrected)
+        other, changed = restore_publisher_verified_math("10.1002/jae.70071", broken)
+        self.assertFalse(changed)
+        self.assertEqual(broken, other)
+
+        records = copy.deepcopy(self.deposit)
+        records[6]["abstract"] = "<jats:p>" + broken + "</jats:p>"
+        candidate, _ = make_candidate(
+            self.stage, records, retrieved_at="2026-10-28T08:00:00+00:00"
+        )
+        item = candidate["articles"][6]
+        self.assertIn("n^(-1/2)", item["abstract_en"])
+        self.assertEqual(
+            "https://onlinelibrary.wiley.com/doi/10.1002/jae.70077",
+            item["sources"]["abstract_en"],
+        )
 
     def test_never_changes_unverified_official_stage(self):
         stage = copy.deepcopy(self.stage)
