@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-28T14:38:51+00:00",
+  "updated_at": "2026-10-28T15:47:06+00:00",
   "status": "healthy",
   "summary": {
-    "configured_journals": 50,
-    "official_page_verified": 21,
+    "configured_journals": 51,
+    "official_page_verified": 22,
     "publisher_feed_verified": 21,
     "fallback_verified": 8,
     "needs_attention": 0,
@@ -3294,6 +3294,53 @@
         "translations_complete": 3,
         "errors": [],
         "warnings": []
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JAE",
+      "journal_id": "jae",
+      "short_name": "JAE",
+      "name": "Journal of Applied Econometrics",
+      "publisher": "Wiley",
+      "configured_source": "https://onlinelibrary.wiley.com/toc/10991255/2026/41/6",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "jae-41-6",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://onlinelibrary.wiley.com/toc/10991255/2026/41/6",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "official-page-read",
+        "order_verified": true,
+        "content_counts": {
+          "official_items": 12,
+          "observed_items": 12,
+          "publishable_items": 12,
+          "research_articles": 12,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 12
+        },
+        "abstracts_complete": 0,
+        "translations_complete": 0,
+        "errors": [],
+        "warnings": [
+          "rights_withheld_public_abstracts"
+        ]
       },
       "detected": {
         "available": false,

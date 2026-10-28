@@ -1,10 +1,10 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-10-28T14:38:51+00:00
+Generated: 2026-10-28T15:47:05+00:00
 
 ## Summary
 
-- blocked: 1
+- blocked: 2
 - ready: 1212
 
 ## Issue queue
@@ -1223,4 +1223,5 @@ Generated: 2026-10-28T14:38:51+00:00
 | WD | wd-203-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-204-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-205-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
+| JAE | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | JEGROWTH | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
