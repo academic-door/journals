@@ -27,6 +27,7 @@ from collectors.article_types import (
     translation_is_complete,
 )
 from scripts.china_relevance import annotate_issue, classify_china_relevance
+from scripts.b8_rights_qualified import MODE as B8_METADATA_MODE, validate_public_projection
 from scripts.freshness_announcements import announcement_entry_fields
 from scripts.translate_issue import (
     TranslationError,
@@ -121,6 +122,8 @@ def issue_content_status(issue: dict[str, Any]) -> str:
     """Classify content completeness independently from source authority."""
 
     count = int(issue.get("research_article_count", 0))
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        return "metadata_complete" if is_publishable_snapshot(issue) else "blocked"
     if not is_publishable_snapshot(issue):
         return "blocked"
     if count > 0 and int(issue.get("quality", {}).get("translation_complete", 0)) == count:
@@ -198,7 +201,7 @@ def issue_publication_state(issue: dict[str, Any]) -> str:
 
     content_status = issue_content_status(issue)
     source_status = issue_source_status(issue)
-    if content_status == "complete" and source_status in {
+    if content_status in {"complete", "metadata_complete"} and source_status in {
         "official_verified",
         "publisher_verified",
     }:
@@ -727,6 +730,8 @@ def write_detected_snapshot(issue: dict[str, Any]) -> Path:
 
 
 def is_archivable_snapshot(issue: dict[str, Any]) -> bool:
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        return is_publishable_snapshot(issue)
     quality = issue.get("quality", {})
     count = int(issue.get("research_article_count", 0))
     return (
@@ -1247,6 +1252,8 @@ def search_record(
         "content_status": issue_content_status(issue),
         "source_status": issue_source_status(issue),
         "publication_state": issue_publication_state(issue),
+        "public_mode": issue.get("public_mode", "full_content"),
+        "public_rights": article.get("public_rights", {"status": "legacy_full_content"}),
     }
 
 
@@ -1404,6 +1411,8 @@ def structural_flags(issue: dict[str, Any]) -> list[str]:
         "publisher_rss_lag_crossref_fallback",
         "official_order_unverified",
     }
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        content_only |= {"abstract_en_incomplete", "rights_qualified_metadata"}
     return [
         flag for flag in issue.get("quality", {}).get("flags", [])
         if flag not in content_only
@@ -1423,6 +1432,12 @@ def order_verification_status(issue: dict[str, Any]) -> str:
 
 
 def is_publishable_snapshot(issue: dict[str, Any]) -> bool:
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        try:
+            validate_public_projection(issue)
+        except (TypeError, ValueError, KeyError):
+            return False
+        return True
     article_count = len(issue.get("articles", []))
     research_count = issue.get("research_article_count", 0)
     quality = issue.get("quality", {})
@@ -2084,7 +2099,13 @@ def collect_one(
 
 
 def issue_translation_semantics_valid(issue: dict[str, Any]) -> bool:
-    """Return whether a snapshot still satisfies the current translation gate."""
+    """Return whether public translation fields satisfy their mode-specific gate."""
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        try:
+            validate_public_projection(issue)
+        except (TypeError, ValueError, KeyError):
+            return False
+        return True
     for article in issue.get("articles", []):
         if not translation_is_complete(article):
             return False
