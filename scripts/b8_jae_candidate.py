@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 import json
 from pathlib import Path
 import sys
+import time
 from typing import Any
 
 import requests
@@ -52,12 +53,21 @@ def fetch_deposits(
     deposits: list[dict[str, Any]] = []
     for row in rows:
         doi = row["doi"]
-        response = session.get(
-            CROSSREF_ENDPOINT + doi, timeout=timeout,
-            headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
-        )
-        response.raise_for_status()
+        # Respect Crossref public API rate limiting. A bounded Retry-After
+        # delay is the ordinary supported API path, not an access bypass.
+        for attempt in range(4):
+            response = session.get(
+                CROSSREF_ENDPOINT + doi, timeout=timeout,
+                headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
+            )
+            if response.status_code not in (429, 503) or attempt == 3:
+                response.raise_for_status()
+                break
+            retry_after = response.headers.get("Retry-After", "")
+            delay = int(retry_after) if retry_after.isdigit() else 2 ** (attempt + 1)
+            time.sleep(min(30, max(1, delay)))
         item = response.json()["message"]
+        time.sleep(0.25)  # Avoid bursting across the 12 accepted DOIs.
         if str(item.get("DOI", "")).casefold() != doi:
             raise ValueError(f"{doi}: unexpected Crossref DOI response")
         deposits.append(item)
