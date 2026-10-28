@@ -1226,7 +1226,7 @@ def search_record(
     journal: dict[str, Any],
 ) -> dict[str, Any]:
     relevance = article.get("china_relevance") or classify_china_relevance(article)
-    return {
+    record = {
         "journal_id": issue["journal_id"],
         "journal_short_name": journal.get("short_name", issue["journal_id"].upper()),
         "journal_name": issue.get("journal_name", journal.get("name", "")),
@@ -1252,9 +1252,11 @@ def search_record(
         "content_status": issue_content_status(issue),
         "source_status": issue_source_status(issue),
         "publication_state": issue_publication_state(issue),
-        "public_mode": issue.get("public_mode", "full_content"),
-        "public_rights": article.get("public_rights", {"status": "legacy_full_content"}),
     }
+    if issue.get("public_mode") == B8_METADATA_MODE:
+        record["public_mode"] = B8_METADATA_MODE
+        record["public_rights"] = article["public_rights"]
+    return record
 
 
 def write_search_indexes(
@@ -2282,6 +2284,7 @@ def update_indexes(
     usable_count = 0
     translated_articles = 0
     total_articles = 0
+    rights_withheld_articles = 0
     monitor_state = read_json(MONITOR_STATE_PATH) or {}
     monitor_entries = monitor_state.get("journals", {})
 
@@ -2359,6 +2362,11 @@ def update_indexes(
             total = issue["research_article_count"]
             translated_articles += translated
             total_articles += total
+            if issue.get("public_mode") == B8_METADATA_MODE:
+                withheld = issue["public_content"]["rights_withheld_articles"]
+                rights_withheld_articles += withheld
+                entry["public_mode"] = B8_METADATA_MODE
+                entry["rights_withheld_articles"] = withheld
             entry.update(
                 {
                     "status": issue["status"],
@@ -2507,6 +2515,7 @@ def update_indexes(
             int(entry.get("translation_complete", 0)) for entry in entries
         )
         collection_articles = sum(int(entry.get("article_count", 0)) for entry in entries)
+        collection_withheld = sum(int(entry.get("rights_withheld_articles", 0)) for entry in entries)
         collection_data_healthy = bool(entries) and collection_usable == len(entries) and all(
             entry.get("data_status") == "healthy" for entry in entries
         )
@@ -2520,12 +2529,16 @@ def update_indexes(
             "title_cn": definition.get("name_cn", ""),
             "updated_at": updated_at,
             "data_status": "healthy" if collection_data_healthy else "degraded",
-            "content_status": "complete" if collection_content_complete else "translation_incomplete",
+            "content_status": (
+                "rights_qualified" if collection_withheld else
+                "complete" if collection_content_complete else "translation_incomplete"
+            ),
             "summary": {
                 "configured_journals": len(entries),
                 "available_journals": collection_usable,
                 "articles": collection_articles,
                 "translated_articles": collection_translated,
+                **({"rights_withheld_articles": collection_withheld} if collection_withheld else {}),
             },
             "journals": entries,
         }
@@ -2542,12 +2555,16 @@ def update_indexes(
         "schema_version": "1.0",
         "updated_at": updated_at,
         "status": "healthy" if data_healthy else "degraded",
-        "content_status": "complete" if content_complete else "translation_incomplete",
+        "content_status": (
+            "rights_qualified" if rights_withheld_articles else
+            "complete" if content_complete else "translation_incomplete"
+        ),
         "summary": {
             "enabled_journals": enabled_count,
             "available_journals": usable_count,
             "articles": total_articles,
             "translated_articles": translated_articles,
+            **({"rights_withheld_articles": rights_withheld_articles} if rights_withheld_articles else {}),
         },
         "checks": checks,
     }
