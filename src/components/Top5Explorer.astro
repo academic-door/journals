@@ -224,7 +224,7 @@ const initialIssue = initialIssuePath
       (key) => hasOwn(issue, key)
     );
     if (hasTruthfulContract) {
-      if (issue.content_status !== "complete") {
+      if (!["complete", "metadata_complete"].includes(issue.content_status)) {
         return issue.content_status === "blocked" ? "blocked" : "translation_partial";
       }
       if (!["official_verified", "publisher_verified"].includes(issue.source_status)) {
@@ -394,6 +394,7 @@ const initialIssue = initialIssuePath
     if (!state.issue) return;
 
     const issue = state.issue;
+    const metadataOnly = issue.public_mode === "metadata_first_rights_qualified_v1";
     const quality = issue.quality || {};
     const abstracts = quality.abstract_en_complete || 0;
     const translated = quality.translation_complete || 0;
@@ -403,11 +404,12 @@ const initialIssue = initialIssuePath
     const issueCountLabel = `${total} 篇学术文章${corrections ? `，另有 ${corrections} 篇勘误` : ""}`;
     const publicationState = publicationStateForIssue(issue);
     const ready = publicationState === "ready";
-    const contentReady = issue.content_status === "complete"
+    const contentReady = ["complete", "metadata_complete"].includes(issue.content_status)
       || (abstracts === total && translated === total);
     const sourcePending = publicationState === "source_pending";
     const publicationDate = formatDate(issue.publication_date);
     composerLink.href = `${base}composer/?journal=${encodeURIComponent(issue.journal_id)}&issue=${encodeURIComponent(issue.issue_id)}`;
+    composerLink.hidden = metadataOnly; // Metadata-only issues are not full bilingual copy artifacts.
     const journal = state.activeJournal || {};
     const announcementNotice = journal.latest_announced_is_newer ? `
       <div class="issue-note announced-issue-notice">
@@ -433,7 +435,7 @@ const initialIssue = initialIssuePath
       <div class="issue-note-stack">
         <div class="issue-note ${ready ? "complete" : ""}">
           ${ready
-            ? "可复制发布"
+            ? (metadataOnly ? "书目已上线 · 摘要按授权展示" : "可复制发布")
             : sourcePending
               ? "内容已齐，待来源核验"
             : abstracts < total
@@ -516,6 +518,8 @@ const initialIssue = initialIssuePath
           </div>
         </header>
         ${abstractGrid}
+        ${article.public_rights?.status === "withheld" ? `<p class="issue-note">摘要及中文翻译尚无已核实的公开授权，请通过下方链接查看出版商原文。</p>` : ""}
+        ${article.public_rights?.status === "verified_cc_by_4_0" ? `<p class="issue-note">CC BY 4.0 · ${escapeHtml(article.public_rights.attribution || "")} · 中文翻译为改编文本</p>` : ""}
         <footer class="paper-meta">
           ${article.doi ? `<span>DOI ${escapeHtml(article.doi)}</span>` : ""}
           <a href="${escapeHtml(article.source_url)}" target="_blank" rel="noreferrer">
