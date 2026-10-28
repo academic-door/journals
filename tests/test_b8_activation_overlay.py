@@ -36,7 +36,7 @@ class B8ActivationBridgeTests(unittest.TestCase):
     def test_reject_unready_50th_title(self):
         conf = copy.deepcopy(self.configs)
         conf["JEGROWTH"] = {
-            "id": "jegrowth", "enabled": True, "collector": "springer",
+            "id": "jegrowth", "issn": "1381-4338", "enabled": True, "collector": "springer",
             "current_issue_url": "https://link.springer.com/journal/10887/volumes-and-issues/31-3",
         }
         with self.assertRaisesRegex(ValueError, "lacks"):
