@@ -49,21 +49,29 @@ def _admission_errors(item: dict, live: dict) -> list[str]:
     key = str(item["key"])
     family = str(item["publisher_family"])
     errors: list[str] = []
-    if live.get("collector") != COLLECTORS[family]:
+    if live.get("collector") != COLLECTORS.get(family):
         errors.append(f"{key}: collector is not qualified for its publisher family")
     issue_url = urlparse(str(live.get("current_issue_url") or ""))
     if (
         issue_url.scheme != "https"
-        or issue_url.hostname != OFFICIAL_ISSUE_HOSTS[family]
+        or issue_url.hostname != OFFICIAL_ISSUE_HOSTS.get(family)
         or not issue_url.path.strip("/")
     ):
         errors.append(f"{key}: official publisher issue URL missing or mismatched")
+    # A generic journal home page cannot stand in for the accepted *issue*.
+    sample = str(item.get("sample_issue") or "").strip().casefold()
+    source_tokens = re.findall(r"[a-z0-9]+", issue_url.path.casefold())
+    expected_tokens = [token for token in re.split(r"[/\\-]", sample) if token]
+    if not expected_tokens or not all(token in source_tokens for token in expected_tokens):
+        errors.append(f"{key}: current issue URL does not match accepted issue identity")
     if not ACCEPTANCE_RUN.fullmatch(str(item.get("acceptance_evidence") or "")):
         errors.append(f"{key}: missing per-title protected acceptance run")
     if (
         not str(item.get("sample_issue") or "").strip()
         or not str(item.get("source_status") or "").strip()
         or item.get("source_status") in STAGING_ONLY_SOURCE_STATES
+        or "provisional" in str(item.get("source_status")).casefold()
+        or "unverified" in str(item.get("source_status")).casefold()
     ):
         errors.append(f"{key}: source remains unqualified staging evidence")
     if key == "JEGROWTH" and (
