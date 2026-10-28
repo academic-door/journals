@@ -39,10 +39,15 @@ jobs:
             "$base/api/v1/health.json?health_run=${{ github.run_id }}" \
             > "$output/health.json"
           # A new title is not accepted merely because aggregate JSON says 50.
-          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" = "50" ]; then
+          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" -ge 50 ]; then
             curl --fail --retry 3 --silent --show-error \
               "$base/api/v1/journals/jegrowth/issues/current.json?health_run=${{ github.run_id }}" \
               > "$output/jegrowth-current.json"
+          fi
+          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" = "51" ]; then
+            curl --fail --retry 3 --silent --show-error \
+              "$base/api/v1/journals/jae/issues/current.json?health_run=${{ github.run_id }}" \
+              > "$output/jae-current.json"
           fi
           curl --fail --retry 3 --silent --show-error \
             "$base/api/v1/monitoring.json?health_run=${{ github.run_id }}" \
@@ -110,12 +115,12 @@ jobs:
 
           summary = health.get("summary", {})
           expected = summary.get("enabled_journals")
-          if expected not in (49, 50):
-              raise AssertionError("health enabled_journals is outside the approved 49/50 rollout")
+          if expected not in (49, 50, 51):
+              raise AssertionError("health enabled_journals is outside the approved 49/50/51 rollout")
           if summary.get("available_journals") != expected:
               raise AssertionError("not every configured journal has a READY issue")
-          if expected == 50:
-              # Exactly one B8 source-approved title is eligible in this tranche.
+          if expected >= 50:
+              # First independently approved B8 title remains required.
               growth = load("jegrowth-current.json")
               expected_dois = [
                   "10.1007/s10887-026-09265-x",
@@ -138,12 +143,22 @@ jobs:
                   for a in articles
               ):
                   raise AssertionError("JEGROWTH public author/English/Chinese fields are incomplete")
-          if health.get("content_status") != "complete":
-              raise AssertionError("public translations are incomplete")
-          if not summary.get("articles") or (
-              summary.get("translated_articles") != summary.get("articles")
-          ):
-              raise AssertionError("article and translation totals do not reconcile")
+          if not summary.get("articles"):
+              raise AssertionError("public article totals are empty")
+          if expected <= 50:
+              if health.get("content_status") != "complete":
+                  raise AssertionError("legacy journal translations are incomplete")
+              if summary.get("translated_articles") != summary.get("articles"):
+                  raise AssertionError("legacy article and translation totals do not reconcile")
+          else:
+              # Approved B8 metadata-first release withholds exactly 12
+              # unlicensed English abstracts and Chinese adaptations.
+              if health.get("content_status") != "rights_qualified":
+                  raise AssertionError("metadata-first rights-qualified status missing")
+              if summary.get("rights_withheld_articles") != 12:
+                  raise AssertionError("rights-withheld public article count drift")
+              if summary.get("translated_articles") + 12 != summary.get("articles"):
+                  raise AssertionError("legacy translations plus withheld JAE rows do not reconcile")
           failed_checks = [
               key for key, value in health.get("checks", {}).items() if value is False
           ]
@@ -158,7 +173,18 @@ jobs:
 
           monitor_summary = monitoring.get("summary", {})
           if monitoring.get("status") != "healthy":
-              raise AssertionError("journal monitor is not healthy")
+              # A newly admitted source-attested JAE is not falsely reported
+              # as operationally probed. Accept ONLY its explicit single
+              # warning while the first monitor observation is outstanding.
+              pending_jae = (
+                  expected == 51
+                  and monitoring.get("status") == "degraded"
+                  and monitoring.get("warning_journals") == ["JAE"]
+                  and monitor_summary.get("warnings") == 1
+                  and monitor_summary.get("failed") == 0
+              )
+              if not pending_jae:
+                  raise AssertionError("journal monitor has unqualified degradation")
           if monitor_summary.get("configured_journals") != expected:
               raise AssertionError("monitor configured_journals differs from approved live scope")
           if monitor_summary.get("failed") != 0:
@@ -212,7 +238,7 @@ jobs:
                   stamp = datetime.fromisoformat(str(observed).replace("Z", "+00:00"))
                   if stamp.tzinfo is None or stamp > now:
                       raise AssertionError(f"{jid}: invalid publisher observation")
-          if expected == 50 and "jegrowth" not in reported_transport:
+          if expected >= 50 and "jegrowth" not in reported_transport:
               raise AssertionError("newly enabled journal missing from source diagnostics")
           unavailable = sum(not x for x in reported_transport.values())
           diag_summary = diagnostics.get("summary", {})
@@ -281,8 +307,9 @@ jobs:
           if "<rss" not in feed or "<item" not in feed:
               raise AssertionError("all-journals RSS feed is empty or malformed")
           print(
-              f"public semantic health: {expected}/{expected} journals, complete translations, "
-              "fresh monitor, source diagnostics and R4 baseline present"
+              f"public semantic health: {expected}/{expected} journals, "
+              "rights-qualified metadata where applicable, source diagnostics "
+              "and R4 baseline present"
           )
           PY
 
