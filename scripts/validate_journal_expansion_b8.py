@@ -32,7 +32,7 @@ OFFICIAL_ISSUE_HOSTS = {
     "wiley": "onlinelibrary.wiley.com",
     "springer": "link.springer.com",
 }
-ACCEPTANCE_RUN = re.compile(r"academic-door/journals/actions/runs/[1-9][0-9]*\\Z")
+ACCEPTANCE_RUN = re.compile(r"academic-door/journals/actions/runs/[1-9][0-9]*\Z")
 STAGING_ONLY_SOURCE_STATES = {
     "official_issue_list_observed",
     "full_sectioned_issue_observed",
