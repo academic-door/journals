@@ -77,10 +77,14 @@ jobs:
           if not isinstance(count,int) or count<50 or count>56 or summary.get("available_journals") != count:
               raise SystemExit("existing production data has unsupported availability")
           from scripts.seed_b8_rights_qualified import SPECS
-          import os
           root=Path(os.environ["RUNNER_TEMP"])/"b8-data-worktree"/"public/api/v1/journals"
+          # Previously promoted issues remain on data and must not block the
+          # next isolated title. Only *not_enabled* B8 titles can be pending.
+          pending_keys={x["key"] for x in manifest["journals"]
+                        if x["rollout_status"] == "not_enabled"}
           existing=[key for key,(jid,*_) in SPECS.items()
-                    if (root/jid/"issues/current.json").exists()]
+                    if key in pending_keys
+                    and (root/jid/"issues/current.json").exists()]
           if existing and existing != [os.environ["TITLE"]]:
               raise SystemExit("another pending B8 metadata seed exists: "+",".join(existing))
           print("Guarded publication baseline: ",count,"available of",count)
