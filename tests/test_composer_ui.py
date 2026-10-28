@@ -393,7 +393,7 @@ class ComposerUiTest(unittest.TestCase):
         config = yaml.safe_load((ROOT / "config/collections.yml").read_text(encoding="utf-8"))
         journals = config["collections"]["fields"]["journals"]
         self.assertEqual(46, len(journals))
-        self.assertEqual(45, len(set(journals)))
+        self.assertEqual(46, len(set(journals)))
         self.assertIn("JEGROWTH", journals)
         self.assertTrue({"JDE", "JPubE", "JEEM", "JUE", "AJAE"}.issubset(journals))
 
