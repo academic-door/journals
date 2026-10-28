@@ -433,8 +433,11 @@ class WileyCollectorTests(unittest.TestCase):
         ))
         self.assertTrue(all(x.exclusion_reason for x in
                             adjudicate(original, journal_id="ecta")[-2:]))
-        self.assertTrue(all(x.exclusion_reason for x in
-                            adjudicate(original, issue="5")[-2:]))
+        unrelated_issue_url = "https://onlinelibrary.wiley.com/toc/10991255/2026/41/5"
+        self.assertTrue(all(x.exclusion_reason for x in adjudicate(
+            original, issue="5", requested_url=unrelated_issue_url,
+            resolved_url=unrelated_issue_url,
+        )[-2:]))
         for changed in (
             original[:-1],
             [*original[:-2], original[-1], original[-2]],
