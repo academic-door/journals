@@ -17,6 +17,11 @@ class B8ActivationBridgeTests(unittest.TestCase):
     def setUpClass(cls):
         cls.manifest = json.loads((ROOT / "config/journal-expansion-b8.json").read_text())
         cls.configs = yaml.safe_load((ROOT / "config/journals.yml").read_text())["journals"]
+        # Reconstruct the pre-JAE fixture from current live configuration.
+        # This preserves 49->50 and 50->51 transition coverage.
+        cls.configs.pop("JAE", None)
+        next(item for item in cls.manifest["journals"] if item["key"] == "JAE")["rollout_status"] = "not_enabled"
+        cls.manifest["launch_state"] = "partial_rollout"
 
     def test_existing_49_live_is_unmodified(self):
         baseline = copy.deepcopy(self.configs)
