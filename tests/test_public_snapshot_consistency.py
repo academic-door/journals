@@ -72,6 +72,21 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
         self.assertTrue(is_archivable_snapshot(issue))
         self.assertTrue(issue_translation_semantics_valid(issue))
 
+    def _b8_pending_id(self) -> str | None:
+        manifest = load_json(ROOT / "config" / "journal-expansion-b8.json")
+        pending = [
+            j for j in manifest.get("journals", [])
+            if j.get("rollout_status") == "activation_pending_production"
+        ]
+        if len(pending) > 1:
+            raise AssertionError("only one B8 title may be pending")
+        if not pending:
+            return None
+        item = pending[0]
+        if item["key"] not in self.enabled or self.enabled[item["key"]]["id"] != item["id"]:
+            raise AssertionError("pending B8 title is not correctly enabled")
+        return item["id"]
+
     def test_current_snapshots_cover_all_enabled_journals_except_exact_b8_transition(self) -> None:
         configured_ids = {journal["id"] for journal in self.enabled.values()}
         checked_in_ids = {
@@ -107,14 +122,19 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
                     a["public_rights"]["status"] == "withheld"
                     for a in issue["articles"]
                 ))
-        self.assertFalse(missing - {"jegrowth"})
+        pending_id = self._b8_pending_id()
+        allowed_missing = {"jegrowth"} | ({pending_id} if pending_id else set())
+        self.assertFalse(missing - allowed_missing)
         if "jegrowth" in extras:
             self.assertTrue(staged, "unexpected JEGROWTH data publication")
             self._assert_source_accepted_growth()
         if missing:
-            self.assertTrue(pending, "enabled journal has no source-qualified current issue")
-            # Main's checked-in 49 fallback may predate the data-branch seed.
-            # Data-branch overlays and Pages must independently contain it.
+            self.assertTrue(
+                pending or (pending_id is not None and missing == {pending_id}),
+                "enabled journal has no guarded source-qualified current issue",
+            )
+            # A main-only PR fallback may predate the data-branch derived index.
+            # Data-branch overlays and Pages independently rebuild it.
         self.assertEqual(configured_ids - missing | extras, checked_in_ids)
 
     def test_public_collections_partition_the_enabled_journals(self) -> None:
@@ -131,9 +151,17 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
         actual = set(memberships)
         self.assertFalse(actual - configured, "unapproved journal membership")
         missing = configured - actual
-        self.assertFalse(missing - {"jegrowth"}, "enabled journals missing from public collections")
+        pending_id = self._b8_pending_id()
+        self.assertFalse(
+            missing - ({"jegrowth"} | ({pending_id} if pending_id else set())),
+            "enabled journals missing from public collections",
+        )
         if missing:
-            self.assertTrue(self._b8_growth_status()[1], "missing collection journal without B8 transition")
+            self.assertTrue(
+                self._b8_growth_status()[1] or
+                (pending_id is not None and missing == {pending_id}),
+                "missing collection journal without B8 transition",
+            )
         self.assertEqual(len(actual), len(configured) - len(missing))
 
     def test_health_monitoring_manifest_and_docs_use_same_counts(self) -> None:
@@ -152,8 +180,12 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
         reported_count = health["summary"]["enabled_journals"]
         missing = enabled_count - reported_count
         self.assertIn(missing, (0, 1), "health under-reports multiple journals")
+        pending_id = self._b8_pending_id()
         if missing:
-            self.assertTrue(self._b8_growth_status()[1], "health may lag only guarded B8 promotion")
+            self.assertTrue(
+                self._b8_growth_status()[1] or pending_id is not None,
+                "health may lag only guarded B8 promotion",
+            )
         self.assertEqual(reported_count, health["summary"]["available_journals"])
         self.assertEqual(reported_count, monitoring["summary"]["configured_journals"])
         self.assertEqual(reported_count, manifest["journal_count"])
@@ -161,7 +193,11 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
         self.assertEqual(reported_count - 5, fields["summary"]["configured_journals"])
         keys = set(self.enabled)
         if missing:
-            keys.discard("JEGROWTH")
+            if pending_id is not None:
+                key = next(k for k, v in self.enabled.items() if v["id"] == pending_id)
+                keys.discard(key)
+            else:
+                keys.discard("JEGROWTH")
         self.assertEqual(keys, monitoring_keys)
         # README announces configured product scope; the prior 49-count
         # remains valid on staging-only main, updated to 50 on activation.

@@ -762,3 +762,18 @@ journals:
     current_issue_url: https://link.springer.com/journal/10887/volumes-and-issues/31-3
     enabled: true
     collections: [fields]
+
+  JAE:
+    id: jae
+    name: Journal of Applied Econometrics
+    short_name: JAE
+    name_cn: 应用计量经济学杂志
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: Wiley
+    collector: wiley
+    issn: 0883-7252
+    fallback: crossref
+    current_issue_url: https://onlinelibrary.wiley.com/toc/10991255/2026/41/6
+    enabled: true
+    collections: [fields]

@@ -21,6 +21,11 @@ class B8PerTitleAdmissionTests(unittest.TestCase):
         cls.baseline_live = yaml.safe_load(
             (ROOT / "config/journals.yml").read_text(encoding="utf-8")
         )["journals"]
+        # Candidate admission tests start from the accepted 50-title state,
+        # even when current production has a later B8 title pending.
+        cls.baseline_live.pop("JAE", None)
+        next(item for item in cls.baseline_manifest["journals"] if item["key"] == "JAE")["rollout_status"] = "not_enabled"
+        cls.baseline_manifest["launch_state"] = "partial_rollout"
 
     def candidate(self, key, collector, issue_url):
         manifest = copy.deepcopy(self.baseline_manifest)

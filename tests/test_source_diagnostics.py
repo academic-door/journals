@@ -119,14 +119,14 @@ class SourceDiagnosticsTests(unittest.TestCase):
             )
             self.assertEqual(0, completed.returncode, completed.stderr)
             data = json.loads(output.read_text(encoding="utf-8"))
-            self.assertEqual(50, data["summary"]["journals"])
+            self.assertEqual(51, data["summary"]["journals"])
 
     def test_existing_three_owner_capture_files_compare_without_network(self):
         # Uses real owner evidence, not the diagnostic-only DOI fixture.
         api = ROOT / "public/api/v1"
         report = build_from_tree(ROOT, api, generated_at=self.generated)
-        self.assertEqual(50, report["summary"]["journals"])
-        self.assertEqual(50, len(report["journals"]))
+        self.assertEqual(51, report["summary"]["journals"])
+        self.assertEqual(51, len(report["journals"]))
         pilots = [x for x in report["journals"] if x["journal_id"] in {"jeem", "jie", "energy"}]
         self.assertEqual(3, len(pilots))
         self.assertTrue(all(x["publisher_coverage"] in {
