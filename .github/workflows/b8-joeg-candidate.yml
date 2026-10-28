@@ -1,0 +1,53 @@
+name: B8 JOEG 26-5 candidate (isolated)
+
+on:
+  push:
+    branches:
+      - b8/g20-joeg-isolated-bilingual-stage
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Build real nine-paper JOEG bilingual candidate
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TRANSLATION_WORKERS: "2"
+        run: |
+          python scripts/b8_joeg_candidate.py \
+            --output-dir "$RUNNER_TEMP/joeg-26-5" \
+            --translate
+          python - "$RUNNER_TEMP/joeg-26-5/joeg-26-5.report.json" <<'PY'
+          import json,sys
+          j=json.load(open(sys.argv[1],encoding="utf-8"))
+          assert j["article_count"] == 9
+          assert j["crossref_abstracts"] == 8
+          assert j["first_party_open_access_abstracts"] == 1
+          assert j["source_status"] == "official_verified"
+          assert j["release_enabled"] is False
+          print("JOEG isolated result:",json.dumps({
+             "issue":j["issue_id"],"source":j["source_status"],
+             "content":j["content_status"],"publication":j["publication_state"],
+             "translated":j["translation"]["translated"],"quality_ready":j["quality_ready"],
+             "release":j["release_enabled"],
+          }))
+          PY
+      - name: Preserve private temporary candidate
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: b8-joeg-26-5-staged-candidate
+          path: ${{ runner.temp }}/joeg-26-5/
+          retention-days: 1
+          if-no-files-found: warn
