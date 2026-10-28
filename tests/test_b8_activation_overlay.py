@@ -78,6 +78,34 @@ class B8ActivationBridgeTests(unittest.TestCase):
             current = {"summary": {"enabled_journals": 51, "available_journals": 51}}
             self.assertEqual("no_op", review_activation_transition(manifest, configs, current, None))
 
+    def test_publisher_verified_itpf_has_same_ready_gate(self):
+        manifest, configs, health, issue = self._pending_jae()
+        jae = next(x for x in manifest["journals"] if x["key"] == "JAE")
+        itpf = next(x for x in manifest["journals"] if x["key"] == "ITPF")
+        jae["rollout_status"] = "not_enabled"
+        itpf["rollout_status"] = "activation_pending_production"
+        itpf["source_status"] = "publisher_verified_serial_issue"
+        itpf["acceptance_evidence"] = "academic-door/journals/actions/runs/999999999"
+        configs.pop("JAE")
+        configs["ITPF"] = {
+            "id": "itpf", "issn": "0927-5940", "enabled": True,
+            "collector": "springer",
+            "current_issue_url": "https://link.springer.com/journal/10797/volumes-and-issues/33-5",
+        }
+        issue["journal_id"] = "itpf"
+        issue["issue_id"] = "itpf-33-5"
+        issue["source_status"] = "publisher_verified"
+        with (
+            patch("scripts.b8_activation_overlay.validate_issue"),
+            patch("scripts.b8_activation_overlay.normalize_issue_content", return_value=issue),
+            patch("scripts.b8_activation_overlay.is_archivable_snapshot", return_value=True),
+            patch("scripts.b8_activation_overlay.issue_translation_semantics_valid", return_value=True),
+        ):
+            self.assertEqual("rebuild", review_activation_transition(manifest, configs, health, issue))
+            issue["publication_state"] = "source_pending"
+            with self.assertRaisesRegex(ValueError, "READY"):
+                review_activation_transition(manifest, configs, health, issue)
+
     def test_new_title_rejects_source_pending_or_missing_translations(self):
         manifest, configs, health, issue = self._pending_jae()
         with patch("scripts.b8_activation_overlay.validate_issue"), patch(
