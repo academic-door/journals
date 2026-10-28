@@ -95,7 +95,9 @@ def review_activation_transition(
     if (
         journal_issue.get("journal_id") != journal_id
         or journal_issue.get("issue_id") != expected_issue_id
-        or journal_issue.get("source_status") != "official_verified"
+        or journal_issue.get("source_status") not in {
+            "official_verified", "publisher_verified",
+        }
         or journal_issue.get("publication_state") != "ready"
         or not journal_issue.get("quality", {}).get("roster_match")
         or not journal_issue.get("quality", {}).get("order_preserved")
