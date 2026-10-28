@@ -445,6 +445,10 @@ class WileyCollectorTests(unittest.TestCase):
             with self.assertRaises(wiley.WileyParseError):
                 adjudicate(changed)
         with self.assertRaises(wiley.WileyParseError):
+            adjudicate(original, issue="5")
+        with self.assertRaises(wiley.WileyParseError):
+            adjudicate(original, volume="40")
+        with self.assertRaises(wiley.WileyParseError):
             adjudicate(original,
                        requested_url="https://onlinelibrary.wiley.com/journal/10991255")
         with self.assertRaises(wiley.WileyParseError):
