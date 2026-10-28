@@ -1,0 +1,59 @@
+name: B8 Elsevier publisher-series bilingual candidates
+
+on:
+  push:
+    branches:
+      - b8/g20-elsevier-source-stage
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        journal: [IJIO, JFI, EJPE, JIMF]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Build real isolated publisher-series bilingual issue
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TRANSLATION_WORKERS: "2"
+        run: |
+          python scripts/b8_elsevier_candidates.py \
+            --journal "${{ matrix.journal }}" \
+            --output-dir "$RUNNER_TEMP/b8-elsevier" \
+            --translate
+          python - "$RUNNER_TEMP/b8-elsevier/report.json" <<'PY'
+          import json,sys
+          p=json.load(open(sys.argv[1],encoding="utf-8"))
+          assert p["source_status"] == "publisher_verified"
+          assert p["first_party_full_toc_verified"] is False
+          assert p["release_enabled"] is False
+          print("Elsevier isolated:",json.dumps({
+              "journal":p["journal"],"issue":p["issue_id"],
+              "count":p["publisher_series_count"],
+              "content":p["content_status"],
+              "quality_ready":p["content_quality_ready"],
+              "translated":p["translation"]["translated"],
+              "failures":len(p["translation"]["failed"]),
+          }))
+          PY
+      - name: Preserve isolated private article content
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: b8-elsevier-${{ matrix.journal }}-candidate
+          path: ${{ runner.temp }}/b8-elsevier/
+          retention-days: 1
+          if-no-files-found: warn
