@@ -8,7 +8,6 @@ No production/data branch writes, journal enablement or license claims.
 from __future__ import annotations
 
 import argparse
-import copy
 from datetime import datetime, timezone
 import json
 from pathlib import Path
