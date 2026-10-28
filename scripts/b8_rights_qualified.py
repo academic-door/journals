@@ -174,6 +174,15 @@ def project_b8_issue(
 # B8-only product scope; older, already-accepted 50 journal payload contracts
 # cannot be silently switched to metadata mode by a generic source producer.
 METADATA_B8_IDS = frozenset({"jae", "joeg", "itpf", "ijio", "jfi", "ejpe", "jimf"})
+ISSUE_SOURCE_HOSTS = {
+    "jae": {"onlinelibrary.wiley.com"},
+    "joeg": {"academic.oup.com"},
+    "itpf": {"link.springer.com", "ideas.repec.org"},
+    "ijio": {"www.sciencedirect.com", "ideas.repec.org"},
+    "jfi": {"www.sciencedirect.com", "ideas.repec.org"},
+    "ejpe": {"www.sciencedirect.com", "ideas.repec.org"},
+    "jimf": {"www.sciencedirect.com", "ideas.repec.org"},
+}
 
 
 def validate_public_projection(issue: dict) -> None:
@@ -190,8 +199,11 @@ def validate_public_projection(issue: dict) -> None:
         or issue.get("source_status") not in {"official_verified", "publisher_verified"}
     ):
         raise ValueError("invalid B8 metadata public mode/authority/readiness")
-    if not _https_url(issue.get("source_url")):
-        raise ValueError("metadata issue source URL invalid")
+    if not _https_url(issue.get("source_url")) or (
+        urlparse(issue["source_url"]).hostname
+        not in ISSUE_SOURCE_HOSTS[issue["journal_id"]]
+    ):
+        raise ValueError("metadata issue source publisher-family URL invalid")
     q = issue.get("quality") or {}
     a = issue.get("articles") or []
     if (
