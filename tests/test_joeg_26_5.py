@@ -204,7 +204,7 @@ class Joeg265CollectorTests(unittest.TestCase):
         self.assertTrue(is_detected_snapshot(normalized))
         self.assertTrue(is_publishable_snapshot(normalized))
         self.assertEqual("complete", issue_content_status(normalized))
-        self.assertEqual("ready", normalized["content_status"])
+        self.assertEqual("complete", normalized["content_status"])
         self.assertEqual("ready", normalized["publication_state"])
 
     def test_changed_roster_order_duplicate_missing_and_unknown_doi_fail_closed(self):
