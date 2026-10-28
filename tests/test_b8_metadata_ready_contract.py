@@ -26,6 +26,8 @@ def synthetic_jae_source():
     )
     source["journal_id"] = "jae"
     source["issue_id"] = "jae-41-6"
+    source["volume"] = "41"
+    source["issue"] = "6"
     source["journal_name"] = "Journal of Applied Econometrics"
     source["source_url"] = "https://onlinelibrary.wiley.com/toc/10991255/2026/41/6"
     for article, suffix in zip(source["articles"], ("70067", "70061", "70071"), strict=True):
