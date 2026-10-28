@@ -1,0 +1,52 @@
+name: B8 JAE 41-6 candidate (isolated)
+
+on:
+  push:
+    branches:
+      - b8/g20-jae-real-crossref-candidate
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Stage actual Crossref DOI abstracts and translate in isolated runner
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TRANSLATION_WORKERS: "2"
+        run: |
+          python scripts/b8_jae_candidate.py \
+            --output-dir "$RUNNER_TEMP/jae-41-6" \
+            --translate
+          python - "$RUNNER_TEMP/jae-41-6/report.json" <<'PY'
+          import json, sys
+          report = json.load(open(sys.argv[1], encoding="utf-8"))
+          assert report["publisher_ordered_articles"] == 12
+          assert report["source_status"] == "official_verified"
+          assert report["production_release_approved"] is False
+          print("JAE isolated result:", json.dumps({
+              "count": report["publisher_ordered_articles"],
+              "source": report["source_status"],
+              "content": report["content_status"],
+              "quality_ready": report["content_quality_ready"],
+              "release": report["production_release_approved"],
+          }))
+          PY
+      - name: Preserve private staged candidate for owner quality review
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: b8-jae-41-6-staged-candidate
+          path: ${{ runner.temp }}/jae-41-6/
+          retention-days: 1
+          if-no-files-found: warn
