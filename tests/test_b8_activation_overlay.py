@@ -2,6 +2,7 @@
 import copy
 import json
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 import yaml
@@ -40,6 +41,69 @@ class B8ActivationBridgeTests(unittest.TestCase):
         }
         with self.assertRaisesRegex(ValueError, "lacks"):
             review_activation_transition(self.manifest, conf, {}, None)
+
+
+    def _pending_jae(self):
+        manifest = copy.deepcopy(self.manifest)
+        configs = copy.deepcopy(self.configs)
+        spec = next(x for x in manifest["journals"] if x["key"] == "JAE")
+        spec["rollout_status"] = "activation_pending_production"
+        spec["source_status"] = "official_full_issue_verified"
+        spec["acceptance_evidence"] = "academic-door/journals/actions/runs/999999999"
+        manifest["launch_state"] = "partial_rollout_pending_verification"
+        configs["JAE"] = {
+            "id": "jae", "issn": "0883-7252", "enabled": True,
+            "collector": "wiley",
+            "current_issue_url": "https://onlinelibrary.wiley.com/toc/10991255/2026/41/6",
+        }
+        issue = {
+            "journal_id": "jae", "issue_id": "jae-41-6",
+            "source_status": "official_verified",
+            "publication_state": "ready",
+            "quality": {"roster_match": True, "order_preserved": True},
+            "articles": [{"doi": "10.1002/jae.70067"}],
+        }
+        health = {"summary": {"enabled_journals": 50, "available_journals": 50}}
+        return manifest, configs, health, issue
+
+    def test_new_title_rebuild_after_real_ready_content_gate(self):
+        manifest, configs, health, issue = self._pending_jae()
+        with (
+            patch("scripts.b8_activation_overlay.validate_issue"),
+            patch("scripts.b8_activation_overlay.normalize_issue_content", return_value=issue),
+            patch("scripts.b8_activation_overlay.is_archivable_snapshot", return_value=True),
+            patch("scripts.b8_activation_overlay.issue_translation_semantics_valid", return_value=True),
+        ):
+            self.assertEqual("rebuild", review_activation_transition(manifest, configs, health, issue))
+            current = {"summary": {"enabled_journals": 51, "available_journals": 51}}
+            self.assertEqual("no_op", review_activation_transition(manifest, configs, current, None))
+
+    def test_new_title_rejects_source_pending_or_missing_translations(self):
+        manifest, configs, health, issue = self._pending_jae()
+        with patch("scripts.b8_activation_overlay.validate_issue"), patch(
+            "scripts.b8_activation_overlay.normalize_issue_content", return_value=issue
+        ), patch("scripts.b8_activation_overlay.is_archivable_snapshot", return_value=True), patch(
+            "scripts.b8_activation_overlay.issue_translation_semantics_valid", return_value=True
+        ):
+            issue["source_status"] = "source_pending"
+            with self.assertRaisesRegex(ValueError, "READY"):
+                review_activation_transition(manifest, configs, health, issue)
+            issue["source_status"] = "official_verified"
+            issue["publication_state"] = "translation_partial"
+            with self.assertRaisesRegex(ValueError, "READY"):
+                review_activation_transition(manifest, configs, health, issue)
+
+    def test_requires_one_title_at_a_time_and_exact_baseline(self):
+        manifest, configs, health, issue = self._pending_jae()
+        itpf = next(x for x in manifest["journals"] if x["key"] == "ITPF")
+        itpf["rollout_status"] = "activation_pending_production"
+        with self.assertRaisesRegex(ValueError, "only one B8"):
+            from scripts.b8_activation_overlay import pending_promotion
+            pending_promotion(manifest)
+        itpf["rollout_status"] = "not_enabled"
+        health["summary"]["enabled_journals"] = 48
+        with self.assertRaisesRegex(ValueError, "baseline"):
+            review_activation_transition(manifest, configs, health, issue)
 
 
 if __name__ == "__main__":
