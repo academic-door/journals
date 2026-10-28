@@ -3,6 +3,7 @@ import copy
 import unittest
 
 from scripts.b8_elsevier_candidates import SOURCE_SPECS, candidate_for
+from collectors.article_types import evidence_roster_article_type
 
 
 class B8ElsevierCandidatesTests(unittest.TestCase):
@@ -43,6 +44,14 @@ class B8ElsevierCandidatesTests(unittest.TestCase):
                 self.assertFalse(issue["quality"]["first_party_official_issue_toc_verified"])
                 self.assertEqual("repec-publisher-supplied", issue["quality"]["roster_authority"])
                 self.assertEqual(serial, issue["source_url"])
+
+    def test_misreporting_is_not_an_editorial(self):
+        self.assertEqual(
+            "research-article",
+            evidence_roster_article_type("Debt misreporting and bank lending"),
+        )
+        self.assertEqual("editorial", evidence_roster_article_type("Annual report"))
+        self.assertEqual("editorial", evidence_roster_article_type("Editor report"))
 
     def test_duplicate_and_missing_articles_fail(self):
         spec = SOURCE_SPECS["IJIO"]
