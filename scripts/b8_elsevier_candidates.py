@@ -200,7 +200,9 @@ def candidate_for(
         )
     ):
         raise ValueError(f"{key}: article type exclusions need owner review")
-    for article, item in zip(candidate["articles"], entries, strict=True):
+    source_by_doi = {entry["doi"]: entry for entry in entries}
+    for article in candidate["articles"]:
+        item = source_by_doi[article["doi"]]
         article["sources"]["issue"] = serial_url
         article["sources"]["roster"] = serial_url
         article["sources"]["metadata"] = item["crossref_url"]
