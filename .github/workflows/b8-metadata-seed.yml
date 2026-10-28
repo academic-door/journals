@@ -77,6 +77,7 @@ jobs:
           if not isinstance(count,int) or count<50 or count>56 or summary.get("available_journals") != count:
               raise SystemExit("existing production data has unsupported availability")
           from scripts.seed_b8_rights_qualified import SPECS
+          manifest=json.loads(Path("config/journal-expansion-b8.json").read_text())
           root=Path(os.environ["RUNNER_TEMP"])/"b8-data-worktree"/"public/api/v1/journals"
           # Previously promoted issues remain on data and must not block the
           # next isolated title. Only *not_enabled* B8 titles can be pending.
