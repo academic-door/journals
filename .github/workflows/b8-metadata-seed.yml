@@ -1,0 +1,167 @@
+name: B8 metadata-only guarded data seed
+
+on:
+  workflow_dispatch:
+    inputs:
+      journal:
+        description: Exactly one approved B8 journal (not JEGROWTH)
+        required: true
+        type: choice
+        options:
+          - JAE
+          - JOEG
+          - ITPF
+          - IJIO
+          - JFI
+          - EJPE
+          - JIMF
+
+permissions:
+  contents: write
+  actions: read
+
+# Same data-writer lock as Monitor, Update, Backfill and accepted JEGROWTH seed.
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  seed-metadata:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+
+      - name: Fail closed unless this is a fresh isolated B8 title seed
+        id: identity
+        env:
+          TITLE: ${{ inputs.journal }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          import yaml
+          from scripts.seed_b8_rights_qualified import SPECS
+          title=os.environ["TITLE"]
+          if title not in SPECS:
+              raise SystemExit("B8 title not approved for metadata source seed")
+          manifest=json.loads(Path("config/journal-expansion-b8.json").read_text())
+          item=next(x for x in manifest["journals"] if x["key"] == title)
+          live=yaml.safe_load(Path("config/journals.yml").read_text())["journals"]
+          if item["rollout_status"] != "not_enabled" or title in live:
+              raise SystemExit("title already enabled/pending or changed; no seed")
+          if any(x["rollout_status"] == "activation_pending_production" for x in manifest["journals"]):
+              raise SystemExit("another B8 title has an active publication transition")
+          print("Single title metadata seed authorized, current main:", title)
+          PY
+          git fetch --depth=1 origin data
+          # Separate data-only working tree; never mutate application main.
+          git worktree add --detach "$RUNNER_TEMP/b8-data-worktree" origin/data
+          git -C "$RUNNER_TEMP/b8-data-worktree" show HEAD:public/api/v1/health.json > "$RUNNER_TEMP/data-health.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          health=json.loads((Path(os.environ["RUNNER_TEMP"])/"data-health.json").read_text())
+          summary=health.get("summary",{})
+          count=summary.get("enabled_journals")
+          if not isinstance(count,int) or count<50 or count>56 or summary.get("available_journals") != count:
+              raise SystemExit("existing production data has unsupported availability")
+          from scripts.seed_b8_rights_qualified import SPECS
+          import os
+          root=Path(os.environ["RUNNER_TEMP"])/"b8-data-worktree"/"public/api/v1/journals"
+          existing=[key for key,(jid,*_) in SPECS.items()
+                    if (root/jid/"issues/current.json").exists()]
+          if existing and existing != [os.environ["TITLE"]]:
+              raise SystemExit("another pending B8 metadata seed exists: "+",".join(existing))
+          print("Guarded publication baseline: ",count,"available of",count)
+          PY
+
+      - name: Download exact accepted private candidate artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: ${{ inputs.journal }}
+        run: |
+          set -euo pipefail
+          python - <<'PY' >> "$GITHUB_ENV"
+          import os
+          from scripts.seed_b8_rights_qualified import SPECS
+          j=os.environ["TITLE"]
+          _,_,_,_,run_id,artifact,*_=SPECS[j]
+          print(f"B8_ACCEPTED_SOURCE_RUN={run_id}")
+          print(f"B8_ACCEPTED_ARTIFACT={artifact}")
+          PY
+      - name: Verify attested source workflow success and extract private artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          conclusion="$(gh api "repos/${{ github.repository }}/actions/runs/$B8_ACCEPTED_SOURCE_RUN" --jq .conclusion)"
+          if [ "$conclusion" != success ]; then
+            echo "::error::Accepted original source workflow is not successful"; exit 1
+          fi
+          mkdir -p "$RUNNER_TEMP/b8-private-source"
+          gh run download "$B8_ACCEPTED_SOURCE_RUN" \
+            --repo "${{ github.repository }}" \
+            --name "$B8_ACCEPTED_ARTIFACT" \
+            --dir "$RUNNER_TEMP/b8-private-source"
+          # Never print private English abstracts or translations in logs.
+
+      - name: Project public metadata with zero unverified abstract grants
+        env:
+          TITLE: ${{ inputs.journal }}
+        run: |
+          set -euo pipefail
+          python scripts/seed_b8_rights_qualified.py \
+            --journal "$TITLE" \
+            --artifact-dir "$RUNNER_TEMP/b8-private-source" \
+            --data-root "$RUNNER_TEMP/b8-data-worktree"
+          TITLE="$TITLE" python - <<'PY'
+          import os, subprocess
+          from pathlib import Path
+          from scripts.seed_b8_rights_qualified import SPECS
+          j=os.environ["TITLE"]
+          jid,issue_id,*_=SPECS[j]
+          root=Path(os.environ["RUNNER_TEMP"])/"b8-data-worktree"
+          prefix=f"public/api/v1/journals/{jid}/issues/"
+          allowed={prefix+"current.json",prefix+issue_id+".json"}
+          subprocess.run(["git","-C",str(root),"add","--",*sorted(allowed)],check=True)
+          changed=subprocess.check_output(
+              ["git","-C",str(root),"diff","--cached","--name-only"],
+              text=True,
+          ).splitlines()
+          if not set(changed) <= allowed:
+              raise SystemExit("out-of-scope staged data path")
+          if not changed:
+              print("Already present; no data mutation")
+          else:
+              print("Scope-verified metadata-only paths:",sorted(changed))
+          PY
+
+      - name: Commit scoped data seed and verify non-force readback
+        env:
+          TITLE: ${{ inputs.journal }}
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/b8-data-worktree"
+          if git -C "$root" diff --cached --quiet; then
+            echo "Exact metadata-only source data already seeded; no mutation."
+            exit 0
+          fi
+          git -C "$root" config user.name academic-door-bot
+          git -C "$root" config user.email academic-door-bot@users.noreply.github.com
+          git -C "$root" commit -m "Seed source-qualified rights-withheld B8 $TITLE metadata without enabling"
+          git -C "$root" push origin HEAD:data
+          pushed="$(git -C "$root" rev-parse HEAD)"
+          remote="$(git ls-remote origin refs/heads/data | cut -f1)"
+          test "$pushed" = "$remote" || { echo "::error::data branch readback mismatch"; exit 1; }
+          echo "Verified serialized B8 metadata seed $TITLE on data commit $pushed (no title activation)"

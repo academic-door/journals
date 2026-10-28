@@ -69,6 +69,24 @@ class B8RightsQualifiedProjectionTests(unittest.TestCase):
         self.assertNotIn("PRIVATE_SOURCE", serialized)
         self.assertEqual(original_bytes, json.dumps(private, ensure_ascii=False))
 
+    def test_excluded_item_preserves_only_safe_doi_type_metadata(self):
+        source = copy.deepcopy(self.original)
+        source["quality"]["excluded_items"] = [{
+            "doi": "10.1002/jae.excluded",
+            "title_en": "Correction notice",
+            "article_type": "correction",
+            "reason": "correction_notice",
+            "abstract_en": "PRIVATE_CORRECTION_ABSTRACT",
+            "source_html": "PRIVATE_SOURCE_HTML",
+        }]
+        public = self.project(source)
+        row = public["quality"]["excluded_items"][0]
+        self.assertEqual("correction", row["article_type"])
+        self.assertEqual("10.1002/jae.excluded", row["doi"])
+        self.assertNotIn("abstract_en", row)
+        self.assertNotIn("PRIVATE_CORRECTION_ABSTRACT", json.dumps(public))
+        self.assertNotIn("PRIVATE_SOURCE_HTML", json.dumps(public))
+
     def test_one_explicit_verified_cc_by_allows_only_one_bilingual_record(self):
         src = self.original
         doi = src["articles"][0]["doi"]

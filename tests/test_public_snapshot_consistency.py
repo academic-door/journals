@@ -81,10 +81,35 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
         staged, pending = self._b8_growth_status()
         extras = checked_in_ids - configured_ids
         missing = configured_ids - checked_in_ids
-        self.assertFalse(extras - {"jegrowth"})
+        # The human-approved B8 metadata-first rollout can stage *one*
+        # rights-withheld, source-qualified public issue before configuration
+        # promotion. Never admit two overlapping pending data publications.
+        metadata_extras = extras - {"jegrowth"}
+        self.assertLessEqual(len(metadata_extras), 1, "multiple B8 metadata seeds pending")
+        if metadata_extras:
+            from scripts.b8_rights_qualified import validate_public_projection
+            from scripts.update_journals import is_publishable_snapshot
+            from scripts.seed_b8_rights_qualified import SPECS
+            manifest = load_json(ROOT / "config/journal-expansion-b8.json")
+            approved = {
+                item["id"]: item for item in manifest["journals"]
+                if item["rollout_status"] == "not_enabled"
+                and item["key"] in SPECS
+            }
+            for journal_id in metadata_extras:
+                self.assertIn(journal_id, approved, "unexpected new staged journal")
+                issue = load_json(PUBLIC_API / "journals" / journal_id / "issues/current.json")
+                self.assertEqual(SPECS[approved[journal_id]["key"]][1].casefold(),
+                                 issue["issue_id"].casefold())
+                validate_public_projection(issue)
+                self.assertTrue(is_publishable_snapshot(issue))
+                self.assertTrue(all(
+                    a["public_rights"]["status"] == "withheld"
+                    for a in issue["articles"]
+                ))
         self.assertFalse(missing - {"jegrowth"})
-        if extras:
-            self.assertTrue(staged, "unexpected data-branch publication before authorization")
+        if "jegrowth" in extras:
+            self.assertTrue(staged, "unexpected JEGROWTH data publication")
             self._assert_source_accepted_growth()
         if missing:
             self.assertTrue(pending, "enabled journal has no source-qualified current issue")

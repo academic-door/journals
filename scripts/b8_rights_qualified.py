@@ -24,6 +24,7 @@ ISSUE_FIELDS = {
     "source_status", "articles", "quality", "content_counts", "issue_label",
 }
 SAFE_SOURCE_KEYS = {"issue", "roster", "metadata", "abstract_en"}
+SAFE_EXCLUDED_KEYS = {"doi", "title_en", "article_type", "reason", "source_sequence"}
 
 
 def _https_url(value: object) -> bool:
@@ -165,8 +166,15 @@ def project_b8_issue(
         "roster_authority": q.get("roster_authority", ""),
         "roster_transport": q.get("roster_transport", ""),
     }
-    # Exclusion evidence is retained separately as canonical source candidate;
-    # no private excluded-item text can leak through this public projection.
+    # Preserve only canonical exclusion identity/type; never transport any
+    # excluded article abstract, author body, source snippet or unreviewed key.
+    excluded = []
+    for row in q.get("excluded_items", []):
+        if not isinstance(row, dict) or not str(row.get("doi", "")).strip() or not str(row.get("article_type", "")).strip():
+            raise ValueError("excluded source item lacks DOI/type identity")
+        excluded.append({k: copy.deepcopy(row[k]) for k in SAFE_EXCLUDED_KEYS if k in row})
+    if excluded:
+        public["quality"]["excluded_items"] = excluded
     public.pop("content_counts", None)
     validate_public_projection(public)
     return public
@@ -228,6 +236,14 @@ def validate_public_projection(issue: dict) -> None:
     dois = [str(x.get("doi", "")).strip().casefold() for x in a]
     if not all(dois) or len(set(dois)) != len(a):
         raise ValueError("metadata issue DOI missing or duplicated")
+    excluded = q.get("excluded_items", [])
+    if (
+        not isinstance(excluded, list)
+        or any(not isinstance(row, dict) or set(row) - SAFE_EXCLUDED_KEYS for row in excluded)
+        or any(not str(row.get("doi", "")).strip() or not str(row.get("article_type", "")).strip() for row in excluded)
+        or {str(row.get("doi", "")).casefold() for row in excluded} & set(dois)
+    ):
+        raise ValueError("unsafe or overlapping excluded-item metadata")
     visible = 0
     for i, article in enumerate(a, 1):
         if (
