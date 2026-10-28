@@ -21,7 +21,7 @@ ISSUE_FIELDS = {
     "schema_version", "issue_id", "journal_id", "journal_name", "volume",
     "issue", "publication_date", "source_url", "retrieved_at",
     "expected_article_count", "research_article_count", "status",
-    "articles", "quality", "content_counts", "issue_label",
+    "source_status", "articles", "quality", "content_counts", "issue_label",
 }
 SAFE_SOURCE_KEYS = {"issue", "roster", "metadata", "abstract_en"}
 
