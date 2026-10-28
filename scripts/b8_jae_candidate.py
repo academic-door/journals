@@ -67,6 +67,35 @@ def fetch_deposits(
     return deposits
 
 
+
+def restore_publisher_verified_math(doi: str, plain: str) -> tuple[str, bool]:
+    """Repair an observed Crossref math omission using the first-party article.
+
+    DOI 10.1002/jae.70077 has MathML formulas stripped in the Crossref
+    deposit's plain text: chi-squared distribution, n^(-1/2) rate, and n.
+    The publisher article abstract supplies these exact mathematical facts:
+    https://onlinelibrary.wiley.com/doi/10.1002/jae.70077
+    No change is made to any other DOI or to a future corrected deposit.
+    """
+    if doi != "10.1002/jae.70077":
+        return plain, False
+    if "parametric rate , where is the sample size." not in plain:
+        return plain, False
+    if "standard distribution under the null hypothesis" not in plain:
+        raise ValueError("JAE 70077 math repair anchor unexpectedly changed")
+    plain = plain.replace(
+        "standard distribution under the null hypothesis",
+        "standard chi-squared (χ²) distribution under the null hypothesis",
+        1,
+    )
+    plain = plain.replace(
+        "parametric rate , where is the sample size.",
+        "parametric rate n^(-1/2), where n is the sample size.",
+        1,
+    )
+    return plain, True
+
+
 def make_candidate(
     stage: dict[str, Any], deposits: list[dict[str, Any]], *,
     retrieved_at: str,
@@ -93,7 +122,9 @@ def make_candidate(
         "excluded_item_count": 0,
     }
     for row, deposit in zip(rows, deposits, strict=True):
-        abstract = _plain_abstract(deposit["abstract"])
+        abstract, publisher_math_repaired = restore_publisher_verified_math(
+            row["doi"], _plain_abstract(deposit["abstract"])
+        )
         official_evidence["items"].append({
             "sequence": row["source_sequence"],
             "doi": row["doi"],
@@ -101,7 +132,10 @@ def make_candidate(
             "authors": list(row["authors_en"]),
             "abstract_en": abstract,
             "source_url": row["publisher_article_url"],
-            "abstract_source_url": CROSSREF_ENDPOINT + row["doi"],
+            "abstract_source_url": (
+                row["publisher_article_url"] if publisher_math_repaired
+                else CROSSREF_ENDPOINT + row["doi"]
+            ),
         })
     validate_evidence(official_evidence)
 
@@ -123,7 +157,10 @@ def make_candidate(
         article["sources"]["issue"] = official_toc
         article["sources"]["roster"] = official_toc
         article["sources"]["metadata"] = row["publisher_article_url"]
-        article["sources"]["abstract_en"] = CROSSREF_ENDPOINT + row["doi"]
+        article["sources"]["abstract_en"] = next(
+            x["abstract_source_url"] for x in official_evidence["items"]
+            if x["doi"] == row["doi"]
+        )
         article["source_url"] = row["publisher_article_url"]
 
     candidate["retrieved_at"] = retrieved_at
