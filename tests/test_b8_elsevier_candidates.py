@@ -27,6 +27,10 @@ class B8ElsevierCandidatesTests(unittest.TestCase):
                 ),
                 "crossref_url": f"https://api.crossref.org/works/{doi}",
             })
+        if key == "EJPE":
+            rows[-1]["title_en"] = "Corrigendum to: previous journal research"
+            rows[-1]["authors"] = []
+            rows[-1]["abstract_en"] = ""
         return rows
 
     def test_four_independent_publisher_sources_never_claim_official(self):
@@ -40,7 +44,14 @@ class B8ElsevierCandidatesTests(unittest.TestCase):
                     captured_at="2026-10-28T09:00:00+00:00",
                 )
                 self.assertEqual("publisher_verified", issue["source_status"])
-                self.assertEqual(spec["count"], len(issue["articles"]))
+                self.assertEqual(
+                    spec["count"] - spec.get("excluded_corrections", 0),
+                    len(issue["articles"]),
+                )
+                self.assertEqual(
+                    spec.get("excluded_corrections", 0),
+                    len(issue["quality"]["excluded_items"]),
+                )
                 self.assertFalse(issue["quality"]["first_party_official_issue_toc_verified"])
                 self.assertEqual("repec-publisher-supplied", issue["quality"]["roster_authority"])
                 self.assertEqual(serial, issue["source_url"])
@@ -52,6 +63,21 @@ class B8ElsevierCandidatesTests(unittest.TestCase):
         )
         self.assertEqual("editorial", evidence_roster_article_type("Annual report"))
         self.assertEqual("editorial", evidence_roster_article_type("Editor report"))
+
+    def test_crossref_html_entities_should_not_change_titles(self):
+        import html
+        raw = "From carbon footprints to global footprints: M&amp;As"
+        self.assertEqual("From carbon footprints to global footprints: M&As", html.unescape(raw))
+
+    def test_ejpe_correction_not_research_or_translation(self):
+        spec = SOURCE_SPECS["EJPE"]
+        issue = candidate_for(
+            "EJPE", "https://ideas.repec.org/s/eee/poleco.html",
+            self.source("EJPE"), captured_at="2026-10-28T09:00:00+00:00",
+        )
+        self.assertEqual(16, len(issue["articles"]))
+        self.assertEqual(1, len(issue["quality"]["excluded_items"]))
+        self.assertEqual("correction", issue["quality"]["excluded_items"][0]["article_type"])
 
     def test_duplicate_and_missing_articles_fail(self):
         spec = SOURCE_SPECS["IJIO"]
