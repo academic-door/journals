@@ -143,6 +143,51 @@ jobs:
                   for a in articles
               ):
                   raise AssertionError("JEGROWTH public author/English/Chinese fields are incomplete")
+          if expected == 51:
+              jae = load("jae-current.json")
+              jae_articles = jae.get("articles", [])
+              expected_jae_dois = [
+                  "10.1002/jae.70067", "10.1002/jae.70061",
+                  "10.1002/jae.70071", "10.1002/jae.70074",
+                  "10.1002/jae.70076", "10.1002/jae.70078",
+                  "10.1002/jae.70077", "10.1002/jae.70073",
+                  "10.1002/jae.70075", "10.1002/jae.70069",
+                  "10.1002/jae.70064", "10.1002/jae.70072",
+              ]
+              if (
+                  jae.get("journal_id") != "jae"
+                  or jae.get("issue_id") != "jae-41-6"
+                  or jae.get("source_url") != "https://onlinelibrary.wiley.com/toc/10991255/2026/41/6"
+                  or jae.get("source_status") != "official_verified"
+                  or jae.get("content_status") != "metadata_complete"
+                  or jae.get("publication_state") != "ready"
+                  or jae.get("public_mode") != "metadata_first_rights_qualified_v1"
+                  or [str(a.get("doi", "")) for a in jae_articles] != expected_jae_dois
+              ):
+                  raise AssertionError("JAE 41(6) metadata/DOI/source authority is not accepted")
+              quality = jae.get("quality", {})
+              rights = jae.get("public_content", {})
+              if (
+                  quality.get("roster_match") is not True
+                  or quality.get("order_preserved") is not True
+                  or quality.get("excluded_items", [])
+                  or rights.get("metadata_articles") != 12
+                  or rights.get("rights_withheld_articles") != 12
+                  or rights.get("abstracts_en_visible") != 0
+                  or rights.get("translations_cn_visible") != 0
+              ):
+                  raise AssertionError("JAE ordered issue count/rights projection differs from acceptance")
+              if any(
+                  a.get("article_type") != "research-article"
+                  or a.get("sequence") != i
+                  or not a.get("authors") or not a.get("title_en")
+                  or any(str(a.get(k, "")).strip() for k in
+                         ("abstract_en", "abstract_cn", "title_cn"))
+                  or a.get("public_rights", {}).get("status") != "withheld"
+                  or a.get("translation", {}).get("status") != "rights_withheld"
+                  for i, a in enumerate(jae_articles, 1)
+              ):
+                  raise AssertionError("JAE metadata type/order, identity or rights withholding failed")
           if not summary.get("articles"):
               raise AssertionError("public article totals are empty")
           if expected <= 50:
