@@ -79,6 +79,7 @@
     "content_status": {
       "enum": [
         "complete",
+        "metadata_complete",
         "translation_partial",
         "blocked"
       ]
@@ -89,6 +90,21 @@
         "publisher_verified",
         "source_pending"
       ]
+    },
+    "public_mode": {
+      "enum": ["metadata_first_rights_qualified_v1"]
+    },
+    "public_content": {
+      "type": "object",
+      "required": ["mode", "metadata_articles", "abstracts_en_visible", "translations_cn_visible", "rights_withheld_articles"],
+      "properties": {
+        "mode": {"const": "metadata_first_rights_qualified_v1"},
+        "metadata_articles": {"type": "integer", "minimum": 0},
+        "abstracts_en_visible": {"type": "integer", "minimum": 0},
+        "translations_cn_visible": {"type": "integer", "minimum": 0},
+        "rights_withheld_articles": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": false
     },
     "development_sample": {
       "type": "boolean"
@@ -256,6 +272,20 @@
           "items": {
             "type": "string"
           }
+        },
+        "public_rights": {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "status": {"enum": ["withheld", "verified_cc_by_4_0"]},
+            "reason": {"type": "string"},
+            "license_url": {"type": "string", "format": "uri"},
+            "evidence_url": {"type": "string", "format": "uri"},
+            "reviewed_by": {"type": "string"},
+            "attribution": {"type": "string"},
+            "adaptation_notice": {"type": "string"}
+          },
+          "additionalProperties": false
         },
         "china_relevance": {
           "type": "object",
