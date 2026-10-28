@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timezone
 import hashlib
+import html
 import json
 from pathlib import Path
 import re
@@ -24,6 +25,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.jae_crossref_audit import _normalized
+from collectors.article_types import evidence_roster_article_type
 from collectors.metadata_fallback import (
     _parse_repec_serial_issues,
     _repec_detail_metadata,
@@ -52,7 +54,7 @@ SOURCE_SPECS = {
         "issn": "1042-9573",
     },
     "EJPE": {
-        "series": "poleco", "volume": "94", "count": 17,
+        "series": "poleco", "volume": "94", "count": 17, "excluded_corrections": 1,
         "url_sha256": "a5027c56db7b633d70a3d6ee020a7253b1c5bfe6bc3f981f0ff05f08c607375c",
         "name": "European Journal of Political Economy",
         "issn": "0176-2680",
@@ -117,7 +119,8 @@ def fetch_records(
             session, row["detail_url"], timeout=timeout,
         )
         doi = doi.strip().casefold()
-        if not doi.startswith("10.1016/") or len(abstract) < 80:
+        correction = evidence_roster_article_type(row["title"]) == "correction"
+        if not doi.startswith("10.1016/") or (not correction and len(abstract) < 80):
             raise ValueError(f"{key} row {index}: source DOI/abstract missing")
         item = _get(
             session, "https://api.crossref.org/works/" + doi,
@@ -126,17 +129,17 @@ def fetch_records(
         if (
             str(item.get("DOI", "")).casefold() != doi
             or str(item.get("volume")) != spec["volume"]
-            or not item.get("author")
+            or (not correction and not item.get("author"))
             or not item.get("title")
         ):
             raise ValueError(f"{key} row {index}: Crossref identity missing")
-        if _normalized(item["title"][0]) != _normalized(row["title"]):
+        if _normalized(html.unescape(item["title"][0])) != _normalized(html.unescape(row["title"])):
             raise ValueError(f"{key} row {index}: serial vs Crossref title mismatch")
         authors = [
             " ".join(filter(None, (a.get("given", ""), a.get("family", "")))).strip()
-            for a in item["author"]
+            for a in item.get("author", [])
         ]
-        if not all(authors):
+        if not correction and not all(authors):
             raise ValueError(f"{key} row {index}: missing authors")
         # PII is supplied by the publisher's series-linked record; link to
         # ScienceDirect as a locator but never claim it was fetched.
@@ -147,7 +150,7 @@ def fetch_records(
         pii = match.group(1).upper()
         result.append({
             "doi": doi, "title_en": row["title"],
-            "authors": authors, "abstract_en": abstract,
+            "authors": authors, "abstract_en": "" if correction else abstract,
             "abstract_source_url": row["detail_url"],
             "publisher_article_url":
                 "https://www.sciencedirect.com/science/article/pii/" + pii,
@@ -186,7 +189,16 @@ def candidate_for(
         evidence, {"name": spec["name"], "issn": spec["issn"]}, {},
         publication_date="2026",
     )
-    if len(candidate["articles"]) != spec["count"]:
+    expected_excluded = spec.get("excluded_corrections", 0)
+    actual_excluded = len(candidate["quality"].get("excluded_items", []))
+    if (
+        len(candidate["articles"]) != spec["count"] - expected_excluded
+        or actual_excluded != expected_excluded
+        or any(
+            x.get("article_type") != "correction"
+            for x in candidate["quality"].get("excluded_items", [])
+        )
+    ):
         raise ValueError(f"{key}: article type exclusions need owner review")
     for article, item in zip(candidate["articles"], entries, strict=True):
         article["sources"]["issue"] = serial_url
@@ -228,6 +240,8 @@ def main() -> int:
     report = {
         "journal": args.journal, "issue_id": candidate["issue_id"],
         "publisher_series_count": len(data),
+        "publishable_articles": len(candidate["articles"]),
+        "excluded_corrections": len(candidate["quality"].get("excluded_items", [])),
         "source_status": candidate["source_status"],
         "first_party_full_toc_verified": False,
         "content_status": candidate["content_status"],
