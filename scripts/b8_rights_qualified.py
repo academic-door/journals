@@ -199,6 +199,12 @@ def validate_public_projection(issue: dict) -> None:
         or issue.get("source_status") not in {"official_verified", "publisher_verified"}
     ):
         raise ValueError("invalid B8 metadata public mode/authority/readiness")
+    expected_identity = "-".join((
+        str(issue.get("journal_id", "")), str(issue.get("volume", "")),
+        str(issue.get("issue", ""))
+    ))
+    if issue.get("issue_id", "").casefold() != expected_identity.casefold():
+        raise ValueError("metadata public issue ID differs from volume/issue")
     if not _https_url(issue.get("source_url")) or (
         urlparse(issue["source_url"]).hostname
         not in ISSUE_SOURCE_HOSTS[issue["journal_id"]]
