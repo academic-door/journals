@@ -60,6 +60,35 @@ class B8AttestedSeedTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "existing public issue differs"):
                 seed_only_if_absent(folder, revised)
 
+    def test_rights_withheld_research_title_keeps_article_type_and_count(self):
+        # The real JAE 41(6) title "Triply Robust Panel Estimators"
+        # resembles a personal name to the legacy no-abstract heuristic.
+        # Rights withholding is not evidence of an editorial/non-research item.
+        from scripts.b8_rights_qualified import project_b8_issue, validate_public_projection
+        from scripts.update_journals import normalize_issue_content
+
+        candidate = private_source()
+        candidate["articles"][0]["title_en"] = "Triply Robust Panel Estimators"
+        candidate["articles"][0]["article_type"] = "research-article"
+        public = project_b8_issue(
+            candidate, expected_journal_id="jae",
+            expected_issue_id="jae-41-6", rights_by_doi={},
+        )
+        normalized = normalize_issue_content(public)
+        validate_public_projection(normalized)
+        self.assertEqual(3, len(normalized["articles"]))
+        self.assertEqual("metadata_complete", normalized["content_status"])
+        self.assertEqual("ready", normalized["publication_state"])
+        self.assertEqual("research-article", normalized["articles"][0]["article_type"])
+        self.assertEqual("Triply Robust Panel Estimators", normalized["articles"][0]["title_en"])
+        self.assertEqual(3, normalized["public_content"]["rights_withheld_articles"])
+        self.assertEqual([], normalized["quality"].get("excluded_items", []))
+        self.assertEqual(
+            normalized,
+            normalize_issue_content(copy.deepcopy(normalized)),
+            "metadata projection must be deterministically normalized",
+        )
+
     def test_source_report_must_not_claim_production(self):
         with patch.dict(SPECS, {"JAE": (
             "jae", "jae-41-6", 3, "official_verified",
