@@ -455,6 +455,10 @@ def normalize_issue_taxonomy(
         if (
             atype == "research-article"
             and is_person_name_title(str(article.get("title_en", "")))
+            and not (
+                issue.get("public_mode") == "metadata_first_rights_qualified_v1"
+                and article.get("public_rights", {}).get("status") == "withheld"
+            )
             and (
                 not str(article.get("abstract_en", "")).strip()
                 or not article.get("authors")
