@@ -524,9 +524,20 @@ def _adjudicate_jae_41_6_inventory(
     resolved_url: str,
 ) -> list[InventoryItem]:
     """Guard exactly one authoritative Wiley issue; never globally enable Replication."""
-    if journal_id != "jae" or (volume, issue) != ("41", "6"):
+    if journal_id != "jae":
         return items
     pin = urlparse(JAE_41_6_OFFICIAL_TOC)
+    request = urlparse(requested_url)
+    if (volume, issue) != ("41", "6"):
+        if (request.scheme, request.hostname, request.path) == (
+            pin.scheme, pin.hostname, pin.path
+        ):
+            raise WileyParseError(
+                "jae_41_6_wrong_issue_identity",
+                "Pinned Wiley JAE 41(6) URL served a different issue.",
+                url=requested_url,
+            )
+        return items
     if any(
         (parsed.scheme, parsed.hostname, parsed.path)
         != (pin.scheme, pin.hostname, pin.path)
