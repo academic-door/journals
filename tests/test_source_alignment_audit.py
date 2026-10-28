@@ -66,7 +66,7 @@ class SourceAlignmentAuditTests(unittest.TestCase):
         payload = build_audit()
         journal_ids = [item["journal_id"] for item in payload["journals"]]
         # The first approved B8 title adds exactly one configured source.
-        self.assertEqual(50, payload["summary"]["configured_journals"])
+        self.assertEqual(51, payload["summary"]["configured_journals"])
         self.assertEqual(50, len(journal_ids))
         self.assertEqual(50, len(set(journal_ids)))
         self.assertIn("jegrowth", journal_ids)
