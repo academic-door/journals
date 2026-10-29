@@ -3,7 +3,7 @@
   "batch_id": "b8-2026-10-26",
   "owner_issue": 470,
   "decision": "human_principal_approved",
-  "launch_state": "partial_rollout",
+  "launch_state": "partial_rollout_pending_verification",
   "baseline_live_journals": 49,
   "max_additional_titles": 8,
   "policy": "independent_per_title_ready_gates",
@@ -102,8 +102,10 @@
       "source_url": "https://academic.oup.com/joeg/issue",
       "sample_issue": "26/5",
       "sample_month": "2026-09",
-      "source_status": "full_sectioned_issue_observed",
-      "rollout_status": "not_enabled"
+      "source_status": "official_full_issue_roster_verified",
+      "rollout_status": "activation_pending_production",
+      "acceptance_evidence": "academic-door/journals/actions/runs/40667092535",
+      "metadata_seed_evidence": "academic-door/journals/actions/runs/40840080459"
     },
     {
       "key": "EJPE",
