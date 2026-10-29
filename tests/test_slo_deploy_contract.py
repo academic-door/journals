@@ -28,9 +28,13 @@ class SloDeployContractTests(unittest.TestCase):
 
 
     def test_public_health_validates_live_source_diagnostics_and_r4_baseline(self) -> None:
-        text = (ROOT / ".github/workflows/health.yml").read_text(encoding="utf-8")
-        # The health job runs without checkout: validate the actual public
-        # endpoints and keep the existing issue-on-failure behavior.
+        workflow = (ROOT / ".github/workflows/health.yml").read_text(encoding="utf-8")
+        # Health now checks out the exact main SHA to execute the extracted
+        # validator. Keep the same public endpoints and issue-on-failure behavior.
+        self.assertIn("actions/checkout@v7", workflow)
+        self.assertIn('python scripts/verify_public_health.py "$output"', workflow)
+        validator = (ROOT / "scripts/verify_public_health.py").read_text(encoding="utf-8")
+        text = workflow + "\n" + validator
         self.assertIn("/api/v1/source-diagnostics.json", text)
         self.assertIn("/api/v1/slo.json", text)
         self.assertIn('diagnostics = load("source-diagnostics.json")', text)
