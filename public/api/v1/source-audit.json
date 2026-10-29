@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-29T10:31:34+00:00",
+  "updated_at": "2026-10-29T10:44:01+00:00",
   "status": "healthy",
   "summary": {
-    "configured_journals": 52,
-    "official_page_verified": 22,
+    "configured_journals": 53,
+    "official_page_verified": 23,
     "publisher_feed_verified": 22,
     "fallback_verified": 8,
     "needs_attention": 0,
@@ -3387,6 +3387,53 @@
         "errors": [],
         "warnings": [
           "snapshot_uses_alternate_official_source",
+          "rights_withheld_public_abstracts"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JOEG",
+      "journal_id": "joeg",
+      "short_name": "JOEG",
+      "name": "Journal of Economic Geography",
+      "publisher": "Oxford University Press",
+      "configured_source": "https://academic.oup.com/joeg/issue/26/5",
+      "status": "official_page_verified",
+      "current": {
+        "available": true,
+        "status": "official_page_verified",
+        "issue_id": "joeg-26-5",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://academic.oup.com/joeg/issue/26/5",
+        "roster_authority": "official-issue-page",
+        "roster_transport": "publisher-full-toc-observed",
+        "order_verified": true,
+        "content_counts": {
+          "official_items": 10,
+          "observed_items": 10,
+          "publishable_items": 9,
+          "research_articles": 6,
+          "comments": 3,
+          "short_communications": 0,
+          "corrections": 1,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 10
+        },
+        "abstracts_complete": 0,
+        "translations_complete": 0,
+        "errors": [],
+        "warnings": [
           "rights_withheld_public_abstracts"
         ]
       },

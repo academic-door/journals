@@ -1,10 +1,10 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-10-29T10:31:33+00:00
+Generated: 2026-10-29T10:44:01+00:00
 
 ## Summary
 
-- blocked: 3
+- blocked: 4
 - ready: 1212
 - recoverable: 1
 
@@ -1228,3 +1228,4 @@ Generated: 2026-10-29T10:31:33+00:00
 | ITPF | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | JAE | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | JEGROWTH | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
+| JOEG | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
