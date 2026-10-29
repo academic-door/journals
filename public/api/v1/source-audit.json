@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-29T05:52:30+00:00",
+  "updated_at": "2026-10-29T07:57:07+00:00",
   "status": "healthy",
   "summary": {
-    "configured_journals": 51,
+    "configured_journals": 52,
     "official_page_verified": 22,
-    "publisher_feed_verified": 21,
+    "publisher_feed_verified": 22,
     "fallback_verified": 8,
     "needs_attention": 0,
     "missing": 0,
@@ -3339,6 +3339,54 @@
         "translations_complete": 0,
         "errors": [],
         "warnings": [
+          "rights_withheld_public_abstracts"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "ITPF",
+      "journal_id": "itpf",
+      "short_name": "ITPF",
+      "name": "International Tax and Public Finance",
+      "publisher": "Springer",
+      "configured_source": "https://link.springer.com/journal/10797/volumes-and-issues/33-5",
+      "status": "publisher_feed_verified",
+      "current": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "itpf-33-5",
+        "publication_date": "October 2026",
+        "publication_state": "ready",
+        "source_url": "https://ideas.repec.org/s/kap/itaxpf.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
+        "order_verified": true,
+        "content_counts": {
+          "official_items": 11,
+          "observed_items": 11,
+          "publishable_items": 11,
+          "research_articles": 11,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 11
+        },
+        "abstracts_complete": 0,
+        "translations_complete": 0,
+        "errors": [],
+        "warnings": [
+          "snapshot_uses_alternate_official_source",
           "rights_withheld_public_abstracts"
         ]
       },
