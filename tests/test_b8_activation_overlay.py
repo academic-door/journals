@@ -20,7 +20,9 @@ class B8ActivationBridgeTests(unittest.TestCase):
         # Reconstruct the pre-JAE fixture from current live configuration.
         # This preserves 49->50 and 50->51 transition coverage.
         cls.configs.pop("JAE", None)
+        cls.configs.pop("ITPF", None)
         next(item for item in cls.manifest["journals"] if item["key"] == "JAE")["rollout_status"] = "not_enabled"
+        next(item for item in cls.manifest["journals"] if item["key"] == "ITPF")["rollout_status"] = "not_enabled"
         cls.manifest["launch_state"] = "partial_rollout"
 
     def test_existing_49_live_is_unmodified(self):
