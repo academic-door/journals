@@ -14,9 +14,12 @@ class B8SourceContractTests(unittest.TestCase):
         live = yaml.safe_load((ROOT / "config/journals.yml").read_text())["journals"]
         result = validate_batch(manifest, live)
         self.assertEqual(8, result["approved_staged"])
-        self.assertEqual(2, result["promoted"])
-        self.assertEqual(0, result["production_verification_pending"])
-        self.assertEqual("partial_rollout", manifest["launch_state"])
+        self.assertEqual(3, result["promoted"])
+        self.assertEqual(1, result["production_verification_pending"])
+        self.assertEqual("partial_rollout_pending_verification", manifest["launch_state"])
+        itpf = next(x for x in manifest["journals"] if x["key"] == "ITPF")
+        self.assertEqual("activation_pending_production", itpf["rollout_status"])
+        self.assertEqual("academic-door/journals/actions/runs/40832087337", itpf["metadata_seed_evidence"])
         jae = next(item for item in manifest["journals"] if item["key"] == "JAE")
         self.assertEqual("production_verified", jae["rollout_status"])
         evidence = jae["production_acceptance"]
