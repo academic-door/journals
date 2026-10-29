@@ -41,7 +41,13 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
         self.assertIn("github.event_name != 'workflow_run'", guard)
 
     def test_first_b8_title_extends_count_without_relaxing_health_gates(self) -> None:
-        raw = HEALTH.read_text(encoding="utf-8")
+        workflow = HEALTH.read_text(encoding="utf-8")
+        self.assertIn("actions/checkout@v7", workflow)
+        self.assertIn('python scripts/verify_public_health.py "$output"', workflow)
+        self.assertNotIn("python - \"$output\" <<'PY'", workflow)
+        # The extracted validator is a byte-for-byte deindent of the old
+        # embedded Python body. Its substantive assertions are unchanged.
+        raw = (ROOT / "scripts/verify_public_health.py").read_text(encoding="utf-8")
         self.assertIn("expected not in (49, 50, 51, 52, 53)", raw)
         self.assertIn('if monitoring.get("status") != "healthy":', raw)
         self.assertIn('if source.get("status") != "healthy":', raw)

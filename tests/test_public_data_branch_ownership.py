@@ -205,9 +205,12 @@ class PublicDataBranchOwnershipTests(unittest.TestCase):
         self.assertIn("tests.test_public_data_branch_ownership", text)
 
     def test_health_check_validates_json_semantics_and_freshness(self) -> None:
-        text = (ROOT / ".github" / "workflows" / "health.yml").read_text(
+        workflow = (ROOT / ".github" / "workflows" / "health.yml").read_text(
             encoding="utf-8"
         )
+        self.assertIn('python scripts/verify_public_health.py "$output"', workflow)
+        validator = (ROOT / "scripts/verify_public_health.py").read_text(encoding="utf-8")
+        text = workflow + "\n" + validator
         self.assertIn("enabled_journals", text)
         self.assertIn("translated_articles", text)
         self.assertIn("configured_journals", text)
