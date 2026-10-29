@@ -44,10 +44,15 @@ jobs:
               "$base/api/v1/journals/jegrowth/issues/current.json?health_run=${{ github.run_id }}" \
               > "$output/jegrowth-current.json"
           fi
-          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" = "51" ]; then
+          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" -ge 51 ]; then
             curl --fail --retry 3 --silent --show-error \
               "$base/api/v1/journals/jae/issues/current.json?health_run=${{ github.run_id }}" \
               > "$output/jae-current.json"
+          fi
+          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" = "52" ]; then
+            curl --fail --retry 3 --silent --show-error \
+              "$base/api/v1/journals/itpf/issues/current.json?health_run=${{ github.run_id }}" \
+              > "$output/itpf-current.json"
           fi
           curl --fail --retry 3 --silent --show-error \
             "$base/api/v1/monitoring.json?health_run=${{ github.run_id }}" \
@@ -115,8 +120,8 @@ jobs:
 
           summary = health.get("summary", {})
           expected = summary.get("enabled_journals")
-          if expected not in (49, 50, 51):
-              raise AssertionError("health enabled_journals is outside the approved 49/50/51 rollout")
+          if expected not in (49, 50, 51, 52):
+              raise AssertionError("health enabled_journals is outside the approved 49/50/51/52 rollout")
           if summary.get("available_journals") != expected:
               raise AssertionError("not every configured journal has a READY issue")
           if expected >= 50:
@@ -143,7 +148,7 @@ jobs:
                   for a in articles
               ):
                   raise AssertionError("JEGROWTH public author/English/Chinese fields are incomplete")
-          if expected == 51:
+          if expected >= 51:
               jae = load("jae-current.json")
               jae_articles = jae.get("articles", [])
               expected_jae_dois = [
@@ -188,6 +193,54 @@ jobs:
                   for i, a in enumerate(jae_articles, 1)
               ):
                   raise AssertionError("JAE metadata type/order, identity or rights withholding failed")
+          if expected == 52:
+              itpf = load("itpf-current.json")
+              itpf_articles = itpf.get("articles", [])
+              expected_itpf_dois = [
+                  "10.1007/s10797-026-09955-7",
+                  "10.1007/s10797-026-09958-4",
+                  "10.1007/s10797-026-09945-9",
+                  "10.1007/s10797-026-09944-w",
+                  "10.1007/s10797-026-09949-5",
+                  "10.1007/s10797-026-09948-6",
+                  "10.1007/s10797-025-09942-4",
+                  "10.1007/s10797-025-09932-6",
+                  "10.1007/s10797-026-09967-3",
+                  "10.1007/s10797-026-09962-8",
+                  "10.1007/s10797-025-09928-2",
+              ]
+              rights = itpf.get("public_content", {})
+              q = itpf.get("quality", {})
+              if (
+                  itpf.get("journal_id") != "itpf"
+                  or itpf.get("issue_id") != "itpf-33-5"
+                  or itpf.get("source_url") != "https://ideas.repec.org/s/kap/itaxpf.html"
+                  or itpf.get("source_status") != "publisher_verified"
+                  or itpf.get("publication_state") != "ready"
+                  or itpf.get("content_status") != "metadata_complete"
+                  or itpf.get("public_mode") != "metadata_first_rights_qualified_v1"
+                  or q.get("roster_authority") != "repec-publisher-supplied"
+                  or q.get("roster_match") is not True
+                  or q.get("order_preserved") is not True
+                  or q.get("excluded_items", [])
+                  or rights.get("metadata_articles") != 11
+                  or rights.get("rights_withheld_articles") != 11
+                  or rights.get("abstracts_en_visible") != 0
+                  or rights.get("translations_cn_visible") != 0
+                  or [str(a.get("doi", "")) for a in itpf_articles] != expected_itpf_dois
+              ):
+                  raise AssertionError("ITPF 33(5) publisher-supplied serial order/rights rejected")
+              if any(
+                  a.get("article_type") != "research-article"
+                  or a.get("sequence") != i
+                  or not a.get("title_en") or not a.get("authors")
+                  or any(str(a.get(k, "")).strip() for k in
+                         ("abstract_en", "abstract_cn", "title_cn"))
+                  or a.get("public_rights", {}).get("status") != "withheld"
+                  or a.get("translation", {}).get("status") != "rights_withheld"
+                  for i, a in enumerate(itpf_articles, 1)
+              ):
+                  raise AssertionError("ITPF article classification/order or rights withholding rejected")
           if not summary.get("articles"):
               raise AssertionError("public article totals are empty")
           if expected <= 50:
@@ -200,9 +253,10 @@ jobs:
               # unlicensed English abstracts and Chinese adaptations.
               if health.get("content_status") != "rights_qualified":
                   raise AssertionError("metadata-first rights-qualified status missing")
-              if summary.get("rights_withheld_articles") != 12:
+              expected_withheld = 12 if expected == 51 else 23
+              if summary.get("rights_withheld_articles") != expected_withheld:
                   raise AssertionError("rights-withheld public article count drift")
-              if summary.get("translated_articles") + 12 != summary.get("articles"):
+              if summary.get("translated_articles") + expected_withheld != summary.get("articles"):
                   raise AssertionError("legacy translations plus withheld JAE rows do not reconcile")
           failed_checks = [
               key for key, value in health.get("checks", {}).items() if value is False
@@ -222,9 +276,11 @@ jobs:
               # as operationally probed. Accept ONLY its explicit single
               # warning while the first monitor observation is outstanding.
               pending_jae = (
-                  expected == 51
+                  expected in (51, 52)
                   and monitoring.get("status") == "degraded"
-                  and monitoring.get("warning_journals") == ["JAE"]
+                  and monitoring.get("warning_journals") == [
+                      "JAE" if expected == 51 else "ITPF"
+                  ]
                   and monitor_summary.get("warnings") == 1
                   and monitor_summary.get("failed") == 0
               )
