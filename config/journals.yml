@@ -791,3 +791,17 @@ journals:
     current_issue_url: https://link.springer.com/journal/10797/volumes-and-issues/33-5
     enabled: true
     collections: [fields]
+  JOEG:
+    id: joeg
+    name: Journal of Economic Geography
+    short_name: JOEG
+    name_cn: 经济地理学杂志
+    field: urban_macro_labor_metrics_environment
+    tier: A
+    publisher: Oxford University Press
+    collector: oup
+    issn: 1468-2702
+    fallback: crossref
+    current_issue_url: https://academic.oup.com/joeg/issue/26/5
+    enabled: true
+    collections: [fields]
