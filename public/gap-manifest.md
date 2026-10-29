@@ -1,11 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-10-28T22:39:03+00:00
+Generated: 2026-10-29T05:52:30+00:00
 
 ## Summary
 
 - blocked: 2
 - ready: 1212
+- recoverable: 1
 
 ## Issue queue
 
@@ -58,6 +59,7 @@ Generated: 2026-10-28T22:39:03+00:00
 | AEJMICRO | aejmicro-18-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMICRO | aejmicro-18-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMICRO | aejmicro-18-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AEJMICRO | aejmicro-18-4 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | AEJPOL | aejpol-15-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | AEJPOL | aejpol-15-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | AEJPOL | aejpol-15-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
