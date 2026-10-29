@@ -3,7 +3,7 @@
   "batch_id": "b8-2026-10-26",
   "owner_issue": 470,
   "decision": "human_principal_approved",
-  "launch_state": "partial_rollout_pending_verification",
+  "launch_state": "partial_rollout",
   "baseline_live_journals": 49,
   "max_additional_titles": 8,
   "policy": "independent_per_title_ready_gates",
@@ -103,9 +103,33 @@
       "sample_issue": "26/5",
       "sample_month": "2026-09",
       "source_status": "official_full_issue_roster_verified",
-      "rollout_status": "activation_pending_production",
+      "rollout_status": "production_verified",
       "acceptance_evidence": "academic-door/journals/actions/runs/40667092535",
-      "metadata_seed_evidence": "academic-door/journals/actions/runs/40857386807"
+      "metadata_seed_evidence": "academic-door/journals/actions/runs/40857386807",
+      "production_acceptance": {
+        "production_pages": "https://github.com/academic-door/journals/actions/runs/40860042132",
+        "public_health": "https://github.com/academic-door/journals/actions/runs/40873392696",
+        "public_health_result": "SUCCESS_53_OF_53",
+        "current_data_snapshot": "cf978e8f93f930365f9a1346a063ca7782aa6b28",
+        "public_issue": "https://academic-door.github.io/journals/api/v1/journals/joeg/issues/current.json",
+        "audited_issue": "joeg-26-5",
+        "ready_publishable_articles": 9,
+        "source_status": "official_verified",
+        "roster_authority": "official-issue-page",
+        "article_types": {
+          "comment": 3,
+          "research_article": 6
+        },
+        "excluded_items": {
+          "correction": 1
+        },
+        "public_mode": "metadata_first_rights_qualified_v1",
+        "metadata_complete_articles": 9,
+        "rights_withheld_articles": 9,
+        "abstracts_en_visible": 0,
+        "translations_cn_visible": 0,
+        "checked_at": "2026-10-29"
+      }
     },
     {
       "key": "EJPE",
