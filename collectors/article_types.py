@@ -444,10 +444,25 @@ def normalize_issue_taxonomy(
     for article in articles:
         doi = str(article.get("doi", "")).strip().lower()
         forced = type_overrides.get(doi, "")
-        atype = canonical_article_type(
-            str(article.get("title_en", "")),
-            forced or str(article.get("article_type", "")),
-        )
+        # The B8 public projection already validates publisher-attested
+        # article membership and types before withholding private text.
+        # Re-running title heuristics here can turn a verified COMMENT or
+        # research paper into excluded editorial/front matter, especially
+        # when an OUP commentary title contains "introduction"/"report".
+        # Preserve the accepted source type, while keeping all normal
+        # classification heuristics for non-B8 issues.
+        if (
+            issue.get("public_mode") == "metadata_first_rights_qualified_v1"
+            and article.get("public_rights", {}).get("status") == "withheld"
+        ):
+            atype = canonical_article_type(
+                "", str(article.get("article_type", ""))
+            )
+        else:
+            atype = canonical_article_type(
+                str(article.get("title_en", "")),
+                forced or str(article.get("article_type", "")),
+            )
         # A bare person-name title is a memorial or fellows announcement
         # (front matter), not a research article: either it has no English
         # abstract (the Crossref record is an empty announcement) or it has no
