@@ -42,7 +42,7 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
 
     def test_first_b8_title_extends_count_without_relaxing_health_gates(self) -> None:
         raw = HEALTH.read_text(encoding="utf-8")
-        self.assertIn("expected not in (49, 50, 51, 52)", raw)
+        self.assertIn("expected not in (49, 50, 51, 52, 53)", raw)
         self.assertIn('if monitoring.get("status") != "healthy":', raw)
         self.assertIn('if source.get("status") != "healthy":', raw)
         self.assertIn('if summary.get("available_journals") != expected:', raw)
@@ -64,14 +64,23 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
         self.assertIn('summary.get("translated_articles") + expected_withheld != summary.get("articles")', raw)
         self.assertIn('and monitoring.get("warning_journals") == [', raw)
         self.assertIn('if not pending_jae:', raw)
-        self.assertIn('if expected == 52:', raw)
+        self.assertIn('if expected == 53:', raw)
+        self.assertIn('joeg.get("issue_id") != "joeg-26-5"', raw)
+        self.assertIn('joeg_q.get("roster_authority") != "official-issue-page"', raw)
+        self.assertIn('"10.1093/jeg/lbag036"', raw)
+        self.assertIn('"10.1093/jeg/lbag009"', raw)
+        self.assertIn('"10.1093/jeg/lbag061"', raw)
+        self.assertIn('["comment"] * 3 + ["research-article"] * 6', raw)
+        self.assertIn('joeg_rights.get("rights_withheld_articles") != 9', raw)
+        self.assertIn('expected_withheld = {51: 12, 52: 23, 53: 32}[expected]', raw)
+        self.assertIn('if expected >= 52:', raw)
         self.assertIn('itpf.get("issue_id") != "itpf-33-5"', raw)
         self.assertIn('itpf.get("source_status") != "publisher_verified"', raw)
         self.assertIn('q.get("roster_authority") != "repec-publisher-supplied"', raw)
         self.assertIn('"10.1007/s10797-026-09955-7"', raw)
         self.assertIn('"10.1007/s10797-025-09928-2"', raw)
         self.assertIn('rights.get("rights_withheld_articles") != 11', raw)
-        self.assertIn('expected_withheld = 12 if expected == 51 else 23', raw)
+        self.assertIn('expected_withheld = {51: 12, 52: 23, 53: 32}[expected]', raw)
 
     def test_no_deploy_health_loop(self) -> None:
         # health.yml must not itself be one of the workflows that trigger deploy,
