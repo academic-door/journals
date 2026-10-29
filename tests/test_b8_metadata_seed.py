@@ -89,6 +89,53 @@ class B8AttestedSeedTests(unittest.TestCase):
             "metadata projection must be deterministically normalized",
         )
 
+    def test_joeg_rights_withheld_official_comments_keep_source_types(self):
+        # Regression for a mixed OUP issue: issue-section-attested comments
+        # remain publishable even if their titles match legacy editorial
+        # heuristics after public text is deliberately withheld.
+        candidate = private_source()
+        candidate["journal_id"] = "joeg"
+        candidate["issue_id"] = "joeg-26-5"
+        candidate["journal_name"] = "Journal of Economic Geography"
+        candidate["volume"] = "26"
+        candidate["issue"] = "5"
+        candidate["source_url"] = "https://academic.oup.com/joeg/issue/26/5"
+        candidate["quality"]["roster_authority"] = "official-issue-page"
+        candidate["quality"]["roster_transport"] = "publisher-full-toc-observed"
+        types = ("comment", "comment", "research-article")
+        titles = (
+            "Introduction to regional economic geography",
+            "Editorial report on the geography of firms",
+            "Persistent patterns of regional economic growth",
+        )
+        for i, (article, article_type, title) in enumerate(
+            zip(candidate["articles"], types, titles, strict=True), 1
+        ):
+            article["doi"] = "10.1093/jeg/lbag" + f"{i:03}"
+            article["article_type"] = article_type
+            article["title_en"] = title
+            article["source_url"] = "https://academic.oup.com/joeg/article/26/5/" + str(i)
+            article["sources"] = {"issue": candidate["source_url"]}
+        with patch.dict(SPECS, {"JOEG": (
+            "joeg", "joeg-26-5", 3, "official_verified",
+            12345, "test-artifact", "candidate.json", "report.json", 0,
+        )}):
+            projected = build_attested_projection("JOEG", candidate, {
+                "quality_ready": True,
+                "production_writes": False,
+                "release_enabled": False,
+            })
+        self.assertEqual(list(types), [a["article_type"] for a in projected["articles"]])
+        self.assertEqual(3, len(projected["articles"]))
+        self.assertEqual("ready", projected["publication_state"])
+        self.assertEqual("official_verified", projected["source_status"])
+        self.assertEqual([], projected["quality"].get("excluded_items", []))
+        self.assertEqual(3, projected["public_content"]["rights_withheld_articles"])
+        self.assertTrue(all(
+            not a["abstract_en"] and not a["abstract_cn"] and not a["title_cn"]
+            for a in projected["articles"]
+        ))
+
     def test_source_report_must_not_claim_production(self):
         with patch.dict(SPECS, {"JAE": (
             "jae", "jae-41-6", 3, "official_verified",
