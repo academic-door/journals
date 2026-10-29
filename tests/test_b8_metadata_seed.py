@@ -131,6 +131,9 @@ class B8AttestedSeedTests(unittest.TestCase):
         self.assertEqual("official_verified", projected["source_status"])
         self.assertEqual([], projected["quality"].get("excluded_items", []))
         self.assertEqual(3, projected["public_content"]["rights_withheld_articles"])
+        self.assertEqual(0, projected["public_content"]["abstracts_en_visible"])
+        self.assertEqual(0, projected["quality"]["abstract_en_complete"])
+        self.assertEqual(0, projected["quality"]["translation_complete"])
         self.assertTrue(all(
             not a["abstract_en"] and not a["abstract_cn"] and not a["title_cn"]
             for a in projected["articles"]
