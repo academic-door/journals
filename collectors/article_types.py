@@ -549,7 +549,18 @@ def normalize_issue_taxonomy(
     quality["publishable_item_count"] = len(articles)
     quality["excluded_item_count"] = len(excluded)
     quality["content_counts"] = counts
-    quality["abstract_en_complete"] = sum(abstract_is_complete(item) for item in articles)
+    if issue.get("public_mode") == "metadata_first_rights_qualified_v1":
+        # For a rights-qualified public projection these counters mean
+        # *visible licensed content*, not the generic readiness exception
+        # allowing publisher COMMENTs without a source abstract. A withheld
+        # OUP comment must not count as an abstract publicly released.
+        quality["abstract_en_complete"] = sum(
+            bool(str(item.get("abstract_en", "")).strip()) for item in articles
+        )
+    else:
+        quality["abstract_en_complete"] = sum(
+            abstract_is_complete(item) for item in articles
+        )
     quality["translation_complete"] = sum(
         translation_is_complete(item) for item in articles
     )
