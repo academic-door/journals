@@ -3,7 +3,7 @@
   "batch_id": "b8-2026-10-26",
   "owner_issue": 470,
   "decision": "human_principal_approved",
-  "launch_state": "partial_rollout",
+  "launch_state": "partial_rollout_pending_verification",
   "baseline_live_journals": 49,
   "max_additional_titles": 8,
   "policy": "independent_per_title_ready_gates",
@@ -143,8 +143,10 @@
       "source_url": "https://link.springer.com/journal/10797",
       "sample_issue": "33/5",
       "sample_month": "2026-10",
-      "source_status": "official_issue_list_observed",
-      "rollout_status": "not_enabled"
+      "source_status": "publisher_supplied_repec_serial_issue_verified",
+      "rollout_status": "activation_pending_production",
+      "acceptance_evidence": "academic-door/journals/actions/runs/40663275078",
+      "metadata_seed_evidence": "academic-door/journals/actions/runs/40832087337"
     }
   ]
 }
