@@ -1,0 +1,86 @@
+name: B8 one-time IJIO 108(C) official period correction
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  repair-period:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Verify owner scope before any data mutation
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path("config/journal-expansion-b8.json").read_text())
+          ij=next(x for x in m["journals"] if x["key"]=="IJIO")
+          assert ij["rollout_status"] in ("not_enabled","activation_pending_production")
+          assert m["decision"]=="human_principal_approved"
+          PY
+          git fetch --depth=1 origin data
+          git worktree add --detach "$RUNNER_TEMP/ijio-data" origin/data
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ["RUNNER_TEMP"])/"ijio-data"/"public/api/v1"
+          h=json.loads((root/"health.json").read_text())
+          assert h["summary"]["enabled_journals"]==53
+          assert h["summary"]["available_journals"]==53
+          PY
+      - name: Apply exact two-file source-attested date correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/ijio-data"
+          test -z "$(git -C "$root" status --porcelain)"
+          python scripts/correct_b8_ijio_period.py --data-root "$root"
+          git -C "$root" add -- \
+            public/api/v1/journals/ijio/issues/current.json \
+            public/api/v1/journals/ijio/issues/ijio-108-c.json
+          python - <<'PY'
+          import os,subprocess
+          from pathlib import Path
+          root=str(Path(os.environ["RUNNER_TEMP"])/"ijio-data")
+          changed=subprocess.check_output(
+            ["git","-C",root,"diff","--cached","--name-only"],text=True
+          ).splitlines()
+          allowed={
+            "public/api/v1/journals/ijio/issues/current.json",
+            "public/api/v1/journals/ijio/issues/ijio-108-c.json",
+          }
+          assert set(changed) <= allowed
+          assert len(changed) in (0,2)
+          print("Exact IJIO period path gate:",changed)
+          PY
+      - name: Non-force serialized data commit with readback
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/ijio-data"
+          if git -C "$root" diff --cached --quiet; then
+            echo "Already source-corrected; no writer action"
+            exit 0
+          fi
+          git -C "$root" config user.name academic-door-bot
+          git -C "$root" config user.email academic-door-bot@users.noreply.github.com
+          git -C "$root" commit -m "Correct IJIO 108(C) publication period from official Elsevier evidence"
+          git -C "$root" push origin HEAD:data
+          expected="$(git -C "$root" rev-parse HEAD)"
+          actual="$(git ls-remote origin refs/heads/data | cut -f1)"
+          test "$expected" = "$actual" || { echo "::error::period correction readback failed"; exit 1; }
+          echo "Verified IJIO metadata-only date correction on data $actual"
