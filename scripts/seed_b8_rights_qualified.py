@@ -51,6 +51,30 @@ SPECS = {
 }
 
 
+
+# Official issue MONTH evidence only, not ScienceDirect complete-TOC authority.
+# Preserve publisher_verified / repec-publisher-supplied roster and omit EN/CN
+# text without per-DOI reuse rights. Immutable future metadata seeds need an
+# actual period so the strict current publication chronology audit can pass.
+B8_ELSEVIER_PERIOD_EVIDENCE = {
+    "IJIO": ("ijio-108-c", "October 2026", "https://www.sciencedirect.com/science/article/pii/S0167718726000354"),
+    "JFI": ("jfi-67-c", "July 2026", "https://www.sciencedirect.com/science/article/pii/S1042957326000173"),
+    "JIMF": ("jimf-168-c", "September 2026", "https://www.sciencedirect.com/science/article/pii/S0261560626001257"),
+    "EJPE": ("ejpe-94-c", "August 2026", "https://www.sciencedirect.com/science/article/pii/S0176268026000480"),
+}
+
+
+def source_attested_public_period(journal: str, issue_id: str, observed: str) -> str:
+    evidence = B8_ELSEVIER_PERIOD_EVIDENCE.get(journal)
+    if not evidence:
+        return observed
+    expected_issue, period, _source_url = evidence
+    if issue_id != expected_issue:
+        raise ValueError("official period evidence cannot be reused for a different issue")
+    if observed not in ("2026", period):
+        raise ValueError("candidate issue period differs from exact publisher-attested evidence")
+    return period
+
 def build_attested_projection(journal: str, candidate: dict, report: dict) -> dict:
     """Fail closed unless all source/translation acceptance remains intact."""
     if journal not in SPECS:
@@ -86,6 +110,9 @@ def build_attested_projection(journal: str, candidate: dict, report: dict) -> di
     public = project_b8_issue(
         candidate, expected_journal_id=journal_id,
         expected_issue_id=issue_id, rights_by_doi={},
+    )
+    public["publication_date"] = source_attested_public_period(
+        journal, issue_id, str(public.get("publication_date", ""))
     )
     public = normalize_issue_content(public)
     validate_issue(public)
