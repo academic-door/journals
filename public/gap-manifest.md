@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-10-30T23:51:53+00:00
+Generated: 2026-10-31T04:10:39+00:00
 
 ## Summary
 
 - blocked: 4
 - ready: 1212
-- recoverable: 2
+- recoverable: 3
 
 ## Issue queue
 
@@ -114,6 +114,7 @@ Generated: 2026-10-30T23:51:53+00:00
 | AER | aer-115-9 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-10 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AER | aer-116-11 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | AER | aer-116-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
