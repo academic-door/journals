@@ -55,5 +55,5 @@ jobs:
         with:
           name: b8-elsevier-${{ matrix.journal }}-candidate
           path: ${{ runner.temp }}/b8-elsevier/
-          retention-days: 1
+          retention-days: 14
           if-no-files-found: warn
