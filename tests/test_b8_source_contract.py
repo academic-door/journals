@@ -19,7 +19,7 @@ class B8SourceContractTests(unittest.TestCase):
         self.assertEqual("partial_rollout_pending_verification", manifest["launch_state"])
         ijio = next(x for x in manifest["journals"] if x["key"] == "IJIO")
         self.assertEqual("activation_pending_production", ijio["rollout_status"])
-        self.assertEqual("108/C", ijio["sample_issue"])
+        self.assertEqual("108/c", ijio["sample_issue"])
         self.assertEqual("academic-door/journals/actions/runs/40874257900", ijio["metadata_seed_evidence"])
         joeg = next(x for x in manifest["journals"] if x["key"] == "JOEG")
         self.assertEqual("production_verified", joeg["rollout_status"])
