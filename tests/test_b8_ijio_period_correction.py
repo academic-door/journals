@@ -27,7 +27,7 @@ class IJIOOfficialPeriodCorrectionTests(unittest.TestCase):
 
     def seed(self,root,payload):
         parent=root/"public/api/v1/journals/ijio/issues"
-        parent.mkdir(parents=True)
+        parent.mkdir(parents=True, exist_ok=True)
         for name in ("current.json","ijio-108-c.json"):
             (parent/name).write_text(json.dumps(payload),encoding="utf-8")
         return parent
