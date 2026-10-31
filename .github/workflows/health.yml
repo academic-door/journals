@@ -55,10 +55,15 @@ jobs:
               "$base/api/v1/journals/itpf/issues/current.json?health_run=${{ github.run_id }}" \
               > "$output/itpf-current.json"
           fi
-          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" = "53" ]; then
+          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" -ge 53 ]; then
             curl --fail --retry 3 --silent --show-error \
               "$base/api/v1/journals/joeg/issues/current.json?health_run=${{ github.run_id }}" \
               > "$output/joeg-current.json"
+          fi
+          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" = "54" ]; then
+            curl --fail --retry 3 --silent --show-error \
+              "$base/api/v1/journals/ijio/issues/current.json?health_run=${{ github.run_id }}" \
+              > "$output/ijio-current.json"
           fi
           curl --fail --retry 3 --silent --show-error \
             "$base/api/v1/monitoring.json?health_run=${{ github.run_id }}" \
