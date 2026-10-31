@@ -3,7 +3,7 @@
   "batch_id": "b8-2026-10-26",
   "owner_issue": 470,
   "decision": "human_principal_approved",
-  "launch_state": "partial_rollout",
+  "launch_state": "partial_rollout_pending_verification",
   "baseline_live_journals": 49,
   "max_additional_titles": 8,
   "policy": "independent_per_title_ready_gates",
@@ -72,11 +72,13 @@
       "issn": "0167-7187",
       "online_issn": "1873-7986",
       "source_url": "https://shop.elsevier.com/journals/international-journal-of-industrial-organization/0167-7187",
-      "sample_issue": null,
-      "sample_month": null,
-      "source_status": "publisher_repec_series_observed_first_party_issue_unverified",
-      "rollout_status": "not_enabled",
-      "publisher_supplied_repec_url": "https://ideas.repec.org/s/eee/indorg.html"
+      "sample_issue": "108/C",
+      "sample_month": "2026",
+      "source_status": "publisher_supplied_repec_serial_issue_verified",
+      "rollout_status": "activation_pending_production",
+      "publisher_supplied_repec_url": "https://ideas.repec.org/s/eee/indorg.html",
+      "acceptance_evidence": "academic-door/journals/actions/runs/40668765777",
+      "metadata_seed_evidence": "academic-door/journals/actions/runs/40874257900"
     },
     {
       "key": "JFI",
