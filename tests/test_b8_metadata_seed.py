@@ -139,6 +139,29 @@ class B8AttestedSeedTests(unittest.TestCase):
             for a in projected["articles"]
         ))
 
+    def test_exact_elsevier_issue_periods_are_first_party_attested(self):
+        from scripts.seed_b8_rights_qualified import (
+            B8_ELSEVIER_PERIOD_EVIDENCE, source_attested_public_period,
+        )
+        expected = {
+            "IJIO": ("ijio-108-c", "October 2026"),
+            "JFI": ("jfi-67-c", "July 2026"),
+            "JIMF": ("jimf-168-c", "September 2026"),
+            "EJPE": ("ejpe-94-c", "August 2026"),
+        }
+        self.assertEqual(set(expected), set(B8_ELSEVIER_PERIOD_EVIDENCE))
+        for key, (issue, period) in expected.items():
+            self.assertEqual(period, source_attested_public_period(key, issue, "2026"))
+            self.assertEqual(period, source_attested_public_period(key, issue, period))
+            self.assertTrue(B8_ELSEVIER_PERIOD_EVIDENCE[key][2].startswith("https://www.sciencedirect.com/science/article/pii/"))
+            with self.assertRaises(ValueError):
+                source_attested_public_period(key, issue + "-wrong", "2026")
+            with self.assertRaises(ValueError):
+                source_attested_public_period(key, issue, "May 2025")
+        self.assertEqual(
+            "September 2026", source_attested_public_period("JOEG", "joeg-26-5", "September 2026")
+        )
+
     def test_source_report_must_not_claim_production(self):
         with patch.dict(SPECS, {"JAE": (
             "jae", "jae-41-6", 3, "official_verified",
