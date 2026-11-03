@@ -2274,8 +2274,8 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "official-issue-page+browser-authorized",
-    "roster_authority": "official-issue-page",
+    "roster_transport": "sciencedirect-rss",
+    "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/03043878",
     "official_item_count": 36,
@@ -2302,23 +2302,10 @@
     "abstract_en_complete": 34,
     "translation_complete": 34,
     "duplicate_count": 0,
-    "flags": [],
-    "order_verification": "official_verified",
-    "browser_order_verification": {
-      "verified_at": "2026-08-03T01:44:08+00:00",
-      "source_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/183/suppl/C",
-      "captured_at": "2026-08-03T01:38:22.605Z",
-      "page_item_count": 36,
-      "article_count": 34,
-      "pii_sequence_matched": true,
-      "titles_matched": true,
-      "excluded_items_present": true
-    },
-    "browser_capture": {
-      "captured_at": "2026-08-01T17:20:02.661Z",
-      "institutional_access_confirmed": true,
-      "privacy_fields_stored": false
-    },
+    "flags": [
+      "official_order_unverified"
+    ],
+    "order_verification": "pending_official",
     "content_counts": {
       "official_items": 36,
       "observed_items": 36,
@@ -2331,6 +2318,21 @@
       "front_matter": 0,
       "other_excluded": 0,
       "catalog_content_items": 35
+    },
+    "historical_browser_order_verification": {
+      "verified_at": "2026-08-03T01:44:08+00:00",
+      "source_url": "https://www.sciencedirect.com/journal/journal-of-development-economics/vol/183/suppl/C",
+      "captured_at": "2026-08-03T01:38:22.605Z",
+      "page_item_count": 36,
+      "article_count": 34,
+      "pii_sequence_matched": true,
+      "titles_matched": true,
+      "excluded_items_present": true
+    },
+    "historical_browser_capture": {
+      "captured_at": "2026-08-01T17:20:02.661Z",
+      "institutional_access_confirmed": true,
+      "privacy_fields_stored": false
     }
   },
   "content_counts": {
