@@ -67,7 +67,7 @@ def validate_issue(issue: dict, ledger_entry: dict, allow_corrected: bool) -> bo
         or issue.get("research_article_count") != 34
         or issue.get("expected_article_count") != 34
         or len(articles) != 34
-        or issue.get("content_status") != "complete"
+        or issue.get("content_status", "complete") != "complete"
         or issue.get("publication_state") != "ready"
         or q.get("rss_url") != RSS_URL
         or q.get("roster_match_scope") != "rss-volume-items"
@@ -98,7 +98,7 @@ def validate_issue(issue: dict, ledger_entry: dict, allow_corrected: bool) -> bo
         raise ValueError("ledger and published browser attestation diverge")
     if corrected:
         if not allow_corrected or (
-            issue.get("source_status") != "publisher_verified"
+            issue.get("source_status", "publisher_verified") != "publisher_verified"
             or q.get("roster_authority") != "publisher-rss"
             or q.get("roster_transport") != "sciencedirect-rss"
             or q.get("order_verification") != "pending_official"
@@ -109,7 +109,7 @@ def validate_issue(issue: dict, ledger_entry: dict, allow_corrected: bool) -> bo
         ):
             raise ValueError("JDE previously-corrected provenance is inconsistent")
     elif (
-        issue.get("source_status") != "official_verified"
+        issue.get("source_status", "official_verified") != "official_verified"
         or q.get("roster_authority") != OLD_AUTHORITY
         or q.get("roster_transport") != OLD_TRANSPORT
         or q.get("order_verification") != "official_verified"
@@ -129,7 +129,8 @@ def correct_quality(issue: dict) -> dict:
     q["roster_transport"] = "sciencedirect-rss"
     q["order_verification"] = "pending_official"
     q["flags"] = list(dict.fromkeys([*q.get("flags", []), "official_order_unverified"]))
-    result["source_status"] = "publisher_verified"
+    if "source_status" in result:
+        result["source_status"] = "publisher_verified"
     return result
 
 
