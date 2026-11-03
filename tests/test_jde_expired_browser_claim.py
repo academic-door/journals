@@ -120,6 +120,35 @@ class JDEExpiredBrowserClaimTests(unittest.TestCase):
             with self.assertRaises(ValueError):correct(root,ledger,now=NOW)
             self.assertEqual(snap,{p:(root/p).read_bytes() for p in ALLOWED})
 
+    def test_detected_issue_without_readiness_stamps_preserves_schema(self):
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t)
+            docs,ledger=fixtures(root)
+            detected=copy.deepcopy(docs[ALLOWED[2]])
+            detected.pop("source_status")
+            detected.pop("content_status")
+            (root/ALLOWED[2]).write_text(json.dumps(detected,ensure_ascii=False))
+            self.assertEqual(list(ALLOWED),correct(root,ledger,now=NOW))
+            updated=json.loads((root/ALLOWED[2]).read_text())
+            self.assertNotIn("source_status",updated)
+            self.assertNotIn("content_status",updated)
+            self.assertEqual("publisher-rss",updated["quality"]["roster_authority"])
+            self.assertEqual([],correct(root,ledger,now=NOW))
+
+    def test_ci_shadow_is_strictly_restricted_to_remediation_pr(self):
+        path=Path(__file__).resolve().parents[1]/".github/workflows/test.yml"
+        workflow=path.read_text(encoding="utf-8")
+        self.assertIn(
+            "github.event_name == 'pull_request' && github.event.pull_request.number == 526",
+            workflow,
+        )
+        self.assertIn("python scripts/expire_jde_183_browser_claim.py",workflow)
+        self.assertIn("python scripts/audit_public_data.py --strict-provenance",workflow)
+        self.assertLess(
+            workflow.index("python scripts/expire_jde_183_browser_claim.py"),
+            workflow.index("python scripts/audit_public_data.py --strict-provenance"),
+        )
+
     def test_refuses_bogus_source_grade_and_missing_ledger(self):
         with tempfile.TemporaryDirectory() as t:
             root=Path(t)
