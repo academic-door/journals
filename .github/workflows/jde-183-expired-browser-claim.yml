@@ -1,0 +1,82 @@
+name: JDE 183(C) expire stale browser confirmation to publisher-RSS grade
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal-data-update
+  cancel-in-progress: false
+
+jobs:
+  correct-stale-source-grade:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Preflight live journal count and exact data branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --depth=1 origin data
+          git worktree add --detach "$RUNNER_TEMP/jde-data" origin/data
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          root=Path(os.environ["RUNNER_TEMP"])/"jde-data"/"public/api/v1"
+          health=json.loads((root/"health.json").read_text())
+          summary=health["summary"]
+          if (summary.get("enabled_journals"),summary.get("available_journals")) != (53,53):
+              raise SystemExit("Unexpected live baseline; refuse source downgrade")
+          print("Verified 53/53, JDE source-only operation; no title activation")
+          PY
+      - name: Convert only expired browser verification to RSS-qualified source
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/jde-data"
+          test -z "$(git -C "$root" status --porcelain)"
+          python scripts/expire_jde_183_browser_claim.py \
+            --data-root "$root" \
+            --ledger data/provenance/order-verification.json
+          git -C "$root" add -- \
+            public/api/v1/journals/jde/issues/current.json \
+            public/api/v1/journals/jde/issues/jde-183-c.json \
+            public/api/v1/journals/jde/issues/detected.json \
+            public/api/v1/journals/jde/issues/index.json \
+            public/api/v1/collections/fields.json
+          python - <<'PY'
+          import os,subprocess
+          from pathlib import Path
+          from scripts.expire_jde_183_browser_claim import ALLOWED
+          root=str(Path(os.environ["RUNNER_TEMP"])/"jde-data")
+          changes=subprocess.check_output(
+              ["git","-C",root,"diff","--cached","--name-only"],text=True
+          ).splitlines()
+          if changes and set(changes) != set(ALLOWED):
+              raise SystemExit("Data mutation scope mismatch")
+          print("Exact source-grade downgrade paths:", changes)
+          PY
+      - name: Commit under the single data-writer lock and verify readback
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="$RUNNER_TEMP/jde-data"
+          if git -C "$root" diff --cached --quiet; then
+            echo "Already downgraded; no further mutation"
+            exit 0
+          fi
+          git -C "$root" config user.name academic-door-bot
+          git -C "$root" config user.email academic-door-bot@users.noreply.github.com
+          git -C "$root" commit -m "Expire JDE 183 stale browser claim; retain verified publisher RSS"
+          git -C "$root" push origin HEAD:data
+          sent="$(git -C "$root" rev-parse HEAD)"
+          readback="$(git ls-remote origin refs/heads/data | cut -f1)"
+          test "$sent" = "$readback" || { echo "::error::data readback mismatch"; exit 1; }
+          echo "Verified JDE source downgrade without article modifications on data $readback"
