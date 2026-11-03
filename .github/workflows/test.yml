@@ -44,6 +44,16 @@ jobs:
             python scripts/audit_numeric_semantics_shadow.py
       - name: B8 pending one-title transition (ephemeral release-derived indexes only)
         run: python scripts/b8_activation_overlay.py
+      # Recovery PR #526 only: validate the actual post-repair data in this
+      # disposable checkout. The 90-day expired claim is NOT given a new date,
+      # no live data is changed, and strict provenance is still audited below.
+      # Never run this repair shadow for main, unrelated PRs or normal CI.
+      - name: JDE 183 expired-browser source downgrade (PR 526 shadow only)
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 526 }}
+        run: |
+          python scripts/expire_jde_183_browser_claim.py \
+            --data-root . \
+            --ledger data/provenance/order-verification.json
       - name: Restore main's pinned unit-test translation fixtures after canonical-data shadow audit
         shell: bash
         run: |
