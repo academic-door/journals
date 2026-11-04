@@ -39,8 +39,8 @@ for name, payload in (
 
 summary = health.get("summary", {})
 expected = summary.get("enabled_journals")
-if expected not in (49, 50, 51, 52, 53):
-    raise AssertionError("health enabled_journals is outside the approved 49/50/51/52/53 rollout")
+if expected not in (49, 50, 51, 52, 53, 54):
+    raise AssertionError("health enabled_journals is outside the approved 49/50/51/52/53/54 rollout")
 if summary.get("available_journals") != expected:
     raise AssertionError("not every configured journal has a READY issue")
 if expected >= 50:
@@ -160,7 +160,7 @@ if expected >= 52:
         for i, a in enumerate(itpf_articles, 1)
     ):
         raise AssertionError("ITPF article classification/order or rights withholding rejected")
-if expected == 53:
+if expected >= 53:
     joeg = load("joeg-current.json")
     joeg_articles = joeg.get("articles", [])
     expected_joeg_dois = [
@@ -212,6 +212,49 @@ if expected == 53:
         for i, a in enumerate(joeg_articles, 1)
     ):
         raise AssertionError("JOEG source-attested comment/research types or public rights rejected")
+if expected == 54:
+    ijio = load("ijio-current.json")
+    ijio_articles = ijio.get("articles", [])
+    expected_ijio_dois = [
+        "10.1016/j.ijindorg.2026.103282",
+        "10.1016/j.ijindorg.2026.103283",
+        "10.1016/j.ijindorg.2026.103291",
+        "10.1016/j.ijindorg.2026.103304",
+        "10.1016/j.ijindorg.2026.103310",
+        "10.1016/j.ijindorg.2026.103311",
+    ]
+    quality = ijio.get("quality", {})
+    rights = ijio.get("public_content", {})
+    if (
+        ijio.get("journal_id") != "ijio"
+        or ijio.get("issue_id") != "ijio-108-c"
+        or ijio.get("source_url") != "https://ideas.repec.org/s/eee/indorg.html"
+        or ijio.get("source_status") != "publisher_verified"
+        or ijio.get("publication_state") != "ready"
+        or ijio.get("content_status") != "metadata_complete"
+        or ijio.get("public_mode") != "metadata_first_rights_qualified_v1"
+        or quality.get("roster_authority") != "repec-publisher-supplied"
+        or quality.get("roster_transport") != "repec-serial-page"
+        or quality.get("roster_match") is not True
+        or quality.get("order_preserved") is not True
+        or quality.get("excluded_items", [])
+        or rights.get("metadata_articles") != 6
+        or rights.get("rights_withheld_articles") != 6
+        or rights.get("abstracts_en_visible") != 0
+        or rights.get("translations_cn_visible") != 0
+        or [str(a.get("doi", "")) for a in ijio_articles] != expected_ijio_dois
+    ):
+        raise AssertionError("IJIO 108(C) source, DOI order or rights verification failed")
+    if any(
+        a.get("article_type") != "research-article"
+        or a.get("sequence") != i
+        or not a.get("title_en") or not a.get("authors")
+        or any(str(a.get(k, "")).strip() for k in ("abstract_en", "abstract_cn", "title_cn"))
+        or a.get("public_rights", {}).get("status") != "withheld"
+        or a.get("translation", {}).get("status") != "rights_withheld"
+        for i, a in enumerate(ijio_articles, 1)
+    ):
+        raise AssertionError("IJIO rights-withheld DOI/type/order metadata invalid")
 if not summary.get("articles"):
     raise AssertionError("public article totals are empty")
 if expected <= 50:
@@ -224,7 +267,7 @@ else:
     # unlicensed English abstracts and Chinese adaptations.
     if health.get("content_status") != "rights_qualified":
         raise AssertionError("metadata-first rights-qualified status missing")
-    expected_withheld = {51: 12, 52: 23, 53: 32}[expected]
+    expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38}[expected]
     if summary.get("rights_withheld_articles") != expected_withheld:
         raise AssertionError("rights-withheld public article count drift")
     if summary.get("translated_articles") + expected_withheld != summary.get("articles"):
@@ -247,10 +290,10 @@ if monitoring.get("status") != "healthy":
     # as operationally probed. Accept ONLY its explicit single
     # warning while the first monitor observation is outstanding.
     pending_jae = (
-        expected in (51, 52, 53)
+        expected in (51, 52, 53, 54)
         and monitoring.get("status") == "degraded"
         and monitoring.get("warning_journals") == [
-            "JAE" if expected == 51 else ("ITPF" if expected == 52 else "JOEG")
+            "JAE" if expected == 51 else ("ITPF" if expected == 52 else ("JOEG" if expected == 53 else "IJIO"))
         ]
         and monitor_summary.get("warnings") == 1
         and monitor_summary.get("failed") == 0

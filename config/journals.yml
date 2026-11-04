@@ -805,3 +805,19 @@ journals:
     current_issue_url: https://academic.oup.com/joeg/issue/26/5
     enabled: true
     collections: [fields]
+  IJIO:
+    id: ijio
+    name: International Journal of Industrial Organization
+    short_name: IJIO
+    name_cn: 国际产业组织杂志
+    field: theory
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0167-7187
+    fallback: crossref
+    repec_series_url: https://ideas.repec.org/s/eee/indorg.html
+    issue_url_template: https://www.sciencedirect.com/journal/international-journal-of-industrial-organization/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/international-journal-of-industrial-organization/vol/108/suppl/C
+    enabled: true
+    collections: [fields]
