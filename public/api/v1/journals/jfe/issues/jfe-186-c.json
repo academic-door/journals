@@ -1,0 +1,449 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "jfe-186-c",
+  "journal_id": "jfe",
+  "journal_name": "Journal of Financial Economics",
+  "volume": "186",
+  "issue": "C",
+  "issue_label": "Vol. 186",
+  "publication_date": "December 2026",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/186/suppl/C",
+  "retrieved_at": "2026-11-04T06:32:21+00:00",
+  "expected_article_count": 6,
+  "research_article_count": 6,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jfineco.2026.104387",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Political Voice and (Mortgage) Market Participation: Evidence from the dilution of Voting Rights Act",
+      "title_cn": "政治声音与（抵押贷款）市场参与：来自《投票权法》稀释的证据",
+      "authors": [
+        "Seongjin Park",
+        "Arkodipta Sarkar",
+        "Nishant Vats"
+      ],
+      "abstract_en": "Using US Supreme Court’s narrow-decision on Shelby v. Holder as a shock that diluted voting rights of Black Americans in covered counties, we document the relationship between political voice and economic decision-making. We show fewer Black Americans buy homes after their de-facto disenfranchisement, reflected through lower mortgage applications. Among those who apply for mortgages, there is a flight to Black lenders. Leveraging individual-level survey data, we show confidence in government and financial institutions plays a significant role in driving these effects. Our findings demonstrate that the effects of disenfranchisement extend beyond the ballot box to fundamental economic decisions like homeownership.",
+      "abstract_cn": "我们将美国最高法院对Shelby诉Holder案的窄幅裁决作为一项冲击，该冲击削弱了受覆盖县黑人美国人的投票权，据此记录了政治声音与经济决策之间的关系。我们表明，在事实上的选举权被剥夺后，购买住房的黑人美国人减少，这反映为抵押贷款申请减少。在申请抵押贷款的人中，出现了向黑人贷款机构的转移。利用个体层面的调查数据，我们表明对政府和金融机构的信心在驱动这些效应中发挥显著作用。我们的发现表明，选举权被剥夺的效应超越投票箱，延伸至像住房所有权这样的基本经济决策。",
+      "abstract_snippet_en": "Using US Supreme Court’s narrow-decision on Shelby v. Holder as a shock that diluted voting rights of Black Americans in covered counties, we document the relationship between political voice and economic...",
+      "doi": "10.1016/j.jfineco.2026.104387",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001583?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/186/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17353,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17353,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:23+00:00",
+        "source_hash": "4c1cca0656e8c84c572cc9224dafd3edeac350c5f7fe952b75a2201ad5108424"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jfineco.2026.104386",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Do long-term yields help to estimate short-term risk premia?",
+      "title_cn": "长期收益率有助于估计短期风险溢价吗？",
+      "authors": [
+        "Andrea Berardi",
+        "Roger Brown",
+        "Stephen M. Schaefer"
+      ],
+      "abstract_en": "We identify a new and important property of affine term structure models: at long maturities, the slope of the term structure of risk premia becomes “almost observable”. Exploiting this property by fitting models to long-maturity data dramatically improves the precision of estimates of risk premia and expected short rates across the term structure. In a Monte Carlo experiment we show that using rates with maturities up to 25 years, rather than 10 years as is standard in the literature, reduces the standard deviation of estimation errors in risk premia, expected short rates and term premia by over 70%. Applying this approach to US Treasury data, we find that variation in expected short rates accounts for a much larger share of variation in yields (and variation in term premia a correspondingly smaller fraction) than in the widely used estimates reported by the Federal Reserve. Accounting for time-variation in yield volatility is key to successful extraction of the risk premium information in long rates. Our approach therefore departs from much of the empirical literature in two important respects: it incorporates long-maturity yields and allows for time-varying yield volatility, whereas most existing studies ignore long-term yields and rely on constant volatility models.",
+      "abstract_cn": "我们识别出仿射期限结构模型的一个新的重要性质：在长期限上，风险溢价期限结构的斜率变得“几乎可观测”。通过将模型拟合到长期限数据来利用这一性质，可以显著提高整个期限结构上风险溢价和预期短期利率估计的精度。在一项蒙特卡洛实验中，我们表明，使用期限最高达25年的利率，而非文献中标准的10年，可将风险溢价、预期短期利率和期限溢价中估计误差的标准差降低超过70%。将这一方法应用于美国国债数据，我们发现，与美联储报告的广泛使用的估计相比，预期短期利率的变动在收益率变动中所占的份额要大得多（而期限溢价的变动相应占较小的份额）。考虑收益率波动率的时间变化是成功从长期利率中提取风险溢价信息的关键。因此，我们的方法在两个重要方面不同于许多实证文献：它纳入了长期限收益率并允许时变收益率波动率，而大多数现有研究忽略长期收益率并依赖恒定波动率模型。",
+      "abstract_snippet_en": "We identify a new and important property of affine term structure models: at long maturities, the slope of the term structure of risk premia becomes “almost observable”. Exploiting this property by...",
+      "doi": "10.1016/j.jfineco.2026.104386",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001571?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/186/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17352,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17352,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:26+00:00",
+        "source_hash": "cd8f099fbbc7686c32e5ac28187777effdf9600b6700f1146a3d838849dfffd8"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jfineco.2026.104399",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "The effect of prime brokers’ balance sheet constraints on hedge fund performance: Evidence from the GSIB surcharge",
+      "title_cn": "主经纪商资产负债表约束对对冲基金业绩的影响：来自GSIB附加费的证据",
+      "authors": [
+        "Yueting Jiang",
+        "Yiwen Shen"
+      ],
+      "abstract_en": "Hedge funds often use leverage provided by prime brokers to enhance their investment returns. We investigate how prime brokers’ capital constraints impact the performance of connected hedge funds. At the hedge fund level, we construct a measure for prime brokers’ balance sheet constraints using the capital requirements under the Basel III framework. We document that tighter balance sheet constraints of prime brokers lead to lower future return, alpha, volatility, Sharpe ratio, and information ratio of the hedge funds. These findings are consistent with an analytical model in which prime brokers respond to balance sheet constraints by increasing leverage cost or decreasing leverage provision to hedge funds. We show that the estimated effects are more pronounced for hedge funds with higher leverage demand elasticities and during more capital-binding periods. Our results reveal the real effects of bank regulation on connected financial institutions via the services of prime brokers. We conduct empirical tests for our identification strategy and support our findings via multiple robustness checks.",
+      "abstract_cn": "对冲基金经常使用主经纪商提供的杠杆来增强其投资回报。我们研究主经纪商的资本约束如何影响关联对冲基金的业绩。在对冲基金层面，我们利用巴塞尔III框架下的资本要求构建了主经纪商资产负债表约束的度量指标。我们发现，主经纪商更紧的资产负债表约束会导致对冲基金未来回报、alpha、波动率、夏普比率和信息比率降低。这些发现与一个分析模型一致，在该模型中，主经纪商通过提高杠杆成本或减少对对冲基金的杠杆供给来应对资产负债表约束。我们表明，对于杠杆需求弹性更高的对冲基金以及在资本更受约束的时期，估计效应更为显著。我们的结果揭示了银行监管通过主经纪商服务对关联金融机构的实际效应。我们为识别策略进行了实证检验，并通过多项稳健性检验支持我们的发现。",
+      "abstract_snippet_en": "Hedge funds often use leverage provided by prime brokers to enhance their investment returns. We investigate how prime brokers’ capital constraints impact the performance of connected hedge funds. At...",
+      "doi": "10.1016/j.jfineco.2026.104399",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001704?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/186/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17351,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17351,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:28+00:00",
+        "source_hash": "edba11acae0e84375e90db3c80365dfc665681fb85e47ffa7a0b549aaa1a2b53"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jfineco.2026.104397",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Are direct lenders more like banks or arm’s-length investors?",
+      "title_cn": "直接贷款人更像银行还是保持距离的投资者？",
+      "authors": [
+        "Young Soo Jang"
+      ],
+      "abstract_en": "Using novel data on loans to private equity (PE) sponsored firms, I examine whether direct lenders lend more like banks or arm’s-length investors. Financial covenants are ubiquitous in direct lending. Borrowers face more covenants, and violate them more often, than in bank loans. Direct lenders actively intervene post-violation, prompting firms to adopt conservative policies. During the COVID pandemic, they showed greater flexibility than banks, facilitated by more frequent PE sponsor equity injections. Prior sponsor relationships also predict higher credit supply for distressed borrowers. Overall, similar to banks, direct lenders engage in active monitoring and relationship lending.",
+      "abstract_cn": "利用关于向私募股权（PE）赞助企业发放贷款的新颖数据，我考察了直接贷款人的放贷方式更像银行还是更像保持距离的投资者。财务契约在直接贷款中无处不在。与银行贷款相比，借款人面临更多契约，且更频繁地违反这些契约。直接贷款人在违约后积极干预，促使企业采取保守政策。在COVID大流行期间，它们表现出比银行更大的灵活性，这得益于更频繁的PE赞助人股权注入。先前的赞助人关系也预示着对困境借款人有更高的信贷供给。总体而言，与银行类似，直接贷款人从事积极的监督和关系型贷款。",
+      "abstract_snippet_en": "Using novel data on loans to private equity (PE) sponsored firms, I examine whether direct lenders lend more like banks or arm’s-length investors. Financial covenants are ubiquitous in direct lending....",
+      "doi": "10.1016/j.jfineco.2026.104397",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001686?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/186/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17350,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17350,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:30+00:00",
+        "source_hash": "66d68b4360d44c33905bf48a022e203f2a43e9694619c61c1f0f48615d9fdb30"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jfineco.2026.104381",
+      "sequence": 5,
+      "source_sequence": 5,
+      "article_type": "research-article",
+      "title_en": "Innovation booms, easy financing, and human capital accumulation",
+      "title_cn": "创新热潮、宽松融资与人力资本积累",
+      "authors": [
+        "Johan Hombert",
+        "Adrien Matray"
+      ],
+      "abstract_en": "Innovation booms are often fueled by easy financing, allowing new technology firms to pay high wages that attract skilled labor. Studying the Information and Communication Technology (ICT) boom in the late 1990s, we show that high-skill workers who joined the ICT sector during the boom experienced sizeable long-term earnings losses. These earnings patterns stem from accelerated skill obsolescence rather than worker selection or the subsequent bust in the ICT sector. Moreover, during the boom, financing disproportionately flowed to firms whose workers would later experience the largest productivity declines, amplifying the negative effect of labor reallocation on aggregate human capital accumulation.",
+      "abstract_cn": "创新热潮往往由宽松融资推动，使新技术企业能够支付高工资以吸引技术劳动力。通过研究1990后期的信息与通信技术（ICT）热潮，我们发现，在热潮期间加入ICT部门的高技能工人经历了相当大的长期收入损失。这些收入模式源于技能加速过时，而非工人选择或随后ICT部门的萧条。此外，在热潮期间，融资不成比例地流向了那些工人后来将经历最大生产率下降的企业，放大了劳动力重新配置对总体人力资本积累的负面影响。",
+      "abstract_snippet_en": "Innovation booms are often fueled by easy financing, allowing new technology firms to pay high wages that attract skilled labor. Studying the Information and Communication Technology (ICT) boom in the...",
+      "doi": "10.1016/j.jfineco.2026.104381",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001522?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/186/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17349,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17349,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:31+00:00",
+        "source_hash": "6d68231631a30ad9ccb0ab53ac4b8645ffc1b3be6bb9a4bf2e67b4a616708668"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jfineco.2026.104388",
+      "sequence": 6,
+      "source_sequence": 6,
+      "article_type": "research-article",
+      "title_en": "Decoupling voting and cash flow rights",
+      "title_cn": "投票权与现金流权的分离",
+      "authors": [
+        "Andre Speit",
+        "Paul Voss",
+        "András Danis"
+      ],
+      "abstract_en": "The equity lending and option market both allow investors to decouple voting and cash flow rights of common shares. We provide a theory of this decoupling. While either market enables investors to acquire voting rights without cash flow exposure, empirical studies demonstrate a substantial difference in implied vote prices. Our model explains this surprising difference by uncovering the mechanism by which vote prices in the equity lending market are endogenously lower than those implied by the option market. We show that even though votes are cheaper in the equity lending market, activists endogenously choose to purchase votes in both markets.",
+      "abstract_cn": "股权借贷市场和期权市场都允许投资者将普通股的投票权与现金流权分离。我们提供了一个关于这种分离的理论。尽管这两个市场都能使投资者在无现金流敞口的情况下获得投票权，但实证研究显示隐含投票价格存在显著差异。我们的模型通过揭示股权借贷市场中的投票价格内生地低于期权市场所隐含的投票价格的机制，解释了这一令人惊讶的差异。我们表明，即使股权借贷市场中的投票权更便宜，积极投资者仍内生地选择在两个市场中购买投票权。",
+      "abstract_snippet_en": "The equity lending and option market both allow investors to decouple voting and cash flow rights of common shares. We provide a theory of this decoupling. While either market enables investors to acquire...",
+      "doi": "10.1016/j.jfineco.2026.104388",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0304405X26001595?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-financial-economics/vol/186/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/0304405X",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17348,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17348,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:33+00:00",
+        "source_hash": "c802b336a2da899c8fd2738d3b348fe44f9b175857f2966ecf35570831799eb3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "sciencedirect-rss",
+    "roster_authority": "publisher-rss",
+    "roster_match_scope": "rss-volume-items",
+    "rss_url": "https://rss.sciencedirect.com/publication/science/0304405X",
+    "official_item_count": 6,
+    "publishable_item_count": 6,
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 6,
+    "authors_complete": 6,
+    "abstract_en_complete": 6,
+    "translation_complete": 6,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_sciencedirect_rss_fallback",
+      "publisher_rss_reverse_order_normalized",
+      "official_order_unverified"
+    ],
+    "content_counts": {
+      "official_items": 6,
+      "observed_items": 6,
+      "publishable_items": 6,
+      "research_articles": 6,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 6
+    }
+  },
+  "content_counts": {
+    "official_items": 6,
+    "observed_items": 6,
+    "publishable_items": 6,
+    "research_articles": 6,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 6
+  },
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}

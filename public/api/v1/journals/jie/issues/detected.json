@@ -1,40 +1,169 @@
 {
   "schema_version": "1.0",
-  "issue_id": "jie-163-c",
+  "issue_id": "jie-164-c",
   "journal_id": "jie",
   "journal_name": "Journal of International Economics",
-  "volume": "163",
+  "volume": "164",
   "issue": "C",
-  "issue_label": "Vol. 163",
-  "publication_date": "October 2026",
-  "source_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-  "retrieved_at": "2026-10-22T07:55:37+00:00",
-  "expected_article_count": 8,
-  "research_article_count": 8,
-  "status": "ready",
+  "issue_label": "Vol. 164",
+  "publication_date": "December 2026",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+  "retrieved_at": "2026-11-04T06:31:16+00:00",
+  "expected_article_count": 31,
+  "research_article_count": 31,
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jinteco.2025.104203",
+      "paper_id": "doi:10.1016/j.jinteco.2026.104312",
       "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Horizontal regulatory barriers in international trade: Evidence from electric plugs",
+      "title_cn": "国际贸易中的横向监管壁垒：来自电源插头的证据",
+      "authors": [
+        "Yuan Mei",
+        "Mingzhi (Jimmy) Xu"
+      ],
+      "abstract_en": "Domestic policies regulating the horizontal dimensions of product differentiation can impede international trade and have become a major concern in contemporary trade negotiations. We estimate trade frictions associated with incompatible designs of electric plugs, a well-known example of a horizontal regulatory barrier. Our findings indicate that fewer electronic devices are exported to destinations with incompatible electric plugs, and this effect operates through both the extensive margin and the intensive margin of exports. These results are further corroborated by an online survey of Chinese electronics exporters. Moreover, incompatible plugs are associated with lower average quality of exported electronic devices, suggesting that horizontal regulatory barriers are linked to variation in the vertical dimension of product differentiation.",
+      "abstract_cn": "规范产品差异化横向维度的国内政策可能阻碍国际贸易，并已成为当代贸易谈判中的一个主要关切。我们估算了与不兼容的电源插头设计相关的贸易摩擦，这是横向监管壁垒的一个著名例子。我们的研究结果表明，出口到电源插头不兼容目的地的电子设备较少，且这一效应通过出口的扩展边际和集约边际同时发挥作用。这些结果进一步得到了对中国电子出口商进行的在线调查的证实。此外，不兼容的插头与出口电子设备的平均质量较低相关，这表明横向监管壁垒与产品差异化的纵向维度变化有关。",
+      "abstract_snippet_en": "Domestic policies regulating the horizontal dimensions of product differentiation can impede international trade and have become a major concern in contemporary trade negotiations. We estimate trade...",
+      "doi": "10.1016/j.jinteco.2026.104312",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001029?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17384,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17384,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T16:48:34+00:00",
+        "source_hash": "95f642335c40dca957b9ffaea3d189d58737e60580ae16f5729e77128d93b5b5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104316",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Different no more: Country spreads in advanced and emerging economies",
+      "title_cn": "不再不同：发达经济体与新兴经济体的国家利差",
+      "authors": [
+        "Benjamin Born",
+        "Gernot J. Müller",
+        "Johannes Pfeifer",
+        "Susanne Wellmann"
+      ],
+      "abstract_en": "Interest rate spreads vary widely across time and countries and are a central driver of business cycles in emerging market economies (EMEs). Since 2008, advanced market economies (AMEs) have exhibited persistently higher and more volatile spreads, alongside increased macroeconomic volatility and stronger co-movement with EMEs. We document six facts showing that AMEs have become more similar to EMEs along key dimensions. We interpret these patterns through a small open economy model and uncover a stark dichotomy: higher spreads reflect greater indebtedness and lower debt tolerance, whereas greater macroeconomic volatility and co-movement are driven by stronger global shocks.",
+      "abstract_cn": "利率利差在不同时间和国家间差异巨大，是新兴市场经济体（EMEs）商业周期的核心驱动因素。自2008年以来，发达市场经济体（AMEs）表现出持续更高且更波动的利差，同时伴随着宏观经济波动性的增加以及与新兴市场经济体更强的联动性。我们记录了六个事实，表明发达市场经济体在关键维度上已变得更加类似于新兴市场经济体。我们通过一个小型开放经济模型来解释这些模式，并揭示了一个鲜明的二分法：更高的利差反映了更高的债务水平和更低的债务容忍度，而更大的宏观经济波动性和联动性则是由更强的全球冲击所驱动。",
+      "abstract_snippet_en": "Interest rate spreads vary widely across time and countries and are a central driver of business cycles in emerging market economies (EMEs). Since 2008, advanced market economies (AMEs) have exhibited...",
+      "doi": "10.1016/j.jinteco.2026.104316",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001066?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17383,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17383,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T16:48:25+00:00",
+        "source_hash": "525ab22e1b4a592d4a0d62e5f555f5456a45ed213af33048c770de0839b925c1"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104315",
+      "sequence": 3,
       "source_sequence": 3,
       "article_type": "research-article",
-      "title_en": "Central banker to the world: Foreign reserve management and U.S. money market liquidity",
-      "title_cn": "央行行长对世界：外汇储备管理和美国货币市场流动性",
+      "title_en": "Global production networks and imperfect competition",
+      "title_cn": "全球生产网络与不完全竞争",
       "authors": [
-        "Ron Alquist",
-        "R. Jay Kahn",
-        "Karlye Dilts Stedman"
+        "Hanwei Huang",
+        "Kalina Manova",
+        "Oscar Perelló",
+        "Frank Pisch"
       ],
-      "abstract_en": "We develop a model that shows how foreign reserve management decisions can adversely affect U.S. money market liquidity. Consistent with the March 2020 dash-for-cash, our model suggests that as export-price volatility increases, a foreign central bank that pegs its exchange rate shifts reserves from relatively illiquid Treasuries to the Fed’s reverse repo facility. Over the relevant horizon, this precautionary behavior drains liquidity from U.S. money markets and raises repo spreads. These predictions provide a credible channel to identify the effect of foreign central bank demand for dollar liquidity on repo spreads, exploiting the characteristics of commodity exporters with pegged exchange rates. Empirical evidence supports the model’s predictions: precautionary sales by these central banks lead to a statistically and economically significant widening of repo spreads, accompanied by a drawdown in Treasury balances. These results underscore how the Fed’s foreign-repo facilities mitigate global dollar-funding stress and protect U.S. short-term funding markets.",
-      "abstract_cn": "我们开发了一个模型，展示外汇储备管理决策如何对美国货币市场流动性产生不利影响。与三月2020抢现金一致，我们的模型表明，随着出口价格波动性的增加，钉住汇率的外国央行会将储备从流动性相对较差的国债转移到美联储的逆回购工具。在相关范围内，这种预防性行为会耗尽美国货币市场的流动性并提高回购利差。这些预测利用钉住汇率的大宗商品出口国的特点，为确定外国央行对美元流动性的需求对回购利差的影响提供了可靠的渠道。经验证据支持该模型的预测：这些央行的预防性出售导致回购利差在统计上和经济上显着扩大，并伴随着国债余额的减少。这些结果凸显了美联储的外国回购设施如何缓解全球美元融资压力并保护美国短期融资市场。",
-      "abstract_snippet_en": "We develop a model that shows how foreign reserve management decisions can adversely affect U.S. money market liquidity. Consistent with the March 2020 dash-for-cash, our model suggests that as export-price...",
-      "doi": "10.1016/j.jinteco.2025.104203",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199625001606?dgcid=rss_sd_all",
-      "publication_date": "October 2026",
+      "abstract_en": "How do production networks and market structure interact to shape the effects of trade and competition policy? We develop a model with two-sided firm heterogeneity, matching frictions, and imperfect supplier competition. More productive buyers match with more suppliers, inducing tougher supplier competition, lower input costs, and higher profits. Entry upstream thus benefits high-productivity buyers, while lower trade or matching costs favor mid-productivity buyers. Empirical evidence confirms that larger French and Chilean firms import higher quantities at lower prices as more Chinese suppliers enter, and that suppliers charge diversified buyers lower markups. We adapt methods for combinatorial, discrete-choice problems to estimate the model and perform counterfactuals. The interaction of endogenous networks and markups significantly amplifies the gains from policies that facilitate supplier entry or firm matching, and from deep trade agreements that combine tariff cuts with such policies. Fixed networks dampen while fixed markups amplify the gains from traditional tariff liberalization.",
+      "abstract_cn": "生产网络和市场结构如何相互作用以塑造贸易和竞争政策的效果？我们开发了一个具有双边企业异质性、匹配摩擦和不完全供应商竞争的模型。生产率更高的买家匹配到更多的供应商，导致供应商竞争加剧、投入成本降低和利润提高。因此，上游进入有利于高生产率买家，而较低的贸易或匹配成本则有利于中等生产率买家。实证证据证实，随着更多中国供应商进入，智利和法国的大型企业以更低价格进口更多数量，且供应商对多元化买家收取更低的加成。我们采用组合离散选择问题的方法来估计模型并进行反事实分析。内生网络与加成之间的相互作用显著放大了促进供应商进入或企业匹配的政策以及结合关税削减与这些政策的深度贸易协定的收益。固定网络抑制了传统关税自由化的收益，而固定加成则放大了这些收益。",
+      "abstract_snippet_en": "How do production networks and market structure interact to shape the effects of trade and competition policy? We develop a model with two-sided firm heterogeneity, matching frictions, and imperfect...",
+      "doi": "10.1016/j.jinteco.2026.104315",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001054?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
@@ -46,33 +175,31 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 19931,
-                "resets_at": "2026-10-22T08:15:06+00:00",
+                "remaining": 17382,
+                "resets_at": "2026-11-04T10:37:24+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 19931,
-            "resets_at": "2026-10-22T08:15:06+00:00",
+            "remaining": 17382,
+            "resets_at": "2026-11-04T10:37:24+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "repec": "https://ideas.repec.org/a/eee/inecon/v163y2026ics0022199625001606.html"
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:39:16+00:00",
-        "source_hash": "aaeecb6863cf583556c2687c0212d44223d120bad9df63e184fb690b5ec4d760"
+        "model": "deepseek-chat",
+        "translated_at": "2026-08-05T16:48:22+00:00",
+        "source_hash": "5cb2539a1e4f1aa3c3f886a1f249e9b897703c833cf734e9489a66fe3754febd"
       },
       "quality_flags": [],
-      "publisher_article_type": "research article",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -81,27 +208,28 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jinteco.2025.104207",
-      "sequence": 2,
+      "paper_id": "doi:10.1016/j.jinteco.2026.104313",
+      "sequence": 4,
       "source_sequence": 4,
       "article_type": "research-article",
-      "title_en": "Seizing central bank assets?",
-      "title_cn": "扣押央行资产？",
+      "title_en": "Persistent global growth differences and euro area adjustment: Real activity, trade and the real exchange rate",
+      "title_cn": "持久的全球增长差异与欧元区调整：实际活动、贸易与实际汇率",
       "authors": [
-        "Massimo Ferrari Minesso",
-        "Tobias Krahnke",
-        "Arnaud Mehl",
-        "Isabel Vansteenkiste"
+        "Adrian Ifrim",
+        "Robert Kollmann",
+        "Philipp Pfeiffer",
+        "Marco Ratto",
+        "Werner Roeger"
       ],
-      "abstract_en": "We study the global impacts of sanctions on central bank assets. We build a database on freezes and seizures of central bank assets spanning 1914–2024. We show that the scale of the freeze on today’s Central Bank of Russia’s assets is rarely seen in history and that non-belligerent countries have never seized central bank assets to finance reconstruction in a third country in an ongoing war. We propose a three-country DSGE model to understand the global impacts of sanctions on central bank assets and tease out the macroeconomic mechanisms. One insight of the model is that seizing central bank assets can result in adverse effects on the sanctioning country in general equilibrium. Calibrated model simulations suggest that seizing Russia’s immobilized sovereign assets could result in higher interest rates on sanctioning countries’ government bonds. The increase in interest rate payments could surpass the assets’ amount seized after about three years.",
-      "abstract_cn": "我们研究制裁对央行资产的全球影响。我们建立了一个关于1914-2024央行资产冻结和扣押的数据库。我们表明，当今俄罗斯中央银行资产冻结的规模在历史上是罕见的，并且非交战国家从未在第三国家的持续战争中没收中央银行资产来为重建提供资金。我们提出了一个三国家 DSGE 模型，以了解制裁对央行资产的全球影响并梳理宏观经济机制。 一该模型的见解是，扣押央行资产可能会对处于一般均衡状态的制裁国造成不利影响。校准模型模拟表明，扣押俄罗斯的固定主权资产可能会导致制裁国政府债券的利率上升。大约三年后，利率支付的增加可能超过扣押的资产金额。",
-      "abstract_snippet_en": "We study the global impacts of sanctions on central bank assets. We build a database on freezes and seizures of central bank assets spanning 1914–2024. We show that the scale of the freeze on today’s...",
-      "doi": "10.1016/j.jinteco.2025.104207",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199625001643?dgcid=rss_sd_all",
-      "publication_date": "October 2026",
+      "abstract_en": "Since the launch of the euro, the Euro Area has combined weak growth with persistent trade surpluses, a rising trade share, and the absence of a real exchange rate trend. In academic and policy debates, the Euro Area's trade surplus is often viewed as reflecting weak domestic aggregate demand. This paper argues that a purely demand-based view of the trade balance is incomplete. Using an estimated two-region framework, we find that slower productivity growth in the Euro Area has been a major driver of the trade surplus since 1999, while demand shocks play an important role in the rising trade balance following the global financial crisis. We further show that real exchange rate dynamics cannot be understood from productivity growth differentials and aggregate demand shocks alone, but also reflect longer-run shifts in trade patterns.",
+      "abstract_cn": "自欧元启动以来，欧元区将疲弱增长与持续贸易顺差、上升的贸易份额以及实际汇率趋势的缺失结合在一起。在学术和政策辩论中，欧元区的贸易顺差常被视为反映了疲弱的国内总需求。本文认为，纯粹基于需求的贸易余额观点是不完整的。使用一个估计的两区域框架，我们发现，自1999以来，欧元区较慢的生产率增长一直是贸易顺差的主要驱动因素，而需求冲击在全球金融危机后贸易余额上升中发挥了重要作用。我们进一步表明，实际汇率动态不能仅从生产率增长差异和总需求冲击来理解，还反映了贸易模式的较长期转变。",
+      "abstract_snippet_en": "Since the launch of the euro, the Euro Area has combined weak growth with persistent trade surpluses, a rising trade share, and the absence of a real exchange rate trend. In academic and policy debates,...",
+      "doi": "10.1016/j.jinteco.2026.104313",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001030?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
@@ -113,33 +241,31 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 19930,
-                "resets_at": "2026-10-22T08:15:06+00:00",
+                "remaining": 17381,
+                "resets_at": "2026-11-04T10:37:24+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 19930,
-            "resets_at": "2026-10-22T08:15:06+00:00",
+            "remaining": 17381,
+            "resets_at": "2026-11-04T10:37:24+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "repec": "https://ideas.repec.org/a/eee/inecon/v163y2026ics0022199625001643.html"
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:39:17+00:00",
-        "source_hash": "956305ca7c29a2b640261552f490ebd280dbb2d22d09a0b10f990a9196adec75"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:18+00:00",
+        "source_hash": "918cdf69d1b8d1c66a2106f39bc9c003e3ae56b5f5e1467a4eb4ff5c12d06865"
       },
       "quality_flags": [],
-      "publisher_article_type": "research article",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -148,30 +274,26 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jinteco.2025.104204",
-      "sequence": 3,
+      "paper_id": "doi:10.1016/j.jinteco.2026.104311",
+      "sequence": 5,
       "source_sequence": 5,
       "article_type": "research-article",
-      "title_en": "Playing with blocs: Quantifying decoupling",
-      "title_cn": "玩弄集团：量化脱钩",
+      "title_en": "Exporter survival with uncertainty and experimentation",
+      "title_cn": "不确定性与实验下的出口商生存",
       "authors": [
-        "Barthélémy Bonadio",
-        "Zhen Huo",
-        "Elliot Kang",
-        "Andrei A. Levchenko",
-        "Nitya Pandalai-Nayar",
-        "Hiroshi Toma",
-        "Petia Topalova"
+        "Sebastián Fanelli",
+        "Juan Carlos Hallak",
+        "Yongkun Yin"
       ],
-      "abstract_en": "We adopt a data-driven approach to measure trade decoupling over 2015-2023. Countries are classified into three groups according to changes in their data-inferred trade costs with the US and China: those shifting toward the US bloc, those shifting toward the China bloc, and those with no change in alignment. We document that while cross-bloc trade costs rose, they were accompanied by falling within-bloc trade costs, with average trade costs falling marginally in line with global trade resilience. We use a quantitative model to compute the real income effects of this reconfiguration of trade costs. Model simulations suggest that real income in the median country in the world, and the median country within each bloc, rose by 0.4-0.6%. Finally, we find a modest amount of bloc misalignment: the median country would be better off switching blocs. These results suggest that trade decoupling may not follow trade-driven economic interests.",
-      "abstract_cn": "我们采用数据驱动的方法来衡量2015-2023期间的贸易脱钩。根据数据推断的与美国和中国的贸易成本变化，各国被分为三组：转向美国集团的国家、转向中国集团的国家以及没有变化的国家。我们记录到，虽然跨集团贸易成本上升，但伴随着集团内贸易成本下降，平均贸易成本略有下降，与全球贸易弹性一致。我们使用定量模型来计算贸易成本重新配置的实际收入影响。模型模拟表明，世界上中等国家以及每个集团内中等国家的实际收入增长了0.4-0.6%。最后，我们发现了一定程度的集团失调：中间国家最好切换集团。这些结果表明，贸易脱钩可能并不遵循贸易驱动的经济利益。",
-      "abstract_snippet_en": "We adopt a data-driven approach to measure trade decoupling over 2015-2023. Countries are classified into three groups according to changes in their data-inferred trade costs with the US and China:...",
-      "doi": "10.1016/j.jinteco.2025.104204",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199625001618?dgcid=rss_sd_all",
-      "publication_date": "October 2026",
+      "abstract_en": "Two facts distinctively separate exporter dynamics from firm dynamics. One is the strikingly low survival rate of new entrants into export markets. The second is that new entrants survive less than re-entrants. We argue that these two facts are particularly useful to discipline exporter dynamics models because many sources of firm heterogeneity (e.g. fixed costs) do not affect survival rates when firms time their entry decision optimally. We extend a standard exporter dynamics model by positing that firms experiment to resolve an uncertain component in foreign-market profitability. We estimate the model using customs data from Peru. Despite its parsimony, having only four relevant parameters, the model matches the survival profile of new entrants and re-entrants. It is also sufficiently rich to deliver predictions about many exporter dynamics facts highlighted in the literature. Finally, we exploit variation across products and markets to provide additional evidence supporting the model’s experimentation mechanism.",
+      "abstract_cn": "有两个事实显著地将出口商动态与企业动态区分开来。其一是新进入出口市场的企业存活率极低。其二是新进入者的存活率低于再进入者。我们认为这两个事实对于约束出口商动态模型特别有用，因为当企业最优地安排进入决策时机时，许多企业异质性来源（例如固定成本）不会影响存活率。我们通过假设企业进行实验以解决外国市场盈利能力中一个不确定成分，扩展了一个标准的出口商动态模型。我们使用秘鲁的海关数据估计该模型。尽管该模型很简约，只有四个相关参数，但它匹配了新进入者和再进入者的存活特征。它也足够丰富，能够对文献中强调的许多出口商动态事实给出预测。最后，我们利用产品和市场之间的变异，提供额外证据支持该模型的实验机制。",
+      "abstract_snippet_en": "Two facts distinctively separate exporter dynamics from firm dynamics. One is the strikingly low survival rate of new entrants into export markets. The second is that new entrants survive less than...",
+      "doi": "10.1016/j.jinteco.2026.104311",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001017?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
@@ -183,33 +305,31 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 19929,
-                "resets_at": "2026-10-22T08:15:06+00:00",
+                "remaining": 17380,
+                "resets_at": "2026-11-04T10:37:24+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 19929,
-            "resets_at": "2026-10-22T08:15:06+00:00",
+            "remaining": 17380,
+            "resets_at": "2026-11-04T10:37:24+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "repec": "https://ideas.repec.org/a/eee/inecon/v163y2026ics0022199625001618.html"
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:39:16+00:00",
-        "source_hash": "860e5e9cc15274f62e7d79e824edd69b2da2928e9055151f94a319e8763e9cca"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:20+00:00",
+        "source_hash": "e8d8198515bd019be58b75f141ce4a7c8883a3dc88b55022516ba6886da56d81"
       },
       "quality_flags": [],
-      "publisher_article_type": "research article",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -218,26 +338,24 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jinteco.2026.104219",
-      "sequence": 4,
+      "paper_id": "doi:10.1016/j.jinteco.2026.104326",
+      "sequence": 6,
       "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Trade fragmentation, inflationary pressures and monetary policy",
-      "title_cn": "贸易碎片化、通胀压力和货币政策",
+      "title_en": "The extensive margin of restructuring: Adoption of new work in a global economy",
+      "title_cn": "重组的广延边际：全球经济中新工作的采用",
       "authors": [
-        "Ludovica Ambrosino",
-        "Jenny Chan",
-        "Silvana Tenreyro"
+        "Gueyon Kim"
       ],
-      "abstract_en": "How does trade fragmentation affect inflationary pressures? What is the response of monetary policy needed to sustain inflation at target? To address these questions, we develop a two-sector, small open-economy model that features imperfect international risk-sharing and household heterogeneity, capturing both the supply-side and demand-side effects of fragmentation. In the model, fragmentation takes the form of import-price increases or a decline in tradable-sector productivity. The sign and magnitude of its impact on inflationary pressures, and the appropriate policy response, depend not only on the direct effect of higher import prices or lower productivity on supply but also, crucially, on how aggregate demand adjusts to lower real incomes. In turn, this depends on the pace of fragmentation (gradual versus front-loaded) and other key structural factors highlighted by the model. We compare outcomes under Taylor-type monetary policy rules to a constrained-efficient allocation.",
-      "abstract_cn": "贸易碎片化如何影响通胀压力？维持通胀目标所需的货币政策有何反应？为了解决这些问题，我们开发了一个二部门小型开放经济模型，该模型具有不完善的国际风险分担和家庭异质性，捕捉了碎片化的供给侧和需求侧影响。在该模型中，碎片化表现为进口价格上涨或可贸易部门生产率下降。其对通胀压力影响的迹象和程度，以及适当的政策反应，不仅取决于进口价格上涨或生产率下降对供给的直接影响，而且最重要的是，取决于总需求如何适应实际收入的下降。反过来，这取决于碎片化的速度（渐进与提前）以及模型强调的其他关键结构因素。我们将泰勒型货币政策规则下的结果与受限有效配置进行比较。",
-      "abstract_snippet_en": "How does trade fragmentation affect inflationary pressures? What is the response of monetary policy needed to sustain inflation at target? To address these questions, we develop a two-sector, small...",
-      "doi": "10.1016/j.jinteco.2026.104219",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626000097?dgcid=rss_sd_all",
-      "publication_date": "October 2026",
+      "abstract_en": "This paper examines trade-induced restructuring at the extensive margin, using a novel measure of new work – jobs employing new knowledge, skills, and technologies – based on the emergence of new job titles over time. I find that import competition significantly increases the adoption of new work in US manufacturing industries. I further show that offshoring is central to this restructuring process and is accompanied by compositional shifts toward non-production activities. Finally, evidence from local labor market analysis indicates that these adjustments extend beyond within-industry responses and that new work is a critical channel through which trade shocks increase local wage inequality.",
+      "abstract_cn": "本文考察贸易引致的广延边际重组，采用一种基于新职位名称随时间出现的新工作衡量指标——即运用新知识、技能和技术的工作岗位。我发现进口竞争显著提高了美国制造业行业对新工作的采用。我进一步表明，离岸外包是这一重组过程的核心，并伴随着向非生产性活动的构成转变。最后，来自地方劳动力市场分析的证据表明，这些调整超出了行业内的反应，且新工作是贸易冲击提高地方工资不平等的重要渠道。",
+      "abstract_snippet_en": "This paper examines trade-induced restructuring at the extensive margin, using a novel measure of new work – jobs employing new knowledge, skills, and technologies – based on the emergence of new job...",
+      "doi": "10.1016/j.jinteco.2026.104326",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001169?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
@@ -249,33 +367,31 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 19928,
-                "resets_at": "2026-10-22T08:15:06+00:00",
+                "remaining": 17379,
+                "resets_at": "2026-11-04T10:37:24+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 19928,
-            "resets_at": "2026-10-22T08:15:06+00:00",
+            "remaining": 17379,
+            "resets_at": "2026-11-04T10:37:24+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "repec": "https://ideas.repec.org/a/eee/inecon/v163y2026ics0022199626000097.html"
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:39:17+00:00",
-        "source_hash": "34b5dd2ef34993fb39db1c7ec2bec0b01afc903fa91f48c91efbfb759b3fdb1a"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:22+00:00",
+        "source_hash": "af1f228bbce1e14ca14a536cfbdb03416a0836af3bacc6b7eea2cd8ef8b45a9e"
       },
       "quality_flags": [],
-      "publisher_article_type": "research article",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -284,25 +400,27 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jinteco.2026.104225",
-      "sequence": 5,
+      "paper_id": "doi:10.1016/j.jinteco.2026.104314",
+      "sequence": 7,
       "source_sequence": 7,
       "article_type": "research-article",
-      "title_en": "Granularity in the current account",
-      "title_cn": "经常账户的粒度",
+      "title_en": "Industrial composition of syndicated loans and banks’ climate commitments",
+      "title_cn": "银团贷款的行业构成与银行的气候承诺",
       "authors": [
-        "Miriam Koomen",
-        "Laurence Wicht"
+        "Galina Hale",
+        "Brigid Meisenbacher",
+        "Rami Najjar",
+        "Fernanda Nechio"
       ],
-      "abstract_en": "We present new empirical evidence on the role of granularity in the current account (CA), using a unique and comprehensive firm-level dataset for Switzerland. We show that idiosyncratic shocks to large firms account for almost two thirds of the fluctuations in the headline CA and are the primary source of CA volatility. The granular effect is present across goods, services, and income components and persists over both short- and medium-term horizons. In addition to their direct impact, idiosyncratic shocks propagate through inter-firm linkages via input–output relationships and cross-product connections associated with multinational enterprise activity. Our findings complement standard macroeconomic models by providing a micro-founded perspective and demonstrating the importance of granularity in explaining fluctuations in external balances.",
-      "abstract_cn": "我们使用瑞士独特且全面的企业级数据集，提出了关于粒度在经常账户 (CA) 中的作用的新经验证据。我们表明，大公司的特殊冲击几乎占总体 CA 波动的二三分之一，并且是 CA 波动的主要来源。这种颗粒效应存在于商品、服务和收入组成部分，并在短期和中期持续存在。除了直接影响之外，特殊冲击还通过与跨国企业活动相关的投入产出关系和跨产品联系通过公司间联系传播。我们的研究结果通过提供微观视角并证明粒度在解释外部平衡波动方面的重要性，补充了标准宏观经济模型。",
-      "abstract_snippet_en": "We present new empirical evidence on the role of granularity in the current account (CA), using a unique and comprehensive firm-level dataset for Switzerland. We show that idiosyncratic shocks to large...",
-      "doi": "10.1016/j.jinteco.2026.104225",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626000152?dgcid=rss_sd_all",
-      "publication_date": "October 2026",
+      "abstract_en": "In the past two decades, several banks have joined global initiatives aimed at enhancing the disclosure of their assets and climate commitments. We study whether banks that joined such initiatives have altered the emissions exposure of their syndicated loans. We rely on loan-level data with global coverage combined with country-industry data on emissions. We find that on average, banks have reduced the emissions exposure of their syndicated loans portfolio. However, we do not find statistically significant or robust differences between banks that did and those that did not subscribe to climate commitments. In the few instances where we found a statistically significant change after becoming a signatory to a climate initiative, the effect was temporary or did not survive our robustness testing. We conclude that, on average, while banks reduced their relative lending to high-emission sectors, voluntary climate commitments did not contribute to syndicated loan reallocation away from those sectors.",
+      "abstract_cn": "在过去二十年中，多家银行加入了旨在加强其资产和气候承诺披露的全球倡议。我们研究加入此类倡议的银行是否改变了其银团贷款的排放敞口。我们依赖具有全球覆盖的贷款层面数据，并结合关于排放的国家—行业数据。我们发现，平均而言，银行降低了其银团贷款组合的排放敞口。然而，我们没有发现加入气候承诺的银行与未加入的银行之间存在统计显著或稳健的差异。在少数情况下，当我们发现成为气候倡议签署方后出现统计显著变化时，该效应是暂时的，或未能通过我们的稳健性检验。我们得出结论：平均而言，尽管银行减少了相对高排放行业的贷款，但自愿气候承诺并未促使银团贷款从这些行业重新配置。",
+      "abstract_snippet_en": "In the past two decades, several banks have joined global initiatives aimed at enhancing the disclosure of their assets and climate commitments. We study whether banks that joined such initiatives have...",
+      "doi": "10.1016/j.jinteco.2026.104314",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001042?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
@@ -314,33 +432,31 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 19927,
-                "resets_at": "2026-10-22T08:15:06+00:00",
+                "remaining": 17378,
+                "resets_at": "2026-11-04T10:37:24+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 19927,
-            "resets_at": "2026-10-22T08:15:06+00:00",
+            "remaining": 17378,
+            "resets_at": "2026-11-04T10:37:24+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "repec": "https://ideas.repec.org/a/eee/inecon/v163y2026ics0022199626000152.html"
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:39:18+00:00",
-        "source_hash": "d658334b5ec86126cbd6591fb727915b9907c4014bd705828daaf6ef4171301f"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:25+00:00",
+        "source_hash": "205b2f5309c557a65b6193b9f4714388c4af7972c3401edddaefb28090738458"
       },
       "quality_flags": [],
-      "publisher_article_type": "research article",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -349,25 +465,25 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jinteco.2026.104231",
-      "sequence": 6,
+      "paper_id": "doi:10.1016/j.jinteco.2026.104325",
+      "sequence": 8,
       "source_sequence": 8,
       "article_type": "research-article",
-      "title_en": "Covered interest parity in emerging markets: Measurement and drivers",
-      "title_cn": "新兴市场的备兑利率平价：衡量标准和驱动因素",
+      "title_en": "Transportation networks, technology adoption, and structural transformation",
+      "title_cn": "交通网络、技术采用与结构转型",
       "authors": [
-        "Mai Chi Dao",
-        "Pierre-Olivier Gourinchas"
+        "T. Terry Cheung",
+        "Han Yang"
       ],
-      "abstract_en": "We study the behavior of Covered Interest Parity (CIP) deviations – aka the CIP basis – in Emerging Markets (EM). A major challenge in computing the CIP basis in EM’s lies in measuring local currency interest rates which are free of local credit risk and market segmentation. To do so, we construct a ‘purified’ CIP basis for eight major EM currencies using supranational bonds issued in EM local currencies and US dollar going back twenty years. We show that this ‘purified’ CIP basis aligns well with theory-implied predictions. In the cross-section and the time-series, the basis correlates with fundamental forces driving supply and demand for dollar forwards. Shocks to global dollar funding costs, global intermediary’s balance sheet capacity, and the demand for dollar safe assets interact with currency-specific dollar hedging and funding needs in moving the CIP basis in EM’s.",
-      "abstract_cn": "我们研究新兴市场 (EM) 的备兑利率平价 (CIP) 偏差（又称 CIP 基础）的行为。计算新兴市场 CIP 基础的一个主要挑战在于衡量不受当地信用风险和市场分割影响的当地货币利率。为此，我们利用二十年前以新兴市场本币和美元发行的超国家债券，为八主要新兴市场货币构建了一个“纯净”的CIP基础。我们表明，这种“纯化的”CIP 基础与理论隐含的预测非常吻合。在横截面和时间序列中，基差与驱动美元远期供需的基本力量相关。全球美元融资成本、全球中介机构资产负债表能力的冲击以及对美元安全资产的需求与特定货币的美元对冲和融资需求相互作用，从而影响了新兴市场的 CIP 基础。",
-      "abstract_snippet_en": "We study the behavior of Covered Interest Parity (CIP) deviations – aka the CIP basis – in Emerging Markets (EM). A major challenge in computing the CIP basis in EM’s lies in measuring local currency...",
-      "doi": "10.1016/j.jinteco.2026.104231",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626000218?dgcid=rss_sd_all",
-      "publication_date": "October 2026",
+      "abstract_en": "We investigate how transportation networks influence agricultural technology adoption and structural transformation. Our empirical results show that improved transport networks lower non-labor input prices relative to wages and promote the adoption of more productive labor-saving technologies. These changes increase agricultural labor productivity and facilitate structural transformation. In our calibrated model, transportation improvements alone account for a 2.2–2.5 percentage-point decline in India’s agricultural employment share, representing approximately 16–18 percent of the total decline observed in the data. A counterfactual exercise in which farmers cannot choose their technology results in a smaller structural transformation, highlighting the role of farmers’ adoption decision in the process of structural transformation.",
+      "abstract_cn": "我们研究交通网络如何影响农业技术采用与结构转型。我们的实证结果表明，交通网络的改善降低了非劳动投入品价格相对于工资的水平，并促进采用生产率更高的劳动节约型技术。这些变化提高了农业劳动生产率，并促进了结构转型。在我们的校准模型中，仅交通改善一项就解释了印度农业就业份额下降2.2-2.5个百分点，约占数据中观察到的总下降的16-18%。在农民无法选择其技术的反事实练习中，结构转型规模较小，这凸显了农民采用决策在结构转型过程中的作用。",
+      "abstract_snippet_en": "We investigate how transportation networks influence agricultural technology adoption and structural transformation. Our empirical results show that improved transport networks lower non-labor input...",
+      "doi": "10.1016/j.jinteco.2026.104325",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001157?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
@@ -379,33 +495,31 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 19926,
-                "resets_at": "2026-10-22T08:15:06+00:00",
+                "remaining": 17377,
+                "resets_at": "2026-11-04T10:37:24+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 19926,
-            "resets_at": "2026-10-22T08:15:06+00:00",
+            "remaining": 17377,
+            "resets_at": "2026-11-04T10:37:24+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "repec": "https://ideas.repec.org/a/eee/inecon/v163y2026ics0022199626000218.html"
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:39:20+00:00",
-        "source_hash": "0f37393775d275a640e0b5b5a0a0760022bab5ab9811728672b810d07705b08f"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:27+00:00",
+        "source_hash": "84126afaed967fb0c21b3dc719760bc6c574a2198ddf2965ae83b283a46f7901"
       },
       "quality_flags": [],
-      "publisher_article_type": "research article",
       "china_relevance": {
         "status": "no",
         "evidence": "no substantive China signal",
@@ -414,26 +528,26 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jinteco.2026.104230",
-      "sequence": 7,
+      "paper_id": "doi:10.1016/j.jinteco.2026.104327",
+      "sequence": 9,
       "source_sequence": 9,
       "article_type": "research-article",
-      "title_en": "A nascent international financial channel of China’s monetary policy transmission",
-      "title_cn": "中国货币政策传导的新兴国际金融渠道",
+      "title_en": "Reshaping factory Asia: How did the US-China trade war affect the Asian-Pacific supply chain?",
+      "title_cn": "重塑亚洲工厂：美中贸易战如何影响亚太供应链？",
       "authors": [
-        "Chang Ma",
-        "Alessandro Rebucci",
-        "Sili Zhou"
+        "Hong Ma",
+        "Jingxin Ning",
+        "Yuan Xu"
       ],
-      "abstract_en": "Chinese portfolio equity outflows grew significantly over time due to capital account liberalization. Using matched stock-fund holding data under the Qualified Domestic Institutional Investor (QDII) program, we identify a nascent financial channel of international transmission of Chinese monetary policy to world stock markets. Event studies around monetary policy announcement days uncover a cross-sectional differential impact: returns on MSCI indexes and U.S. stocks with QDII exposure are more responsive than those of non-exposed ones. The effects are driven by smaller, less liquid, and lower-turnover stocks, but not by China-concept stocks, or those exposed to mainland macroeconomic shocks. We also provide evidence consistent with a retail-driven portfolio-rebalancing mechanism: tightening periods are associated with outflows from QDII funds with high equity portfolio shares that fund managers do not fully offset. Retail flows also seem more closely associated with monetary policy changes than institutional flows.",
-      "abstract_cn": "由于资本账户自由化，中国投资组合股票流出随着时间的推移大幅增长。利用合格境内机构投资者（QDII）计划下的匹配股票基金持有数据，我们确定了中国货币政策向世界股票市场国际传导的新兴金融渠道。围绕货币政策公布日的事件研究揭示了横截面的差异影响：MSCI 指数和具有 QDII 敞口的美国股票的回报比非敞口的股票的反应更灵敏。这些影响是由规模较小、流动性较差和换手率较低的股票推动的，而不是由中国概念股或受到大陆宏观经济冲击的股票推动的。我们还提供了与散户驱动的投资组合再平衡机制相一致的证据：紧缩期与 QDII 基金的资金流出相关，这些基金拥有高股票投资组合份额，而基金经理并未完全抵消这些资金。与机构流动相比，零售流动似乎与货币政策变化的关系更为密切。",
-      "abstract_snippet_en": "Chinese portfolio equity outflows grew significantly over time due to capital account liberalization. Using matched stock-fund holding data under the Qualified Domestic Institutional Investor (QDII)...",
-      "doi": "10.1016/j.jinteco.2026.104230",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626000206?dgcid=rss_sd_all",
-      "publication_date": "October 2026",
+      "abstract_en": "This paper examines how the US-China trade war reshaped supply chains across the Asia-Pacific region. Using newly constructed product-level input–output linkages from Chinese customs transactions, we trace how US tariffs on downstream Chinese exports propagated across borders and production stages. We document that US tariffs significantly reduced Chinese exports to the US and, through upstream linkages, caused a 6.8% decline in China’s imports from Japan, South Korea, and Taiwan. Furthermore, both China and the US reoriented parts of their supply chains toward alternative economies, especially ASEAN, but also Mexico and India. A quantitative Armington model shows that these adjustments generated heterogeneous welfare effects across countries: downstream economies such as ASEAN, Mexico, and India gained, whereas upstream suppliers such as Taiwan and South Korea incurred losses. We further show that, under a broader 2025 tariff escalation with retaliation, world trade contracts and welfare declines in all countries.",
+      "abstract_cn": "本文考察美中贸易战如何重塑亚太地区的供应链。利用根据中国海关交易数据新构建的产品层面投入产出联系，我们追踪美国对中国下游出口征收的关税如何跨境并跨生产阶段传导。我们记录到，美国关税显著减少了中国对美国的出口，并通过上游联系导致中国从日本、韩国和台湾的进口下降6.8%。此外，中国和美国都将部分供应链转向替代经济体，尤其是东盟，但也包括墨西哥和印度。一个量化Armington模型显示，这些调整在各国产生了异质性福利效应：东盟、墨西哥和印度等下游经济体获益，而台湾和韩国等上游供应商遭受损失。我们进一步表明，在更广泛的2025关税升级并伴随报复的情形下，世界贸易收缩，所有国家的福利均下降。",
+      "abstract_snippet_en": "This paper examines how the US-China trade war reshaped supply chains across the Asia-Pacific region. Using newly constructed product-level input–output linkages from Chinese customs transactions, we...",
+      "doi": "10.1016/j.jinteco.2026.104327",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001170?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
@@ -445,36 +559,868 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 19925,
-                "resets_at": "2026-10-22T08:15:06+00:00",
+                "remaining": 17376,
+                "resets_at": "2026-11-04T10:37:24+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 19925,
-            "resets_at": "2026-10-22T08:15:06+00:00",
+            "remaining": 17376,
+            "resets_at": "2026-11-04T10:37:24+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "repec": "https://ideas.repec.org/a/eee/inecon/v163y2026ics0022199626000206.html"
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:39:19+00:00",
-        "source_hash": "0de8013f15fa8f15f7cf1fbf4e456f1fa1f966bdc6b7fafdbbc02c8f2bdf5bf5"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:29+00:00",
+        "source_hash": "8a52dfdf880b3f123507eefcf3d6721d28540c130f46489b990856c15f11712e"
       },
       "quality_flags": [],
-      "publisher_article_type": "research article",
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
+        "matched_terms": [
+          "China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104329",
+      "sequence": 10,
+      "source_sequence": 10,
+      "article_type": "research-article",
+      "title_en": "Tapping into excess capacity: Chinese machinery exports and African industrialization",
+      "title_cn": "挖掘过剩产能：中国机械出口与非洲工业化",
+      "authors": [
+        "Pak Hung Lam",
+        "Yatang Lin",
+        "Fangyuan Peng",
+        "Jin Wang"
+      ],
+      "abstract_en": "The recent decades have witnessed a remarkable surge in machinery imports from China to African economies. Our study examines the causes and local implications of these imports. Notably, we find that China’s efforts to decommission excess capacity have been a driving force behind this trend. Chinese city industries that face urgent capacity elimination requirements imposed by the government tend to export machinery equipment to emerging markets, particularly African countries with weaker environmental regulations and abundant resources. By using instrumental variables based on China’s annual lists of eliminated capacity, we find mixed effects of machinery imports on African economies. They increase output and value added in recipient industries that use the imported machinery, but have limited effects on employment and intersectoral linkages. Nevertheless, labor markets in affected regions reallocate away from agriculture toward both high-skilled and low-skilled occupations. These regions also experience higher pollution levels and increased nighttime light intensity.",
+      "abstract_cn": "近几十年来，从中国到非洲经济体的机械进口出现了显著激增。我们的研究考察了这些进口的原因和当地影响。值得注意的是，我们发现中国化解过剩产能的努力一直是这一趋势的驱动力。面临政府提出的紧迫产能淘汰要求的中国城市产业倾向于向新兴市场出口机械设备，尤其是环境法规较弱且资源丰富的非洲国家。通过使用基于中国年度淘汰产能清单的工具变量，我们发现机械进口对非洲经济体产生了混合效应。它们增加了使用进口机械的接收产业的产出和增加值，但对就业和跨部门联系的影响有限。尽管如此，受影响地区的劳动力市场从农业重新配置到高技能和低技能职业。这些地区还经历了更高的污染水平和增加的夜间灯光强度。",
+      "abstract_snippet_en": "The recent decades have witnessed a remarkable surge in machinery imports from China to African economies. Our study examines the causes and local implications of these imports. Notably, we find that...",
+      "doi": "10.1016/j.jinteco.2026.104329",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001194?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17375,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17375,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:31+00:00",
+        "source_hash": "604d118a2678d0c462a55aefa07b1de4497c6e59468486ff65f6b0f68c12efe7"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "Chinese"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104331",
+      "sequence": 11,
+      "source_sequence": 11,
+      "article_type": "research-article",
+      "title_en": "Climate policies as a catalyst for green FDI",
+      "title_cn": "气候政策作为绿色FDI的催化剂",
+      "authors": [
+        "Samuel Pienknagura"
+      ],
+      "abstract_en": "This paper assesses the role of climate policies as a catalyst for the deployment of low carbon technologies through foreign direct investment (FDI). Leveraging detailed cross-border project-level information, it identifies “green” FDI and finds that a larger number of active climate policies is associated with higher green FDI inflows. Importantly, climate policies are not linked to lower non-green FDI inflows. The paper also finds heterogeneity across sectors and policy instruments. The association between climate policies and green projects is stronger in energy and manufacturing, and when the recipient’s climate portfolio is tilted towards binding policies (taxes and regulation) and expenditure measures. Finally, results point to policy spillovers, whereby larger climate policy portfolios in the source country are linked to higher green FDI outflows. Moreover, larger climate policy portfolios in the source country can amplify the role of climate policies in the destination country as a catalyst for green FDI.",
+      "abstract_cn": "本文评估气候政策作为催化剂通过外国直接投资（FDI）促进低碳技术部署的作用。利用详细的跨境项目层面信息，本文识别出“绿色”FDI，并发现活跃气候政策数量越多与更高的绿色FDI流入相关。重要的是，气候政策与更低的非绿色FDI流入无关。本文还发现不同行业和政策工具之间存在异质性。气候政策与绿色项目之间的关联在能源和制造业更强，且当接收方的气候政策组合偏向约束性政策（税收和监管）和支出措施时更强。最后，结果指向政策溢出效应，即来源国更大的气候政策组合与更高的绿色FDI流出相关。此外，来源国更大的气候政策组合可以放大目的地国气候政策作为绿色FDI催化剂的作用。",
+      "abstract_snippet_en": "This paper assesses the role of climate policies as a catalyst for the deployment of low carbon technologies through foreign direct investment (FDI). Leveraging detailed cross-border project-level information,...",
+      "doi": "10.1016/j.jinteco.2026.104331",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001212?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17374,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17374,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:33+00:00",
+        "source_hash": "6defacda563a88f65be27eac8dfc7dc4f3a42c8b0f3df0b1de4ee9d9e72682bb"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104328",
+      "sequence": 12,
+      "source_sequence": 12,
+      "article_type": "research-article",
+      "title_en": "The impact of AI and cross-border data regulation on international trade in digital services",
+      "title_cn": "人工智能与跨境数据监管对数字服务国际贸易的影响",
+      "authors": [
+        "Ruiqi Sun",
+        "Daniel Trefler"
+      ],
+      "abstract_en": "International trade in digital services, including mobile app trade (e.g., Facebook in Frankfurt, Instagram in Istanbul), is large and rapidly growing. Analysing 2015–2020 data on 28,000 mobile apps, we find that AI increases an app’s user base threefold, a massive effect. AI’s handmaiden is data, including cross-border flows of personal data. Concerned with privacy and national security, policymakers have responded with thousands of conflicting data regulations, ranging from guaranteeing free trade in data (USMCA) to data export bans. We are the first to show that these regulations matter: AI’s massive effect is halved in countries with strict data flow restrictions.",
+      "abstract_cn": "数字服务国际贸易规模庞大且增长迅速，其中包括移动应用贸易（例如法兰克福的Facebook、伊斯坦布尔的Instagram）。通过分析2015-2020个移动应用的28,000数据，我们发现人工智能使应用的用户基数增加三倍，效应巨大。人工智能的助手是数据，包括个人数据的跨境流动。出于对隐私和国家安全的担忧，政策制定者已出台数千项相互冲突的数据监管规定，从保障数据自由贸易（USMCA）到数据出口禁令不等。我们首次表明这些监管规定确实重要：在数据流动限制严格的国家，人工智能的巨大效应减半。",
+      "abstract_snippet_en": "International trade in digital services, including mobile app trade (e.g., Facebook in Frankfurt, Instagram in Istanbul), is large and rapidly growing. Analysing 2015–2020 data on 28,000 mobile apps,...",
+      "doi": "10.1016/j.jinteco.2026.104328",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001182?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17373,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17373,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:35+00:00",
+        "source_hash": "e0dce81114fa2abe4623f1fd0750fcd31f9658984b1617f31686d2b82f76bac4"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104332",
+      "sequence": 13,
+      "source_sequence": 13,
+      "article_type": "research-article",
+      "title_en": "Labor mobility and the level of unemployment in a currency union",
+      "title_cn": "劳动力流动与货币联盟中的失业水平",
+      "authors": [
+        "Erin P. Gibson",
+        "Christopher L. House",
+        "Christian Proebsting",
+        "Linda L. Tesar"
+      ],
+      "abstract_en": "Unemployment rates are substantially higher and more volatile in the euro area relative to the United States. We ask to what extent the lack of cross-country labor mobility can account for unemployment dynamics in Europe. Our analytical model incorporates downward nominal wage rigidity and an endogenous migration decision. Firms are unable to freely adjust wages during economic contractions, generating an asymmetric distribution of unemployment over the business cycle. The model is calibrated to the dynamics of unemployment and net migration in a typical euro area country. An increase in labor mobility to that observed in the United States and holding all other parameters fixed would reduce the volatility of euro area unemployment by 28% and return over 1,000,000 unemployed to the workforce. The welfare cost to a typical euro area country of the currency union is 4.1 percent of permanent consumption; increasing labor mobility reduces this cost to about 3.55 percent.",
+      "abstract_cn": "相对于美国，欧元区的失业率显著更高且波动更大。我们探究跨国劳动力流动的缺乏能在多大程度上解释欧洲的失业动态。我们的分析模型纳入了向下名义工资刚性和内生迁移决策。企业在经济收缩期间无法自由调整工资，导致失业在商业周期中呈现不对称分布。模型根据典型欧元区国家的失业和净迁移动态进行校准。将劳动力流动提高到在美国观察到的水平并保持所有其他参数不变，会使欧元区失业的波动性降低28%，并使超过1,000,000的失业者重返劳动力队伍。货币联盟给典型欧元区国家带来的福利成本为永久消费的4.1%；增加劳动力流动将该成本降低至约3.55%。",
+      "abstract_snippet_en": "Unemployment rates are substantially higher and more volatile in the euro area relative to the United States. We ask to what extent the lack of cross-country labor mobility can account for unemployment...",
+      "doi": "10.1016/j.jinteco.2026.104332",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001224?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17372,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17372,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:37+00:00",
+        "source_hash": "690d48f605bf7e592d49a285a8f68870c6d0ff4b62a7a7dd1806fb582b006a6d"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104330",
+      "sequence": 14,
+      "source_sequence": 14,
+      "article_type": "research-article",
+      "title_en": "Optimal monetary and exchange rate frameworks for commodity-exposed economies",
+      "title_cn": "大宗商品暴露型经济体的最优货币与汇率框架",
+      "authors": [
+        "Thomas Drechsel",
+        "Michael McLeay",
+        "Silvana Tenreyro",
+        "Enrico D. Turri"
+      ],
+      "abstract_en": "We show that the optimal monetary and exchange rate frameworks depend critically on the economy’s commodity exposure. We develop a flexible but tractable model economy with commodity exports and imports, in which international financial conditions depend on the commodity cycle. Stabilizing domestic prices is optimal for commodity exporters, in line with standard open-economy policy prescriptions. But when economies import commodities as production inputs, optimal policy largely ‘looks through’ their direct and indirect effects on domestic prices. In emerging economies, where financial conditions are closely related to commodity cycles, trade-offs are starker and limited credibility may make implementing optimal policy challenging.",
+      "abstract_cn": "我们表明，最优货币与汇率框架关键取决于经济体的大宗商品暴露程度。我们构建了一个灵活且易于处理的大宗商品出口与进口模型经济，其中国际金融条件取决于大宗商品周期。对于大宗商品出口国，稳定国内价格是最优的，这与标准开放经济政策处方一致。但当经济体将大宗商品作为生产投入品进口时，最优政策在很大程度上“看穿”其对国内价格的直接和间接影响。在新兴经济体中，金融条件与大宗商品周期密切相关，权衡取舍更为严峻，有限的信誉可能使实施最优政策具有挑战性。",
+      "abstract_snippet_en": "We show that the optimal monetary and exchange rate frameworks depend critically on the economy’s commodity exposure. We develop a flexible but tractable model economy with commodity exports and imports,...",
+      "doi": "10.1016/j.jinteco.2026.104330",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001200?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17371,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17371,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:38+00:00",
+        "source_hash": "e151cce7159150e51290fb24c0543b58871b708db91aed4e96c6fbda6ba72e57"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104334",
+      "sequence": 15,
+      "source_sequence": 15,
+      "article_type": "research-article",
+      "title_en": "Trade shocks and human capital: Evidence from Brazil’s trade liberalization",
+      "title_cn": "贸易冲击与人力资本：来自巴西贸易自由化的证据",
+      "authors": [
+        "Marcos Y. Nakaguma",
+        "Arthur A. Viaro"
+      ],
+      "abstract_en": "This paper examines the medium- and long-run effects of Brazil’s 1990s trade liberalization on child labor, schooling, and human capital accumulation. Drawing on Census and administrative data spanning nearly three decades, we exploit cross-regional variation in two components of the trade shock that differentially affected labor market opportunities for adults and children. We find that regions more exposed to child-specific tariff reductions experienced larger declines in child labor and greater increases in school attendance; those more exposed to adult-specific tariff reductions experienced the opposite. The impacts of the shocks are persistent and always larger in the long run. Specifically, we show that cohorts whose formative years coincided with the reform accumulated less human capital where adult-specific shocks were greater, and more where child-specific shocks were larger. Overall, our results highlight the role of human capital in amplifying the effects of economic shocks.",
+      "abstract_cn": "本文考察巴西1990贸易自由化对童工、学校教育和人力资本积累的中期和长期影响。利用跨越近三十年的普查和行政数据，我们利用贸易冲击两个组成部分的跨区域差异，这两个组成部分对成年人和儿童的劳动力市场机会产生了不同影响。我们发现，受儿童特定关税削减影响更大的地区童工下降幅度更大、入学率上升幅度更大；受成人特定关税削减影响更大的地区则出现相反结果。这些冲击的影响具有持续性，且在长期总是更大。具体而言，我们表明，成长年份与改革重合的 cohorts 在成人特定冲击更大的地方积累的人力资本更少，在儿童特定冲击更大的地方积累的人力资本更多。总体而言，我们的结果凸显了人力资本在放大经济冲击效应中的作用。",
+      "abstract_snippet_en": "This paper examines the medium- and long-run effects of Brazil’s 1990s trade liberalization on child labor, schooling, and human capital accumulation. Drawing on Census and administrative data spanning...",
+      "doi": "10.1016/j.jinteco.2026.104334",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001248?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17370,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17370,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:40+00:00",
+        "source_hash": "f725bb740f74fdaf2c4de2792c9a98bbfa48187210892147f3dee2b4f36d9c8b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104333",
+      "sequence": 16,
+      "source_sequence": 16,
+      "article_type": "research-article",
+      "title_en": "Can time-varying currency risk hedging explain exchange rates?",
+      "title_cn": "时变货币风险对冲能否解释汇率？",
+      "authors": [
+        "Leonie Bräuer",
+        "Harald Hau"
+      ],
+      "abstract_en": "The rise in net dollar bond positions of non-US investors has increased the net hedging demand for dollar short positions. We show how high variability of hedging and a negative demand elasticity for dollar short positions can explain increased FX volatility and the strong negative correlation between changes in net hedging and dollar spot rate returns, which reaches up to −70% for the dollar currency return index in 2012–2022. We also construct granular instruments based on idiosyncratic bank capital measures which identify the hedging demand elasticity as negative, suggesting that less hedging is demanded if the dollar appreciates.",
+      "abstract_cn": "非美国投资者净美元债券头寸的上升增加了对美元空头头寸的净对冲需求。我们展示了对冲的高波动性以及美元空头头寸的负需求弹性如何解释外汇波动性上升，以及净对冲变化与美元即期汇率回报之间强烈的负相关关系，在2012-2022中美元货币回报指数的这一相关性高达−70%。我们还基于特质性银行资本指标构建了细粒度工具变量，这些工具变量将对冲需求弹性识别为负，表明若美元升值，则所需对冲减少。",
+      "abstract_snippet_en": "The rise in net dollar bond positions of non-US investors has increased the net hedging demand for dollar short positions. We show how high variability of hedging and a negative demand elasticity for...",
+      "doi": "10.1016/j.jinteco.2026.104333",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001236?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17369,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17369,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:42+00:00",
+        "source_hash": "87dc2da12b234f0c1b8f4f3380578b3ae8e6b5ba505bfd067cad6d79b2112064"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104337",
+      "sequence": 17,
+      "source_sequence": 17,
+      "article_type": "research-article",
+      "title_en": "The elusive link between FDI and economic growth: Sectoral heterogeneity and global value chains",
+      "title_cn": "FDI与经济增长之间难以捉摸的联系：部门异质性与全球价值链",
+      "authors": [
+        "Agustín Bénétrix",
+        "Hayley Pallan",
+        "Ugo Panizza"
+      ],
+      "abstract_en": "This paper reassesses the relationship between FDI and economic growth in emerging and developing economies. We show that the aggregate FDI-growth relationship is not stable over time and that complementarities documented using data from the 1970s and 1980s disappear in more recent decades. Building a new sectoral FDI dataset we document substantial heterogeneity between FDI and sectoral growth and show that there is a positive association in the primary sector, no robust relationship in the secondary sector, and a negative relationship in the tertiary sector. To interpret these patterns, we examine the role of global value chains (GVCs). FDI is most strongly associated with growth in country–sectors with low GVC participation, while this relationship weakens or disappears as GVC integration increases. The effects also depend on the type of GVC integration. We conclude that the elusive aggregate FDI-growth relationship reflects how FDI is embedded in global production networks.",
+      "abstract_cn": "本文重新评估了新兴和发展中经济体中FDI与经济增长之间的关系。我们表明，总体FDI-增长关系随时间并不稳定，并且使用1970和1980数据记录的互补性在近几十年中消失了。通过构建新的部门FDI数据集，我们记录了FDI与部门增长之间的显著异质性，并表明在第一产业中存在正相关关系，在第二产业中没有稳健关系，在第三产业中存在负相关关系。为了解释这些模式，我们考察了全球价值链（GVCs）的作用。FDI与GVC参与度低的国家—部门增长关联最强，而随着GVC一体化程度提高，这种关系减弱或消失。这些效应还取决于GVC一体化的类型。我们得出结论，难以捉摸的总体FDI-增长关系反映了FDI如何嵌入全球生产网络。",
+      "abstract_snippet_en": "This paper reassesses the relationship between FDI and economic growth in emerging and developing economies. We show that the aggregate FDI-growth relationship is not stable over time and that complementarities...",
+      "doi": "10.1016/j.jinteco.2026.104337",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001273?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17368,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17368,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:44+00:00",
+        "source_hash": "18687cad47dd86e97ee79a4f5737ec4933f8bb13a45fde669781657519e3ab54"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104335",
+      "sequence": 18,
+      "source_sequence": 18,
+      "article_type": "research-article",
+      "title_en": "Global financial spillovers of Chinese macroeconomic surprises",
+      "title_cn": "中国宏观经济意外的全球金融溢出效应",
+      "authors": [
+        "Camila Gutierrez",
+        "Javier Turen",
+        "Alejandro Vicondoa"
+      ],
+      "abstract_en": "We study how Chinese macroeconomic surprises affect global financial markets. We exploit forecast errors around key data releases and changes in asset prices in a 60-minute window around those releases. A positive Industrial Production (IP) surprise leads to an immediate increase in Chinese and Asia-Pacific stock returns, global long-term yields, and commodity prices highly demanded by China. A complementary identification strategy, which builds on different time-zones, confirms positive spillovers to international equity markets, with stronger effects in emerging economies. Our results highlight the role of both Hedging Premia and Growth Expectations in driving asset price comovement.",
+      "abstract_cn": "我们研究中国宏观经济意外如何影响全球金融市场。我们利用关键数据发布前后的预测误差以及这些发布前后60分钟窗口内的资产价格变化。正向的工业增加值（IP）意外会导致中国和亚太地区股票收益率、全球长期收益率以及中国需求旺盛的商品价格立即上升。一种基于不同时区的补充识别策略证实了对国际股票市场的正向溢出效应，且在新兴经济体中效应更强。我们的结果凸显了对冲溢价和增长预期在驱动资产价格联动中的作用。",
+      "abstract_snippet_en": "We study how Chinese macroeconomic surprises affect global financial markets. We exploit forecast errors around key data releases and changes in asset prices in a 60-minute window around those releases....",
+      "doi": "10.1016/j.jinteco.2026.104335",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S002219962600125X?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17367,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17367,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:46+00:00",
+        "source_hash": "4b6a7afe4417710dd72eff3f8bbab0127ee5f77fe4a845b7b3e59a804696a46b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "title",
+        "matched_terms": [
+          "Chinese"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104338",
+      "sequence": 19,
+      "source_sequence": 19,
+      "article_type": "research-article",
+      "title_en": "On the spatial allocation of college seats: Human capital production and the distribution of skilled labor",
+      "title_cn": "论大学名额的空间配置：人力资本生产与技能劳动力的分布",
+      "authors": [
+        "Yu (Alan) Yang"
+      ],
+      "abstract_en": "How college seats are allocated spatially creates a tradeoff between efficiency in aggregate human capital production and equality of college opportunities across regions. Because college attendance also assigns students to locations, admission policies can further shape the spatial distribution of skilled workers through post-college migration. I study province-based college admission quotas in China. Combining national administrative data and surveys, I estimate a dynamic model of college and migration choices under spatial quota constraints. I find substantial gaps in pre-college human capital among college applicants across provinces, while these differences are only partially reflected in the allocated quotas. A purely merit-based nationwide admission increases aggregate human capital at the cost of less equal college opportunities and substantially greater brain drain in less developed regions. Comparing the current spatial quotas against the efficiency-equality frontier implies a substantial policy weight on equalizing the spatial supply of skilled labor.",
+      "abstract_cn": "大学名额如何在空间上配置，在总体人力资本生产的效率与各地区大学机会的平等之间形成权衡。由于上大学也把学生分配到特定地点，录取政策可以通过大学毕业后迁移进一步塑造技能劳动力的空间分布。我研究中国的省级大学录取配额。结合全国行政数据和调查数据，我估计一个在空间配额约束下的大学与迁移选择的动态模型。我发现各省大学申请者之间在大学前人力资本上存在巨大差距，而这些差异只部分反映在分配的配额中。纯粹基于成绩的全国统一录取提高了总体人力资本，代价是大学机会更不平等以及欠发达地区人才流失大幅加剧。将当前的空间配额与效率—平等前沿进行比较，意味着政策对均等化技能劳动力的空间供给赋予了相当大的权重。",
+      "abstract_snippet_en": "How college seats are allocated spatially creates a tradeoff between efficiency in aggregate human capital production and equality of college opportunities across regions. Because college attendance...",
+      "doi": "10.1016/j.jinteco.2026.104338",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001285?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17366,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17366,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:48+00:00",
+        "source_hash": "4321ec0a3f5712a7d862de78b3063276cbe24c296250514a207e44f2bd4470a3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
+        "matched_terms": [
+          "in China"
+        ],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104336",
+      "sequence": 20,
+      "source_sequence": 20,
+      "article_type": "research-article",
+      "title_en": "Geopolitical risk and inflation: The role of energy markets",
+      "title_cn": "地缘政治风险与通货膨胀：能源市场的作用",
+      "authors": [
+        "Marco Pinchetti"
+      ],
+      "abstract_en": "Geopolitical shocks are not all alike—different classes of geopolitical shocks can have different macroeconomic implications, particularly for inflation. This paper exploits the comovement between the Geopolitical Risk Index (GPR) and oil prices across major geopolitical events to disentangle two types of geopolitical shocks within a structural VAR model for the US economy. The VAR estimates show that geopolitical shocks associated with disruptions in energy markets are on average inflationary and contractionary. In contrast, geopolitical shocks associated with macroeconomic developments that are unrelated to energy markets are on average deflationary and contractionary. The paper validates this interpretation using cross-country and sectoral variation in output and prices. Sectors with higher energy intensity experience larger price increases following geopolitical energy shocks, while no comparable pattern emerges following geopolitical macro shocks. These results suggest that the inflationary consequences of geopolitical risk depend critically on the underlying nature of the shock.",
+      "abstract_cn": "地缘政治冲击并非完全相同——不同类别的地缘政治冲击可能具有不同的宏观经济影响，尤其是对通货膨胀的影响。本文利用地缘政治风险指数（GPR）与油价在重大地缘政治事件中的共同变动，在美国经济的结构VAR模型中区分两类地缘政治冲击。VAR估计显示，与能源市场中断相关的地缘政治冲击平均而言具有通胀效应和收缩效应。相比之下，与能源市场无关的宏观经济发展相关的地缘政治冲击平均而言具有通缩效应和收缩效应。本文利用产出和价格的跨国与部门差异验证了这一解释。能源强度较高的部门在地缘政治能源冲击后经历更大的价格上涨，而在地缘政治宏观冲击后则没有出现可比模式。这些结果表明，地缘政治风险的通胀后果关键取决于冲击的基本性质。",
+      "abstract_snippet_en": "Geopolitical shocks are not all alike—different classes of geopolitical shocks can have different macroeconomic implications, particularly for inflation. This paper exploits the comovement between the...",
+      "doi": "10.1016/j.jinteco.2026.104336",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001261?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17365,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17365,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:49+00:00",
+        "source_hash": "c6e123f57aa9e280a81c951b52d495d674aef889a9bf0bdde0d228123511d491"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104339",
+      "sequence": 21,
+      "source_sequence": 21,
+      "article_type": "research-article",
+      "title_en": "Out with the new, in with the old? Supranational bank supervision and the composition of firm investment",
+      "title_cn": "新的出去，旧的进来？超国家银行监管与企业投资构成",
+      "authors": [
+        "Miguel Ampudia",
+        "Thorsten Beck",
+        "Alexander Popov"
+      ],
+      "abstract_en": "Using exogenous variation generated by the creation of the Single Supervisory Mechanism (SSM) in the euro area, we find that relative to firms borrowing from banks subject to national supervision, firms borrowing from banks subject to supranational supervision reduce their share of intangible assets. This effect does not pre-date the supervisory reform and it does not obtain in non-SSM jurisdictions. The reallocation of investment away from intangible assets is stronger for small and young firms and appears to be driven by a short-term reduction in lending and a persistent increase in collateral standards.",
+      "abstract_cn": "利用欧元区单一监管机制（SSM）的设立所产生的外生变异，我们发现，相对于从受国家监管的银行借款的企业，从受超国家监管的银行借款的企业会降低其无形资产份额。这一效应在监管改革之前并不存在，且在非SSM司法管辖区也不成立。投资从无形资产向外重新配置的效应在小型和年轻企业中更强，并且似乎是由贷款的短期减少和抵押品标准的持续提高所驱动。",
+      "abstract_snippet_en": "Using exogenous variation generated by the creation of the Single Supervisory Mechanism (SSM) in the euro area, we find that relative to firms borrowing from banks subject to national supervision, firms...",
+      "doi": "10.1016/j.jinteco.2026.104339",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001297?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17364,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17364,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:51+00:00",
+        "source_hash": "707a4bda42f553e8d5a8a1bc73ad21f5fb24f6ba02cfe4ae91626d3e6453d6ea"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104343",
+      "sequence": 22,
+      "source_sequence": 22,
+      "article_type": "research-article",
+      "title_en": "Keeping up with the Joneses: FDI, supply chain linkages, and industrial emissions",
+      "title_cn": "与琼斯一家看齐：FDI、供应链联系与工业排放",
+      "authors": [
+        "Jiawei Mo",
+        "Ye Yuan",
+        "Zhe Zhang"
+      ],
+      "abstract_en": "This study investigates whether and how foreign direct investment (FDI) influences local industrial emissions. Leveraging spatial and temporal variations in FDI inflows into China’s manufacturing sector during the 2000s, we find that an FDI entry within commuting distances reduces domestic firms’ sulfur dioxide emission intensity by 6.01% and that of other industrial pollutants by 3.3%–5.4%. These emission reductions are driven by supply-chain interactions between FDI and domestic entities, independent of local regulations. Our findings offer insight to a market-driven greenification process via the supply chain and highlight positive environmental spillovers of FDI to developing countries.",
+      "abstract_cn": "本研究考察外商直接投资（FDI）是否以及如何影响本地工业排放。利用2000期间中国制造业FDI流入的时空变异，我们发现通勤距离内的FDI进入使国内企业的二氧化硫排放强度降低6.01%，并使其他工业污染物排放降低3.3%–5.4%。这些减排由FDI与国内实体之间的供应链互动驱动，且独立于地方环境规制。我们的发现为通过供应链实现的市场驱动型绿色化过程提供了洞见，并凸显了FDI对发展中国家的正向环境溢出效应。",
+      "abstract_snippet_en": "This study investigates whether and how foreign direct investment (FDI) influences local industrial emissions. Leveraging spatial and temporal variations in FDI inflows into China’s manufacturing sector...",
+      "doi": "10.1016/j.jinteco.2026.104343",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001339?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17363,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17363,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:53+00:00",
+        "source_hash": "d92a63cd92853cd8d4b257fba81160725822cf240a3b475174675d5a37083553"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "yes",
+        "evidence": "abstract",
         "matched_terms": [
           "China’s"
         ],
@@ -482,25 +1428,26 @@
       }
     },
     {
-      "paper_id": "doi:10.1016/j.jinteco.2026.104290",
-      "sequence": 8,
-      "source_sequence": 10,
+      "paper_id": "doi:10.1016/j.jinteco.2026.104342",
+      "sequence": 23,
+      "source_sequence": 23,
       "article_type": "research-article",
-      "title_en": "How to grow an invoicing currency: Micro evidence from Argentina",
-      "title_cn": "如何发展计价货币：来自阿根廷的微观证据",
+      "title_en": "Spillover effects of foreign currency loans: The role of the bank lending channel",
+      "title_cn": "外币贷款的溢出效应：银行贷款渠道的作用",
       "authors": [
-        "Felipe Benguria",
-        "Dennis Novy"
+        "Palma Filep-Mosberger",
+        "Lorant Kaszab",
+        "Zhou Ren"
       ],
-      "abstract_en": "We study the internationalization of the Chinese renminbi (RMB) leveraging a unique policy experiment. In 2023, amid a dollar shortage, Argentina expanded a currency swap line with China. The share of imports from China invoiced in RMB surged rapidly, displacing the dollar, which had previously accounted for virtually all invoicing. Following the presidential election of late 2023, as the dollar shortage eased, invoicing in RMB declined. We explore the mechanisms behind this pattern, using firm-level data on imports, bank-firm loan relationships, and bank balance sheets. We find that banks played a key role. Firms with pre-existing relationships to banks with limited US dollar loans were more likely to switch to RMB. In addition, firms borrowing from a Chinese state-owned bank were more likely to use RMB. We also document firm-level spillovers, with RMB use for imports from China increasing RMB use for imports from other countries. Finally, firms switching to RMB saw increased total imports.",
-      "abstract_cn": "我们利用独特的政策实验研究人民币（RMB）的国际化。 2023，在美元短缺的情况下，阿根廷扩大了与中国的货币互换额度。以人民币计价的中国进口商品份额迅速飙升，取代了此前几乎全部以美元计价的美元。在最近的总统选举2023之后，随着美元短缺的缓解，人民币计价有所下降。我们利用企业层面的进口数据、银企贷款关系和银行资产负债表来探索这种模式背后的机制。我们发现银行发挥了关键作用。与美元贷款有限的银行已有关系的公司更有可能转向人民币。此外，从中国国有银行借款的企业更有可能使用人民币。我们还记录了企业层面的溢出效应，从中国进口的人民币使用增加了从其他国家进口的人民币使用。最后，转向人民币的企业看到进口总额增加。",
-      "abstract_snippet_en": "We study the internationalization of the Chinese renminbi (RMB) leveraging a unique policy experiment. In 2023, amid a dollar shortage, Argentina expanded a currency swap line with China. The share...",
-      "doi": "10.1016/j.jinteco.2026.104290",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626000802?dgcid=rss_sd_all",
-      "publication_date": "October 2026",
+      "abstract_en": "Exchange rate shocks can affect firms borrowing only in local currency when their banks suffer foreign currency loan losses. Using Hungarian credit registry data and the unexpected January 2015 Swiss franc (CHF) appreciation, banks’ CHF corporate loan exposure is associated with a contraction in local currency credit supply. Comparing banks lending to the same local currency borrower, a one standard deviation higher exposure is associated with about a 10 percentage point larger decline in local currency loan growth, on both the intensive and extensive margins. Consistent with a balance sheet mechanism, more exposed banks experience worse CHF loan performance and lower capital adequacy, and local currency lending contracts more for banks with weaker capital and liquidity. Local currency borrowers cannot fully substitute toward less exposed lenders, and investment declines when internal liquidity is insufficient. Foreign currency lending can transmit exchange rate shocks to local currency borrowers through banks.",
+      "abstract_cn": "当银行的银行遭受外币贷款损失时，汇率冲击会影响仅以本币借款的企业。利用匈牙利信贷登记数据和2015年一月瑞士法郎（CHF）的意外升值，银行的CHF公司贷款敞口与本地货币信贷供给的收缩相关。比较向同一本地货币借款人放贷的银行，敞口高一个标准差与本地货币贷款增长多下降约10个百分点相关，这在集约边际和广延边际上均成立。与资产负债表机制一致，敞口更大的银行CHF贷款表现更差、资本充足率更低，且资本和流动性较弱的银行本地货币贷款收缩更多。本地货币借款人无法完全转向敞口较小的贷款人，当内部流动性不足时投资下降。外币贷款可以通过银行将汇率冲击传导至本地货币借款人。",
+      "abstract_snippet_en": "Exchange rate shocks can affect firms borrowing only in local currency when their banks suffer foreign currency loan losses. Using Hungarian credit registry data and the unexpected January 2015 Swiss...",
+      "doi": "10.1016/j.jinteco.2026.104342",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001327?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-        "roster": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
         "metadata": "crossref",
         "abstract_en": "elsevier-article-metadata",
         "abstract_lookup": {
@@ -512,38 +1459,545 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 19924,
-                "resets_at": "2026-10-22T08:15:06+00:00",
+                "remaining": 17362,
+                "resets_at": "2026-11-04T10:37:24+00:00",
                 "els_status": "OK"
               }
             }
           ],
           "rate_limit": {
             "limit": 20000,
-            "remaining": 19924,
-            "resets_at": "2026-10-22T08:15:06+00:00",
+            "remaining": 17362,
+            "resets_at": "2026-11-04T10:37:24+00:00",
             "els_status": "OK"
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article",
-        "repec": "https://ideas.repec.org/a/eee/inecon/v163y2026ics0022199626000802.html"
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
       },
       "translation": {
         "status": "complete",
-        "provider": "google-translate",
+        "provider": "deepseek",
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-07-29T14:39:20+00:00",
-        "source_hash": "d177af61a70e047078b3fc5063bfce38513cd14805e0d2f28d521b2abb27affd"
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:55+00:00",
+        "source_hash": "cb54e0109d09d947cd180f3e231a9304a7fca28363d0e702c139aa022f82b1ce"
       },
       "quality_flags": [],
-      "publisher_article_type": "research article",
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104341",
+      "sequence": 24,
+      "source_sequence": 24,
+      "article_type": "research-article",
+      "title_en": "Human capital accumulation across space",
+      "title_cn": "跨空间的人力资本积累",
+      "authors": [
+        "Klaus Desmet",
+        "Dávid Krisztián Nagy",
+        "Esteban Rossi-Hansberg"
+      ],
+      "abstract_en": "This paper studies how human capital shapes the economic geography of development. We propose a model in which human capital acquisition costs vary across space, and regions with higher human capital invest more in human-capital-augmenting technology. Locations are interconnected through costly migration and trade. Using data on local income and schooling, we quantify the model at a 1∘×1∘ resolution globally. Over two centuries, the model mostly predicts persistence in the spatial distribution of development. Proportionally lowering education costs in sub-Saharan Africa raises local outcomes but lowers global welfare, while the same policy in Latin America improves global welfare. An alternative policy that equalizes educational costs across sub-Saharan Africa generates worse outcomes, as population shifts within the region towards less productive areas. These results are driven by the estimated negative correlation between education costs and local fundamentals, as well as spatial inefficiencies due to externalities.",
+      "abstract_cn": "本文研究人力资本如何塑造发展的经济地理。我们提出一个模型，其中人力资本获取成本随空间变化，人力资本较高的地区对人力资本增强型技术投资更多。各地点通过 costly migration 和贸易相互联系。利用当地收入和教育数据，我们在全球 1∘×1∘ 分辨率上量化该模型。在两个世纪的时间里，该模型主要预测发展空间分布的持续性。按比例降低撒哈拉以南非洲的教育成本会提高当地结果，但降低全球福利，而在拉丁美洲实施同样的政策则会改善全球福利。一项在撒哈拉以南非洲各地均等化教育成本的替代政策会产生更差的结果，因为该地区内人口向生产率较低的地区转移。这些结果由估计的教育成本与当地基本面之间的负相关关系以及外部性导致的空间无效率所驱动。",
+      "abstract_snippet_en": "This paper studies how human capital shapes the economic geography of development. We propose a model in which human capital acquisition costs vary across space, and regions with higher human capital...",
+      "doi": "10.1016/j.jinteco.2026.104341",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001315?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17361,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17361,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:57+00:00",
+        "source_hash": "cf1ae7be4336615030fce6296b1c3892c483da2ad70c10fc5c21fc39c9d96821"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104344",
+      "sequence": 25,
+      "source_sequence": 25,
+      "article_type": "research-article",
+      "title_en": "Capturing international influences in U.S. monetary policy through a Natural Language Processing approach",
+      "title_cn": "通过自然语言处理方法捕捉美国货币政策中的国际影响",
+      "authors": [
+        "Laurent Ferrara",
+        "Nicolas de Roux"
+      ],
+      "abstract_en": "We examine the role of the international environment in shaping Federal Reserve monetary policy beyond its domestic dual mandate. We use minutes of the Federal Open Market Committee and construct indexes of the attention paid by U.S. monetary policymakers to the international economic and financial situation. These indexes are built by applying natural language processing (NLP) techniques ranging from word count to built-from-scratch machine learning models, including large language models. By integrating those text-based indicators into a Taylor rule, we get a quantitative assessment of the international attention channel on Fed decisions. Our results show that heightened international attention, which in our sample is concentrated around adverse foreign developments, is associated with a more accommodative monetary policy stance than implied by a standard Taylor rule.",
+      "abstract_cn": "我们考察国际环境在塑造美联储货币政策中超出其国内双重使命的作用。我们使用联邦公开市场委员会会议纪要，构建美国货币政策制定者对国际经济与金融状况关注度的指数。这些指数通过应用自然语言处理（NLP）技术构建，涵盖从词频统计到从零构建的机器学习模型，包括大语言模型。通过将这些基于文本的指标纳入泰勒规则，我们获得了国际关注渠道对美联储决策影响的定量评估。我们的结果表明，国际关注度上升——在我们的样本中集中于不利的海外事态发展——与比标准泰勒规则所隐含的更为宽松的货币政策立场相关联。",
+      "abstract_snippet_en": "We examine the role of the international environment in shaping Federal Reserve monetary policy beyond its domestic dual mandate. We use minutes of the Federal Open Market Committee and construct indexes...",
+      "doi": "10.1016/j.jinteco.2026.104344",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001340?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17360,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17360,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:31:59+00:00",
+        "source_hash": "d511f754c60ee480534768853d18e716133f65ddffd8bbe8b4de536f725432c5"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104346",
+      "sequence": 26,
+      "source_sequence": 26,
+      "article_type": "research-article",
+      "title_en": "Does trade exposure explain anti-globalization votes?",
+      "title_cn": "贸易暴露能解释反全球化投票吗？",
+      "authors": [
+        "Antoine Bouët",
+        "Anthony Edo",
+        "Charlotte Emlinger"
+      ],
+      "abstract_en": "We study the local effects of trade exposure and immigration on voting behavior in France over the period 1988–2022. We construct a novel measure of anti-globalization voting that combines the policy positions expressed in presidential candidates’ manifestos with local electoral outcomes. We find that greater exposure to import competition increases anti-globalization voting, whereas export exposure reduces it, consistent with their contrasting effects on French local employment. Immigration also increases anti-globalization voting. Finally, the political effects of imports depend on their composition. While imports of final goods increase anti-globalization voting, imports of intermediate goods reduce support for anti-globalization ideas. This asymmetric effect is consistent with the fact that final goods imports generate employment losses in regions specialized in import-competing industries, whereas intermediate goods imports tend to support domestic production and employment within global value chains.",
+      "abstract_cn": "我们研究了在1988-2022期间，贸易暴露和移民对法国投票行为的局部影响。我们构建了一种新的反全球化投票度量，该度量将总统候选人宣言中表达的政策立场与地方选举结果相结合。我们发现，更大的进口竞争暴露会增加反全球化投票，而出口暴露会减少反全球化投票，这与它们对法国地方就业的相反影响一致。移民也会增加反全球化投票。最后，进口的政治影响取决于其构成。最终品进口会增加反全球化投票，而中间品进口会减少对反全球化理念的支持。这种不对称效应与以下事实一致：最终品进口会在专业化于进口竞争产业的地区造成就业损失，而中间品进口往往在全球价值链内支持国内生产和就业。",
+      "abstract_snippet_en": "We study the local effects of trade exposure and immigration on voting behavior in France over the period 1988–2022. We construct a novel measure of anti-globalization voting that combines the policy...",
+      "doi": "10.1016/j.jinteco.2026.104346",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001364?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17359,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17359,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:01+00:00",
+        "source_hash": "3b7282289305880213277b60708d861c0b378c91dea817f6447a3d56ef9208ec"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104340",
+      "sequence": 27,
+      "source_sequence": 27,
+      "article_type": "research-article",
+      "title_en": "Emerging markets, household heterogeneity, and exchange rate policy",
+      "title_cn": "新兴市场、家庭异质性与汇率政策",
+      "authors": [
+        "Gabriela Cugat"
+      ],
+      "abstract_en": "I argue that household heterogeneity plays a key role in the transmission of aggregate shocks in emerging market economies. Using Mexico’s 1995 crisis as a case study, I document that whether a household works in the tradable or non-tradable sector is a crucial determinant of income and consumption losses: households tied to the non-tradable sector suffered substantially larger losses, regardless of other characteristics. To account for this fact, I build a New Keynesian small open economy model featuring two dimensions of household heterogeneity: uninsurable sector-specific income and limited participation in financial markets. Both dimensions shape how shocks propagate, typically amplifying their effects in the non-tradable sector while dampening them in the tradable sector. On the policy side, the welfare cost associated with lack of exchange rate flexibility is higher when households are heterogeneous, though sectoral preferences over such flexibility diverge when policy is restricted to simple interest rate rules.",
+      "abstract_cn": "我论证家庭异质性在新兴市场经济体总量冲击的传导中发挥关键作用。以墨西哥1995危机为案例研究，我记录到家庭在可贸易部门还是不可贸易部门工作，是收入和消费损失的关键决定因素：与不可贸易部门相关联的家庭遭受了显著更大的损失，无论其他特征如何。为解释这一事实，我构建了一个新凯恩斯小型开放经济模型，该模型具有两个维度的家庭异质性：不可保险的部门特定收入和对金融市场的有限参与。这两个维度塑造了冲击的传导方式，通常放大其在不可贸易部门的影响，同时抑制其在可贸易部门的影响。在政策方面，当家庭异质时，与缺乏汇率灵活性相关的福利成本更高，尽管当政策被限制为简单利率规则时，各部门对此类灵活性的偏好出现分歧。",
+      "abstract_snippet_en": "I argue that household heterogeneity plays a key role in the transmission of aggregate shocks in emerging market economies. Using Mexico’s 1995 crisis as a case study, I document that whether a household...",
+      "doi": "10.1016/j.jinteco.2026.104340",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001303?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17358,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17358,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:03+00:00",
+        "source_hash": "cbfab9e90325f56af7609fe9c3cfb59f8e3a913896d2ad541830cd7ccb390f3b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104345",
+      "sequence": 28,
+      "source_sequence": 28,
+      "article_type": "research-article",
+      "title_en": "Love-for-variety: with an application to an Armington model of competitive trade",
+      "title_cn": "对多样性的偏好：以竞争性贸易的阿明顿模型为应用",
+      "authors": [
+        "Kiminori Matsuyama",
+        "Philip Ushchev"
+      ],
+      "abstract_en": "We define and characterize love-for-variety, which measures the consumer's desire to consume more variety of goods, first for general homothetic symmetric preferences, and then for the two classes of GM-CES and the three classes of HSA/HDIA/HIIA. These five classes are pairwise-disjoint with the sole exception of CES. If we depart from CES within GM-CES, the standard CES measure of love-for-variety underestimates the true love-for-variety, potentially by a wide margin. If we depart from CES within HSA/HDIA/HIIA by introducing the 2nd law of demand, the standard CES measure overestimates the true love-for-variety. We illustrate these and other results in an Armington model of competitive trade, where countries differ in the variety of goods they produce, and we show how the ACR formula for the gains from trade needs to be modified.",
+      "abstract_cn": "我们定义并刻画了对多样性的偏好，它衡量消费者消费更多种类商品的意愿，首先针对一般位似对称偏好，然后针对GM-CES的两个类别以及HSA/HDIA/HIIA的三个类别。这五个类别两两不相交，唯一例外是CES。如果我们在GM-CES内偏离CES，标准的CES对多样性的偏好度量会低估真实的对多样性的偏好，可能大幅低估。如果我们在HSA/HDIA/HIIA内通过引入2需求定律偏离CES，标准的CES度量会高估真实的对多样性的偏好。我们在一个竞争性贸易的阿明顿模型中说明这些结果和其他结果，其中各国生产的产品种类不同，并且我们展示了贸易收益的ACR公式需要如何修改。",
+      "abstract_snippet_en": "We define and characterize love-for-variety, which measures the consumer's desire to consume more variety of goods, first for general homothetic symmetric preferences, and then for the two classes of...",
+      "doi": "10.1016/j.jinteco.2026.104345",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001352?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17357,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17357,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:05+00:00",
+        "source_hash": "d18746fe776844d3c0ab55a1e019c6d32fb58feaec03b69a01e48b856e2159a3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104348",
+      "sequence": 29,
+      "source_sequence": 29,
+      "article_type": "research-article",
+      "title_en": "Offshoring and voting patterns in the US",
+      "title_cn": "美国企业的离岸外包与投票模式",
+      "authors": [
+        "Anna Maria Mayda",
+        "Lindsay Oldenski",
+        "Walter Steingress"
+      ],
+      "abstract_en": "This paper studies the impact of offshoring by US firms on voting patterns in the US. Using county-level voting data combined with industry-level offshoring data, we ask whether an increase in employment at foreign affiliates of US multinationals in vertically oriented industries is associated with an increase in the vote share for the incumbent party candidate in Presidential, House, and Senate elections. We find that offshoring leads to an increase in the incumbent vote share for counties with more educated workers, and a decrease for counties with higher shares of workers in the manufacturing sector and in occupations that are more easily relocated abroad. These results are consistent with the labor market literature on offshoring, which shows that offshoring has heterogeneous effects on workers’ employment based on skill and occupational tasks. This suggests that voters respond to the economic effects of offshoring by rewarding or punishing incumbent party candidates.",
+      "abstract_cn": "本文研究美国企业离岸外包对美国投票模式的影响。利用县级投票数据结合行业级离岸外包数据，我们考察美国跨国公司在垂直导向行业的外国附属机构就业增加是否与总统、众议院和参议院选举中现任政党候选人得票份额的增加相关。我们发现，离岸外包导致工人受教育程度较高县的现任者得票份额增加，而在制造业部门工人份额较高以及从事更容易转移到国外职业的工人份额较高的县则下降。这些结果与关于离岸外包的劳动力市场文献一致，该文献表明离岸外包基于技能和职业任务对工人就业具有异质性影响。这表明选民通过奖励或惩罚现任政党候选人对离岸外包的经济效应作出反应。",
+      "abstract_snippet_en": "This paper studies the impact of offshoring by US firms on voting patterns in the US. Using county-level voting data combined with industry-level offshoring data, we ask whether an increase in employment...",
+      "doi": "10.1016/j.jinteco.2026.104348",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001388?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17356,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17356,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:07+00:00",
+        "source_hash": "b2f09ee58007b84610fb7e9f5eb07117d4e6186c44306f756c4aa665660527a3"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104317",
+      "sequence": 30,
+      "source_sequence": 30,
+      "article_type": "research-article",
+      "title_en": "Expert inflation preferences and the evaluation of monetary policy",
+      "title_cn": "专家通胀偏好与货币政策评估",
+      "authors": [
+        "Timo Wochner",
+        "Lukas Hack",
+        "Niklas Potrafke"
+      ],
+      "abstract_en": "What inflation rate should central banks target? Using two global surveys, we provide evidence on inflation preferences among economic experts—the group whose models and judgments inform monetary policy. We document that, although experts’ preferred inflation rates are centered on central-bank targets, roughly half of them deviate (symmetrically) from the target. Cross-expert heterogeneity in preferences is driven by (i) beliefs about the costs of disinflation, (ii) normative views on the relative importance of different central bank objectives, and (iii) inflation narratives. Finally, we show that experts’ preferences influence their evaluations of monetary policy decisions, suggesting that experts’ preferences are likely to matter for policymaking.",
+      "abstract_cn": "中央银行应将通胀率设定在什么目标？我们利用两项全球调查，提供了关于经济专家——其模型和判断为货币政策提供依据的群体——通胀偏好的证据。我们发现，尽管专家的偏好通胀率以中央银行目标为中心，但大约一半的专家（对称地）偏离目标。专家间偏好的异质性由以下因素驱动：（i）关于反通胀成本的信念，（ii）关于不同中央银行目标相对重要性的规范性观点，以及（iii）通胀叙事。最后，我们表明专家的偏好会影响他们对货币政策决策的评估，这表明专家的偏好很可能对政策制定具有重要性。",
+      "abstract_snippet_en": "What inflation rate should central banks target? Using two global surveys, we provide evidence on inflation preferences among economic experts—the group whose models and judgments inform monetary policy....",
+      "doi": "10.1016/j.jinteco.2026.104317",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001078?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17355,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17355,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:09+00:00",
+        "source_hash": "fab1681db75d31231b0d844e3847ea9e9698b90e97f888b3c4425cc11672b49a"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1016/j.jinteco.2026.104347",
+      "sequence": 31,
+      "source_sequence": 31,
+      "article_type": "research-article",
+      "title_en": "Input sourcing, trade liberalization, and diversifying mergers",
+      "title_cn": "投入品采购、贸易自由化与多元化并购",
+      "authors": [
+        "Qing Liu",
+        "Larry D. Qiu",
+        "Stephen Teng Sun",
+        "Chaoqun Zhan"
+      ],
+      "abstract_en": "We show that a firm’s expertise in managing specific inputs — its core competence — is a key driver of diversifying mergers. While prior work shows that such capabilities drive organic, within-firm product expansion, we demonstrate that they also motivate firms’ inorganic growth through acquisition of external firms. Using China’s 2001 WTO accession as a natural experiment, we find that a reduction in tariffs on common inputs of two industries significantly increases the likelihood of a diversifying merger between these two industries. The effect is concentrated in differentiated and innovation-intensive inputs, indicating that the valuable capability lies in mastering complex, knowledge-intensive inputs rather than in sourcing generic ones. The main result holds in a global sample covering 71 economies. Our findings extend the core competence theory by highlighting how input-related capabilities shape firm boundaries across industries.",
+      "abstract_cn": "我们表明，企业在管理特定投入品方面的专长——其核心能力——是多元化并购的关键驱动因素。既有研究表明，此类能力会推动企业内部的有机产品扩张，而我们证明，它们也会促使企业通过收购外部企业实现无机增长。以中国加入WTO的2001作为自然实验，我们发现，两个行业共同投入品关税的下降显著提高了这两个行业之间发生多元化并购的可能性。该效应集中于差异化和创新密集型投入品，表明有价值的能力在于掌握复杂的、知识密集型的投入品，而非采购通用投入品。主要结果在覆盖71个经济体的全球样本中依然成立。我们的发现通过强调与投入品相关的能力如何塑造跨行业的企业边界，拓展了核心能力理论。",
+      "abstract_snippet_en": "We show that a firm’s expertise in managing specific inputs — its core competence — is a key driver of diversifying mergers. While prior work shows that such capabilities drive organic, within-firm...",
+      "doi": "10.1016/j.jinteco.2026.104347",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626001376?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/164/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00221996",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-metadata",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 17354,
+                "resets_at": "2026-11-04T10:37:24+00:00",
+                "els_status": "OK"
+              }
+            }
+          ],
+          "rate_limit": {
+            "limit": 20000,
+            "remaining": 17354,
+            "resets_at": "2026-11-04T10:37:24+00:00",
+            "els_status": "OK"
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/metadata/article"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:32:11+00:00",
+        "source_hash": "27043d25f04291099a5b100bca088692694a16df94b0874db14a2bf6b438ba1c"
+      },
+      "quality_flags": [],
       "china_relevance": {
         "status": "yes",
         "evidence": "abstract",
         "matched_terms": [
-          "from China"
+          "China’s"
         ],
         "source": "academic-door-rules-v1"
       }
@@ -552,78 +2006,52 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_transport": "official-page-read",
-    "roster_authority": "official-issue-page",
-    "roster_match_scope": "official-publisher-issue-full",
+    "roster_transport": "sciencedirect-rss",
+    "roster_authority": "publisher-rss",
+    "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/00221996",
-    "official_item_count": 10,
-    "publishable_item_count": 8,
-    "excluded_item_count": 2,
-    "excluded_items": [
-      {
-        "doi": "10.1016/s0022-1996(26)00094-2",
-        "title_en": "Editorial Board",
-        "source_sequence": 1,
-        "source_id": "pii:S0022199626000942",
-        "article_type": "editorial",
-        "reason": "editorial_material",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626000942"
-      },
-      {
-        "doi": "10.1016/j.jinteco.2026.104295",
-        "title_en": "Introduction: NBER International Seminar on Macroeconomics",
-        "source_sequence": 2,
-        "source_id": "pii:S0022199626000851",
-        "article_type": "editorial",
-        "reason": "editorial_material",
-        "source_url": "https://www.sciencedirect.com/science/article/pii/S0022199626000851"
-      }
-    ],
-    "doi_complete": 8,
-    "authors_complete": 8,
-    "abstract_en_complete": 8,
-    "translation_complete": 8,
+    "official_item_count": 31,
+    "publishable_item_count": 31,
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 31,
+    "authors_complete": 31,
+    "abstract_en_complete": 31,
+    "translation_complete": 31,
     "duplicate_count": 0,
-    "flags": [],
+    "flags": [
+      "publisher_html_blocked_sciencedirect_rss_fallback",
+      "publisher_rss_reverse_order_normalized",
+      "official_order_unverified"
+    ],
     "content_counts": {
-      "official_items": 10,
-      "observed_items": 10,
-      "publishable_items": 8,
-      "research_articles": 8,
+      "official_items": 31,
+      "observed_items": 31,
+      "publishable_items": 31,
+      "research_articles": 31,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
-      "editorial_material": 2,
+      "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 8
-    },
-    "official_roster_evidence": {
-      "captured_at": "2026-10-18T17:59:04.839Z",
-      "official_url": "https://www.sciencedirect.com/journal/journal-of-international-economics/vol/163/suppl/C",
-      "method": "official-page-read",
-      "item_count": 8,
-      "excluded_item_count": 2,
-      "archive_reordered": false,
-      "sequence_sha256": "f77b13d3e993420f543c27c3b1a65815368d7ab9a3f0e41e1d7ab45621fa329f",
-      "privacy_fields_stored": false
-    },
-    "publisher_page_status": "first-party-observed"
+      "catalog_content_items": 31
+    }
   },
   "content_counts": {
-    "official_items": 10,
-    "observed_items": 10,
-    "publishable_items": 8,
-    "research_articles": 8,
+    "official_items": 31,
+    "observed_items": 31,
+    "publishable_items": 31,
+    "research_articles": 31,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
-    "editorial_material": 2,
+    "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 8
+    "catalog_content_items": 31
   },
   "content_status": "complete",
-  "source_status": "official_verified",
+  "source_status": "publisher_verified",
   "publication_state": "ready"
 }

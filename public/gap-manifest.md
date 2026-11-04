@@ -1,6 +1,6 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-10-31T23:30:27+00:00
+Generated: 2026-11-04T06:46:13+00:00
 
 ## Summary
 
@@ -499,7 +499,7 @@ Generated: 2026-10-31T23:30:27+00:00
 | JDE | jde-180-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-181-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JDE | jde-182-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
-| JDE | jde-183-c | 2026 | ready | complete | official_verified | content and official source gates passed |
+| JDE | jde-183-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-205-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-206-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JEBO | jebo-207-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |

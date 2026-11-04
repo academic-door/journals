@@ -7,34 +7,193 @@
   "issue": "11",
   "issue_label": "Vol. 89 · No. 11",
   "publication_date": "November 2026",
-  "source_url": "https://link.springer.com/journal/10640/volumes-and-issues/89-11",
-  "retrieved_at": "2026-10-23T08:30:34+00:00",
-  "expected_article_count": 2,
-  "research_article_count": 2,
-  "status": "ready",
-  "publication_state": "ready",
+  "source_url": "https://link.springer.com/journal/10640/volumes-and-issues",
+  "retrieved_at": "2026-11-04T06:40:33+00:00",
+  "expected_article_count": 6,
+  "research_article_count": 6,
+  "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1007/s10640-026-01123-z",
+      "paper_id": "doi:10.1007/s10640-026-01125-x",
       "sequence": 1,
       "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Corridors in Shallow Lakes: The Case of Intermediate Pollution",
+      "title_cn": "浅水湖泊中的走廊：中间污染的情形",
+      "authors": [
+        "Dieter Grass",
+        "Aart de Zeeuw",
+        "Gustav Feichtinger",
+        "Peter M. Kort",
+        "Andrea Seidl",
+        "Stefan Wrzaczek"
+      ],
+      "abstract_en": "We study optimal management of the standard shallow lake model with special attention to the damage caused by the accumulated phosphorus in the water of the lake. The occurrence of a tipping point leads to a stronger increase in the damage after moving from the low-damage to the high-damage regime, because of the loss of ecosystem services. We modify the standard quadratic damage function by introducing a jump in marginal damage when moving from the low-damage to the high-damage regime. Connecting the lower and the higher marginal damage functions yields a continuous piecewise linear marginal damage function with a strong increase around the jump. In addition to the well-known oligotrophic and eutrophic steady states, we find that a third steady state can occur, separated by two Skiba points. This implies that a corridor or a basin of attraction arises between these two Skiba points where optimal management of the lake stabilizes the amount of phosphorus somewhere in the middle instead of either moving to the low-damage or to the high-damage regime, as is the result in the standard knife-edge case with one Skiba point.",
+      "abstract_cn": "我们研究标准浅水湖泊模型的最优管理，特别关注湖水中累积的磷所造成的损害。临界点的出现导致从低损害状态转向高损害状态后损害更大幅度增加，原因是生态系统服务的丧失。我们通过引入从低损害状态转向高损害状态时边际损害的跳跃，对标准二次损害函数进行了修改。将较低的边际损害函数与较高的边际损害函数连接起来，得到一个连续的分段线性边际损害函数，其在跳跃点附近有强烈上升。除了众所周知的贫营养和富营养稳态之外，我们发现可能出现第三个稳态，由两个Skiba点分隔。这意味着在这两个Skiba点之间出现了一个走廊或吸引域，在该区域内湖泊的最优管理将磷的数量稳定在中间某处，而不是像具有一个Skiba点的标准刀锋情形那样要么转向低损害状态要么转向高损害状态。",
+      "doi": "10.1007/s10640-026-01125-x",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01125-x.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01125-x.html",
+        "abstract_en": "repec-publisher-supplied"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:40:35+00:00",
+        "source_hash": "76779f3f735558a375e0aeefe0827dc06a1b887bb07ce02fdd4661b0c46c6766"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1007/s10640-026-01129-7",
+      "sequence": 2,
+      "source_sequence": 2,
+      "article_type": "research-article",
+      "title_en": "Environmental Policy and Automation",
+      "title_cn": "环境政策与自动化",
+      "authors": [
+        "Nikolaos Charalampidis",
+        "Justine Guillochon"
+      ],
+      "abstract_en": "This paper studies the consequences of a cap-and-trade policy in the presence of a pollution externality and firms that may automate vacancies that are not matched to workers. We find that the emissions cap dampens the share of firms using robots, that is, a composition effect. This effect appears during the nonlinear transition to, and at, the long-run equilibrium with reduced carbon emissions, as well as over the cyclical fluctuations following productivity shocks. The effect implies that the adoption of robots is more elastic than the labor matches with respect to vacancies which fall when the emissions cap becomes more binding and contracts the economy. The effect is slightly amplified under a higher emissions rate for robot firms than for labor firms.",
+      "abstract_cn": "本文研究了在存在污染外部性且企业可能将未与工人匹配的职位自动化的情形下，总量管制与交易政策的后果。我们发现，排放上限抑制了使用机器人的企业份额，即一种构成效应。这种效应出现在向碳排放减少的长期均衡非线性过渡期间以及该均衡处，也出现在生产率冲击后的周期性波动中。该效应意味着，相对于职位而言，机器人的采用比劳动力匹配更具弹性；当排放上限更具约束力并使经济收缩时，职位会下降。当机器人企业的排放率略高于劳动力企业时，该效应略有放大。",
+      "doi": "10.1007/s10640-026-01129-7",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01129-7.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01129-7.html",
+        "abstract_en": "repec-publisher-supplied"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:40:37+00:00",
+        "source_hash": "2cb806035c6455d64f3dd01656db742e7abf846ea27334dcc125494e28ae5112"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1007/s10640-026-01127-9",
+      "sequence": 3,
+      "source_sequence": 3,
+      "article_type": "research-article",
+      "title_en": "Water Markets for Climate Change Adaptation: Trade, Storage, and Investment Under Stochastic Water Supply",
+      "title_cn": "适应气候变化的水市场：随机供水下的交易、储存与投资",
+      "authors": [
+        "Neal Hughes",
+        "Maruge Zhao",
+        "Andrew John",
+        "Avril Horne"
+      ],
+      "abstract_en": "It is widely accepted that water markets can support adaptation to climate change. However, quantifying this adaptive capacity is difficult as it requires models that represent both stochastic water supplies and forward-looking behaviour by market participants. We develop a stochastic dynamic model of the Murray-Darling Basin water market in which irrigators form rational expectations over future water prices, and make monthly water use, annual crop planting, and long-run investment decisions. The model is solved using reinforcement learning methods to approximate expectations, combined with mathematical programming to estimate market equilibrium. We validate the model against observed prices and irrigation activity from 2008 to 09 to 2021–22 and apply it to an ensemble of 37 CMIP6 climate projections for the southern Basin. Under drier future climates, water markets support adaptation through increased inter-regional trade flows into the downstream Murray, and larger storage reserves through more conservative crop planting. However, under the driest projections, inter-regional trade constraints bind, price differences widen across zones, and long-run irrigation development contracts by up to 16 per cent. The results highlight both the value and the limits of market-based adaptation, with implications for the design of water market institutions under a non-stationary climate.",
+      "abstract_cn": "人们普遍认为水市场能够支持对气候变化的适应。然而，量化这种适应能力是困难的，因为它需要同时刻画随机供水和市场参与者前瞻性行为的模型。我们构建了墨累-达令流域水市场的随机动态模型，其中灌溉者对未来水价形成理性预期，并做出月度用水、年度作物种植和长期投资决策。该模型采用强化学习方法近似预期，并结合数学规划估计市场均衡来求解。我们利用2008至09至2021-22期间观测到的价格和灌溉活动对模型进行验证，并将其应用于流域南部37个CMIP6气候预测的集合。在更干燥的未来气候下，水市场通过增加向下游墨累河的跨区域贸易流量，以及通过更保守的作物种植形成更大的储存储备来支持适应。然而，在最干燥的预测情景下，跨区域贸易约束趋紧，各区域间价格差异扩大，长期灌溉开发收缩最多达16%。结果既凸显了基于市场的适应的价值，也凸显了其局限，并对非平稳气候下水市场制度的设计具有启示意义。",
+      "doi": "10.1007/s10640-026-01127-9",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01127-9.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01127-9.html",
+        "abstract_en": "repec-publisher-supplied"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:40:39+00:00",
+        "source_hash": "d251b3f0e2f7ae04d37ad8bc215b6a585a3dc30d1d9ca9ae09e9cc87ed03991b"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1007/s10640-026-01120-2",
+      "sequence": 4,
+      "source_sequence": 4,
+      "article_type": "research-article",
+      "title_en": "Renewable Natural Resources, Regime Shift and Hysteresis",
+      "title_cn": "可再生自然资源、状态转换与滞后效应",
+      "authors": [
+        "Ted To"
+      ],
+      "abstract_en": "Many of the world’s renewable resources are in decline. Optimal harvests with smooth recruitment is well studied but in recent years, ecologists have concluded that tipping points in recruitment are common. Recruitment with a tipping point has low-fecundity below the tipping point and high-fecundity above. When the discounted value of high-fecundity is sufficiently high, there is a high-fecundity steady-state. This steady-state is stable but in some cases, small perturbations may result in large, temporary reductions in recruitment and harvests. Below the tipping point, a low-fecundity steady-state need not exist. When a low-fecundity steady-state does exist, there is an endogenous tipping (Skiba) point: below, harvests converge to the low-fecundity steady-state and above, an austere harvest policy transitions the renewable resource to high-fecundity recruitment. If there is hysteresis in recruitment, the high steady-state may not be stable. Moreover, if the high-/low-fecundity differential is large then following a downward perturbation, fecundity optimally remains low.",
+      "abstract_cn": "世界上许多可再生资源正在衰退。平滑补充下的最优捕捞已被充分研究，但近年来，生态学家已得出结论：补充中的临界点很常见。具有临界点的补充在临界点以下具有低繁殖力，在临界点以上具有高繁殖力。当高繁殖力的折现值足够高时，存在一个高繁殖力稳态。该稳态是稳定的，但在某些情况下，小扰动可能导致补充和捕捞的大幅、暂时性减少。在临界点以下，低繁殖力稳态未必存在。当低繁殖力稳态确实存在时，存在一个内生临界（Skiba）点：在该点以下，捕捞收敛于低繁殖力稳态；在该点以上，一种严厉的捕捞政策使可再生资源向高繁殖力补充过渡。如果补充中存在滞后效应，高稳态可能不稳定。此外，如果高/低繁殖力差异很大，那么在向下扰动之后，繁殖力最优地保持在低水平。",
+      "doi": "10.1007/s10640-026-01120-2",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01120-2.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01120-2.html",
+        "abstract_en": "repec-publisher-supplied"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "model": "deepseek-chat",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "translated_at": "2026-10-23T08:34:25+00:00",
+        "source_hash": "87d53ac7eebfd4838bf177ee71ac2b64e857999d8b3d7e2bfac5a215cc77e9e2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1007/s10640-026-01123-z",
+      "sequence": 5,
+      "source_sequence": 5,
       "article_type": "research-article",
       "title_en": "How Will Hybrid Work Schedules Impact the Demand for Natural Resources? The Case of Urban Water Demand",
       "title_cn": "混合工作安排将如何影响自然资源需求？以城市用水需求为例",
       "authors": [
-        "Lopez, Juan Carlos"
+        "Juan Carlos Lopez"
       ],
       "abstract_en": "This paper aims to explore the impact that hybrid-work schedules will have on urban spatial structure and how that in turn will impact urban residential water demand. I develop a variant of the monocentric city model in which workers have an additional margin in their housing consumption decision through the choice of both indoor floor area and outdoor yard area, both of which require water as an input. The transition to a hybrid work schedule impacts households through three channels: (1) a decline in commuting costs, (2) additional demand for home-office space, and (3) a potential decline in wages through lost agglomeration economies due to fewer in-person interactions. The analysis suggests that the city may expand or contract, and aggregate water use could rise or fall when hybrid-work is introduced, depending on whether the reductions in commuting costs outweigh the additional costs of home-office space and lower wages from reduced agglomeration externalities. When aggregate water use does rise, this increase is less pronounced for households in suburban areas, which become denser and land becomes relatively more expensive, slowing the demand for additional yard space. In contrast, households located closer to the core use relatively more water as land values fall and average housing consumption rises. I extend the model to consider four additional components: subsidizing in-person work, increasing marginal water prices, improvements to home water use technology, and year-round lawn irrigation.",
       "abstract_cn": "本文旨在探讨混合工作安排将对城市空间结构产生的影响，以及这种影响反过来将如何影响城市居民用水需求。我构建了一个单中心城市模型的变体，其中工人在住房消费决策中拥有额外的边际，通过同时选择室内建筑面积和室外庭院面积来实现，二者都需要水作为投入。向混合工作安排的转变通过三个渠道影响家庭：（1）通勤成本下降，（2）对家庭办公空间的额外需求，以及（3）由于面对面互动减少导致集聚经济丧失而可能带来的工资下降。分析表明，当引入混合工作时，城市可能扩张或收缩，总用水量可能上升或下降，这取决于通勤成本的降低是否超过家庭办公空间的额外成本和因集聚外部性减少而降低的工资。当总用水量确实上升时，这种增加在郊区家庭中不那么明显，因为郊区变得更加密集且土地变得相对更昂贵，从而减缓了对额外庭院空间的需求。相比之下，位于更靠近核心区的家庭用水相对更多，因为土地价值下降且平均住房消费上升。我扩展了模型以考虑四个额外组成部分：补贴现场工作、提高边际水价、改进家庭用水技术以及全年草坪灌溉。",
       "doi": "10.1007/s10640-026-01123-z",
-      "source_url": "https://link.springer.com/article/10.1007/s10640-026-01123-z",
-      "publication_date": "November 2026",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01123-z.html",
+      "publication_date": "2026",
       "sources": {
-        "issue": "https://link.springer.com/journal/10640/volumes-and-issues/89-11",
-        "roster": "https://link.springer.com/journal/10640/volumes-and-issues/89-11",
-        "metadata": "https://link.springer.com/article/10.1007/s10640-026-01123-z",
-        "abstract_en": "https://link.springer.com/article/10.1007/s10640-026-01123-z"
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01123-z.html",
+        "abstract_en": "repec-publisher-supplied"
       },
       "translation": {
         "status": "complete",
@@ -53,33 +212,36 @@
       }
     },
     {
-      "paper_id": "doi:10.1007/s10640-026-01120-2",
-      "sequence": 2,
-      "source_sequence": 2,
+      "paper_id": "doi:10.1007/s10640-026-01122-0",
+      "sequence": 6,
+      "source_sequence": 6,
       "article_type": "research-article",
-      "title_en": "Renewable Natural Resources, Regime Shift and Hysteresis",
-      "title_cn": "可再生自然资源、状态转换与滞后效应",
+      "title_en": "Do Protected Areas Affect the Income Levels in Remote Regions? Evidence from Italian Inner Areas",
+      "title_cn": "保护区是否影响偏远地区的收入水平？来自意大利内陆地区的证据",
       "authors": [
-        "To, Ted"
+        "Gianluca Monturano",
+        "Carmela Ciccarelli",
+        "Luigi Mastronardi"
       ],
-      "abstract_en": "Many of the world’s renewable resources are in decline. Optimal harvests with smooth recruitment is well studied but in recent years, ecologists have concluded that tipping points in recruitment are common. Recruitment with a tipping point has low-fecundity below the tipping point and high-fecundity above. When the discounted value of high-fecundity is sufficiently high, there is a high-fecundity steady-state. This steady-state is stable but in some cases, small perturbations may result in large, temporary reductions in recruitment and harvests. Below the tipping point, a low-fecundity steady-state need not exist. When a low-fecundity steady-state does exist, there is an endogenous tipping (Skiba) point: below, harvests converge to the low-fecundity steady-state and above, an austere harvest policy transitions the renewable resource to high-fecundity recruitment. If there is hysteresis in recruitment, the high steady-state may not be stable. Moreover, if the high-/low-fecundity differential is large then following a downward perturbation, fecundity optimally remains low.",
-      "abstract_cn": "世界上许多可再生资源正在衰退。平滑补充下的最优捕捞已被充分研究，但近年来，生态学家已得出结论：补充中的临界点很常见。具有临界点的补充在临界点以下具有低繁殖力，在临界点以上具有高繁殖力。当高繁殖力的折现值足够高时，存在一个高繁殖力稳态。该稳态是稳定的，但在某些情况下，小扰动可能导致补充和捕捞的大幅、暂时性减少。在临界点以下，低繁殖力稳态未必存在。当低繁殖力稳态确实存在时，存在一个内生临界（Skiba）点：在该点以下，捕捞收敛于低繁殖力稳态；在该点以上，一种严厉的捕捞政策使可再生资源向高繁殖力补充过渡。如果补充中存在滞后效应，高稳态可能不稳定。此外，如果高/低繁殖力差异很大，那么在向下扰动之后，繁殖力最优地保持在低水平。",
-      "doi": "10.1007/s10640-026-01120-2",
-      "source_url": "https://link.springer.com/article/10.1007/s10640-026-01120-2",
-      "publication_date": "November 2026",
+      "abstract_en": "The economic impact of protected areas (PAs) on local development remains a debated topic in regional economics, particularly in peripheral regions facing demographic and economic decline. While protected areas provide essential ecological benefits, their effects on local economies remain debated, with concerns about land-use restrictions potentially limiting economic opportunities alongside potential gains from tourism and ecosystem services. This study investigates the causal effect of PAs on per capita income in Italian municipalities classified as inner areas under the National Strategy for Inner Areas. We exploit variation in the share of municipal land covered by protected areas using a Difference-in-differences approach with continuous treatment in a dose-response framework. The results show a robust, positive, and statistically significant relationship between PAs and local economic growth. The expansion of protected areas is associated with increased per capita income, suggesting that environmental protection contributes to development in Italy’s marginalized inner regions.",
+      "abstract_cn": "保护区（PAs）对地方发展的经济影响仍是区域经济学中一个存在争议的话题，尤其是在面临人口和经济衰退的边缘地区。虽然保护区提供重要的生态效益，但其对地方经济的影响仍存在争议，人们担心土地利用限制可能限制经济机会，同时旅游和生态系统服务可能带来潜在收益。本研究考察保护区对根据《国家内陆地区战略》被归类为内陆地区的意大利市镇人均收入的因果效应。我们采用双重差分方法，在剂量—反应框架下以连续处理方式，利用市镇土地被保护区覆盖比例的变异。结果表明，保护区与地方经济增长之间存在稳健、正向且统计显著的关系。保护区的扩张与人均收入增加相关，表明环境保护有助于意大利边缘化内陆地区的发展。",
+      "doi": "10.1007/s10640-026-01122-0",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01122-0.html",
+      "publication_date": "2026",
       "sources": {
-        "issue": "https://link.springer.com/journal/10640/volumes-and-issues/89-11",
-        "roster": "https://link.springer.com/journal/10640/volumes-and-issues/89-11",
-        "metadata": "https://link.springer.com/article/10.1007/s10640-026-01120-2",
-        "abstract_en": "https://link.springer.com/article/10.1007/s10640-026-01120-2"
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01122-0.html",
+        "abstract_en": "repec-publisher-supplied"
       },
       "translation": {
         "status": "complete",
         "provider": "deepseek",
-        "model": "deepseek-chat",
         "prompt_version": "academic-door-abstract-zh-v2",
-        "translated_at": "2026-10-23T08:34:25+00:00",
-        "source_hash": "87d53ac7eebfd4838bf177ee71ac2b64e857999d8b3d7e2bfac5a215cc77e9e2"
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-04T06:40:42+00:00",
+        "source_hash": "81d1c1c7a22b07ae9ba0e65688b9fbc8f1706ccf4262c7e8946b416228a11bcc"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -93,55 +255,51 @@
   "quality": {
     "roster_match": true,
     "order_preserved": true,
-    "roster_authority": "official-issue-page",
-    "roster_transport": "official-page-read",
-    "official_item_count": 2,
-    "excluded_items": [],
-    "doi_complete": 2,
-    "authors_complete": 2,
-    "abstract_en_complete": 2,
-    "translation_complete": 2,
-    "duplicate_count": 0,
-    "flags": [],
-    "publishable_item_count": 2,
+    "roster_authority": "repec-publisher-supplied",
+    "roster_transport": "repec-serial-page",
+    "official_item_count": 6,
     "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 6,
+    "authors_complete": 6,
+    "abstract_en_complete": 6,
+    "translation_complete": 6,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_repec_fallback",
+      "repec_publisher_supplied_roster",
+      "official_order_unverified"
+    ],
+    "official_issue_fetch_error": "",
+    "publishable_item_count": 6,
     "content_counts": {
-      "official_items": 2,
-      "observed_items": 2,
-      "publishable_items": 2,
-      "research_articles": 2,
+      "official_items": 6,
+      "observed_items": 6,
+      "publishable_items": 6,
+      "research_articles": 6,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 2
-    },
-    "official_roster_evidence": {
-      "captured_at": "2026-10-23T08:30:34+00:00",
-      "official_url": "https://link.springer.com/journal/10640/volumes-and-issues/89-11",
-      "method": "official-page-read",
-      "item_count": 2,
-      "excluded_item_count": 0,
-      "archive_reordered": false,
-      "sequence_sha256": "6357b4dcc323f59a58fce33644314725e404ec5bdba6cbf413b40dbff47a9cf8",
-      "privacy_fields_stored": false
+      "catalog_content_items": 6
     }
   },
   "content_counts": {
-    "official_items": 2,
-    "observed_items": 2,
-    "publishable_items": 2,
-    "research_articles": 2,
+    "official_items": 6,
+    "observed_items": 6,
+    "publishable_items": 6,
+    "research_articles": 6,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 2
+    "catalog_content_items": 6
   },
   "content_status": "complete",
-  "source_status": "official_verified"
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
 }
