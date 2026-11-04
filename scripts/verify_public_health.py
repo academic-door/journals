@@ -1,5 +1,7 @@
 import json
 import sys
+
+from b8_monitor_transition import qualified_pending_b8_warning
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -286,19 +288,9 @@ health_stamp = timestamp(health, "health", 6)
 
 monitor_summary = monitoring.get("summary", {})
 if monitoring.get("status") != "healthy":
-    # A newly admitted source-attested JAE is not falsely reported
-    # as operationally probed. Accept ONLY its explicit single
-    # warning while the first monitor observation is outstanding.
-    pending_jae = (
-        expected in (51, 52, 53, 54)
-        and monitoring.get("status") == "degraded"
-        and monitoring.get("warning_journals") == [
-            "JAE" if expected == 51 else ("ITPF" if expected == 52 else ("JOEG" if expected == 53 else "IJIO"))
-        ]
-        and monitor_summary.get("warnings") == 1
-        and monitor_summary.get("failed") == 0
-    )
-    if not pending_jae:
+    # Preserve prior proven soft warnings while the newly admitted title
+    # undergoes its first independent Monitor probe. Never label this green.
+    if not qualified_pending_b8_warning(expected, monitoring):
         raise AssertionError("journal monitor has unqualified degradation")
 if monitor_summary.get("configured_journals") != expected:
     raise AssertionError("monitor configured_journals differs from approved live scope")
