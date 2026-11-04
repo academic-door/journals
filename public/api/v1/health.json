@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-04T06:45:08+00:00",
+  "updated_at": "2026-11-04T19:59:47+00:00",
   "status": "degraded",
   "content_status": "rights_qualified",
   "summary": {
-    "enabled_journals": 53,
-    "available_journals": 53,
-    "articles": 762,
-    "translated_articles": 730,
+    "enabled_journals": 54,
+    "available_journals": 54,
+    "articles": 780,
+    "translated_articles": 748,
     "rights_withheld_articles": 32
   },
   "checks": {
@@ -169,6 +169,9 @@
     "itpf_primary_transport": true,
     "joeg_roster_match": true,
     "joeg_order_preserved": true,
-    "joeg_primary_transport": true
+    "joeg_primary_transport": true,
+    "ijio_roster_match": true,
+    "ijio_order_preserved": true,
+    "ijio_primary_transport": false
   }
 }

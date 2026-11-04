@@ -1,21 +1,21 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-04T06:46:27+00:00",
+  "generated_at": "2026-11-04T20:01:15+00:00",
   "source": "current_owner_immutable_evidence_and_public_health",
   "scope": "all_current_journals; strict_saved_publisher_comparator_pilot_jeem_jie_energy",
   "status": "observational",
   "summary": {
-    "journals": 53,
+    "journals": 54,
     "primary_available": 32,
-    "primary_unavailable": 21,
+    "primary_unavailable": 22,
     "source_route_counts": {
       "primary_available": 32,
-      "publisher_rss_fallback": 17,
+      "publisher_rss_fallback": 18,
       "publisher_supplied_repec_fallback": 3,
       "stored_first_party_snapshot_primary_unavailable": 1
     },
     "publisher_coverage_counts": {
-      "not_automatically_checked": 50,
+      "not_automatically_checked": 51,
       "reconciled_as_of": 2,
       "verification_due": 1
     }
@@ -23,7 +23,7 @@
   "journals": [
     {
       "journal_id": "aer",
-      "issue_id": "aer-116-10",
+      "issue_id": "aer-116-11",
       "archive_ready": true,
       "primary_transport_available": true,
       "source_route": "primary_available",
@@ -409,7 +409,7 @@
     },
     {
       "journal_id": "aejmicro",
-      "issue_id": "aejmicro-18-3",
+      "issue_id": "aejmicro-18-4",
       "archive_ready": true,
       "primary_transport_available": true,
       "source_route": "primary_available",
@@ -1089,6 +1089,23 @@
       "roster_transport": "publisher-full-toc-observed",
       "roster_authority": "official-issue-page",
       "roster_match_scope": null,
+      "saved_official_capture_at": null,
+      "saved_official_capture_url": null,
+      "publisher_coverage": "not_automatically_checked",
+      "publisher_observed_at": null,
+      "last_verified_at": null,
+      "publisher_difference": null,
+      "publisher_verification_errors": []
+    },
+    {
+      "journal_id": "ijio",
+      "issue_id": "ijio-109-c",
+      "archive_ready": true,
+      "primary_transport_available": false,
+      "source_route": "publisher_rss_fallback",
+      "roster_transport": "sciencedirect-rss",
+      "roster_authority": "publisher-rss",
+      "roster_match_scope": "rss-volume-items",
       "saved_official_capture_at": null,
       "saved_official_capture_url": null,
       "publisher_coverage": "not_automatically_checked",

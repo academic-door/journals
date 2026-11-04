@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-11-04T06:46:13+00:00
+Generated: 2026-11-04T20:00:59+00:00
 
 ## Summary
 
-- blocked: 4
-- ready: 1212
-- recoverable: 3
+- blocked: 5
+- ready: 1214
+- recoverable: 1
 
 ## Issue queue
 
@@ -59,7 +59,7 @@ Generated: 2026-11-04T06:46:13+00:00
 | AEJMICRO | aejmicro-18-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMICRO | aejmicro-18-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJMICRO | aejmicro-18-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AEJMICRO | aejmicro-18-4 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| AEJMICRO | aejmicro-18-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AEJPOL | aejpol-15-1 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | AEJPOL | aejpol-15-2 | 2023 | ready | complete | official_verified | content and official source gates passed |
 | AEJPOL | aejpol-15-3 | 2023 | ready | complete | official_verified | content and official source gates passed |
@@ -114,7 +114,7 @@ Generated: 2026-11-04T06:46:13+00:00
 | AER | aer-115-9 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-10 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| AER | aer-116-11 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| AER | aer-116-11 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AER | aer-116-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
@@ -1227,6 +1227,7 @@ Generated: 2026-11-04T06:46:13+00:00
 | WD | wd-203-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-204-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | WD | wd-205-c | 2026 | ready | complete | publisher_verified | content and official source gates passed |
+| IJIO | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | ITPF | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | JAE | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | JEGROWTH | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
