@@ -31,9 +31,13 @@ EXPECTED_ORDER = [
 class JIE163OfficialCurrentTests(unittest.TestCase):
     def setUp(self):
         self.evidence = json.loads((ROOT / PATH).read_text(encoding="utf-8"))
+        # This suite protects the *historical* first-party 163(C) evidence.
+        # Monitor may legitimately advance current.json to 164(C) or later;
+        # the accepted 163(C) source/rights/order contract must remain pinned.
         self.current = json.loads(
-            (ROOT / "public/api/v1/journals/jie/issues/current.json").read_text(encoding="utf-8")
+            (ROOT / "public/api/v1/journals/jie/issues/jie-163-c.json").read_text(encoding="utf-8")
         )
+        self.assertEqual("jie-163-c", self.current["issue_id"])
 
     def test_publisher_eight_not_nine_research_two_editorials(self):
         validate_evidence(self.evidence)
@@ -88,6 +92,18 @@ class JIE163OfficialCurrentTests(unittest.TestCase):
                 )
         self.assertEqual(EXPECTED_ORDER, [a["doi"] for a in restored["articles"]])
         self.assertEqual(2, len(restored["quality"]["excluded_items"]))
+
+    def test_newer_current_issue_cannot_be_forced_through_163_evidence(self):
+        config = yaml.safe_load(
+            (ROOT / "config/journals.yml").read_text(encoding="utf-8")
+        )["journals"]["JIE"]
+        newer = copy.deepcopy(self.current)
+        newer["issue_id"] = "jie-164-c"
+        newer["volume"] = "164"
+        # This is a routing regression, not an assertion that 164 is READY:
+        # 163(C) publisher evidence must not rewrite 164(C) articles or rights.
+        self.assertEqual(newer, apply_configured_current_roster(newer, "JIE", config))
+        self.assertEqual(newer, apply_jie_current_roster(newer, CONFIG))
 
     def test_collect_one_reuses_matching_translations_before_jie_roster_gate(self):
         recollected = copy.deepcopy(self.current)
