@@ -1,6 +1,6 @@
 # Field journal history backfill status
 
-Updated: 2026-11-04T02:58:50+00:00
+Updated: 2026-11-04T03:06:47+00:00
 
 Discovery coverage: 1200 discovered · 1196 archived · 1196 publication ready · 4 missing · 0 source pending
 
