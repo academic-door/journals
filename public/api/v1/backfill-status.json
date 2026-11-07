@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2",
-  "updated_at": "2026-11-06T03:41:10+00:00",
+  "updated_at": "2026-11-07T02:23:30+00:00",
   "summary": {
     "complete": 1305,
     "translation_partial": 0,
@@ -9,15 +9,16 @@
     "pending": 35
   },
   "coverage": {
-    "discovered": 1200,
+    "discovered": 1201,
     "archived": 1199,
     "content_ready": 1199,
     "source_verified": 1199,
     "publication_ready": 1199,
-    "missing": 1,
+    "missing": 2,
     "source_pending": 0,
     "missing_issue_ids": [
-      "aejpol-18-4"
+      "aejpol-18-4",
+      "jep-40-4"
     ],
     "source_pending_issue_ids": [],
     "blocked_issue_ids": []
@@ -724,14 +725,16 @@
       }
     },
     "JEP": {
-      "discovered": 15,
+      "discovered": 16,
       "archived": 15,
       "content_ready": 15,
       "source_verified": 15,
       "publication_ready": 15,
-      "missing": 0,
+      "missing": 1,
       "source_pending": 0,
-      "missing_issue_ids": [],
+      "missing_issue_ids": [
+        "jep-40-4"
+      ],
       "source_pending_issue_ids": [],
       "blocked_issue_ids": [],
       "years": {
@@ -772,14 +775,16 @@
           "blocked_issue_ids": []
         },
         "2026": {
-          "discovered": 3,
+          "discovered": 4,
           "archived": 3,
           "content_ready": 3,
           "source_verified": 3,
           "publication_ready": 3,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jep-40-4"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         }
@@ -2872,6 +2877,9 @@
     "confirmed_missing": {
       "aejpol-18-4": {
         "since": "2026-10-30T02:10:42+00:00"
+      },
+      "jep-40-4": {
+        "since": "2026-11-07T02:23:30+00:00"
       }
     }
   },
@@ -19101,7 +19109,7 @@
         "pending": 35
       },
       "issue_count": 708,
-      "updated_at": "2026-11-06T02:49:17+00:00",
+      "updated_at": "2026-11-07T02:21:12+00:00",
       "coverage": {
         "discovered": 563,
         "archived": 563,
@@ -19124,17 +19132,18 @@
         "pending": 0
       },
       "issue_count": 636,
-      "updated_at": "2026-11-06T03:39:28+00:00",
+      "updated_at": "2026-11-07T02:20:51+00:00",
       "coverage": {
-        "discovered": 638,
+        "discovered": 639,
         "archived": 637,
         "content_ready": 637,
         "source_verified": 637,
         "publication_ready": 637,
-        "missing": 1,
+        "missing": 2,
         "source_pending": 0,
         "missing_issue_ids": [
-          "aejpol-18-4"
+          "aejpol-18-4",
+          "jep-40-4"
         ],
         "source_pending_issue_ids": [],
         "blocked_issue_ids": []
@@ -20928,15 +20937,16 @@
         "WD"
       ],
       "coverage": {
-        "discovered": 293,
+        "discovered": 294,
         "archived": 292,
         "content_ready": 292,
         "source_verified": 292,
         "publication_ready": 292,
-        "missing": 1,
+        "missing": 2,
         "source_pending": 0,
         "missing_issue_ids": [
-          "aejpol-18-4"
+          "aejpol-18-4",
+          "jep-40-4"
         ],
         "source_pending_issue_ids": [],
         "blocked_issue_ids": []
@@ -21245,14 +21255,16 @@
           "blocked_issue_ids": []
         },
         "JEP": {
-          "discovered": 3,
+          "discovered": 4,
           "archived": 3,
           "content_ready": 3,
           "source_verified": 3,
           "publication_ready": 3,
-          "missing": 0,
+          "missing": 1,
           "source_pending": 0,
-          "missing_issue_ids": [],
+          "missing_issue_ids": [
+            "jep-40-4"
+          ],
           "source_pending_issue_ids": [],
           "blocked_issue_ids": []
         },
