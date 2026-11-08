@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-11-07T16:40:10+00:00
+Generated: 2026-11-08T16:56:27+00:00
 
 ## Summary
 
 - blocked: 5
-- ready: 1214
-- recoverable: 2
+- ready: 1215
+- recoverable: 1
 
 ## Issue queue
 
@@ -654,7 +654,7 @@ Generated: 2026-11-07T16:40:10+00:00
 | JEP | jep-40-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEP | jep-40-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JEP | jep-40-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
-| JEP | jep-40-4 | 2026 | recoverable | blocked | source_pending | archive_missing |
+| JEP | jep-40-4 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | JET | jet-207-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JET | jet-208-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
 | JET | jet-209-c | 2023 | ready | complete | publisher_verified | content and official source gates passed |
