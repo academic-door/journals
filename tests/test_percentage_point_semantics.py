@@ -151,8 +151,9 @@ class PercentagePointSemanticsTests(unittest.TestCase):
         self.assert_invalid(source, "相关概率降低14个百分点，而AQI指数降低19个百分点。")
 
     def test_aejpol_published_translation_remains_valid(self) -> None:
-        path = Path(__file__).resolve().parents[1] / "public/api/v1/journals/aejpol/issues/current.json"
+        path = Path(__file__).resolve().parents[1] / "public/api/v1/journals/aejpol/issues/aejpol-18-3.json"
         issue = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(issue["issue_id"], "aejpol-18-3")
         published = next(a for a in issue["articles"] if a["doi"] == "10.1257/pol.20240361")
         validate_translation(published, published)
         source_q, translated_q = resolve_semantic_quantities(
