@@ -121,6 +121,9 @@ jobs:
           done
           python scripts/journal_monitor.py "${args[@]}"
 
+      - name: Rights-qualified B8 publication containment
+        run: python scripts/quarantine_b8_public_content.py
+
       - name: Check whether any issue was updated
         id: changed
         shell: bash
