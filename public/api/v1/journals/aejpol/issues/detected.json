@@ -7,10 +7,10 @@
   "issue": "4",
   "publication_date": "November 2026",
   "source_url": "https://www.aeaweb.org/journals/pol/current-issue",
-  "retrieved_at": "2026-11-08T22:08:23+00:00",
+  "retrieved_at": "2026-11-09T09:45:31+00:00",
   "expected_article_count": 16,
   "research_article_count": 16,
-  "status": "incomplete",
+  "status": "ready",
   "development_sample": false,
   "articles": [
     {
@@ -60,7 +60,7 @@
       "source_sequence": 3,
       "article_type": "research-article",
       "title_en": "China's Nationwide CO 2 Emissions Trading System: A General Equilibrium Assessment",
-      "title_cn": "",
+      "title_cn": "中国全国范围内的二氧化碳2排放交易体系：一般均衡评估",
       "authors": [
         "Lawrence H. Goulder",
         "Xianling Long",
@@ -68,7 +68,7 @@
         "Da Zhang"
       ],
       "abstract_en": "China's CO 2 emissions trading system, the world's largest, aims to significantly reduce CO 2 emissions. The system is a tradable performance standard (TPS), differing from cap and trade (C&T). We provide a dynamic general equilibrium assessment that uniquely considers institutional and fiscal features of China that affect policy costs and distributional impacts. Key findings: The TPS's environmental benefits exceed its costs by a factor of five or more. Interactions with the fiscal system reduce or eliminate the TPS's cost disadvantage relative to C&T. Introducing auctioning as a complementary source of allowance supply can reduce costs by 30 percent.",
-      "abstract_cn": "",
+      "abstract_cn": "中国的二氧化碳2排放交易体系是世界上最大的，旨在大幅减少二氧化碳2排放。该系统是一个可交易的绩效标准（TPS），与限额与交易（C&T）不同。我们提供动态一般均衡评估，独特地考虑了中国影响政策成本和分配影响的制度和财政特征。主要发现：TPS 的环境效益超过其成本五倍或更多。与财政系统的相互作用减少或消除了 TPS 相对于 C&T 的成本劣势。引入拍卖作为配额供应的补充来源可以降低成本30%。",
       "doi": "10.1257/pol.20240652",
       "source_url": "https://www.aeaweb.org/articles?id=10.1257/pol.20240652",
       "publication_date": "",
@@ -80,15 +80,15 @@
         "doi": "official-article-id"
       },
       "translation": {
-        "status": "pending",
-        "provider": "",
-        "prompt_version": "",
-        "glossary_version": "1"
+        "status": "complete",
+        "provider": "google-translate",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "gtx-en-zh-CN",
+        "translated_at": "2026-11-09T09:45:57+00:00",
+        "source_hash": "90c183c30aec8c84587349c5bc3fda502b07f8a06e9ff5263461879426b746f6"
       },
-      "quality_flags": [
-        "title_cn_missing",
-        "abstract_cn_missing"
-      ],
+      "quality_flags": [],
       "china_relevance": {
         "status": "yes",
         "evidence": "title",
@@ -700,11 +700,9 @@
     "doi_complete": 16,
     "authors_complete": 16,
     "abstract_en_complete": 16,
-    "translation_complete": 15,
+    "translation_complete": 16,
     "duplicate_count": 0,
-    "flags": [
-      "translation_incomplete"
-    ],
+    "flags": [],
     "publishable_item_count": 16,
     "content_counts": {
       "official_items": 17,
@@ -734,7 +732,7 @@
     "catalog_content_items": 16
   },
   "issue_label": "Vol. 18 · No. 4",
-  "content_status": "translation_partial",
+  "content_status": "complete",
   "source_status": "official_verified",
-  "publication_state": "translation_partial"
+  "publication_state": "ready"
 }

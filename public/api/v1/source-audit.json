@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-09T02:59:31+00:00",
+  "updated_at": "2026-11-09T09:52:26+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 54,
@@ -2013,8 +2013,8 @@
       "current": {
         "available": true,
         "status": "official_page_verified",
-        "issue_id": "aejpol-18-3",
-        "publication_date": "August 2026",
+        "issue_id": "aejpol-18-4",
+        "publication_date": "November 2026",
         "publication_state": "ready",
         "source_url": "https://www.aeaweb.org/journals/pol/current-issue",
         "roster_authority": "official-issue-page",
@@ -2043,7 +2043,7 @@
         "status": "official_page_verified",
         "issue_id": "aejpol-18-4",
         "publication_date": "November 2026",
-        "publication_state": "translation_partial",
+        "publication_state": "ready",
         "source_url": "https://www.aeaweb.org/journals/pol/current-issue",
         "roster_authority": "official-issue-page",
         "roster_transport": "official-issue-page",
@@ -2062,11 +2062,9 @@
           "catalog_content_items": 16
         },
         "abstracts_complete": 16,
-        "translations_complete": 15,
+        "translations_complete": 16,
         "errors": [],
-        "warnings": [
-          "translation_incomplete"
-        ]
+        "warnings": []
       }
     },
     {
@@ -3476,62 +3474,41 @@
       "current": {
         "available": true,
         "status": "publisher_feed_verified",
-        "issue_id": "ijio-109-c",
-        "publication_date": "December 2026",
+        "issue_id": "ijio-108-c",
+        "publication_date": "October 2026",
         "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/international-journal-of-industrial-organization/vol/109/suppl/C",
-        "roster_authority": "publisher-rss",
-        "roster_transport": "sciencedirect-rss",
-        "order_verified": false,
+        "source_url": "https://ideas.repec.org/s/eee/indorg.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
+        "order_verified": true,
         "content_counts": {
-          "official_items": 15,
-          "observed_items": 15,
-          "publishable_items": 15,
-          "research_articles": 15,
+          "official_items": 6,
+          "observed_items": 6,
+          "publishable_items": 6,
+          "research_articles": 6,
           "comments": 0,
           "short_communications": 0,
           "corrections": 0,
           "editorial_material": 0,
           "front_matter": 0,
           "other_excluded": 0,
-          "catalog_content_items": 15
+          "catalog_content_items": 6
         },
-        "abstracts_complete": 15,
-        "translations_complete": 15,
+        "abstracts_complete": 0,
+        "translations_complete": 0,
         "errors": [],
         "warnings": [
-          "official_order_unverified"
+          "snapshot_uses_alternate_official_source",
+          "rights_withheld_public_abstracts"
         ]
       },
       "detected": {
-        "available": true,
-        "status": "publisher_feed_verified",
-        "issue_id": "ijio-109-c",
-        "publication_date": "December 2026",
-        "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/international-journal-of-industrial-organization/vol/109/suppl/C",
-        "roster_authority": "publisher-rss",
-        "roster_transport": "sciencedirect-rss",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 15,
-          "observed_items": 15,
-          "publishable_items": 15,
-          "research_articles": 15,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 15
-        },
-        "abstracts_complete": 15,
-        "translations_complete": 15,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
       }
     }
   ]
