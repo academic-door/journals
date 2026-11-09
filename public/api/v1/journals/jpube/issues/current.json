@@ -1,41 +1,44 @@
 {
   "schema_version": "1.0",
-  "issue_id": "jpube-263-c",
+  "issue_id": "jpube-264-c",
   "journal_id": "jpube",
   "journal_name": "Journal of Public Economics",
-  "volume": "263",
+  "volume": "264",
   "issue": "C",
-  "issue_label": "Vol. 263",
-  "publication_date": "November 2026",
-  "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-  "retrieved_at": "2026-10-09T12:51:01+00:00",
-  "expected_article_count": 12,
-  "research_article_count": 12,
+  "issue_label": "Vol. 264",
+  "publication_date": "December 2026",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/264/suppl/C",
+  "retrieved_at": "2026-11-09T20:47:07+00:00",
+  "expected_article_count": 1,
+  "research_article_count": 1,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
     {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105787",
+      "paper_id": "doi:10.1016/j.jpubeco.2026.105812",
       "sequence": 1,
       "source_sequence": 1,
       "article_type": "research-article",
-      "title_en": "The importance of school quality ratings for school choices: Evidence from a nationwide system",
-      "title_cn": "学校质量评级对学校选择的重要性：来自全国性系统的证据",
+      "title_en": "Tax evasion at the top of the income distribution",
+      "title_cn": "收入分布顶端的逃税",
       "authors": [
-        "Ellen Greaves",
-        "Iftikhar Hussain"
+        "John Guyton",
+        "Patrick Langetieg",
+        "Daniel Reck",
+        "Max Risch",
+        "Gabriel Zucman"
       ],
-      "abstract_en": "Studying a long-running nationwide system of school inspections, we show how school choices and enrollment respond to new information about school quality. We use exogenous variation in the timing of school inspections around the school choice deadline to isolate the effect of information over and above underlying changes in school quality. We find that low- and higher-income parents respond similarly to new information. Conditional on household location, non-targeted information provision therefore does not increase school segregation by household income.",
-      "abstract_cn": "通过研究一个长期运行的全国性学校检查系统，我们展示了学校选择和入学如何对关于学校质量的新信息做出反应。我们利用学校检查时间在学校选择截止日期前后的外生变化，来分离信息的影响，并排除学校质量潜在变化的影响。我们发现，低收入和高收入家长对新信息的反应相似。以家庭所在地为条件，非针对性信息提供因此不会按家庭收入增加学校隔离。",
-      "abstract_snippet_en": "Studying a long-running nationwide system of school inspections, we show how school choices and enrollment respond to new information about school quality. We use exogenous variation in the timing of...",
-      "doi": "10.1016/j.jpubeco.2026.105787",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002239?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
+      "abstract_en": "We study tax evasion at the top of the U.S. income distribution using micro-data from audits and enforcement initiatives. Leveraging enforcement that revealed noncompliance, we find that recent individual random audit data fail to capture sophisticated evasion via offshore accounts and pass-through businesses. Consequently, estimates based solely on these data under-state evasion by the highest-income Americans. We construct new distributional estimates of US noncompliance. Circa 2006–2013, accounting for sophisticated evasion (holding estimated non-sophisticated evasion fixed) increases the share of unreported income belonging to the top 1% of the distribution by 9 to 33 percentage points.",
+      "abstract_cn": "我们利用来自审计和执法举措的微观数据研究美国收入分布顶端的逃税。借助揭示不合规行为的执法，我们发现近期个人随机审计数据未能捕捉通过离岸账户和穿透式企业进行的复杂逃税。因此，仅基于这些数据的估计低估了最高收入美国人的逃税。我们构建了美国不合规行为的新分布估计。约在2006-2013，考虑复杂逃税（保持估计的非复杂逃税不变）使属于分布顶端1%的未报告收入份额增加9至33个百分点。",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jpubeco.2026.105812",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002483?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
       "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
+        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/264/suppl/C",
         "roster": "https://rss.sciencedirect.com/publication/science/00472727",
         "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
+        "abstract_en": "elsevier-article-doi",
         "abstract_lookup": {
           "status": "success_full_abstract",
           "attempts": [
@@ -45,20 +48,58 @@
               "outcome": "success",
               "rate_limit": {
                 "limit": 20000,
-                "remaining": 18766,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
+                "remaining": 18401,
+                "resets_at": "2026-11-12T12:58:24+00:00",
+                "els_status": "NO_SEARCH_RESULTS(Result set was empty)"
               }
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 400,
+              "outcome": "request_failed",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 19206,
+                "resets_at": "2026-11-13T05:20:53+00:00",
+                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
+              }
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 404,
+              "outcome": "not_found",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9992,
+                "resets_at": "2026-11-15T09:07:04+00:00",
+                "els_status": "RESOURCE_NOT_FOUND - The resource specified cannot be found."
+              }
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 404,
+              "outcome": "not_found",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9992,
+                "resets_at": "2026-11-15T09:07:04+00:00",
+                "els_status": "RESOURCE_NOT_FOUND - The resource specified cannot be found."
+              }
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 200,
+              "outcome": "success"
             }
           ],
           "rate_limit": {
-            "limit": 20000,
-            "remaining": 18766,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
+            "limit": 10000,
+            "remaining": 9992,
+            "resets_at": "2026-11-15T09:07:04+00:00",
+            "els_status": "RESOURCE_NOT_FOUND - The resource specified cannot be found."
           }
         },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
+        "elsevier": "https://api.elsevier.com/content/article/doi/10.1016/j.jpubeco.2026.105812"
       },
       "translation": {
         "status": "complete",
@@ -66,719 +107,8 @@
         "prompt_version": "academic-door-abstract-zh-v2",
         "glossary_version": "1",
         "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:03+00:00",
-        "source_hash": "f704776ad4bfb566b278b7cf94e1f98ed615b8739e683fabaa96264c3125d5c3"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105781",
-      "sequence": 2,
-      "source_sequence": 2,
-      "article_type": "research-article",
-      "title_en": "Settlers and seekers: Immigrant proximity and voter polarisation",
-      "title_cn": "定居者与寻求者：移民邻近性与选民极化",
-      "authors": [
-        "C. Berti Ceroni",
-        "L. Piemontese",
-        "G. Prarolo",
-        "A. Schiavone"
-      ],
-      "abstract_en": "We exploit a natural experiment involving the conditionally random placement of refugee hosting facilities in an urban setting. Using survey data on voting, we estimate the causal effect of proximity to immigrants on political behaviour. By examining both refugee and long-term immigrant presence, we reconcile conflicting findings in the literature and offer a unifying framework highlighting the key role of past experiences in determining polarised responses to refugee shocks. We show that polarisation is driven by voters with limited prior contact and is amplified near migrant services or family-hosting facilities. By contrast, those with high baseline exposure remain unaffected.",
-      "abstract_cn": "我们利用一个自然实验，涉及难民收容设施在城市环境中的条件随机安置。使用关于投票的调查数据，我们估计了与移民邻近对政治行为的因果效应。通过同时考察难民和长期移民的存在，我们调和了文献中相互矛盾的发现，并提供了一个统一框架，突出过往经历在决定对难民冲击的极化反应中的关键作用。我们表明，极化是由先前接触有限的选民驱动的，并且在移民服务或家庭收容设施附近被放大。相比之下，那些基线接触水平高的人则不受影响。",
-      "abstract_snippet_en": "We exploit a natural experiment involving the conditionally random placement of refugee hosting facilities in an urban setting. Using survey data on voting, we estimate the causal effect of proximity...",
-      "doi": "10.1016/j.jpubeco.2026.105781",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002173?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18765,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18765,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:04+00:00",
-        "source_hash": "77d92952303558bba71cb14466254ef1f574db372ab5c7d5082a04e98f09b3d2"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105779",
-      "sequence": 3,
-      "source_sequence": 3,
-      "article_type": "research-article",
-      "title_en": "The cost of job loss in carbon-intensive sectors: Evidence from Germany",
-      "title_cn": "碳密集型行业的失业成本：来自德国的证据",
-      "authors": [
-        "César Barreto",
-        "Robert Grundke",
-        "Ze’ev Krill"
-      ],
-      "abstract_en": "Given global efforts to reduce carbon emissions, the shift of labor away from carbon-intensive activities is likely to increase. To shed light on the implied adjustment costs for workers, we use German administrative data from 1992 to 2020 to estimate the cost of involuntary job displacement for workers in high-carbon-intensity (HCI) sectors. Germany is particularly well-suited for this endeavor, as it has been one of the leading countries in carbon emission reductions since 1990, with considerably declining employment in HCI sectors. Comparing labor market outcomes of displaced and non-displaced workers before and after a mass layoff event, we find that workers displaced from HCI sectors face larger and more lasting earnings losses than those displaced from other sectors. This is mainly due to lower wages after re-employment. We show that a large part of the gap in displacement costs is explained by persistent differences in occupation-, firm- and local labor market-related characteristics across sectors, while differences in worker characteristics play a more limited role. Production processes in HCI sectors are regionally concentrated and involve a specific set of occupations and tasks, while firm wage premia are higher. This reduces outside options for finding jobs with similar skill requirements and pay, increasing adjustment costs for displaced workers. Using an alternative method to identify involuntary job separations, we show that our results also apply to more gradual transitions, signaling that adjustment costs could remain significant in a green transition without mass-layoffs.",
-      "abstract_cn": "鉴于全球减少碳排放的努力，劳动力从碳密集型活动中转移出去的趋势可能会加剧。为了揭示工人所面临的隐含调整成本，我们使用德国行政数据从1992到2020来估计高碳强度（HCI）行业工人非自愿失业的成本。德国特别适合进行这项研究，因为自1990以来，它一直是碳减排的领先国家之一，HCI行业的就业显著下降。比较大规模裁员事件前后被裁员工和未被裁员工的劳动力市场结果，我们发现从HCI行业被裁的工人比其他行业被裁的工人面临更大且更持久的收入损失。这主要是由于再就业后的工资较低。我们表明，失业成本差距的很大一部分可以由跨行业的职业、企业和当地劳动力市场相关特征的持续差异来解释，而工人特征的差异作用较为有限。HCI行业的生产过程具有区域集中性，涉及特定的职业和任务，同时企业工资溢价较高。这减少了寻找具有类似技能要求和薪酬的工作的外部选择，增加了被裁员工的调整成本。使用另一种方法来识别非自愿离职，我们表明我们的结果也适用于更渐进的过渡，这表明在没有大规模裁员的绿色转型中，调整成本可能仍然显著。",
-      "abstract_snippet_en": "Given global efforts to reduce carbon emissions, the shift of labor away from carbon-intensive activities is likely to increase. To shed light on the implied adjustment costs for workers, we use German...",
-      "doi": "10.1016/j.jpubeco.2026.105779",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S004727272600215X?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18764,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18764,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:06+00:00",
-        "source_hash": "fc5e77b43a8a4ef9f8a9318f3b8f148c5481e2fb0ab9eb84785f363d6a9d78b4"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105783",
-      "sequence": 4,
-      "source_sequence": 4,
-      "article_type": "research-article",
-      "title_en": "Motivating job seekers. A field experiment",
-      "title_cn": "激励求职者。一项实地实验",
-      "authors": [
-        "Bart Cockx",
-        "Johan Egebark",
-        "Greet Van Hoye",
-        "Emilie Videnord",
-        "Johan Vikström"
-      ],
-      "abstract_en": "Reduced motivation over the unemployment spell may contribute to declining job-finding rates. We report findings from a low-cost digital intervention that uses motivational emails to enhance job seekers’ search effort. Using a randomized controlled trial that included 200,720 newly unemployed job seekers in Sweden, we evaluate both supportive messages aimed at encouraging inner motivation, and controlling messages focused on internal and external pressure. The messages increased compliance with mandatory activity reporting, indicating a clear first-stage behavioral response. However, this behavioral change did not translate in more effective job search as both types of emails caused a moderate but significant reduction in search effort and job finding. The supportive messages reduced the number of job applications and showed weakly negative job-finding effects, particularly among men. The controlling messages slightly backfired for job seekers who report strong autonomous motivation at the onset of unemployment. These findings underscore the challenges of motivating job seekers to actively search for jobs and suggest that low-cost digital interventions, in isolation, are inadequate and may even be counterproductive.",
-      "abstract_cn": "失业期间动机的下降可能导致求职率下降。我们报告了一项低成本数字干预的结果，该干预使用激励性电子邮件来提高求职者的求职努力。通过一项随机对照试验，纳入了瑞典200,720名新失业求职者，我们评估了旨在鼓励内在动机的支持性信息，以及侧重于内部和外部压力的控制性信息。这些信息提高了对强制性活动报告的遵守程度，表明存在明显的第一阶段行为反应。然而，这种行为改变并未转化为更有效的求职，因为两种类型的电子邮件都导致了求职努力和求职成功的中等但显著的下降。支持性信息减少了求职申请数量，并显示出弱负面的求职成功效应，尤其是在男性中。对于在失业初期报告强烈自主动机的求职者，控制性信息略有反效果。这些发现凸显了激励求职者积极寻找工作的挑战，并表明低成本数字干预单独使用是不够的，甚至可能适得其反。",
-      "abstract_snippet_en": "•RCT evaluates two types of motivational emails for 200,720 unemployed job seekers.•Emails increased compliance with mandatory activity reporting.•Emails did not improve job finding.•Supportive messages...",
-      "doi": "10.1016/j.jpubeco.2026.105783",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002197?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18763,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18763,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:08+00:00",
-        "source_hash": "ec699e8aba5e5e7299b6089205bf6c6c93d8a2aa9da664f41f13c71c944e783b"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105780",
-      "sequence": 5,
-      "source_sequence": 5,
-      "article_type": "research-article",
-      "title_en": "Transporting behavioral insights to low-income households: A field experiment on energy efficiency investments",
-      "title_cn": "将行为洞察传递给低收入家庭：一项关于能效投资的实地实验",
-      "authors": [
-        "Bettina Chlond",
-        "Timo Goeschl",
-        "Martin Kesternich",
-        "Madeline Werthschulte"
-      ],
-      "abstract_en": "Established behavioral insights may not generalize when applied to under-represented target populations. Iterative approaches that identify such external validity failures to guide policy deployment at scale and to inform subsequent design refinements gain importance. We implement this approach in a field experiment involving 1800 low-income households in one of the largest energy efficiency assistance programs. Despite extensive co-designed vetting, most behavioral insights proved ineffective or inefficient. Notably, loss-framed interventions backfired by reducing take-up. We rank insights by their Marginal Value of Public Funds (MVPF), identifying ‘unexpected winners’ that outperform alternatives rated as promising by experts and laypeople. Our analysis suggests that factors specific to low-income households, such as scarcity, fundamentally alter behavioral responses, necessitating guided deployment to optimize future public assistance design.",
-      "abstract_cn": "既有的行为洞察在应用于代表性不足的目标人群时可能并不具有普遍性。识别此类外部效度失败以指导大规模政策部署并为后续设计改进提供信息的迭代方法变得愈发重要。我们在一个涉及1800个低收入家庭的实地实验中实施这一方法，该实验属于规模最大的能效援助项目之一。尽管经过了广泛的共同设计审查，大多数行为洞察被证明无效或低效。值得注意的是，损失框架干预适得其反，降低了参与率。我们按公共资金边际价值（MVPF）对各项洞察进行排序，识别出“意外赢家”，其表现优于专家和普通人评为有前景的替代方案。我们的分析表明，低收入家庭特有的因素，如稀缺性，从根本上改变了行为反应，因此需要指导性部署以优化未来的公共援助设计。",
-      "abstract_snippet_en": "Established behavioral insights may not generalize when applied to under-represented target populations. Iterative approaches that identify such external validity failures to guide policy deployment...",
-      "doi": "10.1016/j.jpubeco.2026.105780",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002161?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18762,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18762,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:10+00:00",
-        "source_hash": "836067a2d3df4c68d574bbb9315b459426af959aeb9557232ee295643c7fad83"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105771",
-      "sequence": 6,
-      "source_sequence": 6,
-      "article_type": "research-article",
-      "title_en": "Long-term impacts of youth mentoring and therapy: Experimental evidence from Chicago",
-      "title_cn": "青少年辅导与治疗的长期影响：来自芝加哥的实验证据",
-      "authors": [
-        "Nour Abdul-Razzak",
-        "Brandon Domash",
-        "Kelly Hallberg",
-        "Cristobal Pinto Poehls"
-      ],
-      "abstract_en": "We conduct a large-scale, randomized controlled trial of a six-month intervention combining intensive mentoring and group cognitive behavioral therapy (CBT) for youth in Chicago, following study participants for up to five years. The program was designed to engage young people at higher risk of involvement with the criminal justice system, and successfully did so with a take-up rate of 62%. Participants averaged 177 hours with mentors and nine hours of group CBT. After 24 months, youth offered the program experienced a 19% reduction in the probability of being arrested. Notably, this impact persists into adulthood, as effects remain stable through five years post-randomization. A reduction in arrests for violent offenses is driving this overall arrest reduction, with a 23% reduction in the probability of a violent-crime arrest after 24 months. The program does not impact school enrollment persistence (graduation or being enrolled), but shows suggestive improvements in school behavior and school mobility. We conclude that programs that combine mentoring and CBT can serve as a model for engaging a harder-to-reach population of youth, and can be effective in reducing criminal justice contact in the longer run.",
-      "abstract_cn": "我们对芝加哥青少年开展了一项大规模随机对照试验，干预为期六个月，结合了强化辅导和团体认知行为疗法（CBT），并对研究参与者进行了长达五年的跟踪。该项目旨在吸引有较高卷入刑事司法系统风险的年轻人，并成功做到了这一点，参与率为62%。参与者平均与导师相处177小时，并接受了九小时的团体CBT。在24个月后，被提供该项目的青少年被捕概率降低了19%。值得注意的是，这一影响持续到成年期，因为效应在随机化后五年内保持稳定。暴力犯罪被捕概率的下降推动了整体被捕率的下降，在24个月后，暴力犯罪被捕概率降低了23%。该项目不影响入学持续性（毕业或注册在学），但在学校行为和学校流动性方面显示出提示性改善。我们得出结论，结合辅导和CBT的项目可以作为吸引更难触及的青少年群体的模式，并能在长期内有效减少与刑事司法系统的接触。",
-      "abstract_snippet_en": "We conduct a large-scale, randomized controlled trial of a six-month intervention combining intensive mentoring and group cognitive behavioral therapy (CBT) for youth in Chicago, following study participants...",
-      "doi": "10.1016/j.jpubeco.2026.105771",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002070?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18761,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18761,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:12+00:00",
-        "source_hash": "17b7fa9c9d3a03e511525bebd315e33713fad7cabdb07a94b11f1828a4553a79"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105782",
-      "sequence": 7,
-      "source_sequence": 7,
-      "article_type": "research-article",
-      "title_en": "Information access and college admission outcomes",
-      "title_cn": "信息获取与大学录取结果",
-      "authors": [
-        "Le Kang",
-        "Yang Song",
-        "Li Chen"
-      ],
-      "abstract_en": "This paper provides quasi-experimental evidence on the effects of information access in centralized college admissions. Using administrative data, we exploit a batched dynamic matching mechanism in the Chinese province of Inner Mongolia to compare students just above and below batch cutoffs. Once higher-scoring students have finalized their choices, those just below the cutoffs gain additional information that helps them identify the set of feasible colleges. As a result, they are more likely to apply to reach options and are admitted to more selective colleges. The effects are strongest near batch cutoffs where information access matters most.",
-      "abstract_cn": "本文提供了关于集中式大学录取中信息获取效应的准实验证据。利用行政数据，我们利用中国内蒙古自治区的分批动态匹配机制，比较了刚好高于和低于批次分数线的学生。一旦较高分学生最终确定了他们的选择，那些刚好低于分数线的学生就获得了额外的信息，这有助于他们识别可行大学集合。因此，他们更有可能申请冲刺选项，并被录取到更具选择性的大学。在信息获取最为关键的批次分数线附近，效应最强。",
-      "abstract_snippet_en": "This paper provides quasi-experimental evidence on the effects of information access in centralized college admissions. Using administrative data, we exploit a batched dynamic matching mechanism in...",
-      "doi": "10.1016/j.jpubeco.2026.105782",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002185?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18760,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18760,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:13+00:00",
-        "source_hash": "7a98e149da90172811fdd2a3ab43cbfb54f44d2b50fd6feded992016d900aac2"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "abstract",
-        "matched_terms": [
-          "Chinese province"
-        ],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105797",
-      "sequence": 8,
-      "source_sequence": 8,
-      "article_type": "research-article",
-      "title_en": "Emissions abatement under a rate-based emissions trading system: facility-level evidence from China",
-      "title_cn": "基于费率的排放交易体系下的减排：来自中国设施层面的证据",
-      "authors": [
-        "Yifei Quan",
-        "Jie-Sheng Tan-Soo",
-        "Maosheng Duan",
-        "Bofeng Cai"
-      ],
-      "abstract_en": "As the world’s largest emissions trading system (ETS) by covered emissions, China’s national ETS uses an unconventional rate-based design to allocate allowances, which inherently creates “winners” (surplus units) and “losers” (deficit units). Utilizing a unique facility-level dataset and a continuous difference-in-differences framework, we show that the national ETS reduces CO2 emissions from regulated power units by 2.3 %. Crucially, this abatement is mainly driven by reallocating output from deficit to surplus units instead of within-unit efficiency gains or fuel switching. Moreover, such output substitution is more pronounced among units within the same regional grids or parent companies. This policy also delivers substantial co-benefits by reducing air pollution from regulated plants. Our findings contribute ex-post evidence on the effectiveness of rate-based ETSs and offer insights for policymakers seeking to mitigate emissions on a broad scale while maintaining production levels.",
-      "abstract_cn": "作为全球覆盖排放量最大的排放交易体系（ETS），中国的全国ETS采用了一种非常规的基于费率的设计来分配配额，这本质上创造了“赢家”（盈余单位）和“输家”（赤字单位）。利用独特的设施层面数据集和连续双重差分框架，我们表明全国ETS将受监管电力单位的CO2排放减少了2.3%。至关重要的是，这种减排主要是由将产出从赤字单位重新分配到盈余单位所驱动，而非单位内效率提升或燃料转换。此外，这种产出替代在同一区域电网或母公司内的单位中更为明显。该政策还通过减少受监管工厂的空气污染带来了可观的协同效益。我们的发现为基于费率的ETS的有效性提供了事后证据，并为寻求在保持生产水平的同时大规模减排的政策制定者提供了见解。",
-      "abstract_snippet_en": "•First ex-post causal evaluation of a large-scale rate-based emissions trading system.•China's national ETS cut CO2 from regulated power units by 2.3 % with minimal loss of total output.•Corporate groups...",
-      "doi": "10.1016/j.jpubeco.2026.105797",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002331?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18759,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18759,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:15+00:00",
-        "source_hash": "07b20c61f20a3d3a0bc38c7f80b6d6c95b1e2b69fa7cc4e6e9927f939caf9c79"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "yes",
-        "evidence": "title",
-        "matched_terms": [
-          "China"
-        ],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105760",
-      "sequence": 9,
-      "source_sequence": 9,
-      "article_type": "research-article",
-      "title_en": "Propensity to consume food out of SNAP and its welfare implications",
-      "title_cn": "消费 SNAP 食物的倾向及其对福利的影响",
-      "authors": [
-        "Jintaek Song"
-      ],
-      "abstract_en": "Using new consumer-panel data across multiple grocery retailers, I estimate that an additional SNAP dollar raises food-at-home spending by 48 cents (s.e. 6 cents). This multi-retailer estimate is broadly in line with the 59-cent estimate in Hastings and Shapiro (2018), reinforcing evidence that SNAP benefits are non-fungible. Linking food-at-home and food-away-from-home purchases to nutritional data, I find that SNAP substantially increases calorie purchases but has little effect on nutritional composition per calorie. A behavioral welfare calibration implies an efficiency cost of in-kind provision of 12–14 cents per SNAP dollar; because this calculation is highly sensitive to the MPC, pinning down the parameter is quantitatively important.",
-      "abstract_cn": "使用多个杂货零售商的新消费者小组数据，我估计额外的 SNAP 美元会使家庭食品支出增加 48 美分（即 6 美分）。这一多零售商的估计与 Hastings 和 Shapiro (2018) 的 59 美分估计大致一致，进一步证明 SNAP 福利是不可替代的。将在家购买的食物和外出购买的食物与营养数据联系起来，我发现 SNAP 大大增加了卡路里的购买量，但对每卡路里的营养成分几乎没有影响。行为福利校准意味着每 SNAP 美元提供实物的效率成本为 12-14 美分；由于该计算对 MPC 高度敏感，因此确定参数在数量上非常重要。",
-      "abstract_snippet_en": "Using new consumer-panel data across multiple grocery retailers, I estimate that an additional SNAP dollar raises food-at-home spending by 48 cents (s.e. 6 cents). This multi-retailer estimate is broadly...",
-      "doi": "10.1016/j.jpubeco.2026.105760",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726001969?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18758,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18758,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "google-translate",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "gtx-en-zh-CN",
-        "translated_at": "2026-10-09T12:51:39+00:00",
-        "source_hash": "3262befa2f082b880d7a2991f6dfd52801f1dc780c7c8c67d44a7f5eca1cd7d3"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105786",
-      "sequence": 10,
-      "source_sequence": 10,
-      "article_type": "research-article",
-      "title_en": "Decolonization, legitimacy and fiscal capacity: Event study evidence from Africa",
-      "title_cn": "非殖民化、合法性与财政能力：来自非洲的事件研究证据",
-      "authors": [
-        "Dhammika Dharmapala",
-        "Marvin Suesse"
-      ],
-      "abstract_en": "A vast literature across several academic disciplines studies the impact of colonial rule, but less attention has been paid to the consequences of decolonization. This paper uses a recently constructed dataset on the fiscal history of African countries from 1900 to 2015 to analyze the impact of decolonization on fiscal capacity (defined as revenue from taxes that are relatively difficult to collect and that require more administrative infrastructure). The analysis adopts a staggered difference-in-differences approach, implemented using a stacked event study. It finds no discernible pre-trends prior to decolonization, and a substantial increase in fiscal capacity starting about 5–6 years after decolonization. This result – which implies substantial state-building activity in postcolonial Africa – is robust to tests for a variety of alternative explanations, the use of alternative control groups, and the use of generalized synthetic control methods. We also show that this effect is not explained by democratization or improved public goods provision. Our conceptual framework instead posits that post-colonial states were able to increase tax revenues from hard-to-collect sources because their higher degree of legitimacy improved citizens’ tax morale. We offer historical evidence that is consistent with this channel. Our finding – that colonial rulers invested less in fiscal capacity than did post-independence governments – sheds new light on the consequences of colonial rule, and on the determinants of variation in governments’ fiscal capacity.",
-      "abstract_cn": "多个学科的大量文献研究了殖民统治的影响，但对非殖民化后果的关注较少。本文使用一个最近构建的、涵盖非洲国家从1900到2015财政历史的数据集，分析非殖民化对财政能力（定义为来自相对难以征收且需要更多行政基础设施的税收收入）的影响。分析采用交错双重差分方法，并通过堆叠事件研究加以实施。研究发现，非殖民化之前不存在可辨识的预趋势，而在非殖民化后大约5-6年开始，财政能力出现大幅上升。这一结果——意味着后殖民时期的非洲存在显著的国家建设活动——在针对多种替代解释的检验、使用替代控制组以及使用广义合成控制方法后依然稳健。我们还表明，这一效应不能由民主化或公共品供给改善来解释。我们的概念框架反而提出，后殖民国家能够增加来自难以征收来源的税收收入，是因为其更高程度的合法性提高了公民的税收道德。我们提供了与这一渠道相一致的历史证据。我们的发现——殖民统治者在财政能力上的投入少于独立后政府——为殖民统治的后果以及政府财政能力差异的决定因素提供了新的启示。",
-      "abstract_snippet_en": "A vast literature across several academic disciplines studies the impact of colonial rule, but less attention has been paid to the consequences of decolonization. This paper uses a recently constructed...",
-      "doi": "10.1016/j.jpubeco.2026.105786",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002227?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18757,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18757,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:41+00:00",
-        "source_hash": "6c3ef3c595266f07543197e28b28af8f582411a3d83cd022eea710e5de18bd92"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105799",
-      "sequence": 11,
-      "source_sequence": 11,
-      "article_type": "research-article",
-      "title_en": "Identity politics, partisan sentiment and household spending",
-      "title_cn": "身份政治、党派情绪与家庭支出",
-      "authors": [
-        "Arkadev Ghosh",
-        "Aruni Mitra",
-        "Ronit Mukherji"
-      ],
-      "abstract_en": "We examine how political shifts affect household economic sentiment and spending in identity-polarized settings. Using panel data on over 178,000 Indian households, we find that sentiment about personal finances—and, to a lesser extent, the national economy—predicts expenditure, even after accounting for income changes. Using close state elections, we show that Muslims become markedly more pessimistic than Hindus about national economic conditions following victories by the Hindu-nationalist party, but exhibit relatively smaller differences in personal financial sentiment and no detectable divergence in overall expenditure. We find some evidence, however, of Hindu-Muslim divergence in potentially deferrable choices—healthcare, luxury spending, and asset purchases—particularly among urban, educated, and white-collar households. A Bayesian learning framework explains the insulation of consumption from politically induced sentiment shocks through the limited and heterogeneous transmission of macro-beliefs to individual behavior in high-volatility environments.",
-      "abstract_cn": "我们考察在身份两极化的环境中，政治变动如何影响家庭经济情绪与支出。使用超过178,000个印度家庭的面板数据，我们发现，即使在考虑收入变化之后，关于个人财务状况的情绪——以及在较小程度上关于国家经济的情绪——仍能预测支出。利用势均力敌的邦选举，我们表明，在印度教民族主义政党获胜后，穆斯林对国家经济状况变得明显比印度教徒更为悲观，但在个人财务情绪上表现出相对较小的差异，并且在总体支出上没有可察觉的分化。然而，我们发现一些证据表明，印度教徒与穆斯林在可能可推迟的选择——医疗保健、奢侈品支出和资产购买——上存在分化，尤其是在城市、受过教育和白领家庭中。一个贝叶斯学习框架通过宏观信念向个体行为在高波动环境中的有限且异质性传导，解释了消费如何免受政治引发的情绪冲击的影响。",
-      "abstract_snippet_en": "We examine how political shifts affect household economic sentiment and spending in identity-polarized settings. Using panel data on over 178,000 Indian households, we find that sentiment about personal...",
-      "doi": "10.1016/j.jpubeco.2026.105799",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002355?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18756,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18756,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:43+00:00",
-        "source_hash": "8175a6566f1016e9234a0778334becf83ed09633b0529d4a1b6c8c07d336ebc7"
-      },
-      "quality_flags": [],
-      "china_relevance": {
-        "status": "no",
-        "evidence": "no substantive China signal",
-        "matched_terms": [],
-        "source": "academic-door-rules-v1"
-      }
-    },
-    {
-      "paper_id": "doi:10.1016/j.jpubeco.2026.105784",
-      "sequence": 12,
-      "source_sequence": 12,
-      "article_type": "research-article",
-      "title_en": "WFH and productivity: Evidence from the judiciary",
-      "title_cn": "居家办公与生产率：来自司法系统的证据",
-      "authors": [
-        "Andreu Arenas",
-        "Marc Bosch",
-        "Nerea Frias"
-      ],
-      "abstract_en": "We estimate the productivity effects of eliminating work from home (WFH) in the public sector by evaluating a mandatory return-to-office (RTO) policy in the Catalan judiciary. Leveraging cross-court variation in pre-mandate WFH intensity, difference-in-differences estimates show that terminating WFH reduced recorded procedural output by 5.2 percent, with no detectable changes in document quality or absenteeism. A multi-stakeholder survey shows that these recorded gains from WFH coexisted with coordination costs reported by external users: recorded case-processing tasks are performed on a digital platform, easy to do remotely and to monitor, whereas coordination with lawyers is synchronous, harder to do off-site, and largely unrecorded. Perceived impacts follow a gradient: case managers and supervisors, who observe the bureaucratic-efficiency margin, are positive about WFH, while lawyers, who depend on service coordination, are clearly negative.",
-      "abstract_cn": "我们通过评估加泰罗尼亚司法系统的一项强制重返办公室（RTO）政策，估计了公共部门取消居家办公（WFH）对生产率的影响。利用各法院在强制令前WFH强度的差异，双重差分估计显示，终止WFH使记录的流程产出减少了5.2%，而未检测到文件质量或缺勤率的变化。一项多利益相关方调查显示，这些记录的WFH收益与外部用户报告的协调成本并存：记录的案件处理任务在数字平台上执行，易于远程完成和监控，而与律师的协调是同步的，更难在异地完成，且大多未被记录。感知影响呈现梯度：案件管理员和主管观察到官僚效率边际，对WFH持正面态度，而依赖服务协调的律师则明显持负面态度。",
-      "abstract_snippet_en": "We estimate the productivity effects of eliminating work from home (WFH) in the public sector by evaluating a mandatory return-to-office (RTO) policy in the Catalan judiciary. Leveraging cross-court...",
-      "doi": "10.1016/j.jpubeco.2026.105784",
-      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002203?dgcid=rss_sd_all",
-      "publication_date": "November 2026",
-      "sources": {
-        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/263/suppl/C",
-        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
-        "metadata": "crossref",
-        "abstract_en": "elsevier-article-metadata",
-        "abstract_lookup": {
-          "status": "success_full_abstract",
-          "attempts": [
-            {
-              "source": "elsevier-article-metadata",
-              "status_code": 200,
-              "outcome": "success",
-              "rate_limit": {
-                "limit": 20000,
-                "remaining": 18755,
-                "resets_at": "2026-10-15T06:07:14+00:00",
-                "els_status": "OK"
-              }
-            }
-          ],
-          "rate_limit": {
-            "limit": 20000,
-            "remaining": 18755,
-            "resets_at": "2026-10-15T06:07:14+00:00",
-            "els_status": "OK"
-          }
-        },
-        "elsevier": "https://api.elsevier.com/content/metadata/article"
-      },
-      "translation": {
-        "status": "complete",
-        "provider": "deepseek",
-        "prompt_version": "academic-door-abstract-zh-v2",
-        "glossary_version": "1",
-        "model": "deepseek-v4-flash",
-        "translated_at": "2026-10-09T12:51:45+00:00",
-        "source_hash": "265aff26741a0fdfcdb4077b1a75146011d787e9c4a7e9d60abaa1f626758ac4"
+        "translated_at": "2026-11-09T20:47:08+00:00",
+        "source_hash": "aba38305854e3479c91df871d1bdbb5b1f5b17de1e5b7f076698f9191e0d97bd"
       },
       "quality_flags": [],
       "china_relevance": {
@@ -796,14 +126,14 @@
     "roster_authority": "publisher-rss",
     "roster_match_scope": "rss-volume-items",
     "rss_url": "https://rss.sciencedirect.com/publication/science/00472727",
-    "official_item_count": 12,
-    "publishable_item_count": 12,
+    "official_item_count": 1,
+    "publishable_item_count": 1,
     "excluded_item_count": 0,
     "excluded_items": [],
-    "doi_complete": 12,
-    "authors_complete": 12,
-    "abstract_en_complete": 12,
-    "translation_complete": 12,
+    "doi_complete": 1,
+    "authors_complete": 1,
+    "abstract_en_complete": 1,
+    "translation_complete": 1,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_sciencedirect_rss_fallback",
@@ -811,31 +141,31 @@
       "official_order_unverified"
     ],
     "content_counts": {
-      "official_items": 12,
-      "observed_items": 12,
-      "publishable_items": 12,
-      "research_articles": 12,
+      "official_items": 1,
+      "observed_items": 1,
+      "publishable_items": 1,
+      "research_articles": 1,
       "comments": 0,
       "short_communications": 0,
       "corrections": 0,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 12
+      "catalog_content_items": 1
     }
   },
   "content_counts": {
-    "official_items": 12,
-    "observed_items": 12,
-    "publishable_items": 12,
-    "research_articles": 12,
+    "official_items": 1,
+    "observed_items": 1,
+    "publishable_items": 1,
+    "research_articles": 1,
     "comments": 0,
     "short_communications": 0,
     "corrections": 0,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 12
+    "catalog_content_items": 1
   },
   "content_status": "complete",
   "source_status": "publisher_verified",

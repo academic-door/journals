@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "issue_id": "jpube-264-c",
+  "journal_id": "jpube",
+  "journal_name": "Journal of Public Economics",
+  "volume": "264",
+  "issue": "C",
+  "issue_label": "Vol. 264",
+  "publication_date": "December 2026",
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/264/suppl/C",
+  "retrieved_at": "2026-11-09T20:47:07+00:00",
+  "expected_article_count": 1,
+  "research_article_count": 1,
+  "status": "incomplete",
+  "development_sample": false,
+  "articles": [
+    {
+      "paper_id": "doi:10.1016/j.jpubeco.2026.105812",
+      "sequence": 1,
+      "source_sequence": 1,
+      "article_type": "research-article",
+      "title_en": "Tax evasion at the top of the income distribution",
+      "title_cn": "收入分布顶端的逃税",
+      "authors": [
+        "John Guyton",
+        "Patrick Langetieg",
+        "Daniel Reck",
+        "Max Risch",
+        "Gabriel Zucman"
+      ],
+      "abstract_en": "We study tax evasion at the top of the U.S. income distribution using micro-data from audits and enforcement initiatives. Leveraging enforcement that revealed noncompliance, we find that recent individual random audit data fail to capture sophisticated evasion via offshore accounts and pass-through businesses. Consequently, estimates based solely on these data under-state evasion by the highest-income Americans. We construct new distributional estimates of US noncompliance. Circa 2006–2013, accounting for sophisticated evasion (holding estimated non-sophisticated evasion fixed) increases the share of unreported income belonging to the top 1% of the distribution by 9 to 33 percentage points.",
+      "abstract_cn": "我们利用来自审计和执法举措的微观数据研究美国收入分布顶端的逃税。借助揭示不合规行为的执法，我们发现近期个人随机审计数据未能捕捉通过离岸账户和穿透式企业进行的复杂逃税。因此，仅基于这些数据的估计低估了最高收入美国人的逃税。我们构建了美国不合规行为的新分布估计。约在2006-2013，考虑复杂逃税（保持估计的非复杂逃税不变）使属于分布顶端1%的未报告收入份额增加9至33个百分点。",
+      "abstract_snippet_en": "",
+      "doi": "10.1016/j.jpubeco.2026.105812",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0047272726002483?dgcid=rss_sd_all",
+      "publication_date": "December 2026",
+      "sources": {
+        "issue": "https://www.sciencedirect.com/journal/journal-of-public-economics/vol/264/suppl/C",
+        "roster": "https://rss.sciencedirect.com/publication/science/00472727",
+        "metadata": "crossref",
+        "abstract_en": "elsevier-article-doi",
+        "abstract_lookup": {
+          "status": "success_full_abstract",
+          "attempts": [
+            {
+              "source": "elsevier-article-metadata",
+              "status_code": 200,
+              "outcome": "success",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 18401,
+                "resets_at": "2026-11-12T12:58:24+00:00",
+                "els_status": "NO_SEARCH_RESULTS(Result set was empty)"
+              }
+            },
+            {
+              "source": "elsevier-sciencedirect-search",
+              "status_code": 400,
+              "outcome": "request_failed",
+              "rate_limit": {
+                "limit": 20000,
+                "remaining": 19206,
+                "resets_at": "2026-11-13T05:20:53+00:00",
+                "els_status": "INVALID_INPUT - Unable to translate query provided. Error=[The search contained no translatable search terms. EmptyQueryException - No translatable query terms found in field.]"
+              }
+            },
+            {
+              "source": "elsevier-scopus-doi",
+              "status_code": 404,
+              "outcome": "not_found",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9992,
+                "resets_at": "2026-11-15T09:07:04+00:00",
+                "els_status": "RESOURCE_NOT_FOUND - The resource specified cannot be found."
+              }
+            },
+            {
+              "source": "elsevier-scopus-pii",
+              "status_code": 404,
+              "outcome": "not_found",
+              "rate_limit": {
+                "limit": 10000,
+                "remaining": 9992,
+                "resets_at": "2026-11-15T09:07:04+00:00",
+                "els_status": "RESOURCE_NOT_FOUND - The resource specified cannot be found."
+              }
+            },
+            {
+              "source": "elsevier-article-doi",
+              "status_code": 200,
+              "outcome": "success"
+            }
+          ],
+          "rate_limit": {
+            "limit": 10000,
+            "remaining": 9992,
+            "resets_at": "2026-11-15T09:07:04+00:00",
+            "els_status": "RESOURCE_NOT_FOUND - The resource specified cannot be found."
+          }
+        },
+        "elsevier": "https://api.elsevier.com/content/article/doi/10.1016/j.jpubeco.2026.105812"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-09T20:47:08+00:00",
+        "source_hash": "aba38305854e3479c91df871d1bdbb5b1f5b17de1e5b7f076698f9191e0d97bd"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    }
+  ],
+  "quality": {
+    "roster_match": true,
+    "order_preserved": true,
+    "roster_transport": "sciencedirect-rss",
+    "roster_authority": "publisher-rss",
+    "roster_match_scope": "rss-volume-items",
+    "rss_url": "https://rss.sciencedirect.com/publication/science/00472727",
+    "official_item_count": 1,
+    "publishable_item_count": 1,
+    "excluded_item_count": 0,
+    "excluded_items": [],
+    "doi_complete": 1,
+    "authors_complete": 1,
+    "abstract_en_complete": 1,
+    "translation_complete": 1,
+    "duplicate_count": 0,
+    "flags": [
+      "publisher_html_blocked_sciencedirect_rss_fallback",
+      "publisher_rss_reverse_order_normalized",
+      "official_order_unverified"
+    ],
+    "content_counts": {
+      "official_items": 1,
+      "observed_items": 1,
+      "publishable_items": 1,
+      "research_articles": 1,
+      "comments": 0,
+      "short_communications": 0,
+      "corrections": 0,
+      "editorial_material": 0,
+      "front_matter": 0,
+      "other_excluded": 0,
+      "catalog_content_items": 1
+    }
+  },
+  "content_counts": {
+    "official_items": 1,
+    "observed_items": 1,
+    "publishable_items": 1,
+    "research_articles": 1,
+    "comments": 0,
+    "short_communications": 0,
+    "corrections": 0,
+    "editorial_material": 0,
+    "front_matter": 0,
+    "other_excluded": 0,
+    "catalog_content_items": 1
+  },
+  "content_status": "complete",
+  "source_status": "publisher_verified",
+  "publication_state": "ready"
+}
