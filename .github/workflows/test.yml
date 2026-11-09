@@ -40,6 +40,7 @@ jobs:
             rm -rf data/translation-cache
             git archive origin/data data/translation-cache | tar -x
           fi
+          python scripts/quarantine_b8_public_content.py
           SHADOW_MAIN_SHA="${{ github.sha }}" SHADOW_DATA_SHA="${data_sha}" \
             python scripts/audit_numeric_semantics_shadow.py
       - name: B8 pending one-title transition (ephemeral release-derived indexes only)
