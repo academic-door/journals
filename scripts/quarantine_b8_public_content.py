@@ -52,7 +52,7 @@ def _read(path: Path) -> dict:
 def _sort_key(document: dict) -> tuple[int, int, str]:
     def numeric(value: object) -> int:
         import re
-        match = re.search(r"\\d+", str(value or ""))
+        match = re.search(r"\d+", str(value or ""))
         return int(match.group()) if match else -1
 
     return (numeric(document.get("volume")), numeric(document.get("issue")),
