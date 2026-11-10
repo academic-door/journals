@@ -23,10 +23,12 @@ class B8ActivationBridgeTests(unittest.TestCase):
         cls.configs.pop("ITPF", None)
         cls.configs.pop("JOEG", None)
         cls.configs.pop("IJIO", None)
+        cls.configs.pop("JFI", None)
         next(item for item in cls.manifest["journals"] if item["key"] == "JAE")["rollout_status"] = "not_enabled"
         next(item for item in cls.manifest["journals"] if item["key"] == "ITPF")["rollout_status"] = "not_enabled"
         next(item for item in cls.manifest["journals"] if item["key"] == "JOEG")["rollout_status"] = "not_enabled"
         next(item for item in cls.manifest["journals"] if item["key"] == "IJIO")["rollout_status"] = "not_enabled"
+        next(item for item in cls.manifest["journals"] if item["key"] == "JFI")["rollout_status"] = "not_enabled"
         cls.manifest["launch_state"] = "partial_rollout"
 
     def test_existing_49_live_is_unmodified(self):
