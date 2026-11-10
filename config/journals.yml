@@ -680,6 +680,11 @@ journals:
     tier: A
     publisher: Elsevier
     collector: elsevier
+    # The publisher explicitly labels Vol 164 "In progress (December 2026)"
+    # on https://www.sciencedirect.com/journal/energy-economics/vol/164/suppl/C
+    # (verified 2026-11-10). An unfinished future issue is not a new READY
+    # current. Re-evaluate in its publication month; retain certified 163(C).
+    publication_lead_months: 0
     index_recent_updates: true
     official_roster_evidence_path: data/provenance/official-rosters/sciencedirect/energy-163-c.json
     issn: 0140-9883
