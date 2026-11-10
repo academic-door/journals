@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-10T14:28:53+00:00",
+  "generated_at": "2026-11-10T15:31:08+00:00",
   "target_years": [
     2023,
     2024,
     2025,
     2026
   ],
-  "journal_count": 54,
+  "journal_count": 55,
   "discovery_journals": [
     "AEJAPP",
     "AEJMACRO",
@@ -64,10 +64,11 @@
     "ITPF",
     "JAE",
     "JEGROWTH",
+    "JFI",
     "JOEG"
   ],
   "summary": {
-    "blocked": 5,
+    "blocked": 6,
     "ready": 1216
   },
   "records": [
@@ -36629,6 +36630,31 @@
     {
       "issue_id": "",
       "journal": "JEGROWTH",
+      "year": null,
+      "volume": "",
+      "issue": "",
+      "official_url": "",
+      "authority": "",
+      "refreshed_at": "",
+      "collector_revision": "",
+      "category": "blocked",
+      "reason": "discovery_snapshot_missing",
+      "status": "",
+      "retry_class": "manual",
+      "archive_exists": false,
+      "content_status": "blocked",
+      "source_status": "source_pending",
+      "publication_state": "blocked",
+      "counts": {
+        "articles": 0,
+        "abstract_en": 0,
+        "translation_cn": 0
+      },
+      "next_action": "refresh official discovery snapshot"
+    },
+    {
+      "issue_id": "",
+      "journal": "JFI",
       "year": null,
       "volume": "",
       "issue": "",

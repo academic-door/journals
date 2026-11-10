@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-10T14:28:53+00:00",
+  "updated_at": "2026-11-10T15:31:08+00:00",
   "status": "healthy",
   "summary": {
-    "configured_journals": 54,
+    "configured_journals": 55,
     "official_page_verified": 20,
-    "publisher_feed_verified": 27,
+    "publisher_feed_verified": 28,
     "fallback_verified": 7,
     "needs_attention": 0,
     "missing": 0,
@@ -3492,6 +3492,54 @@
           "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 6
+        },
+        "abstracts_complete": 0,
+        "translations_complete": 0,
+        "errors": [],
+        "warnings": [
+          "snapshot_uses_alternate_official_source",
+          "rights_withheld_public_abstracts"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JFI",
+      "journal_id": "jfi",
+      "short_name": "JFI",
+      "name": "Journal of Financial Intermediation",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-financial-intermediation/vol/67/suppl/C",
+      "status": "publisher_feed_verified",
+      "current": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jfi-67-c",
+        "publication_date": "July 2026",
+        "publication_state": "ready",
+        "source_url": "https://ideas.repec.org/s/eee/jfinin.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
+        "order_verified": true,
+        "content_counts": {
+          "official_items": 7,
+          "observed_items": 7,
+          "publishable_items": 7,
+          "research_articles": 7,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 7
         },
         "abstracts_complete": 0,
         "translations_complete": 0,
