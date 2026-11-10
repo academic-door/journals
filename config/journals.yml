@@ -163,6 +163,8 @@ journals:
     fallback: crossref
     current_issue_url: https://academic.oup.com/ej/issue
     rss_url: https://academic.oup.com/rss/site_6182/4014.xml
+    announcement_source: oup_current_issue
+    announcement_url: https://academic.oup.com/ej/issue
     enabled: true
     collections: [fields]
   JEEA:
@@ -407,6 +409,8 @@ journals:
     issn: 0893-9454
     fallback: crossref
     current_issue_url: https://academic.oup.com/rfs/issue
+    announcement_source: oup_current_issue
+    announcement_url: https://academic.oup.com/rfs/issue
     rss_url: https://academic.oup.com/rss/site_5511/3372.xml
     enabled: true
     collections: [fields]
@@ -527,6 +531,8 @@ journals:
     fallback: crossref
     repec_series_code: ucp/jlabec
     current_issue_url: https://www.journals.uchicago.edu/toc/jole/current
+    announcement_source: chicago_current_issue
+    announcement_url: https://www.journals.uchicago.edu/toc/jole/current
     enabled: true
     collections: [fields]
   JOE:
