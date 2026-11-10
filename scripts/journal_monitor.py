@@ -445,8 +445,24 @@ def fetch_official_issue_signal(
         return parse_latest_issue_signal(response.content, source_url)
     if source_type == "econometric_society_volume":
         return parse_latest_econometrica_issue_signal(response.content, source_url)
-    if str(getattr(response, "url", source_url)) != source_url:
-        raise ValueError("current issue redirected outside pinned publisher URL")
+    effective_url = str(getattr(response, "url", source_url))
+    if effective_url != source_url:
+        # /issue and /current may canonicalize to a dated publisher issue.
+        # Only accept same-host, issue-shaped, HTTPS canonical redirects.
+        from urllib.parse import urlparse
+        redirected = urlparse(effective_url)
+        allowed = (
+            (source_type == "oup_current_issue"
+             and redirected.hostname == "academic.oup.com"
+             and re.fullmatch(r"/(ej|rfs)/issue/\d+/\d+/?", redirected.path)
+             and redirected.path.split("/")[1] == str(config["id"]).lower())
+            or
+            (source_type == "chicago_current_issue"
+             and redirected.hostname == "www.journals.uchicago.edu"
+             and re.fullmatch(r"/toc/jole/\d+/\d+/?", redirected.path))
+        )
+        if redirected.scheme != "https" or not allowed or redirected.query or redirected.fragment:
+            raise ValueError("current issue redirected outside pinned publisher path")
     if source_type == "oup_current_issue":
         volume, issue, publication_date = parse_oup_issue_identity(
             BeautifulSoup(response.content, "html.parser")
@@ -785,6 +801,7 @@ def evaluate_observation(
     confirmed = (
         "official_rss" in evidence
         or "official_archive" in evidence
+        or "official_current_issue" in evidence
         or "association_announcement" in evidence
         or same_issue
         or clearly_new_issue
