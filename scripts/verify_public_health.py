@@ -41,8 +41,8 @@ for name, payload in (
 
 summary = health.get("summary", {})
 expected = summary.get("enabled_journals")
-if expected not in (49, 50, 51, 52, 53, 54):
-    raise AssertionError("health enabled_journals is outside the approved 49/50/51/52/53/54 rollout")
+if expected not in (49, 50, 51, 52, 53, 54, 55):
+    raise AssertionError("health enabled_journals is outside the approved 49/50/51/52/53/54/55 rollout")
 if summary.get("available_journals") != expected:
     raise AssertionError("not every configured journal has a READY issue")
 if expected >= 50:
@@ -214,7 +214,7 @@ if expected >= 53:
         for i, a in enumerate(joeg_articles, 1)
     ):
         raise AssertionError("JOEG source-attested comment/research types or public rights rejected")
-if expected == 54:
+if expected >= 54:
     ijio = load("ijio-current.json")
     ijio_articles = ijio.get("articles", [])
     expected_ijio_dois = [
@@ -257,6 +257,51 @@ if expected == 54:
         for i, a in enumerate(ijio_articles, 1)
     ):
         raise AssertionError("IJIO rights-withheld DOI/type/order metadata invalid")
+if expected >= 55:
+    jfi = load("jfi-current.json")
+    jfi_articles = jfi.get("articles", [])
+    expected_jfi_dois = [
+        "10.1016/j.jfi.2026.101210",
+        "10.1016/j.jfi.2026.101211",
+        "10.1016/j.jfi.2026.101219",
+        "10.1016/j.jfi.2026.101220",
+        "10.1016/j.jfi.2026.101221",
+        "10.1016/j.jfi.2025.101184",
+        "10.1016/j.jfi.2026.101222",
+    ]
+    jfi_quality = jfi.get("quality", {})
+    jfi_rights = jfi.get("public_content", {})
+    if (
+        jfi.get("journal_id") != "jfi"
+        or jfi.get("issue_id") != "jfi-67-c"
+        or jfi.get("publication_date") != "July 2026"
+        or jfi.get("source_url") != "https://ideas.repec.org/s/eee/jfinin.html"
+        or jfi.get("source_status") != "publisher_verified"
+        or jfi.get("publication_state") != "ready"
+        or jfi.get("content_status") != "metadata_complete"
+        or jfi.get("public_mode") != "metadata_first_rights_qualified_v1"
+        or jfi_quality.get("roster_authority") != "repec-publisher-supplied"
+        or jfi_quality.get("roster_transport") != "repec-serial-page"
+        or jfi_quality.get("roster_match") is not True
+        or jfi_quality.get("order_preserved") is not True
+        or jfi_quality.get("excluded_items", [])
+        or jfi_rights.get("metadata_articles") != 7
+        or jfi_rights.get("rights_withheld_articles") != 7
+        or jfi_rights.get("abstracts_en_visible") != 0
+        or jfi_rights.get("translations_cn_visible") != 0
+        or [str(a.get("doi", "")) for a in jfi_articles] != expected_jfi_dois
+    ):
+        raise AssertionError("JFI 67(C) source/DOI order/rights verification failed")
+    if any(
+        a.get("article_type") != "research-article"
+        or a.get("sequence") != i
+        or not a.get("title_en") or not a.get("authors")
+        or any(str(a.get(k, "")).strip() for k in ("abstract_en", "abstract_cn", "title_cn"))
+        or a.get("public_rights", {}).get("status") != "withheld"
+        or a.get("translation", {}).get("status") != "rights_withheld"
+        for i, a in enumerate(jfi_articles, 1)
+    ):
+        raise AssertionError("JFI rights-withheld DOI/type/order metadata invalid")
 if not summary.get("articles"):
     raise AssertionError("public article totals are empty")
 if expected <= 50:
@@ -269,7 +314,7 @@ else:
     # unlicensed English abstracts and Chinese adaptations.
     if health.get("content_status") != "rights_qualified":
         raise AssertionError("metadata-first rights-qualified status missing")
-    expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38}[expected]
+    expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45}[expected]
     if summary.get("rights_withheld_articles") != expected_withheld:
         raise AssertionError("rights-withheld public article count drift")
     if summary.get("translated_articles") + expected_withheld != summary.get("articles"):
