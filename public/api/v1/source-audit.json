@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-10T05:19:14+00:00",
+  "updated_at": "2026-11-10T12:48:42+00:00",
   "status": "healthy",
   "summary": {
     "configured_journals": 54,
@@ -3079,39 +3079,9 @@
       "current": {
         "available": true,
         "status": "publisher_feed_verified",
-        "issue_id": "labeco-102-c",
-        "publication_date": "October 2026",
-        "publication_state": "ready",
-        "source_url": "https://www.sciencedirect.com/journal/labour-economics/vol/102/suppl/C",
-        "roster_authority": "publisher-rss",
-        "roster_transport": "sciencedirect-rss",
-        "order_verified": false,
-        "content_counts": {
-          "official_items": 29,
-          "observed_items": 29,
-          "publishable_items": 29,
-          "research_articles": 29,
-          "comments": 0,
-          "short_communications": 0,
-          "corrections": 0,
-          "editorial_material": 0,
-          "front_matter": 0,
-          "other_excluded": 0,
-          "catalog_content_items": 29
-        },
-        "abstracts_complete": 29,
-        "translations_complete": 29,
-        "errors": [],
-        "warnings": [
-          "official_order_unverified"
-        ]
-      },
-      "detected": {
-        "available": true,
-        "status": "publisher_feed_verified",
         "issue_id": "labeco-103-c",
         "publication_date": "December 2026",
-        "publication_state": "translation_partial",
+        "publication_state": "ready",
         "source_url": "https://www.sciencedirect.com/journal/labour-economics/vol/103/suppl/C",
         "roster_authority": "publisher-rss",
         "roster_transport": "sciencedirect-rss",
@@ -3130,11 +3100,40 @@
           "catalog_content_items": 15
         },
         "abstracts_complete": 15,
-        "translations_complete": 14,
+        "translations_complete": 15,
         "errors": [],
         "warnings": [
-          "official_order_unverified",
-          "translation_incomplete"
+          "official_order_unverified"
+        ]
+      },
+      "detected": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "labeco-103-c",
+        "publication_date": "December 2026",
+        "publication_state": "ready",
+        "source_url": "https://www.sciencedirect.com/journal/labour-economics/vol/103/suppl/C",
+        "roster_authority": "publisher-rss",
+        "roster_transport": "sciencedirect-rss",
+        "order_verified": false,
+        "content_counts": {
+          "official_items": 15,
+          "observed_items": 15,
+          "publishable_items": 15,
+          "research_articles": 15,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 15
+        },
+        "abstracts_complete": 15,
+        "translations_complete": 15,
+        "errors": [],
+        "warnings": [
+          "official_order_unverified"
         ]
       }
     },
