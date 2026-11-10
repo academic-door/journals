@@ -18,6 +18,10 @@ from xml.etree import ElementTree
 
 import requests
 import yaml
+from bs4 import BeautifulSoup
+
+from collectors.oup import _extract_issue_identity as parse_oup_issue_identity
+from collectors.chicago import _parse_issue_page as parse_chicago_issue_page
 
 from collectors.econometric_society import parse_latest_econometrica_issue_signal
 from collectors.wiley import parse_latest_issue_signal
@@ -415,17 +419,52 @@ def fetch_official_issue_signal(
     """Fetch configured first-party issue-existence evidence, fail closed."""
 
     source_type = str(config.get("announcement_source", "")).strip()
-    if source_type not in {"wiley_recent_issues", "econometric_society_volume"}:
+    supported = {"wiley_recent_issues", "econometric_society_volume",
+                 "oup_current_issue", "chicago_current_issue"}
+    if source_type not in supported:
         return None
     source_url = str(config.get("announcement_url", "")).strip()
     if not source_url:
         return None
+    if source_type in {"oup_current_issue", "chicago_current_issue"}:
+        # A first-party current-issue header proves issue existence, NOT a
+        # full article roster. Keep this strictly limited to three verified
+        # journal/host/path pairs; no arbitrary redirect is trusted.
+        allowlist = {
+            "ej": ("oup_current_issue", "https://academic.oup.com/ej/issue"),
+            "rfs": ("oup_current_issue", "https://academic.oup.com/rfs/issue"),
+            "jle": ("chicago_current_issue",
+                    "https://www.journals.uchicago.edu/toc/jole/current"),
+        }
+        if allowlist.get(str(config.get("id", "")).lower()) != (source_type, source_url):
+            raise ValueError("unapproved first-party current-issue signal")
     client = session or requests.Session()
     client.headers.update({"User-Agent": USER_AGENT, "Accept": "text/html"})
     response = _request_with_retry(client, source_url, attempts=2, timeout=30)
     if source_type == "wiley_recent_issues":
         return parse_latest_issue_signal(response.content, source_url)
-    return parse_latest_econometrica_issue_signal(response.content, source_url)
+    if source_type == "econometric_society_volume":
+        return parse_latest_econometrica_issue_signal(response.content, source_url)
+    if str(getattr(response, "url", source_url)) != source_url:
+        raise ValueError("current issue redirected outside pinned publisher URL")
+    if source_type == "oup_current_issue":
+        volume, issue, publication_date = parse_oup_issue_identity(
+            BeautifulSoup(response.content, "html.parser")
+        )
+    else:
+        official = parse_chicago_issue_page(response.content, source_url)
+        volume, issue, publication_date = (
+            official["volume"], official["issue"], official["publication_date"]
+        )
+    if not volume or not issue or not publication_date:
+        return None
+    return {
+        "volume": volume,
+        "issue": issue,
+        "publication_date": publication_date,
+        "source_kind": "official_current_issue",
+        "source_url": source_url,
+    }
 
 
 def _trusted_issue_signal(signal: dict[str, Any] | None) -> bool:
@@ -435,6 +474,12 @@ def _trusted_issue_signal(signal: dict[str, Any] | None) -> bool:
     source_url = str(signal.get("source_url", "")).strip()
     if source_kind == "official_archive":
         return source_url.startswith("https://onlinelibrary.wiley.com/")
+    if source_kind == "official_current_issue":
+        return source_url in {
+            "https://academic.oup.com/ej/issue",
+            "https://academic.oup.com/rfs/issue",
+            "https://www.journals.uchicago.edu/toc/jole/current",
+        }
     if source_kind == "association_announcement":
         return source_url.startswith(
             "https://www.econometricsociety.org/publications/econometrica"
@@ -498,6 +543,48 @@ def _issue_signal_is_newer_than_candidate(
     if signal_volume != candidate_volume:
         return signal_volume > candidate_volume
     return signal_issue > candidate_issue
+
+
+def _first_party_issue_candidate(
+    baseline: dict[str, Any],
+    current: Candidate | None,
+    signal: dict[str, Any] | None,
+) -> Candidate | None:
+    """Detect an independently observed publisher issue Crossref missed.
+
+    This is an *issue-identity-only* candidate: no DOI, article roster, or
+    translation is invented. A deep update must independently fetch and
+    validate the complete publisher roster and all normal READY gates.
+    """
+    if not _issue_signal_is_newer_than_baseline(signal, baseline):
+        return current
+    if not _issue_signal_is_newer_than_candidate(signal, current):
+        return current
+    assert signal is not None
+    if signal.get("source_kind") != "official_current_issue":
+        return current
+    date_value = str(signal.get("publication_date", "")).strip()
+    try:
+        period = (
+            datetime.strptime(date_value, "%B %Y")
+            if re.fullmatch(r"[A-Za-z]+\\s+20\\d{2}", date_value)
+            else datetime.strptime(date_value, "%Y-%m")
+        )
+    except ValueError:
+        return current
+    today = datetime.now(timezone.utc)
+    if (period.year, period.month) > (today.year, today.month):
+        return current
+    volume, issue = str(signal["volume"]), str(signal["issue"])
+    identity = f"{volume}:{issue}"
+    fingerprint = hashlib.sha256(
+        f"official_current_issue|{signal['source_url']}|{identity}".encode("utf-8")
+    ).hexdigest()
+    return Candidate(
+        issue_key=identity, volume=volume, issue=issue,
+        publication_date=date_value, dois=(), unseen_dois=(),
+        fingerprint=fingerprint,
+    )
 
 
 def _independent_issue_signal_announcement(
@@ -566,7 +653,7 @@ def _official_issue_signal_announcement(
         "publication_date": publication_date,
         "publication_state": "announced",
         "source_authority": "first_party",
-        "source_kind": "official_archive",
+        "source_kind": str(signal["source_kind"]),
         "source_url": str(signal["source_url"]),
         "observed_at": observed_at,
     }
@@ -680,7 +767,9 @@ def evaluate_observation(
     if rss_dois and set(candidate.unseen_dois) & rss_dois:
         evidence.append("official_rss")
     if official_issue_match:
-        evidence.append("official_archive")
+        evidence.append("official_current_issue" if (
+            candidate and not candidate.dois
+        ) else "official_archive")
     if association_issue_match:
         evidence.append("association_announcement")
 
@@ -893,13 +982,17 @@ def detect_all(
                 if config.get("announcement_source"):
                     try:
                         issue_signal = issue_signal_fetcher(config)
+                        candidate = _first_party_issue_candidate(
+                            baseline, candidate, issue_signal
+                        )
                         if candidate:
                             issue_signal_matches = _issue_signal_matches_candidate(
                                 candidate, issue_signal
                             )
                             signal_kind = str((issue_signal or {}).get("source_kind", ""))
                             official_issue_match = (
-                                issue_signal_matches and signal_kind == "official_archive"
+                                issue_signal_matches
+                                and signal_kind in {"official_archive", "official_current_issue"}
                             )
                             association_issue_match = (
                                 issue_signal_matches
@@ -969,7 +1062,8 @@ def detect_all(
                     )
                     if announcement:
                         entry["announcement"] = announcement
-                if "official_archive" in observation.get("evidence", []):
+                if ("official_archive" in observation.get("evidence", [])
+                        or "official_current_issue" in observation.get("evidence", [])):
                     announcement = _official_issue_signal_announcement(
                         config["id"],
                         candidate,
