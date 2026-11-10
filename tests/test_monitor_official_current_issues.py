@@ -130,6 +130,26 @@ class PublisherCurrentIssueSignalsTests(unittest.TestCase):
             baseline("ej", "136", "678"), None, untrusted
         ))
 
+    def test_first_party_redirect_to_numbered_issue_remains_verified(self):
+        for jid, final in (
+            ("ej", "https://academic.oup.com/ej/issue/136/679"),
+            ("rfs", "https://academic.oup.com/rfs/issue/39/11"),
+            ("jle", "https://www.journals.uchicago.edu/toc/jole/44/4"),
+        ):
+            kind, source_url, heading, vol, issue, _date = SOURCES[jid]
+            with self.subTest(jid=jid), patch(
+                "scripts.journal_monitor._request_with_retry",
+                return_value=SimpleNamespace(
+                    url=final,
+                    content=f"<html><h1>{heading}</h1></html>".encode(),
+                ),
+            ):
+                signal = fetch_official_issue_signal({
+                    "id": jid, "announcement_source": kind,
+                    "announcement_url": source_url,
+                })
+            self.assertEqual((vol, issue), (signal["volume"], signal["issue"]))
+
     def test_unapproved_config_and_redirect_are_rejected(self):
         source = SOURCES["ej"][1]
         with self.assertRaisesRegex(ValueError, "unapproved"):
