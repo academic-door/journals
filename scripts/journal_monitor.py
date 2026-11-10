@@ -567,7 +567,7 @@ def _first_party_issue_candidate(
     try:
         period = (
             datetime.strptime(date_value, "%B %Y")
-            if re.fullmatch(r"[A-Za-z]+\\s+20\\d{2}", date_value)
+            if re.fullmatch(r"[A-Za-z]+\s+20\d{2}", date_value)
             else datetime.strptime(date_value, "%Y-%m")
         )
     except ValueError:
@@ -749,6 +749,7 @@ def evaluate_observation(
     *,
     rss_dois: set[str] | None = None,
     official_issue_match: bool = False,
+    official_issue_kind: str = "official_archive",
     association_issue_match: bool = False,
 ) -> tuple[str, dict[str, Any]]:
     if candidate is None:
@@ -767,9 +768,7 @@ def evaluate_observation(
     if rss_dois and set(candidate.unseen_dois) & rss_dois:
         evidence.append("official_rss")
     if official_issue_match:
-        evidence.append("official_current_issue" if (
-            candidate and not candidate.dois
-        ) else "official_archive")
+        evidence.append(official_issue_kind)
     if association_issue_match:
         evidence.append("association_announcement")
 
@@ -1010,6 +1009,7 @@ def detect_all(
                     previous,
                     rss_dois=rss_dois,
                     official_issue_match=official_issue_match,
+                    official_issue_kind=str((issue_signal or {}).get("source_kind") or "official_archive"),
                     association_issue_match=association_issue_match,
                 )
                 independent_announcement = _independent_issue_signal_announcement(
