@@ -25,6 +25,17 @@ class B8MonitorTransitionTests(unittest.TestCase):
             54,transitional(["IJIO","LABECO","ENERGY"])
         ))
 
+    def test_jfi_55th_first_probe_only_exact_warning_qualified(self):
+        x = transitional(["JFI"], count=55)
+        x["b8_transition_note"] = "JFI bilingual source READY; first operational probe pending"
+        self.assertTrue(qualified_pending_b8_warning(55, x))
+        for warnings in ([], ["JFI", "ENERGY"], ["JFI", "LABECO"], ["ENERGY"]):
+            y = transitional(warnings, count=55)
+            y["b8_transition_note"] = x["b8_transition_note"]
+            self.assertFalse(qualified_pending_b8_warning(55, y))
+        x["b8_transition_note"] = "unqualified source"
+        self.assertFalse(qualified_pending_b8_warning(55, x))
+
     def test_rejects_unexplained_degradation_or_missing_new_probe(self):
         bad=[
             ["ENERGY","LABECO"],["IJIO","UNKNOWN"],
