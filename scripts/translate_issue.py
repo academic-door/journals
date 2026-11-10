@@ -661,8 +661,11 @@ _EN_FRACTION_SCALE_RE = re.compile(
 # English fold multiplier ("a thousandfold", "tenfold"):
 _EN_FOLD_RE = re.compile(
     r"(?i)(?<![A-Za-z])"
-    r"(?:(?:(?:an?\s+)?(?P<scale>hundred|thousand|million|billion|trillion|ten|"
-    r"twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety))\s*)?"
+    r"(?:"
+    r"(?:(?:an?\s+)?(?P<scale>hundred|thousand|million|billion|trillion|ten|"
+    r"twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety))\s*"
+    r"|(?P<cardinal>" + _EN_CARD_PATTERN + r")[-\s]*"
+    r")"
     r"(?P<fold>fold)\b"
     r"(?![A-Za-z])"
 )
@@ -1315,13 +1318,21 @@ def _semantic_numbers(value: str) -> list[str]:
         scale=float(_ENG_SCALE_WORDS.get(scale_word, 1))
         record(_quantity_token(Decimal(str(frac*scale))), span)
 
-    # 0d. English fold multiplier ("a thousandfold").
+    # 0d. English fold multipliers ("a thousandfold", "thirteen-fold").
+    # Consume the complete cardinal-fold span before generic number parsing,
+    # so a correctly translated "十三倍" is not falsely called an invented 13.
     for match in _EN_FOLD_RE.finditer(value):
-        span=match.span()
-        if overlaps(span): continue
-        sw=(match.group("scale") or "").strip().lower()
-        if not sw: continue
-        record(_quantity_token(_EN_FOLD_VALUES[sw]), span)
+        span = match.span()
+        if overlaps(span):
+            continue
+        sw = (match.group("scale") or "").strip().lower()
+        number = (
+            _EN_FOLD_VALUES[sw]
+            if sw else _en_cardinal_value(match.group("cardinal") or "")
+        )
+        if number is None:
+            continue
+        record(_quantity_token(number), span)
 
     # 0e. Chinese percent prefix ("百分之九十八" -> 98%).
     for match in _CN_PERCENT_RE.finditer(value):
