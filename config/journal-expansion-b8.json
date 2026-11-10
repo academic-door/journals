@@ -3,7 +3,7 @@
   "batch_id": "b8-2026-10-26",
   "owner_issue": 470,
   "decision": "human_principal_approved",
-  "launch_state": "partial_rollout",
+  "launch_state": "partial_rollout_pending_verification",
   "baseline_live_journals": 49,
   "max_additional_titles": 8,
   "policy": "independent_per_title_ready_gates",
@@ -106,11 +106,13 @@
       "issn": "1042-9573",
       "online_issn": "1096-0473",
       "source_url": "https://shop.elsevier.com/journals/journal-of-financial-intermediation/1042-9573",
-      "sample_issue": null,
-      "sample_month": null,
-      "source_status": "publisher_repec_series_observed_first_party_issue_unverified",
-      "rollout_status": "not_enabled",
-      "publisher_supplied_repec_url": "https://ideas.repec.org/s/eee/jfinin.html"
+      "sample_issue": "67/c",
+      "sample_month": "2026-07",
+      "source_status": "publisher_supplied_repec_serial_issue_verified",
+      "rollout_status": "activation_pending_production",
+      "publisher_supplied_repec_url": "https://ideas.repec.org/s/eee/jfinin.html",
+      "acceptance_evidence": "academic-door/journals/actions/runs/41603938416",
+      "metadata_seed_evidence": "academic-door/journals/actions/runs/42840930986"
     },
     {
       "key": "JOEG",
