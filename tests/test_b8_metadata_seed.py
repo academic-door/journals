@@ -29,6 +29,25 @@ def private_source():
     return item
 
 
+class B8AcceptedElsevierSourceRunTests(unittest.TestCase):
+    def test_refreshed_private_source_pinned_per_title_not_expired_run(self):
+        allowed = {
+            "IJIO": ("ijio", "ijio-108-c", 6, 0),
+            "JFI": ("jfi", "jfi-67-c", 7, 0),
+            "JIMF": ("jimf", "jimf-168-c", 6, 0),
+            "EJPE": ("ejpe", "ejpe-94-c", 16, 1),
+        }
+        for journal, (jid, issue, count, excluded) in allowed.items():
+            spec = SPECS[journal]
+            self.assertEqual((jid, issue, count), spec[:3])
+            self.assertEqual("publisher_verified", spec[3])
+            self.assertEqual(41603938416, spec[4])
+            self.assertEqual("b8-elsevier-" + journal + "-candidate", spec[5])
+            self.assertEqual(("candidate.json", "report.json"), spec[6:8])
+            self.assertEqual(excluded, spec[8])
+            self.assertNotEqual(40668765777, spec[4])
+
+
 class B8AttestedSeedTests(unittest.TestCase):
     def make_projection(self):
         with patch.dict(SPECS, {"JAE": (

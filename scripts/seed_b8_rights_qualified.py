@@ -24,8 +24,11 @@ from scripts.update_journals import (
     validate_issue,
 )
 
-# Pinned to already-accepted, successful, private G20 B8 staging artifacts.
-# Expiring artifact retrieval is never a reason to fabricate source data.
+# Pinned to successful source-graded private B8 staging. The original Elsevier
+# run 40668765777 artifacts expired; 41603938416 is a successful complete
+# four-title publisher-supplied RePEc candidate rerun (16 EJPE research + 1
+# Corrigendum excluded). No public text rights flow from staging.
+# Missing artifact bytes cannot be replaced by the report.
 SPECS = {
     "JAE": ("jae", "jae-41-6", 12, "official_verified",
             40661974740, "b8-jae-41-6-staged-candidate",
@@ -37,16 +40,16 @@ SPECS = {
              40663275078, "b8-itpf-33-5-staged-candidate",
              "itpf-33-5.candidate.json", "itpf-33-5.report.json", 0),
     "IJIO": ("ijio", "ijio-108-c", 6, "publisher_verified",
-             40668765777, "b8-elsevier-IJIO-candidate",
+             41603938416, "b8-elsevier-IJIO-candidate",
              "candidate.json", "report.json", 0),
     "JFI": ("jfi", "jfi-67-c", 7, "publisher_verified",
-            40668765777, "b8-elsevier-JFI-candidate",
+            41603938416, "b8-elsevier-JFI-candidate",
             "candidate.json", "report.json", 0),
     "EJPE": ("ejpe", "ejpe-94-c", 16, "publisher_verified",
-             40668765777, "b8-elsevier-EJPE-candidate",
+             41603938416, "b8-elsevier-EJPE-candidate",
              "candidate.json", "report.json", 1),
     "JIMF": ("jimf", "jimf-168-c", 6, "publisher_verified",
-             40668765777, "b8-elsevier-JIMF-candidate",
+             41603938416, "b8-elsevier-JIMF-candidate",
              "candidate.json", "report.json", 0),
 }
 
