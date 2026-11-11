@@ -15,6 +15,7 @@ from scripts.journal_monitor import (
     _trusted_issue_signal,
     detect_all,
     fetch_official_issue_signal,
+    public_status,
 )
 
 SOURCES = {
@@ -100,6 +101,68 @@ class PublisherCurrentIssueSignalsTests(unittest.TestCase):
                 self.assertEqual("official_current_issue", announcement["source_kind"])
                 self.assertEqual("announced", announcement["publication_state"])
                 self.assertEqual("August 2026", baseline(jid, old, prior)["publication_date"])
+                source_probe = next_state["journals"][key]["publisher_current_issue_signal"]
+                self.assertEqual("issue_header_observed", source_probe["status"])
+                self.assertEqual(f"{jid}-{signal['volume']}-{signal['issue']}", source_probe["publisher_issue_id"])
+                self.assertEqual("issue_header_only_not_full_roster", source_probe["scope"])
+                exposed = public_status(next_state, result)
+                self.assertEqual(0, exposed["summary"]["publisher_issue_signal_blocked"])
+                self.assertEqual("issue_header_observed",
+                                 exposed["publisher_current_issue_signals"][key]["status"])
+
+    def test_first_party_403_is_explicitly_blocked_not_verified_parity(self):
+        for jid, vol, issue in [("ej", "136", "678"),
+                                 ("rfs", "39", "10"),
+                                 ("jle", "44", "3")]:
+            with self.subTest(jid=jid):
+                kind, url, *_ = SOURCES[jid]
+                config = {jid.upper(): {
+                    "id": jid, "enabled": True, "issn": "0000-0000",
+                    "announcement_source": kind, "announcement_url": url,
+                }}
+                def denied(_config):
+                    raise RuntimeError("publisher HTTP 403")
+                with patch("scripts.journal_monitor.read_json",
+                           return_value=baseline(jid, vol, issue)):
+                    state, result = detect_all(
+                        config, {"journals": {}},
+                        crossref_fetcher=lambda _config, _baseline: [],
+                        issue_signal_fetcher=denied,
+                    )
+                entry = state["journals"][jid.upper()]
+                self.assertEqual("unchanged", entry["status"])
+                self.assertIsNone(entry["candidate"])
+                source = entry["publisher_current_issue_signal"]
+                self.assertEqual("verification_blocked", source["status"])
+                self.assertEqual("RuntimeError", source["failure_class"])
+                self.assertEqual(url, source["source_url"])
+                self.assertEqual("issue_header_only_not_full_roster", source["scope"])
+                self.assertNotIn("publisher_issue_id", source)
+                self.assertNotIn("publisher HTTP 403", str(source))
+                report = public_status(state, result)
+                self.assertEqual(1, report["summary"]["publisher_issue_signal_blocked"])
+                self.assertEqual("healthy", report["status"])
+                self.assertEqual("verification_blocked",
+                                 report["publisher_current_issue_signals"][jid.upper()]["status"])
+
+    def test_empty_official_header_remains_blocked_without_fabrication(self):
+        config = {"EJ": {
+            "id": "ej", "enabled": True, "issn": "0013-0133",
+            "announcement_source": SOURCES["ej"][0],
+            "announcement_url": SOURCES["ej"][1],
+        }}
+        with patch("scripts.journal_monitor.read_json",
+                   return_value=baseline("ej", "136", "678")):
+            state, result = detect_all(
+                config, {"journals": {}},
+                crossref_fetcher=lambda _config, _baseline: [],
+                issue_signal_fetcher=lambda _config: None,
+            )
+        probe = state["journals"]["EJ"]["publisher_current_issue_signal"]
+        self.assertEqual("verification_blocked", probe["status"])
+        self.assertEqual("header_unavailable", probe["failure_class"])
+        self.assertEqual([], result["confirmed_journals"])
+        self.assertNotIn("publisher_issue_id", probe)
 
     def test_matching_or_older_issue_does_not_trigger_update(self):
         sig = self.signal("ej")
