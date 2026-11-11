@@ -70,6 +70,11 @@ jobs:
               "$base/api/v1/journals/jfi/issues/current.json?health_run=${{ github.run_id }}" \
               > "$output/jfi-current.json"
           fi
+          if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["summary"]["enabled_journals"])' "$output/health.json")" -ge 56 ]; then
+            curl --fail --retry 3 --silent --show-error \
+              "$base/api/v1/journals/jimf/issues/current.json?health_run=${{ github.run_id }}" \
+              > "$output/jimf-current.json"
+          fi
           curl --fail --retry 3 --silent --show-error \
             "$base/api/v1/monitoring.json?health_run=${{ github.run_id }}" \
             > "$output/monitoring.json"
