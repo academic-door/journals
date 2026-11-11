@@ -28,11 +28,13 @@ class B8PerTitleAdmissionTests(unittest.TestCase):
         cls.baseline_live.pop("JOEG", None)
         cls.baseline_live.pop("IJIO", None)
         cls.baseline_live.pop("JFI", None)
+        cls.baseline_live.pop("JIMF", None)
         next(item for item in cls.baseline_manifest["journals"] if item["key"] == "JAE")["rollout_status"] = "not_enabled"
         next(item for item in cls.baseline_manifest["journals"] if item["key"] == "ITPF")["rollout_status"] = "not_enabled"
         next(item for item in cls.baseline_manifest["journals"] if item["key"] == "JOEG")["rollout_status"] = "not_enabled"
         next(item for item in cls.baseline_manifest["journals"] if item["key"] == "IJIO")["rollout_status"] = "not_enabled"
         next(item for item in cls.baseline_manifest["journals"] if item["key"] == "JFI")["rollout_status"] = "not_enabled"
+        next(item for item in cls.baseline_manifest["journals"] if item["key"] == "JIMF")["rollout_status"] = "not_enabled"
         cls.baseline_manifest["launch_state"] = "partial_rollout"
 
     def candidate(self, key, collector, issue_url):
