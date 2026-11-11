@@ -47,6 +47,17 @@ class B8MonitorTransitionTests(unittest.TestCase):
         x["b8_transition_note"] = "unqualified source"
         self.assertFalse(qualified_pending_b8_warning(56, x))
 
+    def test_ejpe_57th_first_probe_strict_only(self):
+        x = transitional(["EJPE"], count=57)
+        x["b8_transition_note"] = "EJPE bilingual source READY; first operational probe pending"
+        self.assertTrue(qualified_pending_b8_warning(57, x))
+        for warnings in ([], ["EJPE", "ENERGY"], ["JIMF"], ["EJPE", "LABECO"]):
+            y = transitional(warnings, count=57)
+            y["b8_transition_note"] = x["b8_transition_note"]
+            self.assertFalse(qualified_pending_b8_warning(57, y))
+        x["b8_transition_note"] = "unqualified source"
+        self.assertFalse(qualified_pending_b8_warning(57, x))
+
     def test_rejects_unexplained_degradation_or_missing_new_probe(self):
         bad=[
             ["ENERGY","LABECO"],["IJIO","UNKNOWN"],
