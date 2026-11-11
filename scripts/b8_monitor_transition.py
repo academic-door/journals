@@ -15,6 +15,7 @@ PENDING_TITLE_BY_COUNT = {
     54: "IJIO",
     55: "JFI",
     56: "JIMF",
+    57: "EJPE",
 }
 # Nov 4 live 53-journal Monitor reported exactly two ongoing soft warnings
 # for publisher roster/translation gates. The 54th IJIO transitional snapshot
@@ -38,6 +39,13 @@ def qualified_pending_b8_warning(expected: int, monitoring: dict) -> bool:
     ):
         return False
     warning_set = set(warnings)
+    if expected == 57:
+        # The final B8 title accepts only its exact first-probe warning.
+        return (
+            monitoring.get("b8_transition_note")
+            == "EJPE bilingual source READY; first operational probe pending"
+            and warning_set == {"EJPE"}
+        )
     if expected == 56:
         return (
             monitoring.get("b8_transition_note")
