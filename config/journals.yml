@@ -866,3 +866,20 @@ journals:
     current_issue_url: https://www.sciencedirect.com/journal/journal-of-international-money-and-finance/vol/168/suppl/C
     enabled: true
     collections: [fields]
+
+  EJPE:
+    id: ejpe
+    name: European Journal of Political Economy
+    short_name: EJPE
+    name_cn: 欧洲政治经济学杂志
+    field: public_history_international
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0176-2680
+    fallback: crossref
+    repec_series_url: https://ideas.repec.org/s/eee/poleco.html
+    issue_url_template: https://www.sciencedirect.com/journal/european-journal-of-political-economy/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/european-journal-of-political-economy/vol/94/suppl/C
+    enabled: true
+    collections: [fields]
