@@ -101,7 +101,7 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
         self.assertIn('"10.1007/s10797-026-09955-7"', raw)
         self.assertIn('"10.1007/s10797-025-09928-2"', raw)
         self.assertIn('rights.get("rights_withheld_articles") != 11', raw)
-        self.assertIn('expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45, 56: 51}[expected]', raw)
+        self.assertIn('expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45, 56: 51, 57: 67}[expected]', raw)
 
     def test_no_deploy_health_loop(self) -> None:
         # health.yml must not itself be one of the workflows that trigger deploy,
