@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-11-11T09:37:48+00:00",
+  "updated_at": "2026-11-11T14:33:38+00:00",
   "status": "healthy",
   "summary": {
-    "configured_journals": 55,
+    "configured_journals": 56,
     "official_page_verified": 20,
-    "publisher_feed_verified": 28,
+    "publisher_feed_verified": 29,
     "fallback_verified": 7,
     "needs_attention": 0,
     "missing": 0,
@@ -3540,6 +3540,54 @@
           "front_matter": 0,
           "other_excluded": 0,
           "catalog_content_items": 7
+        },
+        "abstracts_complete": 0,
+        "translations_complete": 0,
+        "errors": [],
+        "warnings": [
+          "snapshot_uses_alternate_official_source",
+          "rights_withheld_public_abstracts"
+        ]
+      },
+      "detected": {
+        "available": false,
+        "status": "missing",
+        "errors": [
+          "snapshot_missing"
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "key": "JIMF",
+      "journal_id": "jimf",
+      "short_name": "JIMF",
+      "name": "Journal of International Money and Finance",
+      "publisher": "Elsevier",
+      "configured_source": "https://www.sciencedirect.com/journal/journal-of-international-money-and-finance/vol/168/suppl/C",
+      "status": "publisher_feed_verified",
+      "current": {
+        "available": true,
+        "status": "publisher_feed_verified",
+        "issue_id": "jimf-168-c",
+        "publication_date": "September 2026",
+        "publication_state": "ready",
+        "source_url": "https://ideas.repec.org/s/eee/jimfin.html",
+        "roster_authority": "repec-publisher-supplied",
+        "roster_transport": "repec-serial-page",
+        "order_verified": true,
+        "content_counts": {
+          "official_items": 6,
+          "observed_items": 6,
+          "publishable_items": 6,
+          "research_articles": 6,
+          "comments": 0,
+          "short_communications": 0,
+          "corrections": 0,
+          "editorial_material": 0,
+          "front_matter": 0,
+          "other_excluded": 0,
+          "catalog_content_items": 6
         },
         "abstracts_complete": 0,
         "translations_complete": 0,

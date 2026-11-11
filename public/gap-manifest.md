@@ -1,10 +1,10 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-11-11T09:37:48+00:00
+Generated: 2026-11-11T14:33:37+00:00
 
 ## Summary
 
-- blocked: 6
+- blocked: 7
 - ready: 1216
 
 ## Issue queue
@@ -1232,4 +1232,5 @@ Generated: 2026-11-11T09:37:48+00:00
 | JAE | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | JEGROWTH | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | JFI | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
+| JIMF | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
 | JOEG | - | - | blocked | blocked | source_pending | discovery_snapshot_missing |
