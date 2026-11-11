@@ -995,9 +995,40 @@ def detect_all(
                 issue_signal: dict[str, Any] | None = None
                 official_issue_match = False
                 association_issue_match = False
+                current_header_source = str(config.get("announcement_source", "")) in {
+                    "oup_current_issue", "chicago_current_issue"
+                }
+                # Publisher access failures are not "publisher is unchanged".
+                # Keep first-party *header* verification separate from Crossref
+                # discovery and from official full-roster / reuse-rights gates.
+                source_verification: dict[str, Any] | None = (
+                    {
+                        "status": "verification_blocked",
+                        "checked_at": checked_at,
+                        "source_url": str(config.get("announcement_url", "")),
+                        "scope": "issue_header_only_not_full_roster",
+                    }
+                    if current_header_source else None
+                )
                 if config.get("announcement_source"):
                     try:
                         issue_signal = issue_signal_fetcher(config)
+                        if source_verification is not None:
+                            if (
+                                _trusted_issue_signal(issue_signal)
+                                and str((issue_signal or {}).get("source_kind", ""))
+                                == "official_current_issue"
+                                and str(issue_signal.get("volume", ""))
+                                and str(issue_signal.get("issue", ""))
+                                and str(issue_signal.get("publication_date", ""))
+                            ):
+                                source_verification["status"] = "issue_header_observed"
+                                source_verification["publisher_issue_id"] = (
+                                    f"{config['id']}-"
+                                    f"{issue_signal['volume']}-{issue_signal['issue']}"
+                                ).lower()
+                            else:
+                                source_verification["failure_class"] = "header_unavailable"
                         candidate = _first_party_issue_candidate(
                             baseline, candidate, issue_signal
                         )
@@ -1014,9 +1045,12 @@ def detect_all(
                                 issue_signal_matches
                                 and signal_kind == "association_announcement"
                             )
-                    except Exception:
-                        # First-party signals are additive only; source blocking
-                        # must not break metadata detection or manufacture authority.
+                    except Exception as error:
+                        # Source blocking does not break Crossref discovery or
+                        # manufacture official authority; preserve a *bounded*
+                        # diagnostic (exception class only, never private data).
+                        if source_verification is not None:
+                            source_verification["failure_class"] = type(error).__name__
                         issue_signal = None
                         official_issue_match = False
                         association_issue_match = False
@@ -1068,6 +1102,8 @@ def detect_all(
                         else ""
                     ),
                 }
+                if source_verification is not None:
+                    entry["publisher_current_issue_signal"] = source_verification
                 if independent_announcement:
                     entry["announcement"] = independent_announcement
                 if "official_rss" in observation.get("evidence", []):
@@ -1439,11 +1475,21 @@ def public_status(
             "confirmed_updates": len(result.get("confirmed_journals", [])),
             "warnings": len(warnings),
             "awaiting_official": len(awaiting_official),
+            "publisher_issue_signal_blocked": sum(
+                entry.get("publisher_current_issue_signal", {}).get("status")
+                == "verification_blocked"
+                for entry in entries.values()
+            ),
             "failed": len(alerting),
         },
         "warning_journals": warnings,
         "failed_journals": alerting,
         "awaiting_official_journals": awaiting_official,
+        "publisher_current_issue_signals": {
+            key: entry["publisher_current_issue_signal"]
+            for key, entry in entries.items()
+            if isinstance(entry.get("publisher_current_issue_signal"), dict)
+        },
         "last_successful_checks": {
             key: entry.get("last_checked_at", "")
             for key, entry in entries.items()
