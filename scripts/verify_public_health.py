@@ -41,7 +41,7 @@ for name, payload in (
 
 summary = health.get("summary", {})
 expected = summary.get("enabled_journals")
-if expected not in (49, 50, 51, 52, 53, 54, 55, 56):
+if expected not in (49, 50, 51, 52, 53, 54, 55, 56, 57):
     raise AssertionError("health enabled_journals is outside the approved 49/50/51/52/53/54/55 rollout")
 if summary.get("available_journals") != expected:
     raise AssertionError("not every configured journal has a READY issue")
@@ -346,6 +346,67 @@ if expected >= 56:
         for i, a in enumerate(jimf_articles, 1)
     ):
         raise AssertionError("JIMF rights-withheld DOI/type/order metadata invalid")
+if expected >= 57:
+    ejpe = load("ejpe-current.json")
+    ejpe_articles = ejpe.get("articles", [])
+    expected_ejpe_dois = [
+        "10.1016/j.ejpoleco.2026.102853",
+        "10.1016/j.ejpoleco.2026.102862",
+        "10.1016/j.ejpoleco.2026.102863",
+        "10.1016/j.ejpoleco.2026.102864",
+        "10.1016/j.ejpoleco.2026.102865",
+        "10.1016/j.ejpoleco.2026.102866",
+        "10.1016/j.ejpoleco.2026.102867",
+        "10.1016/j.ejpoleco.2026.102868",
+        "10.1016/j.ejpoleco.2026.102869",
+        "10.1016/j.ejpoleco.2026.102871",
+        "10.1016/j.ejpoleco.2026.102872",
+        "10.1016/j.ejpoleco.2026.102873",
+        "10.1016/j.ejpoleco.2026.102874",
+        "10.1016/j.ejpoleco.2026.102875",
+        "10.1016/j.ejpoleco.2026.102876",
+        "10.1016/j.ejpoleco.2026.102861",
+    ]
+    ejpe_quality = ejpe.get("quality", {})
+    ejpe_rights = ejpe.get("public_content", {})
+    excluded_ejpe = ejpe_quality.get("excluded_items", [])
+    if (
+        ejpe.get("journal_id") != "ejpe"
+        or ejpe.get("issue_id") != "ejpe-94-c"
+        or ejpe.get("publication_date") != "August 2026"
+        or ejpe.get("source_url") != "https://ideas.repec.org/s/eee/poleco.html"
+        or ejpe.get("source_status") != "publisher_verified"
+        or ejpe.get("publication_state") != "ready"
+        or ejpe.get("content_status") != "metadata_complete"
+        or ejpe.get("public_mode") != "metadata_first_rights_qualified_v1"
+        or ejpe_quality.get("roster_authority") != "repec-publisher-supplied"
+        or ejpe_quality.get("roster_transport") != "repec-serial-page"
+        or ejpe_quality.get("roster_match") is not True
+        or ejpe_quality.get("order_preserved") is not True
+        or excluded_ejpe != [{
+            "doi": "10.1016/j.ejpoleco.2026.102878",
+            "article_type": "correction",
+            "title_en": "Corrigendum to ‘Does finance change the taste for redistribution?’ [Eur. J. Polit. Econ. 94 (2026) 102875]",
+            "reason": "correction_notice",
+            "source_sequence": 17,
+        }]
+        or ejpe_rights.get("metadata_articles") != 16
+        or ejpe_rights.get("rights_withheld_articles") != 16
+        or ejpe_rights.get("abstracts_en_visible") != 0
+        or ejpe_rights.get("translations_cn_visible") != 0
+        or [str(a.get("doi", "")) for a in ejpe_articles] != expected_ejpe_dois
+    ):
+        raise AssertionError("EJPE 94(C) publisher-supplied DOI/type/order/rights verification failed")
+    if any(
+        a.get("article_type") != "research-article"
+        or a.get("sequence") != i
+        or not a.get("title_en") or not a.get("authors")
+        or any(str(a.get(k, "")).strip() for k in ("abstract_en", "abstract_cn", "title_cn"))
+        or a.get("public_rights", {}).get("status") != "withheld"
+        or a.get("translation", {}).get("status") != "rights_withheld"
+        for i, a in enumerate(ejpe_articles, 1)
+    ):
+        raise AssertionError("EJPE metadata-only research article rights/order invalid")
 if not summary.get("articles"):
     raise AssertionError("public article totals are empty")
 if expected <= 50:
@@ -358,7 +419,7 @@ else:
     # unlicensed English abstracts and Chinese adaptations.
     if health.get("content_status") != "rights_qualified":
         raise AssertionError("metadata-first rights-qualified status missing")
-    expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45, 56: 51}[expected]
+    expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45, 56: 51, 57: 67}[expected]
     if summary.get("rights_withheld_articles") != expected_withheld:
         raise AssertionError("rights-withheld public article count drift")
     if summary.get("translated_articles") + expected_withheld != summary.get("articles"):
