@@ -48,7 +48,7 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
         # The extracted validator is a byte-for-byte deindent of the old
         # embedded Python body. Its substantive assertions are unchanged.
         raw = (ROOT / "scripts/verify_public_health.py").read_text(encoding="utf-8")
-        self.assertIn("expected not in (49, 50, 51, 52, 53, 54, 55)", raw)
+        self.assertIn("expected not in (49, 50, 51, 52, 53, 54, 55, 56)", raw)
         self.assertIn('if monitoring.get("status") != "healthy":', raw)
         self.assertIn('if source.get("status") != "healthy":', raw)
         self.assertIn('if summary.get("available_journals") != expected:', raw)
@@ -73,6 +73,9 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
         self.assertIn('if expected >= 53:', raw)
         self.assertIn('if expected >= 54:', raw)
         self.assertIn('if expected >= 55:', raw)
+        self.assertIn('if expected >= 56:', raw)
+        self.assertIn('jimf.get("issue_id") != "jimf-168-c"', raw)
+        self.assertIn('jimf_rights.get("rights_withheld_articles") != 6', raw)
         self.assertIn('jfi.get("issue_id") != "jfi-67-c"', raw)
         self.assertIn('jfi_rights.get("rights_withheld_articles") != 7', raw)
         self.assertIn('ijio.get("issue_id") != "ijio-108-c"', raw)
@@ -86,7 +89,7 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
         self.assertIn('"10.1093/jeg/lbag061"', raw)
         self.assertIn('["comment"] * 3 + ["research-article"] * 6', raw)
         self.assertIn('joeg_rights.get("rights_withheld_articles") != 9', raw)
-        self.assertIn('expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45}[expected]', raw)
+        self.assertIn('expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45, 56: 51}[expected]', raw)
         self.assertIn('if expected >= 52:', raw)
         self.assertIn('itpf.get("issue_id") != "itpf-33-5"', raw)
         self.assertIn('itpf.get("source_status") != "publisher_verified"', raw)
@@ -94,7 +97,7 @@ class HealthWorkflowControlContractTests(unittest.TestCase):
         self.assertIn('"10.1007/s10797-026-09955-7"', raw)
         self.assertIn('"10.1007/s10797-025-09928-2"', raw)
         self.assertIn('rights.get("rights_withheld_articles") != 11', raw)
-        self.assertIn('expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45}[expected]', raw)
+        self.assertIn('expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45, 56: 51}[expected]', raw)
 
     def test_no_deploy_health_loop(self) -> None:
         # health.yml must not itself be one of the workflows that trigger deploy,

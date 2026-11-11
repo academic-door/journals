@@ -41,7 +41,7 @@ for name, payload in (
 
 summary = health.get("summary", {})
 expected = summary.get("enabled_journals")
-if expected not in (49, 50, 51, 52, 53, 54, 55):
+if expected not in (49, 50, 51, 52, 53, 54, 55, 56):
     raise AssertionError("health enabled_journals is outside the approved 49/50/51/52/53/54/55 rollout")
 if summary.get("available_journals") != expected:
     raise AssertionError("not every configured journal has a READY issue")
@@ -302,6 +302,50 @@ if expected >= 55:
         for i, a in enumerate(jfi_articles, 1)
     ):
         raise AssertionError("JFI rights-withheld DOI/type/order metadata invalid")
+if expected >= 56:
+    jimf = load("jimf-current.json")
+    jimf_articles = jimf.get("articles", [])
+    expected_jimf_dois = [
+        "10.1016/j.jimonfin.2026.103640",
+        "10.1016/j.jimonfin.2026.103641",
+        "10.1016/j.jimonfin.2026.103643",
+        "10.1016/j.jimonfin.2026.103644",
+        "10.1016/j.jimonfin.2026.103651",
+        "10.1016/j.jimonfin.2026.103652",
+    ]
+    jimf_quality = jimf.get("quality", {})
+    jimf_rights = jimf.get("public_content", {})
+    if (
+        jimf.get("journal_id") != "jimf"
+        or jimf.get("issue_id") != "jimf-168-c"
+        or jimf.get("publication_date") != "September 2026"
+        or jimf.get("source_url") != "https://ideas.repec.org/s/eee/jimfin.html"
+        or jimf.get("source_status") != "publisher_verified"
+        or jimf.get("publication_state") != "ready"
+        or jimf.get("content_status") != "metadata_complete"
+        or jimf.get("public_mode") != "metadata_first_rights_qualified_v1"
+        or jimf_quality.get("roster_authority") != "repec-publisher-supplied"
+        or jimf_quality.get("roster_transport") != "repec-serial-page"
+        or jimf_quality.get("roster_match") is not True
+        or jimf_quality.get("order_preserved") is not True
+        or jimf_quality.get("excluded_items", [])
+        or jimf_rights.get("metadata_articles") != 6
+        or jimf_rights.get("rights_withheld_articles") != 6
+        or jimf_rights.get("abstracts_en_visible") != 0
+        or jimf_rights.get("translations_cn_visible") != 0
+        or [str(a.get("doi", "")) for a in jimf_articles] != expected_jimf_dois
+    ):
+        raise AssertionError("JIMF 168(C) source/DOI order/rights verification failed")
+    if any(
+        a.get("article_type") != "research-article"
+        or a.get("sequence") != i
+        or not a.get("title_en") or not a.get("authors")
+        or any(str(a.get(k, "")).strip() for k in ("abstract_en", "abstract_cn", "title_cn"))
+        or a.get("public_rights", {}).get("status") != "withheld"
+        or a.get("translation", {}).get("status") != "rights_withheld"
+        for i, a in enumerate(jimf_articles, 1)
+    ):
+        raise AssertionError("JIMF rights-withheld DOI/type/order metadata invalid")
 if not summary.get("articles"):
     raise AssertionError("public article totals are empty")
 if expected <= 50:
@@ -314,7 +358,7 @@ else:
     # unlicensed English abstracts and Chinese adaptations.
     if health.get("content_status") != "rights_qualified":
         raise AssertionError("metadata-first rights-qualified status missing")
-    expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45}[expected]
+    expected_withheld = {51: 12, 52: 23, 53: 32, 54: 38, 55: 45, 56: 51}[expected]
     if summary.get("rights_withheld_articles") != expected_withheld:
         raise AssertionError("rights-withheld public article count drift")
     if summary.get("translated_articles") + expected_withheld != summary.get("articles"):

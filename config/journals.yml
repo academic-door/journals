@@ -849,3 +849,20 @@ journals:
     current_issue_url: https://www.sciencedirect.com/journal/journal-of-financial-intermediation/vol/67/suppl/C
     enabled: true
     collections: [fields]
+
+  JIMF:
+    id: jimf
+    name: Journal of International Money and Finance
+    short_name: JIMF
+    name_cn: 国际货币与金融杂志
+    field: finance
+    tier: A
+    publisher: Elsevier
+    collector: elsevier
+    issn: 0261-5606
+    fallback: crossref
+    repec_series_url: https://ideas.repec.org/s/eee/jimfin.html
+    issue_url_template: https://www.sciencedirect.com/journal/journal-of-international-money-and-finance/vol/{volume}/suppl/{issue}
+    current_issue_url: https://www.sciencedirect.com/journal/journal-of-international-money-and-finance/vol/168/suppl/C
+    enabled: true
+    collections: [fields]
