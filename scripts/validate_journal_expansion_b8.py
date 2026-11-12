@@ -107,7 +107,9 @@ def validate_batch(manifest: dict, live_journals: dict) -> dict:
     pending = [x for x in promoted if x.get("rollout_status") == "activation_pending_production"]
     expected_state = (
         "staging_only" if not promoted else
-        "partial_rollout_pending_verification" if pending else "partial_rollout"
+        "partial_rollout_pending_verification" if pending else
+        "all_titles_production_verified" if len(promoted) == len(items) else
+        "partial_rollout"
     )
     if manifest.get("launch_state") != expected_state:
         errors.append("B8 manifest launch_state mismatches independently promoted titles")

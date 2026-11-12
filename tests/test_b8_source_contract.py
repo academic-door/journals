@@ -16,7 +16,7 @@ class B8SourceContractTests(unittest.TestCase):
         self.assertEqual(8, result["approved_staged"])
         self.assertEqual(8, result["promoted"])
         self.assertEqual(0, result["production_verification_pending"])
-        self.assertEqual("partial_rollout", manifest["launch_state"])
+        self.assertEqual("all_titles_production_verified", manifest["launch_state"])
         ijio = next(x for x in manifest["journals"] if x["key"] == "IJIO")
         self.assertEqual("production_verified", ijio["rollout_status"])
         self.assertEqual("108/c", ijio["sample_issue"])

@@ -53,6 +53,40 @@ class B8PerTitleAdmissionTests(unittest.TestCase):
         }
         return manifest, live, entry
 
+    def test_all_eight_verified_has_explicit_final_batch_state(self):
+        manifest = json.loads(
+            (ROOT / "config/journal-expansion-b8.json").read_text(encoding="utf-8")
+        )
+        live = yaml.safe_load(
+            (ROOT / "config/journals.yml").read_text(encoding="utf-8")
+        )["journals"]
+        self.assertEqual("all_titles_production_verified", manifest["launch_state"])
+        self.assertEqual(
+            8, sum(item["rollout_status"] == "production_verified"
+                   for item in manifest["journals"])
+        )
+        accepted = validate_batch(manifest, live)
+        self.assertEqual(8, accepted["promoted"])
+        self.assertEqual(0, accepted["production_verification_pending"])
+
+    def test_final_batch_state_fails_closed_if_one_title_unverified(self):
+        manifest = json.loads(
+            (ROOT / "config/journal-expansion-b8.json").read_text(encoding="utf-8")
+        )
+        live = yaml.safe_load(
+            (ROOT / "config/journals.yml").read_text(encoding="utf-8")
+        )["journals"]
+        for incomplete_status in ("not_enabled", "activation_pending_production"):
+            with self.subTest(incomplete_status=incomplete_status):
+                incomplete = copy.deepcopy(manifest)
+                current = copy.deepcopy(live)
+                last = next(x for x in incomplete["journals"] if x["key"] == "EJPE")
+                last["rollout_status"] = incomplete_status
+                if incomplete_status == "not_enabled":
+                    current.pop("EJPE")
+                with self.assertRaisesRegex(ValueError, "launch_state"):
+                    validate_batch(incomplete, current)
+
     def test_jae_can_enter_independent_admission_without_growth_whitelist(self):
         manifest, live, _ = self.candidate(
             "JAE", "wiley",
