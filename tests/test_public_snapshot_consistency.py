@@ -16,6 +16,20 @@ PUBLIC_API = PUBLIC / "api" / "v1"
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
+def monitoring_coverage_keys(monitoring: dict) -> set[str]:
+    """Every monitored title occupies exactly a recorded status lane.
+
+    A source/rights-unreviewed B8 candidate is a valid *pending* state,
+    not a missing journal nor permission to publish that candidate.
+    """
+    return (
+        set(monitoring.get("last_successful_checks", {}))
+        | set(monitoring.get("warning_journals", []))
+        | set(monitoring.get("failed_journals", []))
+        | set(monitoring.get("awaiting_official_journals", []))
+        | set(monitoring.get("rights_review_pending_journals", []))
+    )
+
 
 class PublicSnapshotConsistencyTests(unittest.TestCase):
     @classmethod
@@ -164,18 +178,23 @@ class PublicSnapshotConsistencyTests(unittest.TestCase):
             )
         self.assertEqual(len(actual), len(configured) - len(missing))
 
+    def test_rights_review_pending_counts_as_monitored_without_releasing_content(self) -> None:
+        statuses = {
+            "last_successful_checks": {"AER": "2026-11-12T00:00:00Z"},
+            "rights_review_pending_journals": ["EJPE", "IJIO", "JFI", "JIMF"],
+        }
+        self.assertEqual(
+            {"AER", "EJPE", "IJIO", "JFI", "JIMF"},
+            monitoring_coverage_keys(statuses),
+        )
+
     def test_health_monitoring_manifest_and_docs_use_same_counts(self) -> None:
         health = load_json(PUBLIC_API / "health.json")
         monitoring = load_json(PUBLIC_API / "monitoring.json")
         manifest = load_json(PUBLIC / "project-manifest.json")
         fields = load_json(PUBLIC_API / "collections" / "fields.json")
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-        monitoring_keys = (
-            set(monitoring.get("last_successful_checks", {}))
-            | set(monitoring.get("warning_journals", []))
-            | set(monitoring.get("failed_journals", []))
-            | set(monitoring.get("awaiting_official_journals", []))
-        )
+        monitoring_keys = monitoring_coverage_keys(monitoring)
         enabled_count = len(self.enabled)
         reported_count = health["summary"]["enabled_journals"]
         missing = enabled_count - reported_count
