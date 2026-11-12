@@ -18,6 +18,7 @@ from scripts.journal_monitor import (
     evaluate_observation,
     fetch_crossref_items,
     issue_fingerprint,
+    public_status,
     run_deep_updates,
     select_candidate,
 )
@@ -563,6 +564,130 @@ class MonitorStateTests(unittest.TestCase):
             state["journals"]["DEMO"]["next_deep_retry_at"]
         )
         self.assertGreater(retry, datetime.now(timezone.utc) + timedelta(hours=23))
+
+
+
+class B8UnreviewedFutureIssueRightsGateTests(unittest.TestCase):
+    """New post-admission B8 issues remain discoverable, never auto-translated."""
+
+    @staticmethod
+    def accepted(key):
+        return {
+            "journal_id": key.casefold(),
+            "public_mode": "metadata_first_rights_qualified_v1",
+            "publication_state": "ready",
+            "public_content": {"mode": "metadata_first_rights_qualified_v1"},
+        }
+
+    def test_unreviewed_ejpe_future_candidate_is_review_pending_not_health_failure(self):
+        state = {"journals": {"EJPE": {
+            "candidate": {
+                "volume": "95", "issue": "", "fingerprint": "ejpe-95-29-dois",
+            },
+            "current_issue_id": "ejpe-94-c",
+            "deep_failure_count": ALERT_THRESHOLD,
+            "status": "translation_pending",
+            "last_error": "translation incomplete: 27/28",
+            "next_deep_retry_at": "2999-01-01T00:00:00+00:00",
+        }}}
+        result = {"alerts": {"newly_alerting": [], "recovered": []}}
+        with (
+            patch("scripts.journal_monitor.read_json",
+                  return_value=self.accepted("EJPE")) as reader,
+            patch("scripts.journal_monitor.subprocess.run") as executor,
+        ):
+            failures = run_deep_updates(
+                ["EJPE"], state, result, translate=True
+            )
+        self.assertEqual(0, failures)
+        executor.assert_not_called()
+        reader.assert_called_once()
+        entry = state["journals"]["EJPE"]
+        self.assertEqual("ejpe-94-c", entry["current_issue_id"])
+        self.assertEqual("95", entry["candidate"]["volume"])
+        self.assertEqual("rights_review_pending", entry["status"])
+        self.assertEqual(0, entry["deep_failure_count"])
+        self.assertEqual("", entry["next_deep_retry_at"])
+        self.assertTrue(entry["awaiting_rights_since"])
+        self.assertEqual("ejpe-95-29-dois",
+                         entry["awaiting_rights_candidate_fingerprint"])
+        self.assertEqual(["EJPE"], result["alerts"]["recovered"])
+        self.assertEqual("rights_review_pending",
+                         result["deep_updates"][0]["result"])
+        public = public_status(state, result)
+        self.assertEqual("healthy", public["status"])
+        self.assertEqual(0, public["summary"]["failed"])
+        self.assertEqual(1, public["summary"]["rights_review_pending"])
+        self.assertEqual(["EJPE"], public["rights_review_pending_journals"])
+        self.assertEqual([], public["failed_journals"])
+
+    def test_new_candidate_fingerprint_resets_review_age_without_publisher_claim(self):
+        previous = "2026-10-01T00:00:00+00:00"
+        state = {"journals": {"JFI": {
+            "candidate": {"volume": "68", "fingerprint": "new-issue"},
+            "awaiting_rights_candidate_fingerprint": "old-issue",
+            "awaiting_rights_since": previous,
+            "authority_observed_at": "2026-09-28T00:00:00+00:00",
+            "current_issue_id": "jfi-67-c",
+        }}}
+        result = {"alerts": {"newly_alerting": [], "recovered": []}}
+        with (
+            patch("scripts.journal_monitor.read_json",
+                  return_value=self.accepted("JFI")),
+            patch("scripts.journal_monitor.subprocess.run") as executor,
+        ):
+            self.assertEqual(0, run_deep_updates(
+                ["JFI"], state, result, translate=False
+            ))
+        executor.assert_not_called()
+        entry = state["journals"]["JFI"]
+        self.assertNotEqual(previous, entry["awaiting_rights_since"])
+        self.assertEqual("2026-09-28T00:00:00+00:00",
+                         entry["authority_observed_at"])
+        self.assertNotIn("canonical_ready_at", entry)
+
+    def test_invalid_accepted_projection_fails_closed_and_stays_red(self):
+        state = {"journals": {"EJPE": {
+            "candidate": {"volume": "95", "fingerprint": "candidate"},
+            "deep_failure_count": 0,
+            "current_issue_id": "ejpe-94-c",
+        }}}
+        result = {"alerts": {"newly_alerting": [], "recovered": []}}
+        with (
+            patch("scripts.journal_monitor.read_json", return_value=None),
+            patch("scripts.journal_monitor.subprocess.run") as executor,
+        ):
+            self.assertEqual(1, run_deep_updates(
+                ["EJPE"], state, result, translate=True
+            ))
+        executor.assert_not_called()
+        self.assertEqual("rights_contract_invalid",
+                         state["journals"]["EJPE"]["status"])
+        self.assertGreaterEqual(
+            state["journals"]["EJPE"]["deep_failure_count"], ALERT_THRESHOLD
+        )
+        public = public_status(state, result)
+        self.assertEqual("degraded", public["status"])
+        self.assertEqual(["EJPE"], public["failed_journals"])
+        self.assertEqual(0, public["summary"]["rights_review_pending"])
+
+    def test_legacy_jegrowth_still_uses_existing_deep_update_path(self):
+        state = {"journals": {"JEGROWTH": {
+            "candidate": {"volume": "32", "issue": "1"},
+            "current_issue_id": "jegrowth-31-3",
+        }}}
+        result = {"alerts": {"newly_alerting": [], "recovered": []}}
+        report = {"results": [{"result": "updated", "error": ""}]}
+        with (
+            patch("scripts.journal_monitor.subprocess.run",
+                  return_value=SimpleNamespace(returncode=0)) as executor,
+            patch("scripts.journal_monitor.read_json", return_value=report),
+        ):
+            self.assertEqual(0, run_deep_updates(
+                ["JEGROWTH"], state, result, translate=True
+            ))
+        executor.assert_called_once()
+        self.assertEqual("updated", state["journals"]["JEGROWTH"]["status"])
 
 
 class LocalEnrichmentTests(unittest.TestCase):
