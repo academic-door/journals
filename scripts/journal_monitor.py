@@ -312,7 +312,7 @@ def _request_with_retry(
                 except (TypeError, ValueError):
                     delay = (2**attempt) + random.uniform(0.1, 0.8)
                 time.sleep(delay)
-    raise RuntimeError(f"metadata request failed after {attempts} attempts: {last_error}")
+    raise RuntimeError(f"metadata request failed after {attempts} attempts: {last_error}") from last_error
 
 
 def fetch_crossref_items(
@@ -410,6 +410,47 @@ def fetch_rss_dois(
     text = " ".join(value.strip() for value in root.itertext() if value.strip())
     return {normalize_doi(match.group(0)) for match in DOI_PATTERN.finditer(text)}
 
+
+
+
+def _publisher_probe_failure_details(error: Exception) -> dict[str, Any]:
+    """Classify a blocked publisher header probe without exposing exception text.
+
+    The metadata request wrapper preserves its typed requests exception as the
+    cause. Public monitoring gets only a bounded reason/status code; response
+    bodies, exception messages, request headers and credentials are never stored.
+    Neither this diagnostic nor its presence confers official roster authority.
+    """
+    cause: BaseException = error
+    for _ in range(4):
+        underlying = cause.__cause__
+        if underlying is None:
+            break
+        cause = underlying
+    if isinstance(cause, requests.HTTPError):
+        status = getattr(cause.response, "status_code", None)
+        if not isinstance(status, int) or not 400 <= status <= 599:
+            return {"failure_reason": "http_error"}
+        if status in {401, 403}:
+            reason = "http_access_denied"
+        elif status == 429:
+            reason = "http_rate_limited"
+        elif status >= 500:
+            reason = "http_publisher_unavailable"
+        else:
+            reason = "http_other_error"
+        return {"failure_reason": reason, "http_status": status}
+    if isinstance(cause, requests.Timeout):
+        return {"failure_reason": "timeout"}
+    if isinstance(cause, requests.TooManyRedirects):
+        return {"failure_reason": "redirect_failure"}
+    if isinstance(cause, requests.ConnectionError):
+        return {"failure_reason": "connection_error"}
+    if isinstance(cause, requests.RequestException):
+        return {"failure_reason": "request_failure"}
+    if isinstance(error, ValueError):
+        return {"failure_reason": "publisher_header_validation"}
+    return {"failure_reason": "unclassified"}
 
 
 def fetch_official_issue_signal(
@@ -1052,6 +1093,7 @@ def detect_all(
                         # diagnostic (exception class only, never private data).
                         if source_verification is not None:
                             source_verification["failure_class"] = type(error).__name__
+                            source_verification.update(_publisher_probe_failure_details(error))
                         issue_signal = None
                         official_issue_match = False
                         association_issue_match = False
