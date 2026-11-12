@@ -25,6 +25,7 @@ from collectors.chicago import _parse_issue_page as parse_chicago_issue_page
 
 from collectors.econometric_society import parse_latest_econometrica_issue_signal
 from collectors.wiley import parse_latest_issue_signal
+from scripts.b8_rights_qualified import METADATA_B8_IDS, MODE as B8_PUBLIC_MODE
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -1262,6 +1263,57 @@ def run_deep_updates(
     forced = force_journals or set()
     for key in confirmed:
         entry = state["journals"][key]
+        # These accepted B8 titles publish only independently reviewed
+        # metadata-first projections. A Crossref candidate is a discovery
+        # signal, NOT a per-DOI reuse grant or an accepted ordered TOC.
+        # Never spend translation calls or stage new public text for such a
+        # candidate through the legacy full-content updater.
+        if key.casefold() in METADATA_B8_IDS and entry.get("candidate"):
+            accepted = read_json(
+                CURRENT_ISSUE_ROOT / key.casefold() / "issues" / "current.json"
+            ) or {}
+            if (
+                accepted.get("journal_id") != key.casefold()
+                or accepted.get("public_mode") != B8_PUBLIC_MODE
+                or accepted.get("publication_state") != "ready"
+                or (accepted.get("public_content") or {}).get("mode") != B8_PUBLIC_MODE
+            ):
+                # Missing/invalid accepted release must stay a hard failure;
+                # it is not a pretext for suppressing a real safety problem.
+                entry["status"] = "rights_contract_invalid"
+                entry["last_error"] = "B8 accepted metadata projection missing or invalid"
+                entry["deep_failure_count"] = max(
+                    ALERT_THRESHOLD, int(entry.get("deep_failure_count", 0))
+                )
+                failure_total += 1
+                update_results.append({
+                    "journal": key,
+                    "result": "rights_contract_invalid",
+                    "error": entry["last_error"],
+                })
+                continue
+            old_failures = int(entry.get("deep_failure_count", 0))
+            if old_failures >= ALERT_THRESHOLD and key not in result["alerts"]["recovered"]:
+                result["alerts"]["recovered"].append(key)
+            candidate_fingerprint = str(entry["candidate"].get("fingerprint", ""))
+            if entry.get("awaiting_rights_candidate_fingerprint") != candidate_fingerprint:
+                entry["awaiting_rights_since"] = now_iso()
+            entry.update({
+                "status": "rights_review_pending",
+                "last_error": "B8_NEW_ISSUE_SOURCE_AND_PER_DOI_RIGHTS_REVIEW_REQUIRED",
+                "deep_failure_count": 0,
+                "failure_count": 0,
+                "next_deep_retry_at": "",
+                "awaiting_rights_candidate_fingerprint": candidate_fingerprint,
+                "awaiting_official_count": 0,
+                "awaiting_official_since": "",
+            })
+            update_results.append({
+                "journal": key,
+                "result": "rights_review_pending",
+                "error": entry["last_error"],
+            })
+            continue
         next_retry_text = str(entry.get("next_deep_retry_at", ""))
         if next_retry_text and key not in forced:
             try:
@@ -1444,10 +1496,16 @@ def public_status(
         or _is_awaiting_upstream(str(entry.get("last_error", "")))
     ]
     awaiting_set = set(awaiting_official)
+    pending_rights = [
+        key for key, entry in entries.items()
+        if entry.get("status") == "rights_review_pending"
+    ]
+    rights_set = set(pending_rights)
     alerting = [
         key
         for key, entry in entries.items()
         if key not in awaiting_set
+        and key not in rights_set
         and (
             int(entry.get("failure_count", 0)) >= ALERT_THRESHOLD
             or int(entry.get("deep_failure_count", 0)) >= ALERT_THRESHOLD
@@ -1475,6 +1533,7 @@ def public_status(
             "confirmed_updates": len(result.get("confirmed_journals", [])),
             "warnings": len(warnings),
             "awaiting_official": len(awaiting_official),
+            "rights_review_pending": len(pending_rights),
             "publisher_issue_signal_blocked": sum(
                 entry.get("publisher_current_issue_signal", {}).get("status")
                 == "verification_blocked"
@@ -1485,6 +1544,7 @@ def public_status(
         "warning_journals": warnings,
         "failed_journals": alerting,
         "awaiting_official_journals": awaiting_official,
+        "rights_review_pending_journals": pending_rights,
         "publisher_current_issue_signals": {
             key: entry["publisher_current_issue_signal"]
             for key, entry in entries.items()
