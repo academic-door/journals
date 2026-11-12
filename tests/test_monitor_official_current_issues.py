@@ -6,12 +6,15 @@ issue, but MUST NOT fabricate official full TOCs, DOIs or abstract rights.
 from __future__ import annotations
 
 import copy
+import requests
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
 
 from scripts.journal_monitor import (
     _first_party_issue_candidate,
+    _publisher_probe_failure_details,
+    _request_with_retry,
     _trusted_issue_signal,
     detect_all,
     fetch_official_issue_signal,
@@ -144,6 +147,76 @@ class PublisherCurrentIssueSignalsTests(unittest.TestCase):
                 self.assertEqual("healthy", report["status"])
                 self.assertEqual("verification_blocked",
                                  report["publisher_current_issue_signals"][jid.upper()]["status"])
+
+    def test_metadata_request_preserves_typed_http_failure_cause(self):
+        response = requests.Response()
+        response.status_code = 403
+        response.url = SOURCES["ej"][1]
+        error = requests.HTTPError(
+            "secret-bearing transport message must not appear in public data",
+            response=response,
+        )
+        session = SimpleNamespace(get=lambda *_a, **_kw: (_ for _ in ()).throw(error))
+        with self.assertRaises(RuntimeError) as caught:
+            _request_with_retry(session, response.url, attempts=1)
+        self.assertIs(error, caught.exception.__cause__)
+        self.assertEqual(
+            {"failure_reason": "http_access_denied", "http_status": 403},
+            _publisher_probe_failure_details(caught.exception),
+        )
+
+    def test_live_publisher_http_categories_are_bounded_and_non_authorizing(self):
+        cases = [
+            (401, "http_access_denied"),
+            (403, "http_access_denied"),
+            (404, "http_other_error"),
+            (429, "http_rate_limited"),
+            (503, "http_publisher_unavailable"),
+        ]
+        for status, category in cases:
+            with self.subTest(status=status):
+                response = requests.Response()
+                response.status_code = status
+                response.url = SOURCES["ej"][1]
+                def blocked(_config):
+                    opaque = requests.HTTPError(
+                        "private diagnostic secret must never be serialized",
+                        response=response,
+                    )
+                    raise RuntimeError("opaque wrapper") from opaque
+                with patch("scripts.journal_monitor.read_json",
+                           return_value=baseline("ej", "136", "678")):
+                    state, result = detect_all(
+                        {"EJ": {
+                            "id": "ej", "enabled": True, "issn": "0013-0133",
+                            "announcement_source": SOURCES["ej"][0],
+                            "announcement_url": SOURCES["ej"][1],
+                        }},
+                        {"journals": {}},
+                        crossref_fetcher=lambda _config, _baseline: [],
+                        issue_signal_fetcher=blocked,
+                    )
+                probe = public_status(state, result)["publisher_current_issue_signals"]["EJ"]
+                self.assertEqual("verification_blocked", probe["status"])
+                self.assertEqual("RuntimeError", probe["failure_class"])
+                self.assertEqual(category, probe["failure_reason"])
+                self.assertEqual(status, probe["http_status"])
+                self.assertNotIn("publisher_issue_id", probe)
+                self.assertNotIn("private diagnostic secret", str(probe))
+                self.assertEqual("healthy", public_status(state, result)["status"])
+                self.assertEqual([], result["failed_journals"])
+
+    def test_timeout_and_parser_failures_are_not_misclassified_as_denied(self):
+        for error, expected in [
+            (requests.Timeout("private URL"), "timeout"),
+            (requests.ConnectionError("private URL"), "connection_error"),
+            (ValueError("untrusted redirect"), "publisher_header_validation"),
+            (RuntimeError("unknown request error"), "unclassified"),
+        ]:
+            with self.subTest(error=type(error).__name__):
+                public = _publisher_probe_failure_details(error)
+                self.assertEqual({"failure_reason": expected}, public)
+                self.assertNotIn("private URL", str(public))
 
     def test_empty_official_header_remains_blocked_without_fabrication(self):
         config = {"EJ": {
