@@ -110,6 +110,43 @@ class AwaitingOfficialTests(unittest.TestCase):
         self.assertNotIn("last_error", str(public))
         self.assertNotIn("private publisher text", str(public))
 
+    def test_light_probe_keeps_unresolved_deep_failures_visible(self) -> None:
+        # Production 2026-11-13: detect_all re-confirmed RFS and LUP and
+        # preserved their failed deep retries; neither issue was READY.
+        state = {
+            "updated_at": "2026-11-13T04:25:16+00:00",
+            "journals": {
+                "RFS": {
+                    "status": "confirmed",
+                    "candidate": {"issue_key": "39:11", "fingerprint": "unchanged"},
+                    "deep_failure_count": 3,
+                    "last_error": "ValueError: provisional Crossref roster requires official confirmation",
+                    "failure_count": 0,
+                },
+                "LUP": {
+                    "status": "confirmed",
+                    "candidate": {"issue_key": "172:", "fingerprint": "unchanged"},
+                    "deep_failure_count": 15,
+                    "last_error": "ValueError: abstract_en_incomplete: private publisher detail should not be public",
+                    "failure_count": 0,
+                },
+                "OLD": {
+                    "status": "unchanged",
+                    "candidate": None,
+                    "deep_failure_count": 2,
+                    "last_error": "obsolete historical failure",
+                    "failure_count": 0,
+                },
+            },
+        }
+        status = public_status(state, {"confirmed_journals": ["RFS", "LUP"]})
+        self.assertEqual(2, status["summary"]["update_failed"])
+        self.assertEqual(["RFS", "LUP"], status["update_failed_journals"])
+        self.assertEqual(0, status["summary"]["failed"])
+        self.assertEqual("healthy", status["status"])
+        self.assertNotIn("private publisher detail", str(status))
+        self.assertNotIn("obsolete historical failure", str(status))
+
     def test_successful_deep_retry_clears_update_failure_debt(self) -> None:
         state = {
             "updated_at": "2026-11-13T01:08:17+00:00",

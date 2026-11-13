@@ -1543,11 +1543,19 @@ def public_status(
         if entry.get("status") == "rights_review_pending"
     ]
     rights_set = set(pending_rights)
-    # Deep publication failures are debt even when source-aware retry/backoff
-    # deliberately excludes them from operational outage alerts.
+    # A light probe can restamp a still-failing candidate as "confirmed"
+    # while preserving its previous deep_failure_count/last_error. Count
+    # unresolved deep publication debt across that transition; an accepted
+    # update clears the candidate, count and error together.
     update_failed = [
         key for key, entry in entries.items()
         if entry.get("status") == "update_failed"
+        or (
+            isinstance(entry.get("candidate"), dict)
+            and bool(entry["candidate"])
+            and int(entry.get("deep_failure_count", 0) or 0) > 0
+            and bool(entry.get("last_error"))
+        )
     ]
     alerting = [
         key
