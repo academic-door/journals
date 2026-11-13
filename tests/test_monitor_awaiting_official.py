@@ -120,14 +120,14 @@ class AwaitingOfficialTests(unittest.TestCase):
                     "status": "confirmed",
                     "candidate": {"issue_key": "39:11", "fingerprint": "unchanged"},
                     "deep_failure_count": 3,
-                    "last_error": "ValueError: provisional Crossref roster",
+                    "last_error": "ValueError: provisional Crossref roster requires official confirmation",
                     "failure_count": 0,
                 },
                 "LUP": {
                     "status": "confirmed",
                     "candidate": {"issue_key": "172:", "fingerprint": "unchanged"},
                     "deep_failure_count": 15,
-                    "last_error": "private publisher detail should not be public",
+                    "last_error": "ValueError: abstract_en_incomplete: private publisher detail should not be public",
                     "failure_count": 0,
                 },
                 "OLD": {
