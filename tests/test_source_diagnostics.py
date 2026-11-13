@@ -8,7 +8,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.build_source_diagnostics import build_report, build_from_tree
+from scripts.build_source_diagnostics import (
+    _accepted_b8_metadata_issues, build_report, build_from_tree,
+)
 from scripts.journal_monitor import select_candidate, evaluate_observation
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -79,6 +81,93 @@ class SourceDiagnosticsTests(unittest.TestCase):
         self.assertEqual("verification_due", a["publisher_coverage"])
         self.assertEqual("verification_due", b["publisher_coverage"])
         self.assertEqual("not_automatically_checked", c["publisher_coverage"])
+
+    def test_b8_metadata_ready_requires_exact_formal_acceptance(self):
+        metadata = copy.deepcopy(self.base_issue)
+        metadata.update({
+            "journal_id": "jae", "issue_id": "jae-41-6",
+            "publication_state": "ready",
+            "content_status": "metadata_complete",
+            "public_mode": "metadata_first_rights_qualified_v1",
+        })
+        cfg = {"JAE": {"id": "jae", "enabled": True}}
+        health = {"checks": {"jae_primary_transport": True}}
+
+        def accepted(issue, allow=None):
+            result = build_report(
+                cfg, {"jae": issue}, health, {},
+                generated_at=self.generated,
+                accepted_b8_metadata_issues=allow,
+            )
+            return result["journals"][0]["archive_ready"]
+
+        self.assertFalse(accepted(metadata))
+        self.assertFalse(accepted(metadata, {"ej": "ej-136-679"}))
+        self.assertFalse(accepted(metadata, {"jae": "jae-41-7"}))
+        self.assertTrue(accepted(metadata, {"jae": "jae-41-6"}))
+        self.assertFalse(accepted({
+            **metadata, "publication_state": "detected",
+        }, {"jae": "jae-41-6"}))
+        self.assertFalse(accepted({
+            **metadata, "content_status": "partial",
+        }, {"jae": "jae-41-6"}))
+        self.assertFalse(accepted({
+            **metadata, "public_mode": "unapproved_legacy_metadata",
+        }, {"jae": "jae-41-6"}))
+        # The old full-content READY contract remains unchanged.
+        self.assertTrue(accepted({
+            **metadata, "content_status": "complete",
+            "public_mode": None,
+        }))
+
+    def test_b8_manifest_is_the_only_metadata_scope_authority(self):
+        accepted = _accepted_b8_metadata_issues(ROOT)
+        self.assertEqual({
+            "jae": "jae-41-6",
+            "itpf": "itpf-33-5",
+            "joeg": "joeg-26-5",
+            "ijio": "ijio-108-c",
+            "jfi": "jfi-67-c",
+            "jimf": "jimf-168-c",
+            "ejpe": "ejpe-94-c",
+        }, accepted)
+        manifest = json.loads((
+            ROOT / "config/journal-expansion-b8.json"
+        ).read_text(encoding="utf-8"))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / "config/journal-expansion-b8.json"
+            path.parent.mkdir(parents=True)
+            for change in ("incomplete_batch", "wrong_issue", "unverified_title"):
+                with self.subTest(change=change):
+                    altered = copy.deepcopy(manifest)
+                    if change == "incomplete_batch":
+                        altered["launch_state"] = "partial_rollout"
+                    elif change == "wrong_issue":
+                        next(x for x in altered["journals"] if x["id"] == "jae")[
+                            "production_acceptance"
+                        ]["audited_issue"] = "ej-136-679"
+                    else:
+                        next(x for x in altered["journals"] if x["id"] == "jae")[
+                            "rollout_status"
+                        ] = "activation_pending_production"
+                    path.write_text(json.dumps(altered), encoding="utf-8")
+                    self.assertEqual({}, _accepted_b8_metadata_issues(root))
+
+    def test_all_57_current_publication_ready_including_b8_metadata(self):
+        report = build_from_tree(
+            ROOT, ROOT / "public/api/v1", generated_at=self.generated
+        )
+        not_ready = [
+            item["journal_id"] for item in report["journals"]
+            if not item["archive_ready"]
+        ]
+        self.assertEqual([], not_ready)
+        self.assertEqual(57, len(report["journals"]))
+        # Scope: publisher-coverage classification is independent of READY.
+        self.assertEqual(54, report["summary"]["publisher_coverage_counts"].get(
+            "not_automatically_checked", 0
+        ))
 
     def test_stale_capture_cannot_certify_a_different_issue(self):
         old = {
