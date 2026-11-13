@@ -24,6 +24,44 @@ if str(ROOT) not in sys.path:
 from scripts.publisher_coverage_sentinel import reconcile
 PILOT = {"jeem", "jie", "energy"}
 
+B8_METADATA_MODE = "metadata_first_rights_qualified_v1"
+
+
+def _accepted_b8_metadata_issues(root: Path) -> dict[str, str]:
+    """Only formally verified B8 issue identities can count as metadata READY.
+
+    An issue's self-declared public_mode is not an authorization. The
+    independently accepted owner rollout manifest must also match its
+    journal ID and immutable audited issue. Missing/incomplete evidence
+    fails closed, leaving the ordinary full-content READY path unchanged.
+    """
+    manifest_path = root / "config/journal-expansion-b8.json"
+    if not manifest_path.is_file():
+        return {}
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    records = manifest.get("journals")
+    if (manifest.get("launch_state") != "all_titles_production_verified"
+            or not isinstance(records, list) or len(records) != 8
+            or any(not isinstance(item, dict)
+                   or item.get("rollout_status") != "production_verified"
+                   for item in records)):
+        return {}
+    accepted: dict[str, str] = {}
+    seen: set[str] = set()
+    for item in records:
+        journal_id = str(item.get("id") or "").lower().strip()
+        acceptance = item.get("production_acceptance") or {}
+        if not journal_id or journal_id in seen or not isinstance(acceptance, dict):
+            return {}
+        seen.add(journal_id)
+        if acceptance.get("public_mode") == B8_METADATA_MODE:
+            issue_id = str(acceptance.get("audited_issue") or "").lower().strip()
+            if not issue_id or not issue_id.startswith(journal_id + "-"):
+                return {}
+            accepted[journal_id] = issue_id
+    return accepted
+
+
 
 def _transport_class(primary: bool, quality: dict[str, Any]) -> str:
     if primary:
@@ -47,8 +85,10 @@ def build_report(
     roster_evidence: dict[str, dict[str, Any] | None],
     *,
     generated_at: str,
+    accepted_b8_metadata_issues: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     checks = health.get("checks") or {}
+    accepted_metadata = accepted_b8_metadata_issues or {}
     items: list[dict[str, Any]] = []
     for key, cfg in configs.items():
         if not cfg.get("enabled"):
@@ -83,7 +123,14 @@ def build_report(
             "issue_id": str(issue.get("issue_id") or ""),
             "archive_ready": (
                 issue.get("publication_state") == "ready"
-                and issue.get("content_status") == "complete"
+                and (
+                    issue.get("content_status") == "complete"
+                    or (
+                        issue.get("content_status") == "metadata_complete"
+                        and issue.get("public_mode") == B8_METADATA_MODE
+                        and accepted_metadata.get(jid) == str(issue.get("issue_id") or "").lower()
+                    )
+                )
             ),
             "primary_transport_available": primary,
             "source_route": _transport_class(primary, quality),
@@ -136,7 +183,10 @@ def build_from_tree(root: Path, api_root: Path, *, generated_at: str) -> dict[st
             if not source.is_relative_to(root.resolve()):
                 raise ValueError(f"{name}: official evidence escapes owner root")
             rosters[jid] = json.loads(source.read_text(encoding="utf-8")) if source.is_file() else None
-    return build_report(cfg, issues, health, rosters, generated_at=generated_at)
+    return build_report(
+        cfg, issues, health, rosters, generated_at=generated_at,
+        accepted_b8_metadata_issues=_accepted_b8_metadata_issues(root),
+    )
 
 
 def main() -> int:
