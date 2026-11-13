@@ -64,6 +64,67 @@ class AwaitingOfficialTests(unittest.TestCase):
         self.assertEqual(status["summary"]["failed"], 1)
         self.assertEqual(status["status"], "degraded")
 
+    def test_deep_update_failures_remain_visible_without_false_outage(self) -> None:
+        state = {
+            "schema_version": "1.0",
+            "updated_at": "2026-11-13T01:08:17+00:00",
+            "journals": {
+                "RFS": {
+                    "status": "update_failed",
+                    "last_error": "ValueError: provisional Crossref roster requires official confirmation",
+                    "awaiting_official_count": 3,
+                    "failure_count": 0,
+                    "deep_failure_count": 2,
+                },
+                "LUP": {
+                    "status": "update_failed",
+                    "last_error": "private publisher text must not be public",
+                    "failure_count": 0,
+                    "deep_failure_count": 1,
+                },
+                "EJ": {
+                    "status": "unchanged",
+                    "last_error": "",
+                    "failure_count": 0,
+                    "deep_failure_count": 0,
+                },
+                "EJPE": {
+                    "status": "rights_review_pending",
+                    "last_error": "B8_NEW_ISSUE_SOURCE_AND_PER_DOI_RIGHTS_REVIEW_REQUIRED",
+                    "failure_count": 0,
+                    "deep_failure_count": 0,
+                },
+            },
+        }
+        result = {
+            "unchanged_journals": ["EJ"],
+            "pending_journals": [],
+            "confirmed_journals": ["RFS", "LUP"],
+        }
+        public = public_status(state, result)
+        self.assertEqual("healthy", public["status"])
+        self.assertEqual(0, public["summary"]["failed"])
+        self.assertEqual(2, public["summary"]["update_failed"])
+        self.assertEqual(["RFS", "LUP"], public["update_failed_journals"])
+        self.assertEqual(1, public["summary"]["rights_review_pending"])
+        self.assertNotIn("last_error", str(public))
+        self.assertNotIn("private publisher text", str(public))
+
+    def test_successful_deep_retry_clears_update_failure_debt(self) -> None:
+        state = {
+            "updated_at": "2026-11-13T01:08:17+00:00",
+            "journals": {
+                "RFS": {
+                    "status": "unchanged",
+                    "failure_count": 0,
+                    "deep_failure_count": 0,
+                }
+            },
+        }
+        public = public_status(state, {"unchanged_journals": ["RFS"]})
+        self.assertEqual(0, public["summary"]["update_failed"])
+        self.assertEqual([], public["update_failed_journals"])
+
     def test_same_candidate_keeps_awaiting_status_across_light_probes(self) -> None:
         previous = {"status": "awaiting_official", "awaiting_official_count": 19}
         self.assertTrue(_awaiting_status(previous, same_deep_candidate=True))
