@@ -1543,6 +1543,12 @@ def public_status(
         if entry.get("status") == "rights_review_pending"
     ]
     rights_set = set(pending_rights)
+    # Deep publication failures are debt even when source-aware retry/backoff
+    # deliberately excludes them from operational outage alerts.
+    update_failed = [
+        key for key, entry in entries.items()
+        if entry.get("status") == "update_failed"
+    ]
     alerting = [
         key
         for key, entry in entries.items()
@@ -1576,6 +1582,7 @@ def public_status(
             "warnings": len(warnings),
             "awaiting_official": len(awaiting_official),
             "rights_review_pending": len(pending_rights),
+            "update_failed": len(update_failed),
             "publisher_issue_signal_blocked": sum(
                 entry.get("publisher_current_issue_signal", {}).get("status")
                 == "verification_blocked"
@@ -1587,6 +1594,7 @@ def public_status(
         "failed_journals": alerting,
         "awaiting_official_journals": awaiting_official,
         "rights_review_pending_journals": pending_rights,
+        "update_failed_journals": update_failed,
         "publisher_current_issue_signals": {
             key: entry["publisher_current_issue_signal"]
             for key, entry in entries.items()
