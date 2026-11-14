@@ -8,9 +8,9 @@
   "issue_label": "Vol. 89 · No. 11",
   "publication_date": "November 2026",
   "source_url": "https://link.springer.com/journal/10640/volumes-and-issues",
-  "retrieved_at": "2026-11-14T06:28:13+00:00",
-  "expected_article_count": 6,
-  "research_article_count": 6,
+  "retrieved_at": "2026-11-14T15:10:35+00:00",
+  "expected_article_count": 7,
+  "research_article_count": 7,
   "status": "incomplete",
   "development_sample": false,
   "articles": [
@@ -212,9 +212,48 @@
       }
     },
     {
-      "paper_id": "doi:10.1007/s10640-026-01122-0",
+      "paper_id": "doi:10.1007/s10640-026-01126-w",
       "sequence": 6,
       "source_sequence": 7,
+      "article_type": "research-article",
+      "title_en": "Economic Growth and Greenhouse Gas Mitigation at the Environmental Limit",
+      "title_cn": "环境极限下的经济增长与温室气体减排",
+      "authors": [
+        "Michael C. Burda",
+        "Leopold Zessner-Spitzenberg"
+      ],
+      "abstract_en": "An environmental limit, such as a carbon budget, changes the nature of economic growth, but does not preclude it. When atmospheric greenhouse gas levels reach a critical threshold, further economic growth requires a permanently expanding and resource-intensive mitigation effort. If too slow, technical progress in mitigation becomes a constraint and the ultimate determinant of economic growth. Secularly expanding GDP remains a durable feature of this class of economies and characterizes the social planner’s optimum under conditions of exogenous and directed technical change. In both cases, a binding environmental limit reduces the long-run rate of economic growth.",
+      "abstract_cn": "环境极限（如碳预算）改变了经济增长的性质，但并不排除经济增长。当大气温室气体水平达到临界阈值时，进一步的经济增长需要永久扩大且资源密集型的减排努力。如果进展过慢，减排中的技术进步就成为约束，并成为经济增长的最终决定因素。长期扩张的GDP仍是这类经济体的持久特征，并刻画了在外生和有向技术变化条件下社会规划者的最优状态。在两种情形下，具有约束力的环境极限都会降低长期经济增长率。",
+      "doi": "10.1007/s10640-026-01126-w",
+      "source_url": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01126-w.html",
+      "publication_date": "2026",
+      "sources": {
+        "issue": "https://link.springer.com/journal/10640/volumes-and-issues",
+        "roster": "repec-publisher-supplied",
+        "metadata": "https://ideas.repec.org/a/kap/enreec/v89y2026i11d10.1007_s10640-026-01126-w.html",
+        "abstract_en": "repec-publisher-supplied"
+      },
+      "translation": {
+        "status": "complete",
+        "provider": "deepseek",
+        "prompt_version": "academic-door-abstract-zh-v2",
+        "glossary_version": "1",
+        "model": "deepseek-v4-flash",
+        "translated_at": "2026-11-14T15:10:37+00:00",
+        "source_hash": "a0c0aacfb228aad80fb8e6521c570b551b779ad3565d494738055a59f7d934c2"
+      },
+      "quality_flags": [],
+      "china_relevance": {
+        "status": "no",
+        "evidence": "no substantive China signal",
+        "matched_terms": [],
+        "source": "academic-door-rules-v1"
+      }
+    },
+    {
+      "paper_id": "doi:10.1007/s10640-026-01122-0",
+      "sequence": 7,
+      "source_sequence": 8,
       "article_type": "research-article",
       "title_en": "Do Protected Areas Affect the Income Levels in Remote Regions? Evidence from Italian Inner Areas",
       "title_cn": "保护区是否影响偏远地区的收入水平？来自意大利内陆地区的证据",
@@ -257,7 +296,7 @@
     "order_preserved": true,
     "roster_authority": "repec-publisher-supplied",
     "roster_transport": "repec-serial-page",
-    "official_item_count": 7,
+    "official_item_count": 8,
     "excluded_item_count": 1,
     "excluded_items": [
       {
@@ -267,10 +306,10 @@
         "article_type": "correction"
       }
     ],
-    "doi_complete": 6,
-    "authors_complete": 6,
-    "abstract_en_complete": 6,
-    "translation_complete": 6,
+    "doi_complete": 7,
+    "authors_complete": 7,
+    "abstract_en_complete": 7,
+    "translation_complete": 7,
     "duplicate_count": 0,
     "flags": [
       "publisher_html_blocked_repec_fallback",
@@ -278,33 +317,33 @@
       "official_order_unverified"
     ],
     "official_issue_fetch_error": "",
-    "publishable_item_count": 6,
+    "publishable_item_count": 7,
     "content_counts": {
-      "official_items": 7,
-      "observed_items": 7,
-      "publishable_items": 6,
-      "research_articles": 6,
+      "official_items": 8,
+      "observed_items": 8,
+      "publishable_items": 7,
+      "research_articles": 7,
       "comments": 0,
       "short_communications": 0,
       "corrections": 1,
       "editorial_material": 0,
       "front_matter": 0,
       "other_excluded": 0,
-      "catalog_content_items": 7
+      "catalog_content_items": 8
     }
   },
   "content_counts": {
-    "official_items": 7,
-    "observed_items": 7,
-    "publishable_items": 6,
-    "research_articles": 6,
+    "official_items": 8,
+    "observed_items": 8,
+    "publishable_items": 7,
+    "research_articles": 7,
     "comments": 0,
     "short_communications": 0,
     "corrections": 1,
     "editorial_material": 0,
     "front_matter": 0,
     "other_excluded": 0,
-    "catalog_content_items": 7
+    "catalog_content_items": 8
   },
   "content_status": "complete",
   "source_status": "publisher_verified",
