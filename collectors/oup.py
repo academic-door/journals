@@ -78,6 +78,23 @@ ALIASES = {
     "joeg": "joeg",
 }
 
+# OUP's displayed Vol 26(5) sections establish this issue-scoped taxonomy.
+# DOI and sequence are checked together so a changed TOC fails closed.
+JOEG_26_5_ROSTER = (
+    ("10.1093/jeg/lbag036", "anniversary_commentary", "comment"),
+    ("10.1093/jeg/lbag026", "anniversary_commentary", "comment"),
+    ("10.1093/jeg/lbag047", "anniversary_commentary", "comment"),
+    ("10.1093/jeg/lbag041", "emerging_voices", "research-article"),
+    ("10.1093/jeg/lbag002", "original_article", "research-article"),
+    ("10.1093/jeg/lbag006", "original_article", "research-article"),
+    ("10.1093/jeg/lbag008", "original_article", "research-article"),
+    ("10.1093/jeg/lbag012", "original_article", "research-article"),
+    ("10.1093/jeg/lbag009", "original_article", "research-article"),
+    ("10.1093/jeg/lbag061", "correction", "correction"),
+)
+JOEG_26_5_ISSUE_PATH = "/joeg/issue/26/5"
+JOEG_CURRENT_ISSUE_PATH = "/joeg/issue"
+
 TRANSIENT_STATUS_CODES = {403, 408, 425, 429, 500, 502, 503, 504}
 
 NON_RESEARCH_PATTERN = re.compile(
@@ -331,6 +348,49 @@ def _exclusion_reason(title: str, article_type: str) -> str:
     return ""
 
 
+def _is_joeg_26_5_issue_url(url: str) -> bool:
+    parsed = urlparse(url)
+    return (
+        parsed.scheme == "https"
+        and (parsed.hostname or "").casefold() == "academic.oup.com"
+        and parsed.path.rstrip("/")
+        in {JOEG_CURRENT_ISSUE_PATH, JOEG_26_5_ISSUE_PATH}
+    )
+
+
+def _adjudicate_joeg_26_5(parsed: dict[str, Any], issue_url: str) -> None:
+    if not _is_joeg_26_5_issue_url(issue_url):
+        return
+    pinned_issue_url = (
+        urlparse(issue_url).path.rstrip("/") == JOEG_26_5_ISSUE_PATH
+    )
+    if (parsed["volume"], parsed["issue"]) != ("26", "5"):
+        if pinned_issue_url:
+            raise ValueError("JOEG 26(5) issue identity mismatch")
+        return
+
+    expected_dois = [row[0] for row in JOEG_26_5_ROSTER]
+    items = parsed["article_items"]
+    observed_dois = [_normalize_doi(item.get("doi", "")) for item in items]
+    if observed_dois != expected_dois:
+        raise ValueError(
+            "JOEG 26(5) official DOI roster/order mismatch: "
+            f"expected {expected_dois!r}, observed {observed_dois!r}"
+        )
+
+    for item, (doi, publisher_section, article_type) in zip(
+        items, JOEG_26_5_ROSTER, strict=True
+    ):
+        item["publisher_section"] = publisher_section
+        item["canonical_article_type"] = article_type
+        item["article_type"] = article_type
+        item["exclusion_reason"] = (
+            "publisher-section:correction"
+            if article_type == "correction"
+            else ""
+        )
+
+
 def _parse_issue_page(
     content: bytes,
     issue_url: str,
@@ -548,7 +608,7 @@ def _parse_article_page(
         ),
         "sequence": source_sequence,
         "source_sequence": source_sequence,
-        "article_type": "research-article",
+        "article_type": inventory_item.get("canonical_article_type", "research-article"),
         "title_en": title,
         "title_cn": "",
         "authors": authors,
@@ -600,7 +660,7 @@ def _detail_fallback(
         ),
         "sequence": source_sequence,
         "source_sequence": source_sequence,
-        "article_type": "research-article",
+        "article_type": inventory_item.get("canonical_article_type", "research-article"),
         "title_en": inventory_item["title_en"],
         "title_cn": "",
         "authors": [],
@@ -649,7 +709,14 @@ def fetch_current_issue(
 
     spec, issue_url = _resolve_journal(journal_or_url, current_issue_url)
     response = _get(_session(), issue_url)
+    if (
+        spec["journal_id"] == "joeg"
+        and response.url
+        and _is_joeg_26_5_issue_url(response.url)
+    ):
+        issue_url = response.url
     parsed = _parse_issue_page(response.content, issue_url, spec["slug"])
+    _adjudicate_joeg_26_5(parsed, issue_url)
 
     article_items = parsed["article_items"]
     research_items = [
@@ -661,6 +728,9 @@ def fetch_current_issue(
             "title_en": item["title_en"],
             "reason": item["exclusion_reason"],
             "source_url": item["source_url"],
+            "doi": item["doi"],
+            "article_type": item["article_type"],
+            "publisher_section": item.get("publisher_section", ""),
         }
         for item in article_items
         if item["exclusion_reason"]
@@ -721,6 +791,29 @@ def fetch_current_issue(
         f"{spec['journal_id']}-{volume or 'unknown'}-{issue or 'current'}"
     )
 
+    research_article_count = sum(
+        article["article_type"] == "research-article" for article in articles
+    )
+    # Downstream snapshot gates use this legacy field as the publishable-row count.
+    # The research-only taxonomy total remains explicit in content_counts below.
+    content_counts = {
+        "official_items": len(article_items) + len(parsed["ancillary_items"]),
+        "observed_items": len(article_items) + len(parsed["ancillary_items"]),
+        "publishable_items": len(articles),
+        "research_articles": research_article_count,
+        "comments": sum(article["article_type"] == "comment" for article in articles),
+        "short_communications": sum(
+            article["article_type"] == "short-communication" for article in articles
+        ),
+        "corrections": sum(
+            item["article_type"] == "correction" for item in article_items
+        ),
+        "editorial_material": 0,
+        "front_matter": 0,
+        "other_excluded": 0,
+        "catalog_content_items": len(article_items) + len(parsed["ancillary_items"]),
+    }
+
     return {
         "schema_version": "1.0",
         "issue_id": issue_id,
@@ -731,17 +824,19 @@ def fetch_current_issue(
         "publication_date": parsed["publication_date"],
         "source_url": issue_url,
         "retrieved_at": now,
-        "expected_article_count": len(research_items),
+        "expected_article_count": len(articles),
         "research_article_count": len(articles),
         "status": status,
         "development_sample": False,
         "articles": articles,
+        "content_counts": content_counts,
         "quality": {
             "roster_match": roster_match,
             "order_preserved": order_preserved,
             "official_item_count": (
                 len(article_items) + len(parsed["ancillary_items"])
             ),
+            "publishable_item_count": len(articles),
             "excluded_item_count": len(excluded_items),
             "excluded_items": excluded_items,
             "detail_failure_count": detail_failure_count,
