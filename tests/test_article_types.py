@@ -129,6 +129,42 @@ class ArticleTypeTests(unittest.TestCase):
         self.assertIn("abstract_en_incomplete", normalized["quality"]["flags"])
         self.assertIn("translation_incomplete", normalized["quality"]["flags"])
 
+    def test_explicit_doi_override_takes_precedence_over_title_heuristics(self) -> None:
+        issue = {
+            "articles": [
+                {
+                    "doi": "10.1086/742287",
+                    "title_en": (
+                        "Introduction to Parental Labor Supply Responses to "
+                        "School Disruptions: New Cross-National Comparisons"
+                    ),
+                    "article_type": "research-article",
+                }
+            ],
+        }
+
+        default = normalize_issue_taxonomy(copy.deepcopy(issue))
+        self.assertEqual([], default["articles"])
+        self.assertEqual("editorial", default["quality"]["excluded_items"][0]["article_type"])
+
+        overridden = normalize_issue_taxonomy(
+            copy.deepcopy(issue),
+            overrides={"10.1086/742287": "research-article"},
+        )
+        self.assertEqual(1, len(overridden["articles"]))
+        self.assertEqual("research-article", overridden["articles"][0]["article_type"])
+        self.assertEqual([], overridden["quality"]["excluded_items"])
+
+    def test_explicit_doi_override_precedes_person_name_heuristic(self) -> None:
+        issue = {"articles": [{"doi": "10.1/example", "title_en": "Jane Doe"}]}
+
+        overridden = normalize_issue_taxonomy(
+            issue, overrides={"10.1/example": "research-article"}
+        )
+
+        self.assertEqual("research-article", overridden["articles"][0]["article_type"])
+        self.assertEqual([], overridden["quality"]["excluded_items"])
+
 
 
     def test_front_matter_and_editorial_families_classify_correctly(self) -> None:
