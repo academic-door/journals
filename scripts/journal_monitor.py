@@ -1557,6 +1557,39 @@ def public_status(
             and bool(entry.get("last_error"))
         )
     ]
+    # Candidate publication_date is its *labelled issue month*, not proof
+    # that an issue is publisher-current or licensed. Surface future-labelled
+    # candidates independently so update debt is not mistaken for overdue
+    # publisher coverage. Use the producer's observation date, not the
+    # machine's clock or any synthetic publisher-observed timestamp.
+    future_dated_candidates: list[str] = []
+    checked_at_text = str(state.get("updated_at") or "")
+    try:
+        checked_at = datetime.fromisoformat(
+            checked_at_text.replace("Z", "+00:00")
+        )
+        checked_day = (
+            checked_at.astimezone(timezone.utc).date()
+            if checked_at.tzinfo is not None
+            else None
+        )
+    except ValueError:
+        checked_day = None
+    if checked_day is not None:
+        for key, entry in entries.items():
+            candidate = entry.get("candidate")
+            if not isinstance(candidate, dict):
+                continue
+            publication_date = str(candidate.get("publication_date") or "")
+            try:
+                label_day = date.fromisoformat(publication_date)
+            except ValueError:
+                continue
+            if label_day > checked_day:
+                future_dated_candidates.append(key)
+    future_dated_update_failed = [
+        key for key in update_failed if key in set(future_dated_candidates)
+    ]
     alerting = [
         key
         for key, entry in entries.items()
@@ -1591,6 +1624,8 @@ def public_status(
             "awaiting_official": len(awaiting_official),
             "rights_review_pending": len(pending_rights),
             "update_failed": len(update_failed),
+            "future_dated_candidates": len(future_dated_candidates),
+            "future_dated_update_failed": len(future_dated_update_failed),
             "publisher_issue_signal_blocked": sum(
                 entry.get("publisher_current_issue_signal", {}).get("status")
                 == "verification_blocked"
@@ -1603,6 +1638,8 @@ def public_status(
         "awaiting_official_journals": awaiting_official,
         "rights_review_pending_journals": pending_rights,
         "update_failed_journals": update_failed,
+        "future_dated_candidate_journals": future_dated_candidates,
+        "future_dated_update_failed_journals": future_dated_update_failed,
         "publisher_current_issue_signals": {
             key: entry["publisher_current_issue_signal"]
             for key, entry in entries.items()
