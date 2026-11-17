@@ -27,12 +27,14 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from collectors.article_types import (  # noqa: E402
+    ARTICLE_TYPES,
     evidence_roster_article_type,
     exclusion_reason,
     official_no_abstract_exception,
     is_publishable_type,
     normalize_issue_taxonomy,
 )
+from scripts import update_journals  # noqa: E402
 from scripts.update_journals import (
     PUBLIC_API,
     TRANSLATION_CACHE,
@@ -111,6 +113,14 @@ def _walk_keys(value: object, prefix: str = "") -> list[str]:
 def _official_url(value: object) -> bool:
     parsed = urlparse(str(value or ""))
     return parsed.scheme == "https" and parsed.hostname in ALLOWED_HOSTS
+
+
+def _roster_item_article_type(item: dict[str, Any], overrides: dict[str, str]) -> str:
+    doi = str(item.get("doi", "")).strip().casefold()
+    override = str(overrides.get(doi, "")).strip().casefold().replace("_", "-")
+    if override in ARTICLE_TYPES:
+        return override
+    return evidence_roster_article_type(str(item.get("title_en", "")))
 
 
 def sequence_digest(dois: list[str]) -> str:
@@ -300,6 +310,10 @@ def enrich_missing_elsevier(
         for article in issue.get("articles", [])
     }
     session = requests.Session()
+    overrides = {
+        str(doi).strip().casefold(): str(article_type)
+        for doi, article_type in update_journals.article_type_overrides().items()
+    }
     for item in items:
         doi = str(item.get("doi", "")).strip().casefold()
         if doi in archive_dois or all(
@@ -310,7 +324,7 @@ def enrich_missing_elsevier(
         # rows in `items` so apply_evidence can preserve their ordered
         # exclusion audit. Those rows are not publishable content and must not
         # be forced through the research-article abstract gate.
-        article_type = evidence_roster_article_type(str(item.get("title_en", "")))
+        article_type = _roster_item_article_type(item, overrides)
         if not is_publishable_type(article_type):
             continue
         source_id = str(item.get("source_id", "")).strip()
@@ -342,6 +356,10 @@ def enrich_missing_elsevier(
 def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str, Any]:
     validate_evidence(evidence)
     candidate = copy.deepcopy(issue)
+    overrides = {
+        str(doi).strip().casefold(): str(article_type)
+        for doi, article_type in update_journals.article_type_overrides().items()
+    }
     if str(candidate.get("journal_id", "")) != str(evidence["journal_id"]):
         raise ValueError("evidence journal_id does not match archive")
     if str(candidate.get("issue_id", "")) != str(evidence["issue_id"]):
@@ -357,6 +375,8 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
         str(item.get("doi", "")).strip().lower()
         for item in evidence.get("excluded_items", [])
     }
+    if set(evidence_dois) & excluded_dois:
+        raise ValueError("official roster includes a DOI in both items and exclusions")
     if any(
         doi not in evidence_positions and doi not in excluded_dois
         for doi in archive_dois
@@ -384,6 +404,7 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
     publication_date = str(candidate.get("publication_date", ""))
     merged_articles: list[dict[str, Any]] = []
     restored_count = 0
+    restored_dois: set[str] = set()
     for sequence, item in enumerate(evidence_items, start=1):
         doi = str(item["doi"]).strip().lower()
         if doi in archive_by_doi:
@@ -391,7 +412,7 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
             article["sequence"] = sequence
             article["source_sequence"] = sequence
         else:
-            atype = evidence_roster_article_type(str(item.get("title_en", "")))
+            atype = _roster_item_article_type(item, overrides)
             if not is_publishable_type(atype):
                 excluded = candidate.setdefault("quality", {}).setdefault(
                     "excluded_items", []
@@ -419,11 +440,18 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
                 publication_date=publication_date,
                 abstract_exception=abstract_exception,
             )
+            restored_dois.add(doi)
         article.setdefault("sources", {})["roster"] = official_url
         if item.get("publisher_article_type"):
             article["publisher_article_type"] = item["publisher_article_type"]
         article["source_sequence"] = int(item.get("source_sequence", sequence))
         merged_articles.append(article)
+    if restored_dois:
+        quality = candidate.setdefault("quality", {})
+        quality["excluded_items"] = [
+            item for item in quality.get("excluded_items", [])
+            if str(item.get("doi", "")).strip().lower() not in restored_dois
+        ]
     candidate["articles"] = merged_articles
     candidate["expected_article_count"] = len(merged_articles)
     candidate["research_article_count"] = len(merged_articles)
@@ -432,7 +460,7 @@ def apply_evidence(issue: dict[str, Any], evidence: dict[str, Any]) -> dict[str,
                    if str(row.get("doi", "")).strip().lower() in evidence_positions
                    and str(row.get("doi", "")).strip().lower() not in {a["doi"].lower() for a in merged_articles}]
         candidate.setdefault("quality", {})["excluded_items"] = copy.deepcopy(evidence["excluded_items"]) + derived
-        candidate = normalize_issue_taxonomy(candidate)
+        candidate = normalize_issue_taxonomy(candidate, overrides=overrides)
     if restored_count or len(merged_articles) != len(archive_articles):
         candidate = normalize_issue_content(candidate)
     quality = candidate.setdefault("quality", {})
