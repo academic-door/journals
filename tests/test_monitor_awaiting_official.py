@@ -162,6 +162,94 @@ class AwaitingOfficialTests(unittest.TestCase):
         self.assertEqual(0, public["summary"]["update_failed"])
         self.assertEqual([], public["update_failed_journals"])
 
+    def test_future_labelled_candidates_are_separate_from_update_debt(self) -> None:
+        state = {
+            "updated_at": "2026-11-16T18:36:09+00:00",
+            "journals": {
+                "RFS": {
+                    "status": "update_failed",
+                    "candidate": {"publication_date": "2026-11-01"},
+                    "last_error": "ValueError: provisional Crossref roster requires official confirmation",
+                    "deep_failure_count": 12,
+                },
+                "JLE": {
+                    "status": "update_failed",
+                    "candidate": {"publication_date": "2026-10-02"},
+                    "last_error": "ValueError: provisional Crossref roster requires official confirmation",
+                    "deep_failure_count": 3,
+                },
+                "LUP": {
+                    "status": "update_failed",
+                    "candidate": {"publication_date": "2027-01-01"},
+                    "last_error": "ValueError: abstract_en_incomplete",
+                    "deep_failure_count": 24,
+                },
+                "JFI": {
+                    "status": "rights_review_pending",
+                    "candidate": {"publication_date": "2026-10-01"},
+                },
+                "IJIO": {
+                    "status": "rights_review_pending",
+                    "candidate": {"publication_date": "2026-12-01"},
+                },
+                "JIMF": {
+                    "status": "rights_review_pending",
+                    "candidate": {"publication_date": "2026-12-01"},
+                },
+                "EJPE": {
+                    "status": "rights_review_pending",
+                    "candidate": {"publication_date": "2026-12-01"},
+                },
+                "UNKNOWN": {
+                    "status": "candidate",
+                    "candidate": {"publication_date": "unverified"},
+                },
+                "NO_CANDIDATE": {"status": "unchanged"},
+            },
+        }
+        result = public_status(state, {})
+        self.assertEqual(3, result["summary"]["update_failed"])
+        self.assertEqual(["RFS", "JLE", "LUP"], result["update_failed_journals"])
+        self.assertEqual(4, result["summary"]["future_dated_candidates"])
+        self.assertEqual(
+            ["LUP", "IJIO", "JIMF", "EJPE"],
+            result["future_dated_candidate_journals"],
+        )
+        self.assertEqual(1, result["summary"]["future_dated_update_failed"])
+        self.assertEqual(
+            ["LUP"], result["future_dated_update_failed_journals"]
+        )
+        self.assertEqual(0, result["summary"]["failed"])
+        self.assertNotIn("last_error", str(result))
+        self.assertEqual("healthy", result["status"])
+
+    def test_future_label_equal_today_or_malformed_snapshot_is_not_guessed(self) -> None:
+        state = {
+            "updated_at": "2026-12-01T23:59:00+00:00",
+            "journals": {
+                "DUE_TODAY": {
+                    "candidate": {"publication_date": "2026-12-01"},
+                },
+                "FUTURE": {
+                    "candidate": {"publication_date": "2027-01-01"},
+                },
+                "INVALID": {
+                    "candidate": {"publication_date": "2026-13-01"},
+                },
+                "MISSING_DATE": {"candidate": {"issue_key": "100:"}},
+            },
+        }
+        report = public_status(state, {})
+        self.assertEqual(["FUTURE"], report["future_dated_candidate_journals"])
+        self.assertEqual(1, report["summary"]["future_dated_candidates"])
+        state["updated_at"] = "malformed"
+        report = public_status(state, {})
+        self.assertEqual([], report["future_dated_candidate_journals"])
+        self.assertEqual(0, report["summary"]["future_dated_candidates"])
+        state["updated_at"] = "2026-11-16T18:36:09"  # tz-naive => fail closed
+        report = public_status(state, {})
+        self.assertEqual([], report["future_dated_candidate_journals"])
+
     def test_same_candidate_keeps_awaiting_status_across_light_probes(self) -> None:
         previous = {"status": "awaiting_official", "awaiting_official_count": 19}
         self.assertTrue(_awaiting_status(previous, same_deep_candidate=True))
