@@ -444,6 +444,8 @@ def normalize_issue_taxonomy(
     for article in articles:
         doi = str(article.get("doi", "")).strip().lower()
         forced = type_overrides.get(doi, "")
+        explicit_type = forced.strip().casefold().replace("_", "-")
+        has_explicit_type = explicit_type in ARTICLE_TYPES
         # The B8 public projection already validates publisher-attested
         # article membership and types before withholding private text.
         # Re-running title heuristics here can turn a verified COMMENT or
@@ -458,6 +460,8 @@ def normalize_issue_taxonomy(
             atype = canonical_article_type(
                 "", str(article.get("article_type", ""))
             )
+        elif has_explicit_type:
+            atype = explicit_type
         else:
             atype = canonical_article_type(
                 str(article.get("title_en", "")),
@@ -469,6 +473,7 @@ def normalize_issue_taxonomy(
         # authors (the person is the subject of the notice, not the author).
         if (
             atype == "research-article"
+            and not has_explicit_type
             and is_person_name_title(str(article.get("title_en", "")))
             and not (
                 issue.get("public_mode") == "metadata_first_rights_qualified_v1"
