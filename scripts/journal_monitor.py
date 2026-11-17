@@ -52,6 +52,8 @@ ENTITLEMENT_RETRY_HOURS = 24
 TRANSLATION_RETRY_HOURS = 2
 AWAITING_OFFICIAL_RETRY_CAP_HOURS = 24
 AWAITING_OFFICIAL_ESCALATION_DAYS = 7
+VOLUME_ONLY_HINT_PILOT = {"jeem", "jie", "energy"}
+VOLUME_ONLY_HINT_MAX_DOIS = 20
 
 
 def now_iso() -> str:
@@ -285,6 +287,67 @@ def select_candidate(
         )
         candidates.append((score, candidate))
     return max(candidates, key=lambda item: item[0])[1] if candidates else None
+
+
+def volume_only_metadata_hint(
+    items: list[dict[str, Any]], baseline: dict[str, Any], config: dict[str, Any],
+    *, checked_at: str,
+) -> dict[str, Any] | None:
+    """Report unassigned Crossref records as hints, never issue confirmation.
+
+    Restrict the pilot to volume-only Elsevier baselines already labeled C.
+    The absence of an issue in Crossref cannot prove membership, article type,
+    publisher order, rights, or justify triggering a deep publication.
+    """
+    journal_id = str(config.get("id") or "").lower()
+    volume = str(baseline.get("volume") or "").strip()
+    if (journal_id not in VOLUME_ONLY_HINT_PILOT
+            or config.get("collector") != "elsevier"
+            or str(baseline.get("issue") or "").strip().casefold() != "c"
+            or not volume):
+        return None
+    archived = {
+        normalize_doi(str(row.get("doi") or ""))
+        for row in baseline.get("articles", [])
+        if isinstance(row, dict)
+    }
+    excluded = (baseline.get("quality") or {}).get("excluded_items") or []
+    excluded_dois = {
+        normalize_doi(str(row.get("doi") or ""))
+        for row in excluded if isinstance(row, dict)
+    }
+    excluded_titles = {
+        " ".join(str(row.get("title_en") or "").casefold().split())
+        for row in excluded if isinstance(row, dict) and row.get("title_en")
+    }
+    unseen = set()
+    for row in items:
+        if (not isinstance(row, dict)
+                or str(row.get("type", "journal-article")) != "journal-article"
+                or str(row.get("volume") or "").strip() != volume
+                or str(row.get("issue") or "").strip()):
+            continue
+        title_values = row.get("title") or []
+        if not isinstance(title_values, list):
+            continue
+        title = " ".join(str(value) for value in title_values)
+        doi = normalize_doi(str(row.get("DOI") or ""))
+        if (not DOI_PATTERN.fullmatch(doi) or doi in archived or doi in excluded_dois
+                or STRUCTURAL_TITLE.search(title)
+                or " ".join(title.casefold().split()) in excluded_titles):
+            continue
+        unseen.add(doi)
+    if not unseen:
+        return None
+    ordered = sorted(unseen)
+    return {
+        "scope": "crossref_same_volume_missing_issue_unverified",
+        "checked_at": checked_at,
+        "volume": volume,
+        "count": len(ordered),
+        "sample_dois": ordered[:VOLUME_ONLY_HINT_MAX_DOIS],
+        "sample_truncated": len(ordered) > VOLUME_ONLY_HINT_MAX_DOIS,
+    }
 
 
 def _request_with_retry(
@@ -1144,6 +1207,11 @@ def detect_all(
                         if same_deep_candidate
                         else ""
                     ),
+                    # A volume-only metadata hint is diagnostic only and is
+                    # deliberately not fed to evaluate_observation/deep update.
+                    "volume_only_metadata_hint": volume_only_metadata_hint(
+                        items, baseline, config, checked_at=checked_at
+                    ),
                 }
                 if source_verification is not None:
                     entry["publisher_current_issue_signal"] = source_verification
@@ -1528,6 +1596,14 @@ def public_status(
     result: dict[str, Any],
 ) -> dict[str, Any]:
     entries = state.get("journals", {})
+    volume_only_hints = {
+        key: entry["volume_only_metadata_hint"]
+        for key, entry in entries.items()
+        if isinstance(entry.get("volume_only_metadata_hint"), dict)
+        and entry["volume_only_metadata_hint"].get("checked_at")
+        == entry.get("last_checked_at")
+        and entry.get("status") != "failed"
+    }
     awaiting_official = [
         key
         for key, entry in entries.items()
@@ -1631,6 +1707,7 @@ def public_status(
                 == "verification_blocked"
                 for entry in entries.values()
             ),
+            "volume_only_metadata_hint_journals": len(volume_only_hints),
             "failed": len(alerting),
         },
         "warning_journals": warnings,
@@ -1645,6 +1722,7 @@ def public_status(
             for key, entry in entries.items()
             if isinstance(entry.get("publisher_current_issue_signal"), dict)
         },
+        "volume_only_metadata_hints": volume_only_hints,
         "last_successful_checks": {
             key: entry.get("last_checked_at", "")
             for key, entry in entries.items()
@@ -1740,4 +1818,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
