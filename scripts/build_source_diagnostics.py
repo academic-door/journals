@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import json
 from pathlib import Path
 import sys
@@ -25,6 +25,26 @@ from scripts.publisher_coverage_sentinel import reconcile
 PILOT = {"jeem", "jie", "energy"}
 
 B8_METADATA_MODE = "metadata_first_rights_qualified_v1"
+IN_PROGRESS_RECHECK_INTERVAL = timedelta(hours=48)
+
+
+def _timestamp(value: object) -> datetime:
+    """Parse an actual, timezone-aware observation/report timestamp."""
+    if not isinstance(value, str) or not value:
+        raise ValueError("timestamp missing")
+    result = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if result.tzinfo is None or result.utcoffset() is None:
+        raise ValueError("timestamp must be timezone-aware")
+    return result.astimezone(timezone.utc)
+
+
+def _in_progress(publisher: dict[str, Any], issue: dict[str, Any]) -> bool:
+    # Use an explicitly recorded publisher status; publication month alone is
+    # not evidence that a publisher has finalized an issue.
+    status = (publisher.get("publisher_issue_status")
+              or issue.get("publisher_issue_status")
+              or (issue.get("quality") or {}).get("publisher_issue_status"))
+    return str(status or "").strip().casefold().replace("_", "-").replace(" ", "-") == "in-progress"
 
 
 def _accepted_b8_metadata_issues(root: Path) -> dict[str, str]:
@@ -87,6 +107,7 @@ def build_report(
     generated_at: str,
     accepted_b8_metadata_issues: dict[str, str] | None = None,
 ) -> dict[str, Any]:
+    report_time = _timestamp(generated_at)
     checks = health.get("checks") or {}
     accepted_metadata = accepted_b8_metadata_issues or {}
     items: list[dict[str, Any]] = []
@@ -105,6 +126,8 @@ def build_report(
         publisher = roster_evidence.get(jid)
         coverage = None
         evidence_status = "not_automatically_checked"
+        recheck_due = None
+        recheck_reason = None
         if jid in PILOT and path:
             if publisher is None:
                 evidence_status = "verification_due"
@@ -116,6 +139,25 @@ def build_report(
                 try:
                     coverage = reconcile(publisher, issue)
                     evidence_status = coverage["publisher_coverage"]
+                    if evidence_status != "verification_blocked":
+                        observed = _timestamp(coverage["observed_at"])
+                        if observed > report_time:
+                            # A future source observation cannot certify a
+                            # report generated before it was made.
+                            evidence_status = "verification_blocked"
+                            coverage["verification_errors"].append(
+                                "publisher_observed_at_after_report"
+                            )
+                            coverage["observed_at"] = None
+                            coverage["last_verified_at"] = None
+                        elif _in_progress(publisher, issue):
+                            recheck_due = report_time - observed >= IN_PROGRESS_RECHECK_INTERVAL
+                            if recheck_due:
+                                recheck_reason = "in_progress_observation_48h_old"
+                                # Keep a known difference visible even when a
+                                # newer observation is due.
+                                if evidence_status == "reconciled_as_of":
+                                    evidence_status = "verification_due"
                 except (ValueError, TypeError, KeyError):
                     evidence_status = "verification_blocked"
         items.append({
@@ -140,6 +182,8 @@ def build_report(
             "saved_official_capture_at": capture.get("captured_at"),
             "saved_official_capture_url": capture.get("official_url"),
             "publisher_coverage": evidence_status,
+            "publisher_recheck_due": recheck_due,
+            "publisher_recheck_due_reason": recheck_reason,
             # Do not confuse a genuinely observed publisher capture with the
             # report generation time, which is NOT a publisher observation.
             "publisher_observed_at": coverage.get("observed_at") if coverage else None,
@@ -209,3 +253,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
