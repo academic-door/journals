@@ -21,6 +21,7 @@ from scripts.journal_monitor import (
     public_status,
     run_deep_updates,
     select_candidate,
+    volume_only_metadata_hint,
 )
 from scripts.local_authorized_enrichment import build_jobs, run_jobs
 
@@ -348,6 +349,65 @@ class CandidateSelectionTests(unittest.TestCase):
             published=(2026, 7, 20),
         )
         self.assertIsNone(select_candidate([item], baseline, today=date(2026, 7, 28)))
+
+
+class VolumeOnlyMetadataHintTests(unittest.TestCase):
+    def test_actual_pilot_records_are_hints_and_do_not_trigger_updates(self) -> None:
+        for key, volume, suffixes, stem in (
+            ("JIE", "164", ("104349", "104350"), "jinteco"),
+            ("ENERGY", "163", ("109645", "109650"), "eneco"),
+        ):
+            with self.subTest(journal=key):
+                config = {"id": key.lower(), "collector": "elsevier", "enabled": True}
+                baseline = {"journal_id": key.lower(), "issue_id": key.lower()+"-"+volume+"-c",
+                            "volume": volume, "issue": "C", "articles": [],
+                            "quality": {"excluded_items": []}}
+                records = [crossref_item("10.1016/j."+stem+".2026."+suffix,
+                                         volume=volume, issue="") for suffix in suffixes]
+                # Missing Crossref issue metadata must not be promoted to C.
+                self.assertIsNone(select_candidate(records, baseline, today=date(2026, 11, 17)))
+                with patch("scripts.journal_monitor.read_json", return_value=baseline):
+                    state, result = detect_all({key: config}, {"journals": {}},
+                                               crossref_fetcher=lambda *_: records)
+                self.assertEqual([], result["confirmed_journals"])
+                self.assertEqual([], result["pending_journals"])
+                self.assertEqual([key], result["unchanged_journals"])
+                public = public_status(state, result)
+                hint = public["volume_only_metadata_hints"][key]
+                self.assertEqual("crossref_same_volume_missing_issue_unverified", hint["scope"])
+                self.assertEqual(2, hint["count"])
+                self.assertEqual({r["DOI"] for r in records}, set(hint["sample_dois"]))
+                self.assertEqual(1, public["summary"]["volume_only_metadata_hint_journals"])
+                self.assertNotIn("announcement", state["journals"][key])
+
+    def test_exclusions_scope_and_bounded_samples(self) -> None:
+        config = {"id": "jie", "collector": "elsevier"}
+        baseline = {"volume": "164", "issue": "C", "articles": [{"doi": "10.1234/archived"}],
+                    "quality": {"excluded_items": [{"doi": "10.1234/excluded"}]}}
+        records = [crossref_item("10.1234/"+str(n), volume="164", issue="") for n in range(25)]
+        records += [crossref_item("10.1234/archived", volume="164", issue=""),
+                    crossref_item("10.1234/excluded", volume="164", issue=""),
+                    crossref_item("10.1234/other-volume", volume="165", issue=""),
+                    crossref_item("10.1234/explicit-issue", volume="164", issue="2")]
+        editorial = crossref_item("10.1234/editorial", volume="164", issue="")
+        editorial["title"] = ["Editorial Board"]
+        records += [editorial, records[0]]
+        hint = volume_only_metadata_hint(records, baseline, config, checked_at="2026-11-17T00:00:00Z")
+        self.assertEqual(25, hint["count"])
+        self.assertEqual(20, len(hint["sample_dois"]))
+        self.assertTrue(hint["sample_truncated"])
+        self.assertIsNone(volume_only_metadata_hint(records, {**baseline, "issue": "1"}, config, checked_at="x"))
+        self.assertIsNone(volume_only_metadata_hint(records, baseline, {**config, "id": "other"}, checked_at="x"))
+        self.assertIsNone(volume_only_metadata_hint(records, baseline, {**config, "collector": "oup"}, checked_at="x"))
+
+    def test_failed_probe_does_not_present_stale_hint_as_current(self) -> None:
+        state = {"updated_at": "2026-11-17T02:00:00Z", "journals": {"JIE": {
+            "status": "failed", "last_checked_at": "2026-11-17T02:00:00Z",
+            "volume_only_metadata_hint": {"checked_at": "2026-11-17T00:00:00Z", "count": 2},
+        }}}
+        result = public_status(state, {})
+        self.assertEqual({}, result["volume_only_metadata_hints"])
+        self.assertEqual(0, result["summary"]["volume_only_metadata_hint_journals"])
 
 
 class MonitorStateTests(unittest.TestCase):
