@@ -317,4 +317,3 @@ class ReplayedSameIssueRegressions(unittest.TestCase):
             "quality": {"excluded_items": official["excluded_items"]},
         }
         self.assertIsNone(select_candidate(records, baseline, today=date(2026, 10, 25)))
-
