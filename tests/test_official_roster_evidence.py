@@ -178,6 +178,56 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
             [str(entry.get("doi", "")).strip().lower() for entry in excluded],
         )
 
+    def test_restore_missing_item_respects_explicit_doi_type_override(self) -> None:
+        issue = provisional_issue()
+        official = evidence()
+        official.pop("excluded_item_count")
+        official.pop("excluded_items")
+        doi = "10.1086/742287"
+        issue["quality"]["excluded_items"] = [
+            {"doi": doi, "title_en": "Introduction to Parental Labor Supply Responses", "article_type": "editorial"}
+        ]
+        official["items"].append(
+            {
+                "sequence": 3,
+                "doi": doi,
+                "title_en": "Introduction to Parental Labor Supply Responses",
+                "authors": ["Example Author"],
+                "abstract_en": "A source abstract.",
+                "source_url": "https://journals.uchicago.edu/doi/10.1086/742287",
+            }
+        )
+
+        with patch(
+            "scripts.update_journals.article_type_overrides",
+            return_value={doi: "research-article"},
+        ):
+            candidate = apply_evidence(issue, official)
+
+        self.assertEqual(doi, candidate["articles"][-1]["doi"])
+        self.assertEqual("research-article", candidate["articles"][-1]["article_type"])
+        self.assertNotIn(doi, [item.get("doi") for item in candidate["quality"]["excluded_items"]])
+        self.assertNotEqual("ready", candidate["publication_state"])
+
+    def test_type_override_still_requires_restoration_details(self) -> None:
+        official = evidence()
+        official["items"].append(
+            {"sequence": 3, "doi": "10.1086/742287", "title_en": "Introduction to a study"}
+        )
+        with patch(
+            "scripts.update_journals.article_type_overrides",
+            return_value={"10.1086/742287": "research-article"},
+        ):
+            with self.assertRaisesRegex(ValueError, "missing restoration detail"):
+                apply_evidence(provisional_issue(), official)
+
+    def test_official_doi_cannot_be_included_and_excluded(self) -> None:
+        official = evidence()
+        official["excluded_items"][0]["doi"] = official["items"][0]["doi"]
+
+        with self.assertRaisesRegex(ValueError, "both items and exclusions"):
+            apply_evidence(provisional_issue(), official)
+
     def test_mismatched_order_fails_closed(self) -> None:
         bad = evidence()
         bad["items"] = list(reversed(bad["items"]))
@@ -248,6 +298,31 @@ class OfficialRosterEvidenceTests(unittest.TestCase):
             "10.1016/j.jeconom.2023.01.017",
             [str(item.get("doi", "")).strip().lower() for item in excluded],
         )
+
+    @patch("collectors.metadata_fallback._elsevier_lookup")
+    def test_enrich_missing_elsevier_respects_doi_type_override(self, lookup) -> None:
+        lookup.return_value = {"abstract": "Official abstract.", "status": "success_full_abstract"}
+        official = evidence()
+        doi = "10.1016/j.demo.2026.1"
+        official["items"].append(
+            {
+                "sequence": 3,
+                "doi": doi,
+                "title_en": "Introduction to a study",
+                "source_id": "pii:S0000000000000001",
+                "official_authors": ["Official Author"],
+                "official_article_url": "https://www.sciencedirect.com/science/article/pii/S0000000000000001",
+            }
+        )
+
+        with patch(
+            "scripts.update_journals.article_type_overrides",
+            return_value={doi: "research-article"},
+        ):
+            enriched = enrich_missing_elsevier(official, provisional_issue())
+
+        lookup.assert_called_once()
+        self.assertEqual("Official abstract.", enriched["items"][-1]["abstract_en"])
 
     @patch("collectors.metadata_fallback._elsevier_lookup")
     def test_missing_elsevier_metadata_is_enriched_without_changing_roster(
