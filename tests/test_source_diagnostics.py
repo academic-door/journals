@@ -189,6 +189,56 @@ class SourceDiagnosticsTests(unittest.TestCase):
         self.assertIsNone(result["journals"][0]["publisher_observed_at"])
         self.assertNotEqual(self.generated, result["journals"][0]["last_verified_at"])
 
+    def test_in_progress_publisher_capture_recheck_preserves_evidence_and_deltas(self):
+        path = ROOT / "data/provenance/official-rosters/sciencedirect/energy-163-c.json"
+        publisher = json.loads(path.read_text(encoding="utf-8"))
+        observed = publisher["captured_at"]
+        archive = {
+            "journal_id": "energy", "issue_id": "energy-163-c",
+            "publication_state": "ready", "content_status": "complete",
+            "articles": [{"doi": row["doi"]} for row in publisher["items"]],
+            "quality": {"excluded_items": [
+                {"doi": row["doi"]} for row in publisher["excluded_items"]]},
+        }
+        cfg = {"ENERGY": {"id": "energy", "enabled": True,
+                          "official_roster_evidence_path": "roster.json"}}
+        health = {"checks": {"energy_primary_transport": True}}
+
+        def item(at, source=None, issue=None):
+            return build_report(cfg, {"energy": issue or archive}, health,
+                                {"energy": source or publisher},
+                                generated_at=at)["journals"][0]
+
+        before = item("2026-10-17T07:53:31.129Z")
+        self.assertEqual("reconciled_as_of", before["publisher_coverage"])
+        self.assertFalse(before["publisher_recheck_due"])
+        due = item("2026-10-17T07:53:31.130Z")
+        self.assertEqual("verification_due", due["publisher_coverage"])
+        self.assertTrue(due["publisher_recheck_due"])
+        self.assertEqual("in_progress_observation_48h_old", due["publisher_recheck_due_reason"])
+        self.assertEqual(observed, due["publisher_observed_at"])
+        self.assertEqual(observed, due["last_verified_at"])
+        self.assertTrue(due["archive_ready"])
+        self.assertEqual([], due["publisher_difference"]["missing_research_dois"])
+
+        changed = copy.deepcopy(archive)
+        missing = changed["articles"].pop()["doi"]
+        result = item("2026-10-20T00:00:00Z", issue=changed)
+        self.assertEqual("publisher_changed", result["publisher_coverage"])
+        self.assertTrue(result["publisher_recheck_due"])
+        self.assertEqual([missing], result["publisher_difference"]["missing_research_dois"])
+
+        unknown = copy.deepcopy(publisher)
+        unknown.pop("publisher_issue_status")
+        result = item("2026-10-20T00:00:00Z", source=unknown)
+        self.assertEqual("reconciled_as_of", result["publisher_coverage"])
+        self.assertIsNone(result["publisher_recheck_due"])
+
+        future = item("2026-10-14T00:00:00Z")
+        self.assertEqual("verification_blocked", future["publisher_coverage"])
+        self.assertIsNone(future["publisher_observed_at"])
+        self.assertIn("publisher_observed_at_after_report", future["publisher_verification_errors"])
+
     def test_direct_script_invocation_matches_monitor_workflow(self):
         # CI module imports succeed with repository root on sys.path; the real
         # monitor invokes the source file directly and must work as well.
@@ -267,3 +317,4 @@ class ReplayedSameIssueRegressions(unittest.TestCase):
             "quality": {"excluded_items": official["excluded_items"]},
         }
         self.assertIsNone(select_candidate(records, baseline, today=date(2026, 10, 25)))
+
