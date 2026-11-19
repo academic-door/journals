@@ -1,11 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-11-19T00:28:31+00:00
+Generated: 2026-11-19T10:30:07+00:00
 
 ## Summary
 
 - blocked: 8
 - ready: 1216
+- recoverable: 1
 
 ## Issue queue
 
@@ -359,6 +360,7 @@ Generated: 2026-11-19T00:28:31+00:00
 | ERE | ere-89-1 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-10 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | ERE | ere-89-11 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| ERE | ere-89-12 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | ERE | ere-89-2 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-3 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
 | ERE | ere-89-4 | 2026 | ready | complete | publisher_verified | content and official source gates passed |
