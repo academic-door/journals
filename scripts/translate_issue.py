@@ -633,6 +633,16 @@ _EN_RANGE_SCALED_RE = re.compile(
     r"\s*(?P<scale>thousand|million|billion|bn|trillion|mil|kt|kilotonnes?|kilotonne)\b"
     r"(?![A-Za-z0-9])"
 )
+# In this explicit land-area unit, the final `M ha` means million hectares
+# for both ends of the range. Do not generalize this to bare M/m, which can
+# denote other units or symbols.
+_EN_RANGE_MILLION_HECTARES_RE = re.compile(
+    r"(?<![A-Za-z0-9])"
+    r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?:to|[-–—])\s*"
+    r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*M\s+ha\b"
+)
 # Chinese shared-scale range ("849至867亿美元"):
 _CN_RANGE_SCALED_RE = re.compile(
     r"(?<![\d])"
@@ -1283,6 +1293,12 @@ def _semantic_numbers(value: str) -> list[str]:
 
     # 0. Shared-scale ranges: "585.9 to 598.4 billion", "849至867亿美元",
     #    "$0.79-$11.91 million", "2.3-3.5 kt".  The trailing scale applies to BOTH.
+    for match in _EN_RANGE_MILLION_HECTARES_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        record(_scaled_token(match.group("a"), 1_000_000), span)
+        record(_scaled_token(match.group("b"), 1_000_000), span)
     for match in _EN_RANGE_SCALED_RE.finditer(value):
         span=match.span()
         if overlaps(span): continue
