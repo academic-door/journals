@@ -192,6 +192,19 @@ class AuditPublicDataWiringTests(unittest.TestCase):
 class SemanticHardeningTests(unittest.TestCase):
     """Parser-hardening regression tests."""
 
+    def test_lup_shared_million_hectares_range_and_corruption(self) -> None:
+        source = "Land savings expanded from 116.4 to 193.1 M ha."
+        self.assertEqual(
+            ["116400000", "193100000"], _semantic_numbers(source)
+        )
+        validate_translation(_article(source), _translation("从116.4至193.1百万公顷。"))
+        with self.assertRaises(TranslationError):
+            validate_translation(_article(source), _translation("从116.4至193.1万公顷。"))
+        with self.assertRaises(TranslationError):
+            validate_translation(_article(source), _translation("从116.4至194.1百万公顷。"))
+        # A lower-case distance unit must not inherit the M-ha rule.
+        self.assertEqual(_semantic_numbers("116.4 to 193.1 m"), ["116.4", "193.1"])
+
     def test_a1_decimal_scale_is_exact(self) -> None:
         self.assertEqual(_semantic_numbers("1.033 billion"), ["1033000000"])
         self.assertEqual(_semantic_numbers("17.81 billion"), ["17810000000"])
