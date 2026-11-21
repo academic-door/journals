@@ -639,7 +639,7 @@ _EN_RANGE_SCALED_RE = re.compile(
 _EN_RANGE_MILLION_HECTARES_RE = re.compile(
     r"(?<![A-Za-z0-9])"
     r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
-    r"\s*(?:to|[-–—])\s*"
+    r"\s*(?:to|[-–—]|(?:扩大|增长|增加|上升|下降|减少|降低)?(?:至|到))\s*"
     r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
     r"\s*M\s+ha\b"
 )

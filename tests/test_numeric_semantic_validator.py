@@ -198,6 +198,9 @@ class SemanticHardeningTests(unittest.TestCase):
             ["116400000", "193100000"], _semantic_numbers(source)
         )
         validate_translation(_article(source), _translation("从116.4至193.1百万公顷。"))
+        validate_translation(_article(source), _translation("从116.4扩大到193.1 M ha。"))
+        validate_translation(_article(source.replace("M ha", "M\u202fha")),
+                             _translation("从116.4扩大到193.1 M ha。"))
         with self.assertRaises(TranslationError):
             validate_translation(_article(source), _translation("从116.4至193.1万公顷。"))
         with self.assertRaises(TranslationError):
