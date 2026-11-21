@@ -1677,6 +1677,29 @@ def _protect_numbers(
         protected = protected.replace(
             alphanumeric_token, protected_token(source_token)
         )
+    # Protect written percentages as quantities too.  A provider may otherwise
+    # omit the only number in "ten per cent" even though the quality gate
+    # correctly expects 10%.  Ordinary written counts remain natural language.
+    def replace_written_percent_range(match: re.Match[str]) -> str:
+        low = _en_cardinal_value(match.group("a"))
+        high = _en_cardinal_value(match.group("b"))
+        if low is None or high is None:
+            return match.group(0)
+        return f"{protected_token(f'{low}%')} to {protected_token(f'{high}%')}"
+
+    protected = _EN_PERCENT_RANGE_WRITTEN_RE.sub(
+        replace_written_percent_range, protected
+    )
+    written_percent = re.compile(
+        r"(?i)(?<![A-Za-z0-9-])(?P<num>" + _EN_CARD_PATTERN
+        + r")\s+(?:percent|per\s+cent)\b"
+    )
+
+    def replace_written_percent(match: re.Match[str]) -> str:
+        amount = _en_cardinal_value(match.group("num"))
+        return protected_token(f"{amount}%") if amount is not None else match.group(0)
+
+    protected = written_percent.sub(replace_written_percent, protected)
     month_pattern = re.compile(
         r"\b(" + "|".join(MONTH_WORDS_ZH) + r")\b(?=\s+\[\[[^\]]+\]\])"
     )
