@@ -1,12 +1,12 @@
 # Academic Door historical gap manifest
 
-Generated: 2026-11-26T00:28:12+00:00
+Generated: 2026-11-26T11:01:03+00:00
 
 ## Summary
 
 - blocked: 8
 - ready: 1216
-- recoverable: 1
+- recoverable: 2
 
 ## Issue queue
 
@@ -138,6 +138,7 @@ Generated: 2026-11-26T00:28:12+00:00
 | AERI | aeri-8-1 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-8-2 | 2026 | ready | complete | official_verified | content and official source gates passed |
 | AERI | aeri-8-3 | 2026 | ready | complete | official_verified | content and official source gates passed |
+| AERI | aeri-8-4 | 2026 | recoverable | blocked | source_pending | archive_missing |
 | AJAE | ajae-107-1 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-107-2 | 2025 | ready | complete | official_verified | content and official source gates passed |
 | AJAE | ajae-107-3 | 2025 | ready | complete | official_verified | content and official source gates passed |
