@@ -338,6 +338,12 @@ class TranslationPipelineTests(unittest.TestCase):
         protected, replacements = _protect_numbers("twenty-five per cent")
         self.assertEqual(_restore_numbers(protected, replacements), "25%")
 
+    def test_scaled_written_percent_is_not_partially_protected(self) -> None:
+        for source in ("one hundred and three percent", "one thousand twenty percent"):
+            with self.subTest(source=source):
+                protected, replacements = _protect_numbers(source, opaque=True)
+                self.assertEqual(_restore_numbers(protected, replacements), source)
+
     def test_written_percent_must_survive_validation(self) -> None:
         article = {"title_en": "Policy evidence", "article_type": "research-article",
                    "abstract_en": "We study whether ten per cent of communities carry more risk."}

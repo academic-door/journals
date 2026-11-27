@@ -1680,7 +1680,17 @@ def _protect_numbers(
     # Protect written percentages as quantities too.  A provider may otherwise
     # omit the only number in "ten per cent" even though the quality gate
     # correctly expects 10%.  Ordinary written counts remain natural language.
+    def is_scaled_cardinal_tail(match: re.Match[str]) -> bool:
+        # Do not reinterpret the tail of "one hundred and three percent" as
+        # 3%. The simple cardinal parser deliberately covers only 1–99.
+        return bool(re.search(
+            r"(?i)\b(?:hundred|thousand|million|billion)(?:\s+and)?[\s-]+$",
+            match.string[:match.start()],
+        ))
+
     def replace_written_percent_range(match: re.Match[str]) -> str:
+        if is_scaled_cardinal_tail(match):
+            return match.group(0)
         low = _en_cardinal_value(match.group("a"))
         high = _en_cardinal_value(match.group("b"))
         if low is None or high is None:
@@ -1696,6 +1706,8 @@ def _protect_numbers(
     )
 
     def replace_written_percent(match: re.Match[str]) -> str:
+        if is_scaled_cardinal_tail(match):
+            return match.group(0)
         amount = _en_cardinal_value(match.group("num"))
         return protected_token(f"{amount}%") if amount is not None else match.group(0)
 
