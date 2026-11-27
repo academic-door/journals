@@ -320,6 +320,40 @@ class TranslationPipelineTests(unittest.TestCase):
 
         self.assertEqual(protected, "two experimental arms")
 
+    def test_written_percent_is_protected_without_changing_ordinary_counts(self) -> None:
+        source = "ten per cent of neighbourhoods and two groups"
+        protected, replacements = _protect_numbers(source, placeholder_prefix="A", opaque=True)
+        self.assertIn("⟦ADNUM_A_A⟧", protected)
+        self.assertIn("two groups", protected)
+        self.assertEqual(_restore_numbers(protected, replacements),
+                         "10% of neighbourhoods and two groups")
+
+    def test_written_percent_range_preserves_both_endpoints(self) -> None:
+        protected, replacements = _protect_numbers("from three to six percent")
+        restored = _restore_numbers(protected, replacements)
+        self.assertEqual(restored, "from 3% to 6%")
+        self.assertEqual(*resolve_semantic_quantities("three to six percent", restored))
+
+    def test_compound_written_percent_preserves_value(self) -> None:
+        protected, replacements = _protect_numbers("twenty-five per cent")
+        self.assertEqual(_restore_numbers(protected, replacements), "25%")
+
+    def test_scaled_written_percent_is_not_partially_protected(self) -> None:
+        for source in ("one hundred and three percent", "one thousand twenty percent"):
+            with self.subTest(source=source):
+                protected, replacements = _protect_numbers(source, opaque=True)
+                self.assertEqual(_restore_numbers(protected, replacements), source)
+
+    def test_written_percent_must_survive_validation(self) -> None:
+        article = {"title_en": "Policy evidence", "article_type": "research-article",
+                   "abstract_en": "We study whether ten per cent of communities carry more risk."}
+        base = "本文研究社区风险分布，结合不同地区的数据检验风险集中程度及其政策含义。"
+        validate_translation(article, {"title_cn": "政策证据", "abstract_cn": base + "10%的社区承担更多风险。"})
+        with self.assertRaises(TranslationError):
+            validate_translation(article, {"title_cn": "政策证据", "abstract_cn": base + "部分社区承担更多风险。"})
+        with self.assertRaises(TranslationError):
+            validate_translation(article, {"title_cn": "政策证据", "abstract_cn": base + "1%的社区承担更多风险。"})
+
     def test_numeric_range_is_wrapped_once(self) -> None:
         protected, replacements = _protect_numbers("Benefits apply at ages 0–2.")
         self.assertEqual(protected, "Benefits apply at ages [[0-2]].")

@@ -633,6 +633,16 @@ _EN_RANGE_SCALED_RE = re.compile(
     r"\s*(?P<scale>thousand|million|billion|bn|trillion|mil|kt|kilotonnes?|kilotonne)\b"
     r"(?![A-Za-z0-9])"
 )
+# In this explicit land-area unit, the final `M ha` means million hectares
+# for both ends of the range. Do not generalize this to bare M/m, which can
+# denote other units or symbols.
+_EN_RANGE_MILLION_HECTARES_RE = re.compile(
+    r"(?<![A-Za-z0-9])"
+    r"(?P<a>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*(?:to|[-–—]|(?:扩大|增长|增加|上升|下降|减少|降低)?(?:至|到))\s*"
+    r"(?P<b>[+\-\u2212]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)"
+    r"\s*M\s+ha\b"
+)
 # Chinese shared-scale range ("849至867亿美元"):
 _CN_RANGE_SCALED_RE = re.compile(
     r"(?<![\d])"
@@ -1283,6 +1293,12 @@ def _semantic_numbers(value: str) -> list[str]:
 
     # 0. Shared-scale ranges: "585.9 to 598.4 billion", "849至867亿美元",
     #    "$0.79-$11.91 million", "2.3-3.5 kt".  The trailing scale applies to BOTH.
+    for match in _EN_RANGE_MILLION_HECTARES_RE.finditer(value):
+        span = match.span()
+        if overlaps(span):
+            continue
+        record(_scaled_token(match.group("a"), 1_000_000), span)
+        record(_scaled_token(match.group("b"), 1_000_000), span)
     for match in _EN_RANGE_SCALED_RE.finditer(value):
         span=match.span()
         if overlaps(span): continue
@@ -1661,6 +1677,41 @@ def _protect_numbers(
         protected = protected.replace(
             alphanumeric_token, protected_token(source_token)
         )
+    # Protect written percentages as quantities too.  A provider may otherwise
+    # omit the only number in "ten per cent" even though the quality gate
+    # correctly expects 10%.  Ordinary written counts remain natural language.
+    def is_scaled_cardinal_tail(match: re.Match[str]) -> bool:
+        # Do not reinterpret the tail of "one hundred and three percent" as
+        # 3%. The simple cardinal parser deliberately covers only 1–99.
+        return bool(re.search(
+            r"(?i)\b(?:hundred|thousand|million|billion)(?:\s+and)?[\s-]+$",
+            match.string[:match.start()],
+        ))
+
+    def replace_written_percent_range(match: re.Match[str]) -> str:
+        if is_scaled_cardinal_tail(match):
+            return match.group(0)
+        low = _en_cardinal_value(match.group("a"))
+        high = _en_cardinal_value(match.group("b"))
+        if low is None or high is None:
+            return match.group(0)
+        return f"{protected_token(f'{low}%')} to {protected_token(f'{high}%')}"
+
+    protected = _EN_PERCENT_RANGE_WRITTEN_RE.sub(
+        replace_written_percent_range, protected
+    )
+    written_percent = re.compile(
+        r"(?i)(?<![A-Za-z0-9-])(?P<num>" + _EN_CARD_PATTERN
+        + r")\s+(?:percent|per\s+cent)\b"
+    )
+
+    def replace_written_percent(match: re.Match[str]) -> str:
+        if is_scaled_cardinal_tail(match):
+            return match.group(0)
+        amount = _en_cardinal_value(match.group("num"))
+        return protected_token(f"{amount}%") if amount is not None else match.group(0)
+
+    protected = written_percent.sub(replace_written_percent, protected)
     month_pattern = re.compile(
         r"\b(" + "|".join(MONTH_WORDS_ZH) + r")\b(?=\s+\[\[[^\]]+\]\])"
     )
